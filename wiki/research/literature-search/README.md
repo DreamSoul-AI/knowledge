@@ -2,7 +2,7 @@
 <h4 align="center">
     <p>
         <b>English</b> |
-        <a href="https://github.com/Collaborative-AI/tutorial/blob/main/Literature%20Search/README_zh.md">中文</a>
+        <a href="README_zh.md">中文</a>
     </p>
 </h4>
 
@@ -131,4 +131,4 @@ You can access Google Scholar [here](https://scholar.google.com).
 - **Conference Deadlines:** Use websites like [AI Deadlines](https://aideadlin.es/) to track important dates.
 - **GitHub Repositories:** Look for "Awesome [Topic name]" repositories for curated lists of important papers. There are also benchmark repositories for a particular field.
 - **Papers with Code:** A website that gathers leaderboards, data, code, and papers for various topics. Access it [here](https://paperswithcode.com/).
-- **Paper Reading Tutorial:** For guidance on how to effectively read and analyze academic papers, refer to this [Paper Reading Tutorial](https://github.com/Collaborative-AI/tutorial/blob/main/Paper%20Reading/README.md).
+- **Paper Reading Tutorial:** For guidance on how to effectively read and analyze academic papers, refer to this [Paper Reading Tutorial](../paper-reading/README.md).

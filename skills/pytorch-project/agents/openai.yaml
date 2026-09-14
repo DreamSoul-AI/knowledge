@@ -1,0 +1,4 @@
+interface:
+  display_name: "PyTorch Project"
+  short_description: "Build and diagnose reproducible PyTorch projects"
+  default_prompt: "Use $pytorch-project to implement or diagnose this PyTorch workflow."

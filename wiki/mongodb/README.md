@@ -3,7 +3,7 @@
 <h4 align="center">
     <p>
         <b>English</b> |
-        <a href="https://github.com/Collaborative-AI/tutorial/blob/main/MongoDB/README_zh.md">中文</a>
+        <a href="README_zh.md">中文</a>
     </p>
 </h4>
 

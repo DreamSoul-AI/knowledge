@@ -1,0 +1,4 @@
+interface:
+  display_name: "MongoDB Development"
+  short_description: "Set up and operate local MongoDB safely"
+  default_prompt: "Use $mongodb-development to set up or troubleshoot this MongoDB development workflow."

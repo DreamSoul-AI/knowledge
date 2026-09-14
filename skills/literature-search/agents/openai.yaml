@@ -1,0 +1,4 @@
+interface:
+  display_name: "Literature Search"
+  short_description: "Plan, search, and organize academic literature"
+  default_prompt: "Use $literature-search to build a rigorous literature search for my research question."

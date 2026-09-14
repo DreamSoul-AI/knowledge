@@ -1,0 +1,4 @@
+interface:
+  display_name: "Python Environment"
+  short_description: "Set up and diagnose Python project environments"
+  default_prompt: "Use $python-environment to inspect and prepare this Python project environment."

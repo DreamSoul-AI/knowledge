@@ -2,7 +2,7 @@
 
 <h4 align="center">
     <p>
-        <a href="https://github.com/Collaborative-AI/tutorial/blob/main/Python/README.md">English</a> |
+        <a href="README.md">English</a> |
         <b>中文</b>
     </p>
 </h4>

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Workflow"
+  short_description: "Safely inspect and operate Git repositories"
+  default_prompt: "Use $git-workflow to inspect this repository and complete the requested Git operation safely."

@@ -1,74 +1,46 @@
-# 教程
-<h4 align="center">
-    <p>
-        <a href="https://github.com/Collaborative-AI/tutorial/blob/main/README.md">English</a>
-        <b>中文</b> |
-    </p>
-</h4>
+# DreamSoul Knowledge
 
-欢迎来到 Collaborative-AI 教程仓库！本仓库包含多个教程。每个教程都有英文和中文版本。你可以在下面找到每个教程的 README 文件链接。
+[English](README.md)
 
-## 目录
+DreamSoul Knowledge 是面向人类和 AI Agent 的共享知识体系，将可阅读的
+Wiki 内容、可执行的 Agent Skills，以及可复用资源统一放在同一个版本化仓库中。
 
-1. [Git](#git)
-2. [文献调研](#文献调研)
-3. [Python](#python)
-4. [论文阅读](#paper-reading)
-5. [PyTorch](#pytorch)
-6. [MongoDB](#mongodb)
+## 知识模型
 
-## 内容
+| 区域 | 面向对象 | 作用 |
+| --- | --- | --- |
+| [`wiki/`](wiki/) | 人 | 教程、概念、参考资料与操作指南 |
+| [`skills/`](skills/) | AI Agent | 可执行的决策规则与任务工作流 |
+| [`templates/`](templates/) | 人与 Agent | 稳定、可复用的产出结构 |
+| [`examples/`](examples/) | 人与 Agent | 完整案例与预期结果示范 |
 
-### Git
+Tutorial 是 Wiki 的一种内容；Skill 是同一领域知识的可执行表达；Template 和
+Example 可以同时服务于 Wiki 与 Skill。
 
-学习 Git 的基础知识，包括安装、配置和基本命令。本教程将指导你如何开始使用 Git 进行版本控制。
+## 知识领域
 
-<p>
-    <a href="https://github.com/Collaborative-AI/tutorial/blob/main/Git/README.md">English</a> |
-    <a href="https://github.com/Collaborative-AI/tutorial/blob/main/Git/README_zh.md">中文</a>
-</p>
+- [Git](wiki/git/README_zh.md)
+- [文献检索](wiki/research/literature-search/README_zh.md)
+- [论文阅读](wiki/research/paper-reading/README_zh.md)
+- [Python 环境](wiki/python/README_zh.md)
+- [PyTorch](wiki/pytorch/README_zh.md)
+- [MongoDB](wiki/mongodb/README_zh.md)
 
-### 文献调研
+## Agent Skills
 
-了解如何使用各种工具和数据库有效地检索学术文献。本教程涵盖了进行全面文献综述的方法和策略。
+- [`git-workflow`](skills/git-workflow/SKILL.md)
+- [`literature-search`](skills/literature-search/SKILL.md)
+- [`paper-analysis`](skills/paper-analysis/SKILL.md)
+- [`python-environment`](skills/python-environment/SKILL.md)
+- [`pytorch-project`](skills/pytorch-project/SKILL.md)
+- [`mongodb-development`](skills/mongodb-development/SKILL.md)
 
-<p>
-    <a href="https://github.com/Collaborative-AI/tutorial/blob/main/Literature%20Search/README.md">English</a> |
-    <a href="https://github.com/Collaborative-AI/tutorial/blob/main/Literature%20Search/README_zh.md">中文</a>
-</p>
+## 内容源约定
 
-### Python
+本仓库是 Skills 与共享资源的版本控制源。`wiki/` 中的内容也可以发布或同步到
+飞书知识库等协作平台。启用双向同步前，应先明确 GitHub 与外部 Wiki 中哪一侧是
+权威内容源，避免产生两个相互冲突的版本。
 
-本教程将指导您使用 PyCharm 和 Anaconda 设置一个强大的 Python 开发环境。我们将涵盖不同操作系统的安装步骤，验证现有的 Python 安装，并配置 PyCharm 以实现高效编码。
+## 许可证
 
-<p>
-    <a href="https://github.com/Collaborative-AI/tutorial/blob/main/Python/README.md">English</a> |
-    <a href="https://github.com/Collaborative-AI/tutorial/blob/main/Python/README_zh.md">中文</a>
-</p>
-
-### 论文阅读
-
-学习如何有效地阅读和分析论文。本教程提供了理解论文结构、做笔记、批判性分析内容以及将论文与您的研究联系起来的策略。
-
-<p>
-    <a href="https://github.com/Collaborative-AI/tutorial/blob/main/Paper%20Reading/README.md">English</a> |
-    <a href="https://github.com/Collaborative-AI/tutorial/blob/main/Paper%20Reading/README_zh.md">中文</a>
-</p>
-
-### PyTorch
-
-本教程介绍了 PyTorch 的基础知识，这是 Python 中一个流行的深度学习库。您将学习如何设置 PyTorch，处理张量，构建和训练神经网络等。
-
-<p>
-    <a href="https://github.com/Collaborative-AI/tutorial/blob/main/PyTorch/README.md">English</a> |
-    <a href="https://github.com/Collaborative-AI/tutorial/blob/main/PyTorch/README_zh.md">中文</a>
-</p>
-
-### MongoDB
-
-学习如何在本地安装和配置 MongoDB，设置 MongoDB Compass 进行数据库管理，并使用 PyMongo 进行基于 Python 的数据库操作。本教程涵盖了 Windows、macOS 和 Linux 上的安装，以及 PyMongo 的基本和高级操作。
-
-<p>
-    <a href="https://github.com/Collaborative-AI/tutorial/blob/main/MongoDB/README.md">English</a> |
-    <a href="https://github.com/Collaborative-AI/tutorial/blob/main/MongoDB/README_zh.md">中文</a>
-</p>
+[MIT](LICENSE)
