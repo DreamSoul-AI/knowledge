@@ -20,5 +20,5 @@ instructions before selecting an environment manager.
 
 Ask before downloading large distributions or replacing an existing environment.
 Never expose private index credentials in commands or logs. Consult the
-[Python Wiki guide](../../wiki/python/README.md) for optional PyCharm and Conda
+[Python guide](references/README.md) for optional PyCharm and Conda
 background, not as a universal setup requirement.

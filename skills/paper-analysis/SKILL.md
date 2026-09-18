@@ -21,7 +21,6 @@ missing controls or ambiguous comparisons.
 
 Use page, section, figure, or table locations when the source makes them
 available. Do not invent absent experimental details. End with unanswered
-questions and concrete implications for the user's work. Use the shared
-[research-note template](../../templates/research-note.md) when appropriate.
-The [Paper Reading Wiki guide](../../wiki/research/paper-reading/README.md) is
+questions and concrete implications for the user's work.
+The [Paper Reading guide](references/README.md) is
 optional background rather than a required output format.

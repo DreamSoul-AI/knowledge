@@ -132,5 +132,4 @@
 - **会议截止日期:** 使用如 [AI Deadlines](https://aideadlin.es/) 的网站来跟踪重要日期。
 - **GitHub 仓库:** 寻找“Awesome [主题名称]”仓库以获取精选的重要论文列表。还有一些特定领域的基准仓库。
 - **Papers with Code:** 一个收集各种主题的排行榜、数据、代码和论文的网站。可以在[这里](https://paperswithcode.com/)访问。
-- **论文阅读教程:** 有关如何有效阅读和分析学术论文的指导，请参考这个[论文阅读教程](../paper-reading/README_zh.md)。
-
+- **论文阅读教程:** 有关如何有效阅读和分析学术论文的指导，请参考这个[论文阅读教程](https://github.com/DreamSoul-AI/knowledge/blob/main/skills/paper-analysis/references/README_zh.md)。

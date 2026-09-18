@@ -20,5 +20,5 @@ before proposing configuration. Prefer read-only diagnostics before mutations.
 Dropping data, overwriting during restore, changing authentication, or modifying
 a production deployment requires explicit confirmation of the exact target.
 Version-sensitive commands should be checked against current official
-documentation. The [MongoDB Wiki guide](../../wiki/mongodb/README.md) is
+documentation. The [MongoDB guide](references/README.md) is
 introductory background rather than production guidance.

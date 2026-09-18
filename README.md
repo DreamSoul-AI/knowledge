@@ -2,46 +2,45 @@
 
 [中文](README_zh.md)
 
-DreamSoul Knowledge is a shared knowledge system for people and AI agents. It
-keeps human-readable Wiki content, executable agent skills, and reusable
-resources in one versioned repository.
+Reusable agent skills with human-readable guides. Each skill contains its own
+instructions and reference material, so it can be installed independently.
 
-## Model
+## Skills and guides
 
-| Area | Audience | Purpose |
+| Skill | Purpose | Guide |
 | --- | --- | --- |
-| [`wiki/`](wiki/) | People | Tutorials, concepts, references, and operating guides |
-| [`skills/`](skills/) | AI agents | Executable decision rules and task workflows |
-| [`templates/`](templates/) | Both | Stable structures for repeatable outputs |
-| [`examples/`](examples/) | Both | Worked examples and expected-result patterns |
+| [git-workflow](skills/git-workflow/SKILL.md) | Git operations and recovery | [English guide](skills/git-workflow/references/README.md) |
+| [literature-search](skills/literature-search/SKILL.md) | Academic literature discovery and screening | [English guide](skills/literature-search/references/README.md) |
+| [paper-analysis](skills/paper-analysis/SKILL.md) | Critical reading of selected papers | [English guide](skills/paper-analysis/references/README.md) |
+| [python-environment](skills/python-environment/SKILL.md) | Python environments and troubleshooting | [English guide](skills/python-environment/references/README.md) |
+| [pytorch-project](skills/pytorch-project/SKILL.md) | PyTorch training and reproducibility | [English guide](skills/pytorch-project/references/README.md) |
+| [mongodb-development](skills/mongodb-development/SKILL.md) | MongoDB development workflows | [English guide](skills/mongodb-development/references/README.md) |
 
-A tutorial is a kind of Wiki content. A skill is the executable expression of
-the same domain knowledge. Templates and examples may support either side.
+## Install in Codex
 
-## Knowledge areas
+Send this message to Codex to install one skill:
 
-- [Git](wiki/git/README.md)
-- [Literature search](wiki/research/literature-search/README.md)
-- [Paper reading](wiki/research/paper-reading/README.md)
-- [Python environments](wiki/python/README.md)
-- [PyTorch](wiki/pytorch/README.md)
-- [MongoDB](wiki/mongodb/README.md)
+```text
+$skill-installer
+Install the skill at:
+https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
+```
 
-## Agent skills
+Replace paper-analysis with another skill name from the table.
+To install manually for a project, copy the entire skill directory into
+`<project>/.agents/skills/`. Keep SKILL.md, agents/, and references/ together.
 
-- [`git-workflow`](skills/git-workflow/SKILL.md)
-- [`literature-search`](skills/literature-search/SKILL.md)
-- [`paper-analysis`](skills/paper-analysis/SKILL.md)
-- [`python-environment`](skills/python-environment/SKILL.md)
-- [`pytorch-project`](skills/pytorch-project/SKILL.md)
-- [`mongodb-development`](skills/mongodb-development/SKILL.md)
+After installation, ask Codex to use the skill, for example:
+“Use paper-analysis to analyze this paper.”
 
-## Source of truth
+## Structure
 
-The repository is the version-controlled source for skills and shared assets.
-The `wiki/` tree can also be published or synchronized to a collaborative Wiki
-such as Feishu. When an external Wiki is used, document which side is
-authoritative before enabling two-way synchronization.
+- `skills/<name>/SKILL.md`: when to use the skill and how to perform the task.
+- `skills/<name>/agents/openai.yaml`: Codex interface metadata.
+- `skills/<name>/references/`: English and Chinese guides, read when relevant.
+
+Each guide is maintained inside its skill. Links to other skills on GitHub are
+optional further reading, not required local dependencies.
 
 ## License
 

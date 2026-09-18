@@ -19,5 +19,5 @@ changes and follow repository-local instructions.
 
 Do not discard changes, rewrite shared history, force-push, delete branches, or
 remove untracked files without explicit authorization. Do not treat permission
-to commit as permission to push. Consult the human-oriented [Git Wiki guide](../../wiki/git/README.md)
+to commit as permission to push. Consult the human-oriented [Git guide](references/README.md)
 only when background explanation is useful.

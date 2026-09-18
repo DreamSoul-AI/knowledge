@@ -20,7 +20,5 @@ search revisable.
 7. Deliver a cited search summary, selection rationale, gaps, and prioritized reading list.
 
 Never rank papers by citation count alone; citations are age- and field-dependent.
-Distinguish publication date from the date a source was accessed or indexed. Use
-the shared [research-note template](../../templates/research-note.md) when a
-structured collection is requested. The [Literature Search Wiki guide](../../wiki/research/literature-search/README.md)
+Distinguish publication date from the date a source was accessed or indexed. The [Literature Search guide](references/README.md)
 provides optional background.

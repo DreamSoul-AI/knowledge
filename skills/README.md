@@ -1,9 +1,7 @@
 # Agent skills
 
-Each child directory is an independently discoverable skill. A skill turns
-stable domain knowledge into task-specific decisions, actions, safeguards, and
-output criteria. Human-oriented explanations remain in [`../wiki/`](../wiki/).
+Each child directory is a self-contained skill with a SKILL.md entrypoint,
+Codex metadata in agents/, and English and Chinese guides in references/.
 
-Use the shared resources in [`../templates/`](../templates/) and
-[`../examples/`](../examples/) when they fit the requested deliverable; they are
-not mandatory output formats for every task.
+Install the entire child directory to keep its local references intact.
+See the [repository installation guide](../README.md#install-in-codex).

@@ -19,6 +19,5 @@ shape, dtype, device, and batch semantics at component boundaries.
 
 For failures, isolate environment compatibility, data, shape/device, numerical
 stability, memory, and optimization causes instead of changing several variables
-at once. Record experiment assumptions with the shared
-[experiment template](../../templates/experiment-record.md). The
-[PyTorch Wiki guide](../../wiki/pytorch/README.md) provides introductory context.
+at once. Report the experiment objective, environment, data split, configuration, metrics, and conclusions. The
+[PyTorch guide](references/README.md) provides introductory context.
