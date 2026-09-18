@@ -8,12 +8,12 @@
 
 | 技能 | 用途 | 教程 |
 | --- | --- | --- |
-| [git-workflow](skills/git-workflow/SKILL.md) | Git 操作与恢复 | [中文教程](skills/git-workflow/references/README_zh.md) |
-| [literature-search](skills/literature-search/SKILL.md) | 文献检索与筛选 | [中文教程](skills/literature-search/references/README_zh.md) |
-| [paper-analysis](skills/paper-analysis/SKILL.md) | 论文精读与分析 | [中文教程](skills/paper-analysis/references/README_zh.md) |
-| [python-environment](skills/python-environment/SKILL.md) | Python 环境配置与排错 | [中文教程](skills/python-environment/references/README_zh.md) |
-| [pytorch-project](skills/pytorch-project/SKILL.md) | PyTorch 训练与实验复现 | [中文教程](skills/pytorch-project/references/README_zh.md) |
-| [mongodb-development](skills/mongodb-development/SKILL.md) | MongoDB 开发与维护 | [中文教程](skills/mongodb-development/references/README_zh.md) |
+| [git-workflow](skills/git-workflow/SKILL.md) | Git 操作与恢复 | [English](skills/git-workflow/references/README.md) / [中文](skills/git-workflow/references/README_zh.md) |
+| [literature-search](skills/literature-search/SKILL.md) | 文献检索与筛选 | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
+| [paper-analysis](skills/paper-analysis/SKILL.md) | 论文精读与分析 | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
+| [python-environment](skills/python-environment/SKILL.md) | Python 环境配置与排错 | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
+| [pytorch-project](skills/pytorch-project/SKILL.md) | PyTorch 训练与实验复现 | [English](skills/pytorch-project/references/README.md) / [中文](skills/pytorch-project/references/README_zh.md) |
+| [mongodb-development](skills/mongodb-development/SKILL.md) | MongoDB 开发与维护 | [English](skills/mongodb-development/references/README.md) / [中文](skills/mongodb-development/references/README_zh.md) |
 
 ## 在 Codex 中安装
 

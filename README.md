@@ -9,12 +9,12 @@ instructions and reference material, so it can be installed independently.
 
 | Skill | Purpose | Guide |
 | --- | --- | --- |
-| [git-workflow](skills/git-workflow/SKILL.md) | Git operations and recovery | [English guide](skills/git-workflow/references/README.md) |
-| [literature-search](skills/literature-search/SKILL.md) | Academic literature discovery and screening | [English guide](skills/literature-search/references/README.md) |
-| [paper-analysis](skills/paper-analysis/SKILL.md) | Critical reading of selected papers | [English guide](skills/paper-analysis/references/README.md) |
-| [python-environment](skills/python-environment/SKILL.md) | Python environments and troubleshooting | [English guide](skills/python-environment/references/README.md) |
-| [pytorch-project](skills/pytorch-project/SKILL.md) | PyTorch training and reproducibility | [English guide](skills/pytorch-project/references/README.md) |
-| [mongodb-development](skills/mongodb-development/SKILL.md) | MongoDB development workflows | [English guide](skills/mongodb-development/references/README.md) |
+| [git-workflow](skills/git-workflow/SKILL.md) | Git operations and recovery | [English](skills/git-workflow/references/README.md) / [中文](skills/git-workflow/references/README_zh.md) |
+| [literature-search](skills/literature-search/SKILL.md) | Academic literature discovery and screening | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
+| [paper-analysis](skills/paper-analysis/SKILL.md) | Critical reading of selected papers | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
+| [python-environment](skills/python-environment/SKILL.md) | Python environments and troubleshooting | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
+| [pytorch-project](skills/pytorch-project/SKILL.md) | PyTorch training and reproducibility | [English](skills/pytorch-project/references/README.md) / [中文](skills/pytorch-project/references/README_zh.md) |
+| [mongodb-development](skills/mongodb-development/SKILL.md) | MongoDB development workflows | [English](skills/mongodb-development/references/README.md) / [中文](skills/mongodb-development/references/README_zh.md) |
 
 ## Install in Codex
 
