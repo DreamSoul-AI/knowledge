@@ -9,7 +9,7 @@ Codex 完成一轮任务后显示原生 Windows 通知。点击通知会用 VS C
 - Windows 10/11
 - Windows PowerShell 5.1 或更高版本
 - Visual Studio Code
-- 本地运行的 Codex（CLI 或 VS Code 扩展）
+- 本地运行的 Codex VS Code 扩展
 
 ## 安装
 
@@ -60,10 +60,15 @@ notify = ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File",
 ## 工作方式
 
 - 只处理 `agent-turn-complete` 事件；
+- 默认只处理会话元数据中 `originator = codex_vscode` 的事件，Codex Desktop 使用自己的原生通知；
+- 同一 `turn-id` 只通知一次，避免 Codex 与编辑器转发同一完成事件时重复弹窗；
 - 使用事件中的 `cwd` 和 `last-assistant-message`；
 - 通过 Windows 原生 WinRT API 显示通知；
 - 点击后打开 `vscode://file/<cwd>`；
 - 不访问网络，不保存会话内容。
+
+如需对所有 Codex 客户端启用此外部通知，可在命令末尾添加
+`-AllowedOriginator *`。启用后，Codex Desktop 的原生通知与此外部通知可能同时出现。
 
 ## 官方参考
 
