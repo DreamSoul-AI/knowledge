@@ -1,6 +1,6 @@
 # Codex VS Code Windows Notify
 
-[English](README.md)
+[**English**](https://github.com/DreamSoul-AI/codex-vscode-windows-notify/blob/main/README.md)&nbsp; | &nbsp;**简体中文**
 
 Codex VS Code 扩展完成一轮任务后显示原生 Windows 通知。点击通知会用 Visual
 Studio Code 打开该轮任务的工作目录。

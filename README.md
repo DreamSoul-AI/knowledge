@@ -1,6 +1,6 @@
 # Codex VS Code Windows Notify
 
-[中文](README_zh.md)
+**English**&nbsp; | &nbsp;[**简体中文**](https://github.com/DreamSoul-AI/codex-vscode-windows-notify/blob/main/README_zh.md)
 
 Show a native Windows notification when a Codex turn finishes in the VS Code
 extension. Clicking the notification opens that turn's working directory in
