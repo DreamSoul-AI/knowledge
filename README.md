@@ -1,77 +1,97 @@
-# Codex Windows Notify
+# Codex VS Code Windows Notify
 
-Codex 完成一轮任务后显示原生 Windows 通知。点击通知会用 VS Code 打开该轮任务的工作目录。
+[中文](README_zh.md)
 
-它使用 Codex 官方的 `notify` 配置，无第三方依赖，不上传任何数据。
+Show a native Windows notification when a Codex turn finishes in the VS Code
+extension. Clicking the notification opens that turn's working directory in
+Visual Studio Code.
 
-## 环境要求
+Codex Desktop sessions are ignored so they can use the desktop app's native
+notifications without producing a second VS Code notification.
 
-- Windows 10/11
-- Windows PowerShell 5.1 或更高版本
+The project uses Codex's official `notify` configuration. It has no third-party
+dependencies, does not access the network, and does not upload any data.
+
+## Requirements
+
+- Windows 10 or 11
+- Windows PowerShell 5.1 or later
 - Visual Studio Code
-- 本地运行的 Codex VS Code 扩展
+- The Codex VS Code extension running locally
 
-## 安装
+## Install
 
-在 PowerShell 中克隆本仓库并执行安装器：
+Clone the repository and run the installer in PowerShell:
 
 ```powershell
-git clone <本仓库的 GitHub URL>
-cd codex-windows-notify
+git clone https://github.com/DreamSoul-AI/codex-vscode-windows-notify.git
+cd codex-vscode-windows-notify
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-安装器会：
+The installer:
 
-1. 将通知脚本复制到 `~/.codex/scripts/codex-windows-notify.ps1`；
-2. 在用户级 `~/.codex/config.toml` 中写入 `notify`；
-3. 立即发送一条测试通知。
+1. Copies the notification script to
+   `~/.codex/scripts/codex-windows-notify.ps1`.
+2. Adds `notify` to the user-level `~/.codex/config.toml`.
+3. Sends one test notification.
 
-安装后重启 VS Code，或新建一个 Codex 会话。之后 Codex 每轮完成时都会通知；点击通知会回到对应项目。
+Restart VS Code or start a new Codex session after installation. Each completed
+turn in the VS Code extension will then produce one notification; clicking it
+opens the corresponding project.
 
-如果已经配置了其他 `notify`，安装器不会擅自覆盖。确认要替换时运行：
+If another `notify` command is already configured, the installer will not
+overwrite it automatically. To confirm replacement, run:
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1 -Force
 ```
 
-替换前的配置会备份为 `~/.codex/config.toml.codex-windows-notify.bak`。
+The previous configuration is backed up to
+`~/.codex/config.toml.codex-windows-notify.bak`.
 
-## 卸载
+## Uninstall
 
-在仓库目录运行：
+Run this command from the repository directory:
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1 -Uninstall
 ```
 
-卸载器只会移除由本安装器写入的通知配置和脚本，并保留配置备份。
+The uninstaller removes only the notification configuration and script created
+by this installer. It keeps a configuration backup.
 
-## 手动安装
+## Manual setup
 
-将 `notify-windows.ps1` 放到固定位置，并把下面配置加入用户级 `~/.codex/config.toml`。Windows 路径中的反斜杠要写成 `\\`：
+Place `notify-windows.ps1` at a stable path and add the following user-level
+configuration. Backslashes in Windows paths must be doubled in TOML:
 
 ```toml
 notify = ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\path\\to\\notify-windows.ps1"]
 ```
 
-`notify` 不能放在项目内的 `.codex/config.toml`，Codex 会忽略项目级通知配置。
+Codex ignores `notify` in a project-local `.codex/config.toml`, so this setting
+must be placed in the user-level configuration.
 
-## 工作方式
+## How it works
 
-- 只处理 `agent-turn-complete` 事件；
-- 默认只处理会话元数据中 `originator = codex_vscode` 的事件，Codex Desktop 使用自己的原生通知；
-- 同一 `turn-id` 只通知一次，避免 Codex 与编辑器转发同一完成事件时重复弹窗；
-- 使用事件中的 `cwd` 和 `last-assistant-message`；
-- 通过 Windows 原生 WinRT API 显示通知；
-- 点击后打开 `vscode://file/<cwd>`；
-- 不访问网络，不保存会话内容。
+- Handles only `agent-turn-complete` events.
+- Reads local session metadata and accepts only
+  `originator = codex_vscode` by default.
+- Leaves Codex Desktop sessions to the desktop app's native notification path.
+- Deduplicates each `turn-id`, including events forwarded more than once.
+- Uses the event's `cwd` and `last-assistant-message` fields.
+- Displays the notification through the native Windows WinRT API.
+- Opens `vscode://file/<cwd>` when the notification is clicked.
+- Does not access the network or save session content.
 
-如需对所有 Codex 客户端启用此外部通知，可在命令末尾添加
-`-AllowedOriginator *`。启用后，Codex Desktop 的原生通知与此外部通知可能同时出现。
+To enable this external notification for every Codex client, append
+`-AllowedOriginator *` to the command. Doing so can produce both a Codex Desktop
+notification and an external VS Code notification for the same turn.
 
-## 官方参考
+## Official reference
 
-- [OpenAI Codex 高级配置：通知](https://developers.openai.com/zh-Hans/docs/config-file/config-advanced#%E9%80%9A%E7%9F%A5)
+- [OpenAI Codex advanced configuration: notifications](https://developers.openai.com/docs/config-file/config-advanced#notifications)
 
-官方文档说明了 `notify` 的用户级配置位置、`agent-turn-complete` 事件，以及传给脚本的 JSON 字段。
+The official documentation describes the user-level `notify` setting, the
+`agent-turn-complete` event, and the JSON fields passed to notification scripts.
