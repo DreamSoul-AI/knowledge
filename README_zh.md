@@ -1,6 +1,6 @@
 # DreamSoul Knowledge
 
-[English](README.md)
+[**English**](https://github.com/DreamSoul-AI/knowledge/blob/main/README.md)&nbsp; | &nbsp;**简体中文**
 
 可复用的 Agent Skills 与面向人的参考教程。每个技能都包含自己的执行说明和参考资料，可以独立安装。
 

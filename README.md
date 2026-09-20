@@ -1,6 +1,6 @@
 # DreamSoul Knowledge
 
-[中文](README_zh.md)
+**English**&nbsp; | &nbsp;[**简体中文**](https://github.com/DreamSoul-AI/knowledge/blob/main/README_zh.md)
 
 Reusable agent skills with human-readable guides. Each skill contains its own
 instructions and reference material, so it can be installed independently.
