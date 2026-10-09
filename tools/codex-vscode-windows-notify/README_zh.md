@@ -1,6 +1,6 @@
 # Codex VS Code Windows Notify
 
-[**English**](https://github.com/DreamSoul-AI/codex-vscode-windows-notify/blob/main/README.md)&nbsp; | &nbsp;**简体中文**
+[**English**](https://github.com/DreamSoul-AI/knowledge/blob/main/tools/codex-vscode-windows-notify/README.md)&nbsp; | &nbsp;**简体中文**
 
 Codex VS Code 扩展完成一轮任务后显示原生 Windows 通知。点击通知会用 Visual
 Studio Code 打开该轮任务的工作目录。
@@ -19,11 +19,11 @@ Studio Code 打开该轮任务的工作目录。
 
 ## 安装
 
-在 PowerShell 中克隆本仓库并执行安装器：
+在 PowerShell 中克隆 knowledge 仓库，并进入工具目录执行安装器：
 
 ```powershell
-git clone https://github.com/DreamSoul-AI/codex-vscode-windows-notify.git
-cd codex-vscode-windows-notify
+git clone https://github.com/DreamSoul-AI/knowledge.git
+cd knowledge\tools\codex-vscode-windows-notify
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
@@ -46,7 +46,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1 -Force
 
 ## 卸载
 
-在仓库目录运行：
+在工具目录运行：
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1 -Uninstall

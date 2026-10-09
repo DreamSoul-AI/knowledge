@@ -1,6 +1,6 @@
 # Codex VS Code Windows Notify
 
-**English**&nbsp; | &nbsp;[**简体中文**](https://github.com/DreamSoul-AI/codex-vscode-windows-notify/blob/main/README_zh.md)
+**English**&nbsp; | &nbsp;[**简体中文**](https://github.com/DreamSoul-AI/knowledge/blob/main/tools/codex-vscode-windows-notify/README_zh.md)
 
 Show a native Windows notification when a Codex turn finishes in the VS Code
 extension. Clicking the notification opens that turn's working directory in
@@ -21,11 +21,11 @@ dependencies, does not access the network, and does not upload any data.
 
 ## Install
 
-Clone the repository and run the installer in PowerShell:
+Clone the knowledge repository and run the installer from the tool directory in PowerShell:
 
 ```powershell
-git clone https://github.com/DreamSoul-AI/codex-vscode-windows-notify.git
-cd codex-vscode-windows-notify
+git clone https://github.com/DreamSoul-AI/knowledge.git
+cd knowledge\tools\codex-vscode-windows-notify
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
@@ -52,7 +52,7 @@ The previous configuration is backed up to
 
 ## Uninstall
 
-Run this command from the repository directory:
+Run this command from the tool directory:
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1 -Uninstall
