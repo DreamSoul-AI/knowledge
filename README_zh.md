@@ -2,7 +2,7 @@
 
 [**English**](https://github.com/DreamSoul-AI/knowledge/blob/main/README.md)&nbsp; | &nbsp;**简体中文**
 
-可复用的 Agent Skills 与面向人的参考教程。每个技能都包含自己的执行说明和参考资料，可以独立安装。
+可复用的 Agent Skills、工具与面向人的参考教程。每个技能都包含自己的执行说明和参考资料，可以独立安装。
 
 ## 技能与教程
 
@@ -14,6 +14,12 @@
 | [python-environment](skills/python-environment/SKILL.md) | Python 环境配置与排错 | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
 | [pytorch-project](skills/pytorch-project/SKILL.md) | PyTorch 训练与实验复现 | [English](skills/pytorch-project/references/README.md) / [中文](skills/pytorch-project/references/README_zh.md) |
 | [mongodb-development](skills/mongodb-development/SKILL.md) | MongoDB 开发与维护 | [English](skills/mongodb-development/references/README.md) / [中文](skills/mongodb-development/references/README_zh.md) |
+
+## 工具
+
+| 工具 | 用途 | 教程 |
+| --- | --- | --- |
+| [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Codex VS Code 任务完成后的原生 Windows 通知 | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
 
 ## 在 Codex 中安装
 
@@ -36,6 +42,7 @@ https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
 - `skills/<技能名>/SKILL.md`：适用场景和执行流程。
 - `skills/<技能名>/agents/openai.yaml`：Codex 界面元数据。
 - `skills/<技能名>/references/`：按需阅读的中英文教程。
+- `tools/<工具名>/`：包含脚本和使用教程的独立工具。
 
 每份教程只在对应技能中维护。指向 GitHub 上其他技能的链接仅用于延伸阅读，
 不作为本地必需依赖。

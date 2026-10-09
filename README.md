@@ -2,7 +2,7 @@
 
 **English**&nbsp; | &nbsp;[**简体中文**](https://github.com/DreamSoul-AI/knowledge/blob/main/README_zh.md)
 
-Reusable agent skills with human-readable guides. Each skill contains its own
+Reusable agent skills and tools with human-readable guides. Each skill contains its own
 instructions and reference material, so it can be installed independently.
 
 ## Skills and guides
@@ -15,6 +15,12 @@ instructions and reference material, so it can be installed independently.
 | [python-environment](skills/python-environment/SKILL.md) | Python environments and troubleshooting | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
 | [pytorch-project](skills/pytorch-project/SKILL.md) | PyTorch training and reproducibility | [English](skills/pytorch-project/references/README.md) / [中文](skills/pytorch-project/references/README_zh.md) |
 | [mongodb-development](skills/mongodb-development/SKILL.md) | MongoDB development workflows | [English](skills/mongodb-development/references/README.md) / [中文](skills/mongodb-development/references/README_zh.md) |
+
+## Tools
+
+| Tool | Purpose | Guide |
+| --- | --- | --- |
+| [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Native Windows notifications for Codex turns in VS Code | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
 
 ## Install in Codex
 
@@ -38,6 +44,7 @@ After installation, ask Codex to use the skill, for example:
 - `skills/<name>/SKILL.md`: when to use the skill and how to perform the task.
 - `skills/<name>/agents/openai.yaml`: Codex interface metadata.
 - `skills/<name>/references/`: English and Chinese guides, read when relevant.
+- `tools/<name>/`: standalone tools with their own scripts and guides.
 
 Each guide is maintained inside its skill. Links to other skills on GitHub are
 optional further reading, not required local dependencies.
