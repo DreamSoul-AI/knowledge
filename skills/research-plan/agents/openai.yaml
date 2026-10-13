@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Plan"
+  short_description: "Turn research ideas into evidence and experiment plans"
+  default_prompt: "Use $research-plan to develop my idea into a concise research plan with literature, hypotheses, and experiments."
