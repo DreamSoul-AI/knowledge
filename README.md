@@ -12,6 +12,7 @@ instructions and reference material, so it can be installed independently.
 | [git-workflow](skills/git-workflow/SKILL.md) | Git operations and recovery | [English](skills/git-workflow/references/README.md) / [中文](skills/git-workflow/references/README_zh.md) |
 | [literature-search](skills/literature-search/SKILL.md) | Academic literature discovery and screening | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
 | [paper-analysis](skills/paper-analysis/SKILL.md) | Critical reading of selected papers | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
+| [research-plan](skills/research-plan/SKILL.md) | Research ideas, study plans, and experiment protocols | [English](skills/research-plan/references/README.md) / [中文](skills/research-plan/references/README_zh.md) |
 | [python-environment](skills/python-environment/SKILL.md) | Python environments and troubleshooting | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
 | [pytorch-project](skills/pytorch-project/SKILL.md) | PyTorch training and reproducibility | [English](skills/pytorch-project/references/README.md) / [中文](skills/pytorch-project/references/README_zh.md) |
 | [mongodb-development](skills/mongodb-development/SKILL.md) | MongoDB development workflows | [English](skills/mongodb-development/references/README.md) / [中文](skills/mongodb-development/references/README_zh.md) |
