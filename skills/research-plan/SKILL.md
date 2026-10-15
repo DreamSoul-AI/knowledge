@@ -13,6 +13,10 @@ external repository changes.
 
 ## Workflow
 
+Use this workflow as adaptable prompts, not mandatory gates. Combine or omit
+sections that do not help the study. When information is missing, decide whether
+to investigate, note a limitation, or continue; do not stall just to fill a template.
+
 1. Record the inspiration: an observation, practical difficulty, conjecture, or
    disagreement with an explanation. Capture its source and a preliminary
    question without assuming novelty or feasibility.
@@ -33,7 +37,7 @@ external repository changes.
 
 ## Six connected aspects
 
-| Aspect | Required connection to the research question |
+| Aspect | Useful connection to the research question |
 | --- | --- |
 | Literature | Evidence for the gap, candidate route, nearest work, baselines, and alternative explanations; preserve source locations and comparison conditions. |
 | Data | Observation unit, provenance, version, permitted use, preprocessing, labels, split isolation, leakage risks, and the population to which conclusions apply. |
@@ -47,10 +51,30 @@ models represent it, algorithms operate on it, metrics operationalize the goal,
 and experiments connect observations to the question. Record model, data, and
 algorithm changes separately so their effects are not silently conflated.
 
-Require an explicit response to each aspect, allowing justified adaptations:
+Consider the aspects at the depth useful for the question:
 literature-only work compares reported evidence and proposes validation without
 claiming it ran; theory can use assumptions, proofs, counterexamples, and bounds
 instead of training data or experiments.
+
+## Baseline reproduction
+
+Prefer the authors' official implementation and configuration before developing
+an improvement. Record the source, version or commit, license, and meaningful
+adaptations; using the original repository is fine. If no official code is found,
+note where you looked and label third-party code or your own implementation.
+
+Start with a small check, then reproduce representative results closely enough
+to understand the main behavior and trends. Do not require every published
+experiment, exact numerical agreement, copied source trees, or per-file hashes.
+Refine tolerances only when numerical precision matters to the claim. Investigate
+large unexplained gaps before attributing a negative result to the method.
+
+State what actually ran: evaluating released weights is not reproducing training,
+but retraining is unnecessary when the question does not concern that process.
+For ablations, choose key components and simple starting settings; explain
+coverage, intervention location, and protocol differences rather than treating
+unmatched scores as a controlled comparison. Keep key numbers traceable to papers
+or result files, separating planned outcomes from observations.
 
 ## Experiment choices
 
@@ -82,9 +106,9 @@ Distinguish author-reported results, implementation inspection, and actual runs.
 Follow the repository's existing structure. A plan can live in
 `docs/research-plan.md`, linked from the README. Connect inspiration notes to
 study questions, implementation/experiment issues, configurations, and PR
-evidence only when those actions are requested. For each formal run record code
-and uncommitted differences, data/split and model versions, configuration,
-environment, randomness, command, status, and raw artifact locations.
+evidence only when those actions are requested. Keep enough code, data/model,
+configuration, environment, command, and result information to revisit important
+findings; choose recording detail for the study rather than a fixed checklist.
 
 Read the [English guide and template](references/README.md) or
 [Chinese guide and template](references/README_zh.md) when drafting a full plan,

@@ -4,6 +4,10 @@
 
 Use this guide to turn an initial idea into a scientific study plan, including
 literature-only, theoretical, reproduction, method, benchmark, and system studies.
+The sections are prompts to adapt, combine, or shorten. Keep sources authentic,
+describe what was actually done, and support conclusions with traceable evidence.
+AI checks should identify consequential gaps, not block progress because fields
+remain empty. Choose the detail and precision for the research question.
 
 ## From inspiration to evidence
 
@@ -38,13 +42,23 @@ from different protocols as if they were controlled comparisons.
 
 For literature-only work, compare evidence and identify missing validation. For
 theory, specify problem instances, mathematical assumptions, proofs,
-counterexamples, or complexity/error bounds. Justify adaptations to each aspect.
+counterexamples, or complexity/error bounds. Omit details that do not apply.
 
 ## Select experiments and allocate resources
 
 Start with a small correctness check and necessary baseline verification before
 costly runs. Select main comparisons, ablations, robustness checks, and failure
 analysis for the actual claim; not every study needs every type.
+
+Prefer the authors' official implementation and configuration. Record its source,
+version or commit, license, and meaningful adaptations. If unavailable, summarize
+where you looked and label the alternative implementation. A representative
+reproduction of the main results or trends is usually sufficient to establish a
+baseline; exact agreement and rerunning the entire paper are not universal gates.
+Investigate gaps that could change the conclusion. State whether you evaluated
+released weights or also ran training or the method's generation procedure.
+Choose key ablations, starting simply where useful, and explain differences in
+coverage, intervention location, or protocol. Preserve the sources of key numbers.
 
 - **DOE:** use randomization, blocking, and full or fractional factorial designs
   as appropriate to estimate factor effects and interactions; record confounding.
@@ -66,7 +80,7 @@ or multiple comparisons affect inference. Preserve failed and negative runs.
 ## Copyable plan template
 
 Fill consequential unknowns explicitly. Select a format appropriate to the
-project; retain the logical connections if sections are combined.
+project; combine or skip sections as useful, retaining the relevant connections.
 
 ```markdown
 # Inspiration
@@ -94,6 +108,7 @@ Version and baselines; fixed and varied components.
 # Algorithm
 Steps or equations, baseline change, objective, hyperparameters and search.
 Randomness, state updates, cost, stopping and failure conditions.
+Prefer official code; note source/version, adaptations, and implementation type.
 
 # Metrics
 Primary outcome and constraints: definition, unit/direction, aggregation,
@@ -103,6 +118,8 @@ measurement implementation/conditions, uncertainty and decision criteria.
 For each experiment: question, treatment/control, varied/fixed conditions,
 data, metrics, repetition/analysis, budget, and interpretation.
 Small checks, baseline readiness, tuning/test separation, confounders.
+Representative reproduction: main target/trend, source, key conditions,
+observed gap and next step. Numerical tolerances only where the claim needs them.
 If useful: DOE factors; OR variables/objective/constraints; BO space/surrogate/
 acquisition/initial trials/noise/budget; Bayesian design prior/model/utility.
 Adaptive search history, independent validation, execution and stopping rules.
@@ -122,11 +139,10 @@ exploration issue. After literature review, link implementation and experiment
 issues to the plan's question and validation. PRs link actual checks and results.
 Preserve the repository's layers, configuration, and artifact tools.
 
-For formal runs retain code commit and uncommitted differences, data/split and
-model versions, configuration, dependencies/hardware, randomness, command,
-status, raw results, and artifact locations. Record plan changes separately from
-execution state. Do not commit private data or internal document links into a
-public plan.
+Retain enough version, configuration, environment, command, and result information
+to revisit important runs. Scale the recording detail to the study and separate
+plans from actual results. Do not commit private data or internal document links
+into a public plan.
 
 ## Methodological sources
 
