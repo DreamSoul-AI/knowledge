@@ -14,6 +14,7 @@ from xml.etree import ElementTree
 CONTEXT_KINDS = {
     "agents_md.instructions", "environments.environment_context",
     "additional_content.codex_apps_open_page",
+    "skills.selected_skill_instructions",
 }
 TOOL_TYPES = {"custom_tool_call", "custom_tool_call_output", "function_call", "function_call_output"}
 
