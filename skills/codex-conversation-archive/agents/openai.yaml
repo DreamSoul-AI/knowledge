@@ -1,0 +1,3 @@
+interface:
+  display_name: "Codex 会话归档"
+  short_description: "保留用户原话与正式回复，增量生成沟通流程 Markdown 并核对原文"

@@ -9,6 +9,7 @@ instructions and reference material, so it can be installed independently.
 
 | Skill | Purpose | Guide |
 | --- | --- | --- |
+| [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
 | [git-workflow](skills/git-workflow/SKILL.md) | Git operations and recovery | [English](skills/git-workflow/references/README.md) / [中文](skills/git-workflow/references/README_zh.md) |
 | [literature-search](skills/literature-search/SKILL.md) | Academic literature discovery and screening | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
 | [paper-analysis](skills/paper-analysis/SKILL.md) | Critical reading of selected papers | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
@@ -35,7 +36,7 @@ https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
 
 Replace paper-analysis with another skill name from the table.
 To install manually for a project, copy the entire skill directory into
-`<project>/.agents/skills/`. Keep SKILL.md, agents/, and references/ together.
+`<project>/.agents/skills/`. Keep SKILL.md and all bundled directories, including scripts/, together.
 
 After installation, ask Codex to use the skill, for example:
 “Use paper-analysis to analyze this paper.”
