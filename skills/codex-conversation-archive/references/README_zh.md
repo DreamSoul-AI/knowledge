@@ -4,19 +4,40 @@
 
 ## 安装与首次使用
 
-需要 Python 3.8+，只使用标准库。下载完整技能目录或解压安装包，将整个 `codex-conversation-archive` 放入 `<项目>/.agents/skills/`。不要只复制 SKILL.md。重新打开项目会话，让 Codex 读取技能。
+需要 Python 3.8+，以及读取目标原始记录、运行 Python 和写入归档目录的权限。先向 Codex 发送安装请求，把项目路径替换为实际值：
 
-也可让 Codex 的 skill-installer 安装 GitHub 上的技能目录，使用实际发布分支的链接。
+```text
+用 $skill-installer 安装 https://github.com/DreamSoul-AI/knowledge/tree/main/skills/codex-conversation-archive
+安装到 <项目绝对路径>/.agents/skills/，保留完整技能目录，不使用旧的同名安装。
+只安装，不归档，不启用定时任务。
+```
+
+也可解压[安装包](https://github.com/DreamSoul-AI/knowledge/raw/refs/heads/main/skills/codex-conversation-archive.zip)，把完整目录放到上述位置，不能只复制 SKILL.md。安装后在下一轮请求调用；若未加载，重新打开项目会话。已有同名技能时先核对实际加载路径和版本，不默认卸载全局技能。
+
+归档当前会话：
 
 ```text
 用 $codex-conversation-archive 归档本会话到本条请求。
 事项名称：首次会话归档
 保存位置：本项目的归档目录
-保留用户原话、正式回复、转达来源和实际工具记录，摘要单列。
+保留用户原话、正式回复、转达来源和工具原件，摘要四节各一两句，主要供 AI 读取。
 先只保存本地，不同步云端，不启用定时任务。
 ```
 
-指定其他会话时提供确切会话 ID 或 JSONL 路径。通常从当前用户的 Codex 数据目录 `sessions/` 按 ID 匹配文件名，必须核对 session_meta；远端或云端会话需要先取得对应原始记录。无需手动复制正文。
+归档指定会话：
+
+```text
+用 $codex-conversation-archive 归档指定 Codex 会话。
+会话：<确切会话 ID 或 JSONL 路径>
+事项名称：填写事项。保存位置：填写本地归档目录。
+固定到本次首次读取时可取得的最后一条完整公开记录。
+保留用户原话、正式回复、转达来源和工具原件，摘要四节各一两句，主要供 AI 读取。
+只保存本地，不同步云端，不启用定时任务。
+```
+
+通常从当前用户的 Codex 数据目录 `sessions/` 按 ID 匹配文件名，必须核对 session_meta。只有标题时，可通过会话列表元数据定位；不能唯一确定时询问 ID 或路径。远端或云端会话需要先取得对应原始记录。不扫描全部聊天正文，不需要手动复制，不用会话摘要补原文。
+
+继续归档时说“用此技能增量归档本会话”或“增量归档会话 <ID>”，沿用该会话的输出目录和事项名称。当前会话截止到本次请求；其他会话固定首次读取的截止点。不会向目标会话发消息。
 
 优先用工作区最新规范；没有独立规范时使用随包 [归档规则](archive-standard.md)。`--rules` 记录规范哈希，不会自动适配任意新结构。详细操作见 [SKILL.md](../SKILL.md)，适配限制见 [记录格式](record-format.md)。
 
@@ -36,4 +57,6 @@ python <技能目录>/scripts/archive.py --source <会话.jsonl> --session <会�
 
 ## 验证范围
 
-运行 `python -B <技能目录>/scripts/test_archive.py` 执行合成边界测试。发布前另以 ZIP 在干净目录、隔离 Python 下完成首次归档、原话核对、重复和增量测试。只证明已观察到的本地格式可用，不代表新用户客户端加载、其他 Codex 版本、所有操作系统或 UI 全量导出均已验证。缺失、截断和记录外的附件不能恢复，不用摘要补齐。
+已验证 Windows 上 ZIP 隔离运行、从 GitHub 安装后的 Codex CLI 调用，以及 Codex 桌面端干净项目的项目级安装、技能识别、首次归档、真实新消息增量和重复新增 0 条；桌面测试移除了旧同名安装，并逐字符核对原话与正式回复。9 项合成回归测试通过，可用 `python -B <技能目录>/scripts/test_archive.py` 复核。
+
+测试沿用已有登录账号，未验证全新系统账号、其他操作系统或版本、桌面 UI 技能选择器及 UI 导出的全量等价性。缺失、截断和记录外的附件不能恢复，不用摘要补齐。
