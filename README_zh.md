@@ -8,6 +8,7 @@
 
 | 技能 | 用途 | 教程 |
 | --- | --- | --- |
+| [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | 保留原话并增量归档 Codex 本地会话 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [安装包](skills/codex-conversation-archive.zip) |
 | [git-workflow](skills/git-workflow/SKILL.md) | Git 操作与恢复 | [English](skills/git-workflow/references/README.md) / [中文](skills/git-workflow/references/README_zh.md) |
 | [literature-search](skills/literature-search/SKILL.md) | 文献检索与筛选 | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
 | [paper-analysis](skills/paper-analysis/SKILL.md) | 论文精读与分析 | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
@@ -34,7 +35,7 @@ https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
 
 将 paper-analysis 替换为表格中的其他技能名即可安装对应技能。
 如果手动安装到某个项目，将整个技能文件夹复制到 `<项目>/.agents/skills/` 下，
-保留其中的 SKILL.md、agents/ 和 references/。
+保留 SKILL.md 和所有随包目录，包括 scripts/。
 
 安装后可以直接说：“请使用 paper-analysis 分析这篇论文。”
 

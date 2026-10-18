@@ -124,4 +124,6 @@ res/
 .vscode/
 .DS_Store
 scripts/
+!skills/codex-conversation-archive/scripts/
+!skills/codex-conversation-archive/scripts/*.py
 
