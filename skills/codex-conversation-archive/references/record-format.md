@@ -3,7 +3,7 @@
 脚本将完整行读取、phase 筛选、ID 去重、原文位置校验、转达解析及工具调用与返回分离集成在包内，不依赖外部样本脚本。
 
 - 只处理 session_meta 确认的指定会话。公开 message 来自 response_item；不同时导出 event_msg 镜像，避免重复。
-- 用户消息通过 `content_item_kinds` 中的 `user.text` 识别。规则注入和环境、打开页面等已知上下文不视为用户原话。无法识别的用户来源停止并提示，不静默丢弃。
+- 用户消息通过 `content_item_kinds` 中的 `user.text` 识别。规则注入和环境、打开页面等已知上下文不视为用户原话；显式调用技能产生的 `skills.selected_skill_instructions` 属于系统提供的技能上下文，单独排除，不冒充用户发言。无法识别的用户来源停止并提示，不静默丢弃。
 - assistant 的 commentary 属于公开进度，final_answer 属于正式回复。reasoning 不输出。未知 phase 停止。
 - 两种工具调用族 custom_tool_call / function_call 及其 output 按原顺序保留。转达 XML 从 function_call_output 提取 input 和 source_thread_id，保留独立来源与边界，不冒充用户直接发言；不把整段工具返回重复显示为转达正文。
 - 消息正文按 content 分段顺序连接，不 strip、不改链接、不修错别字。附件平台包装单列；用户消息附带的非文字内容仅记录类型，不宣称已取得原始附件。工具图片仅记录类型，不导出 data URL、图片编码或隐藏推理。

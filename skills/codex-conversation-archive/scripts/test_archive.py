@@ -24,6 +24,19 @@ def source(*records):
 
 
 class ArchiveTests(unittest.TestCase):
+    def test_explicit_skill_injection_is_not_user_speech(self):
+        injected = message("skill-context", "INJECTED_SKILL_INSTRUCTIONS")
+        injected["payload"]["internal_chat_message_metadata_passthrough"]["content_item_kinds"] = [
+            "skills.selected_skill_instructions"]
+        direct = message("u1", "用 $codex-conversation-archive 归档，原话不能改。")
+        records, exclusions, _ = archive.extract(source(injected, direct), "session-one", "u1")
+        self.assertEqual([r["id"] for r in records], ["u1"])
+        self.assertEqual(records[0]["text"], direct["payload"]["content"][0]["text"])
+        self.assertEqual(exclusions["injected_context"], 1)
+        injected["payload"]["internal_chat_message_metadata_passthrough"]["content_item_kinds"].append("future.unknown")
+        with self.assertRaises(ValueError):
+            archive.extract(source(injected, direct), "session-one")
+
     def test_standalone_cli_uses_bundled_rules(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
