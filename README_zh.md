@@ -10,6 +10,8 @@
 | --- | --- | --- |
 | [ai-work-message](skills/ai-work-message/SKILL.md) | 把一段 AI 沟通整理成一句自然简短的工作留言 | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
 | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | 保留原话并增量归档 Codex 本地会话 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [安装包](skills/codex-conversation-archive.zip) |
+| [meeting-minutes](skills/meeting-minutes/SKILL.md) | 获取原始记录并整理各类会议纪要 | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
+| [interview-records](skills/interview-records/SKILL.md) | 从日历定位面试并获取、整理原始记录 | [English](skills/interview-records/references/README.md) / [中文](skills/interview-records/references/README_zh.md) |
 | [git-workflow](skills/git-workflow/SKILL.md) | Git 操作与恢复 | [English](skills/git-workflow/references/README.md) / [中文](skills/git-workflow/references/README_zh.md) |
 | [literature-search](skills/literature-search/SKILL.md) | 文献检索与筛选 | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
 | [paper-analysis](skills/paper-analysis/SKILL.md) | 论文精读与分析 | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
@@ -53,3 +55,4 @@ https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
 ## 许可证
 
 [MIT](LICENSE)
+
