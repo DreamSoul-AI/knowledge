@@ -14,6 +14,9 @@ These are synthetic examples, not claims about real projects.
 - Desktop layout changed, mobile work remains: “The homepage layout has been updated; mobile adjustments are still pending.”
 - Only a proposal exists: “The chat archive approach is outlined; implementation has not started.”
 
+## Priority suggestions
+Each preview includes a separate priority recommendation based on known deadlines, blocked follow-up work, and the impact of delay; the user need not supply a timeframe first. Recommend the default for routine updates without clear urgency. Explain any higher priority briefly, separate evidence from inference, and do not invent deadlines or board priority values. Message labels such as 【知会】 are not priority fields. Show suggestions for confirmation before changing an actual priority field.
+
 ## Scope
 Prefer ordinary wording over implementation jargon or report language. Keep material limitations, and distinguish discussion, progress, local testing, and release.
 The skill drafts updates. It does not publish messages or change the original conversation, work log, or project tracker by default. Verbatim archiving and tracker-to-log or log-to-tracker reconciliation are separate workflows.
