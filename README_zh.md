@@ -8,6 +8,7 @@
 
 | 技能 | 用途 | 教程 |
 | --- | --- | --- |
+| [ai-work-message](skills/ai-work-message/SKILL.md) | 把一段 AI 沟通整理成一句自然简短的工作留言 | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
 | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | 保留原话并增量归档 Codex 本地会话 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [安装包](skills/codex-conversation-archive.zip) |
 | [git-workflow](skills/git-workflow/SKILL.md) | Git 操作与恢复 | [English](skills/git-workflow/references/README.md) / [中文](skills/git-workflow/references/README_zh.md) |
 | [literature-search](skills/literature-search/SKILL.md) | 文献检索与筛选 | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
