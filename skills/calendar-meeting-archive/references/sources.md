@@ -8,7 +8,7 @@ lark-cli calendar +agenda --start <start_iso> --end <end_iso> --as user
 lark-cli calendar +get --calendar-id <calendar_id> --event-id <event_id> --as user
 lark-cli calendar +meeting --calendar-id <calendar_id> --event-ids <event_instance_id> --as user
 ```
-取全结果并处理分页；根据日历实际状态排除已取消、未开始和未结束实例，不把“日程结束”写成“会议已经召开”。需要区分候选人或同名场次时按 calendar 技能读取参会人，不能根据标题猜真实参会者。
+取全结果并处理分页；根据日历实际状态排除已取消、未开始和未结束实例，不把“日程结束”写成“会议已经召开”。需要区分参会人或同名场次时按 calendar 技能读取参会人，不能根据标题猜真实参会者。
 
 `calendar +meeting` 返回实际 `meeting_id` 和用户手工绑定的 `meeting_note`。`meeting_note` 是用户文档，不等同于会议生成的AI纪要或原始转录。 当手工绑定笔记和原始转录同时存在时，读取绑定笔记作为补充上下文，核对会后更正及遗漏；标明各自来源、作者或可取得日期。内容冲突保留双方依据和待确认项，不以逐字稿、AI总结或修改时间自动覆盖人工更正。
 
@@ -46,4 +46,4 @@ lark-cli minutes +detail --minute-tokens <minute_token> --transcript --output-di
 
 文本原件与来源映射放在最终记录能够长期访问的位置；临时API响应和下载中间文件放本次任务tmp。再次执行先比较来源与目标，不根据“完成”状态字段单独判断已核验。
 
-输出根必须来自本次任务授权。会议标题、候选人名和下载返回路径视为外部输入，生成文件名前检查路径解析结果仍在输出根内，避免标题中的分隔符、绝对路径或重解析路径造成越界；已有内容先比较，不盲目覆盖。
+输出根必须来自本次任务授权。会议标题、人名和下载返回路径视为外部输入，生成文件名前检查路径解析结果仍在输出根内，避免标题中的分隔符、绝对路径或重解析路径造成越界；已有内容先比较，不盲目覆盖。
