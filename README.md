@@ -11,6 +11,8 @@ instructions and reference material, so it can be installed independently.
 | --- | --- | --- |
 | [ai-work-message](skills/ai-work-message/SKILL.md) | Draft a short, natural work update from an AI conversation | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
 | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
+| [meeting-minutes](skills/meeting-minutes/SKILL.md) | Retrieve original records and summarize any meeting type | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
+| [interview-records](skills/interview-records/SKILL.md) | Find interviews in calendars and organize their original records | [English](skills/interview-records/references/README.md) / [中文](skills/interview-records/references/README_zh.md) |
 | [git-workflow](skills/git-workflow/SKILL.md) | Git operations and recovery | [English](skills/git-workflow/references/README.md) / [中文](skills/git-workflow/references/README_zh.md) |
 | [literature-search](skills/literature-search/SKILL.md) | Academic literature discovery and screening | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
 | [paper-analysis](skills/paper-analysis/SKILL.md) | Critical reading of selected papers | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
@@ -55,3 +57,4 @@ optional further reading, not required local dependencies.
 ## License
 
 [MIT](LICENSE)
+
