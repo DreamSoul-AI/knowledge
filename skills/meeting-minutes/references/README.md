@@ -18,6 +18,8 @@ The workflow resolves calendar instances to actual meetings, obtains original No
 
 Unknown speakers, missing owners or dates, conditional actions, and retractions remain explicit. A calendar appointment does not prove attendance, and a matching quotation does not prove a summary's meaning. Existing outputs and human edits are compared before updating.
 
+For interviews and hiring discussions, follow the current project hiring rules and the optional [interview-specific record guidance](interviews.md); no separate interview skill is required.
+
 ## Scope
 A normal invocation performs one scan and organization pass. Installing the skill does not schedule recurring work, join or record meetings, publish minutes, or send notifications. Cloud updates and scheduled execution follow the user's explicit task scope.
 

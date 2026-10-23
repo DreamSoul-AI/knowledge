@@ -1,6 +1,0 @@
-interface:
-  display_name: "日历面试记录"
-  short_description: "从日历定位面试并取得关联记录，按实际岗位整理证据、更正和待核事项"
-  default_prompt: "使用 $interview-records 从今天的日历找到已结束的面试，获取关联原始记录并按各自岗位整理。"
-policy:
-  allow_implicit_invocation: true
