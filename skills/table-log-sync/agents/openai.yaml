@@ -1,0 +1,4 @@
+interface:
+  display_name: "总表与日志双向整理"
+  short_description: "沿用现有分类和层级对照总表与日志，先给具体修改预览，确认后再局部写入"
+  default_prompt: "用 $table-log-sync 对照总表和日志，沿用现有分类与层级，先展示原位置、原值、建议值和依据链接，等我确认后再写入。"
