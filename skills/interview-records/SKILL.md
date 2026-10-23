@@ -19,6 +19,13 @@ lark-cli calendar +meeting --calendar-id <calendar_id> --event-ids <event_instan
 ```
 日程标题、描述和岗位面试安排用于发现候选项，“面试/初面/二面/终面”等是线索，不是唯一判据。面试培训、流程讨论、取消/改期记录不能当作已发生面试。获取必要参会人信息核对候选人和面试官；日程邀请名单不等于实际参会人，不能据此自动填说话人。
 
+## 识别HR相关场次
+用户指定HR或招聘负责人时，先用lark-contact核对其稳定open_id；同名或身份不明时保留待确认。在本次本地来源清单记录角色映射，不把个人姓名、邮箱或ID硬编码到通用技能。
+
+除本人主日历外，可补查当前用户有详情访问权的共享日历，以及指定HR组织或参与的已结束会议。分别使用 `vc +search --organizer-ids` 和 `--participant-ids` 查询同一时间范围，按meeting_id取并集；必要时分别以 `minutes +search --owner-ids`、`--participant-ids` 补查可见妙记，按token取并集。使用已计算的显式时区边界，并按has_more续页。仅有忙闲权限不能读取完整日程；权限拒绝、网络失败与成功空结果分开记录，空结果不代表HR当天没有面试。沿用用户身份，不自动订阅他人日历或申请共享。
+
+分别保存日程组织者、邀请名单、实际会议组织者/参会快照和材料所有者的证据。邀请名单用 `calendar +list-attendees` 获取，实际参会可用 `vc meeting get --params '{"meeting_id":"<meeting_id>","with_participants":true}' --as user` 核对；受邀不等于实际参加，材料owner不等于主持人。HR关联只用于发现候选场次，继续结合具体候选人、岗位安排与原文区分面试、招聘内部会议和其他会议；HR主持不能自动确定轮次，缺少轮次依据则待确认。
+
 ## 获取记录与匹配场次
 逐场使用本技能的 [来源获取链路](references/sources.md)，包括Note normal/unified、Minutes及用户绑定笔记。本技能可独立安装，不要求安装通用会议纪要技能。
 
