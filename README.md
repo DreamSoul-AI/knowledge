@@ -10,7 +10,6 @@ instructions and reference material, so it can be installed independently.
 | Skill | Purpose | Guide |
 | --- | --- | --- |
 | [ai-work-message](skills/ai-work-message/SKILL.md) | Draft a short, natural work update from an AI conversation | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
-| [table-log-sync](skills/table-log-sync/SKILL.md) | Reconcile a project tracker and work log in their existing structure, preview changes, then apply confirmed edits | [English](skills/table-log-sync/references/README.md) / [中文](skills/table-log-sync/references/README_zh.md) |
 | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
 | [meeting-minutes](skills/meeting-minutes/SKILL.md) | Retrieve original records and summarize any meeting type | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
 | [calendar-meeting-archive](skills/calendar-meeting-archive/SKILL.md) | Collect meetings from your calendar, organize minutes and upload them to a chosen folder | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
