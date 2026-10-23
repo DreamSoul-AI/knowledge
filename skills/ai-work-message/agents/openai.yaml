@@ -1,0 +1,3 @@
+interface:
+  display_name: "一句话工作留言"
+  short_description: "把一段 AI 沟通整理成自然简短的工作留言，先展示草稿再决定是否发布"

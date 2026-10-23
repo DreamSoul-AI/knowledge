@@ -9,6 +9,7 @@ instructions and reference material, so it can be installed independently.
 
 | Skill | Purpose | Guide |
 | --- | --- | --- |
+| [ai-work-message](skills/ai-work-message/SKILL.md) | Draft a short, natural work update from an AI conversation | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
 | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
 | [git-workflow](skills/git-workflow/SKILL.md) | Git operations and recovery | [English](skills/git-workflow/references/README.md) / [中文](skills/git-workflow/references/README_zh.md) |
 | [literature-search](skills/literature-search/SKILL.md) | Academic literature discovery and screening | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
