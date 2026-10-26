@@ -1,6 +1,6 @@
 # DreamSoul Knowledge
 
-**English**&nbsp; | &nbsp;[**简体中文**](https://github.com/DreamSoul-AI/knowledge/blob/main/README_zh.md)
+**English**&nbsp; | &nbsp;[**简体中文**](README_zh.md)
 
 Reusable agent skills and tools with human-readable guides. Each skill contains its own
 instructions and reference material, so it can be installed independently.
@@ -58,3 +58,11 @@ optional further reading, not required local dependencies.
 
 [MIT](LICENSE)
 
+
+## Repository maintenance
+
+Repository: [DreamSoul-AI/knowledge](https://github.com/DreamSoul-AI/knowledge). Read [AGENTS.md](AGENTS.md) for repository maintenance and shared-reference discovery. These rules govern maintainers; installing a skill does not require access to DreamSoul private documents.
+
+This repository distributes Markdown instructions, YAML metadata and bundled scripts. Runtime requirements and checks belong to each skill or tool guide; there is no single repository-wide install, build or test command. Keep guides, scripts, references and licenses together.
+
+The seven development-document roles do not yet have separate repository-wide entries: general research, architecture, code structure, development plan, active defects, development history and run records. Track these gaps without treating per-skill user guides as completed project engineering documents. No standalone literature review or research plan is currently maintained for this distribution repository. Keep both root READMEs consistent when entries, requirements or scope change.
