@@ -1,6 +1,6 @@
 # DreamSoul Knowledge
 
-[**English**](https://github.com/DreamSoul-AI/knowledge/blob/main/README.md)&nbsp; | &nbsp;**简体中文**
+[**English**](README.md)&nbsp; | &nbsp;**简体中文**
 
 可复用的 Agent Skills、工具与面向人的参考教程。每个技能都包含自己的执行说明和参考资料，可以独立安装。
 
@@ -56,3 +56,11 @@ https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
 
 [MIT](LICENSE)
 
+
+## 仓库维护
+
+仓库：[DreamSoul-AI/knowledge](https://github.com/DreamSoul-AI/knowledge)。维护工作先读 [AGENTS.md](AGENTS.md) 的协作与资料定位要求；这些规则约束维护者，不将 DreamSoul 私有资料访问变成安装技能的前置条件。
+
+本仓库分发 Markdown 指令、YAML 元数据和随包脚本。运行条件与验证命令在各技能或工具教程中维护，没有全仓统一安装、构建或测试命令。指南、脚本、引用资源与许可证保持完整。
+
+七类开发文档尚无独立项目级当前入口：通用调研、架构设计、代码结构设计、开发计划、缺陷记录、开发记录与运行记录仍待补齐，不能用各技能的使用教程冒充已完成的项目工程文档。本分发仓库当前没有独立维护的文献调研或研究计划。入口、依赖或范围变化时同步维护中英文 README。
