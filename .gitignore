@@ -127,3 +127,5 @@ scripts/
 !skills/codex-conversation-archive/scripts/
 !skills/codex-conversation-archive/scripts/*.py
 
+!skills/document-sync/scripts/
+!skills/document-sync/scripts/*.py

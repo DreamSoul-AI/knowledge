@@ -1,0 +1,4 @@
+interface:
+  display_name: "文档同步"
+  short_description: "按配置上传、下载或双向同步单个文档，核对双侧基线并保留冲突，目前支持飞书"
+  default_prompt: "使用 $document-sync 按这份配置同步指定文档，先核对方向、目录和两端基线，发现双边修改时保留双方并报告冲突。"
