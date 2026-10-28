@@ -1,0 +1,12 @@
+# 本地路径相对本配置；替换路径和目标占位后使用。
+platform: feishu
+direction: both
+conflict: stop
+delete: false
+rules:
+  upload: ./rules/upload.md
+  document: ./rules/document-format.md
+directories:
+  - local: ./meeting-output/minutes
+    remote: "<已核实的飞书文件夹完整链接>"
+receipt: ./sync-state/review.json
