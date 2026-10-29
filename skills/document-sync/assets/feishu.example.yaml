@@ -3,10 +3,11 @@ platform: feishu
 direction: both
 conflict: stop
 delete: false
-rules:
-  upload: ./rules/upload.md
-  document: ./rules/document-format.md
+# 可直接填写规范路径或链接。留空项由 Agent 沿当前项目 AGENTS.md 定位，
+# 必须实际读到规范正文；显式错误路径不会自动回退。
+rules: {}
 directories:
   - local: ./meeting-output/minutes
     remote: "<已核实的飞书文件夹完整链接>"
 receipt: ./sync-state/review.json
+# 多文档时另给明确清单，每项指定独立 receipt，示例结构见教程。

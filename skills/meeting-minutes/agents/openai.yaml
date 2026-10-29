@@ -1,6 +1,6 @@
 interface:
   display_name: "通用会议纪要"
-  short_description: "从日历或原始记录整理各类会议纪要，保留来源、决定边界和后续行动"
-  default_prompt: "使用 $meeting-minutes 整理今天已结束且有记录的会议，按实际会议类型归档并保留原始依据。"
+  short_description: "结合原始材料、补充背景和适用规范整理会议纪要，保留来源与决定边界"
+  default_prompt: "使用 $meeting-minutes 按提供的原始材料、补充材料和适用规范整理会议，保留原始依据并先保存本地。"
 policy:
   allow_implicit_invocation: true
