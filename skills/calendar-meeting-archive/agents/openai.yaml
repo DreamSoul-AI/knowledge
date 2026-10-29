@@ -1,6 +1,6 @@
 interface:
   display_name: "日历会议归档"
-  short_description: "批量整理本人日历会议纪要，上传指定飞书目录并去重、保留人工修改"
-  default_prompt: "使用 $calendar-meeting-archive 整理我今天已结束会议的原始记录，按实际类型归档，并上传到我本次指定的飞书目录，核对已有成果后回读验证。"
+  short_description: "接入额外要求，按系列或共享分组归档会议，复用纪要整理与可选交付"
+  default_prompt: "使用 $calendar-meeting-archive 结合本次额外要求与项目配置，逐场核对会议身份、别名、归档分组和适用规范，先复用已有成果，再按明确范围整理与交付。"
 policy:
   allow_implicit_invocation: true
