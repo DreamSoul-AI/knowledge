@@ -1,5 +1,5 @@
-# One-sentence work updates
-Turn a selected AI conversation into a short, natural message focused on the matter and the user’s feedback: its purpose, the question it explores, a relevant change, or an action the recipient needs to take.
+# AI work updates
+Turn a selected AI conversation into one short, natural work-update draft that someone outside the conversation can understand. Explain the relevant context, change and result in ordinary language, including causes, limitations or next actions only as needed. Stop when clear; there is no one-sentence limit or fixed structure. Follow the user’s latest feedback.
 
 ## Use
 Install the entire `ai-work-message` directory, then ask:
