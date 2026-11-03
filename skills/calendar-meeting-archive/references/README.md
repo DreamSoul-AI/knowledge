@@ -24,7 +24,7 @@ For example, combine two confirmed aliases into one series, apply the regular-me
 Compare actual source and destination content on reruns. Skip unchanged results, retain human edits, and report conflicts. Return per-meeting status, actual result links and failures. Query timed-out import jobs before considering another creation.
 
 ## Automation
-One invocation runs one pass. Recurring triggers require a separate user request. Installation does not start a schedule, record meetings, request sharing or send messages. Structural checks and isolated walkthroughs do not verify live source or destination permissions.
+Manual and scheduled triggers run the same workflow. A user-authorized scheduler supplies scope, timezone, persistent state, confirmed routing and delivery settings. Follow [recurring execution and recovery](recurring.md): catch up missed intervals, revisit pending material, inherit existing artifacts and baselines, and prevent overlapping writes. A daytime trigger must still cover meetings ended since the preceding run. When classification or destination is unclear, retain local material and record the affected delivery as pending without blocking independent meetings. Installation does not create a schedule, record meetings, request sharing or send messages. Structural checks do not establish live permissions or a successful scheduled run; verify actual execution separately.
 
 ## Local-only runs
 Supply existing transcripts and source responses with execution.mode: local_only to prepare the local archive first. When platform reads are prohibited, do not fetch missing material. A local-only run does not require a remote folder or call a transfer workflow. Compare actual local material and artifacts on reruns and preserve human edits.
