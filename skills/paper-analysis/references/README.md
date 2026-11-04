@@ -61,13 +61,15 @@ Keep the original research question → claimed contribution → method → evid
 | Algorithm | What inputs, outputs, steps, objective, assumptions and key mechanisms connect the data and model? |
 | Metric and evidence | How are metrics defined/aggregated? Under which protocol, baseline settings and conditions are results, ablations and uncertainty reported? |
 
+For targeted/deep reading, give **Data**, **Model**, **Algorithm** and **Metric** separate named explanations. For each, describe its role, the paper's actual setup, supporting source locations and unresolved gaps. A heading listing four names or one merged experimental table does not develop the four components. A cross-component summary table can follow those explanations. Match detail to the question; do not shorten away substantive content to meet an arbitrary note length. Inapplicable or unavailable components retain an explicit explanation, without fabricated fields.
+
 Tie each important result to those conditions. Hardware/runtime context belongs where needed to interpret a specific claim. Distinguish not applicable, not reported and inaccessible material. Retain code/data availability and reproducibility limitations without running training or modifying a library unless requested.
 
 For a consequential claim, concise prose or columns **Claim / Source position and observation / Conditions / Assessment** suffice. Separate authors' claims, your inference and any checks actually performed. “Not reported” does not mean “not done.” Do not require a score, an acceptance decision, a fixed number of strengths/weaknesses or a separate evidence database.
 
 ## Adapt analysis to the material
 
-Theory, method and application can overlap. System/infrastructure, data/benchmark, survey/review and position contributions are also supported. Keep publication/source form separate: a blog may explain a method or advocate a position; establish its actual status and evidence.
+Theory, method and application can overlap. System, data/benchmark, survey/review and position contributions are also supported. Keep publication/source form separate: a blog may explain a method or advocate a position; establish its actual status and evidence.
 
 | Material | Main focus |
 | --- | --- |
