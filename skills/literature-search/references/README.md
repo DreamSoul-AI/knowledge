@@ -19,6 +19,7 @@
    2. [Novelty Papers](#novelty-papers)
 5. [Downloading Papers](#downloading-papers)
 6. [Organizing Papers](#organizing-papers)
+   1. [Inclusion Value Tiers](#inclusion-value-tiers)
 7. [Reproducing Results](#reproducing-results)
 8. [Additional Resources](#additional-resources)
 
@@ -28,7 +29,7 @@
 
 For example: “Start from this existing LoRA list, use the supplied literature-review standard, cover 2021–2024, emphasize influential work and show citation counts with their source/date. Return missing candidates and a reading order without renaming existing PDFs.” Read the provided inputs first and state which were available. Domain and output rules remain external; this tutorial does not override the task or project rules.
 
-A short result can use one search note (date, sources, key queries, window and limits) plus a table of paper identity, inclusion value, reading status and citation provenance. No separate log is required. Use original metadata or papers to verify identity; finding a DOI does not establish that the cited claim is supported. Preserve unknown counts and version differences explicitly. Saving, renaming, indexing and reproduction follow the task's scope and the project's current rules.
+A short result can use one search note (date, sources, key queries, window and limits) plus a table of paper identity, relationship to existing material, inclusion value tier and reason, reading status and citation provenance. No separate log is required. Use original metadata or papers to verify identity; finding a DOI does not establish that the cited claim is supported. Preserve unknown counts and version differences explicitly. Saving, renaming, indexing and reproduction follow the task's scope and the project's current rules.
 
 ## Introduction
 
@@ -97,6 +98,16 @@ For a small number of papers, an available browser/Computer Use tool can search 
 ---
 
 ## Organizing Papers
+
+### Inclusion Value Tiers
+
+Use the task's supplied rubric, or default to **A Core**, **B Important**, **C Supplementary**. A papers directly support the central question or essential foundations; B papers fill key comparisons, implementation conditions or relevant candidate routes; C papers supply peripheral detail to revisit when needed. Give a brief reason for each tier. These are task-relative inclusion judgments, not numerical scores, venue ranks or verification levels. Citation impact remains prominent and carries substantial weight for mature work, alongside relevance and dependencies; no fixed citation threshold or tier quota is required.
+
+Keep **relationship to existing material**, **tier**, **reason**, **reading status** and **citation count/source/date** separate. An existing seed is not automatically A, and a newly found paper is not automatically lower value. Abstract-only judgments remain provisional; insufficient material means pending with a reason, not automatic C.
+
+For a low-rank adaptation composition question, an illustrative list could mark LoRA **A Core** as a necessary foundation, LoraHub **A Core** for its direct combination route, and LoRA+ **C Supplementary** for optimizer detail outside that question's main scope. If the task changes to optimization, reassess those tiers. Record actual citation observations separately, without inventing example counts or implying full-text assessment.
+
+Suggested compact columns: **Paper / Citation count (source, date) / Existing-material relationship / Inclusion tier / Reason / Reading status**. An existing Markdown list is sufficient; the spreadsheet suggestions below are optional, not an additional required artifact.
 
 - **Create a Spreadsheet:** A tool to systematically organize and manage your literature collection. To enhance readability and emphasize key concepts, it is recommended to **bold important keywords** throughout the spreadsheet. This can include critical concepts, methods, datasets, evaluation metrics, or any novel contributions. Bolding keywords helps highlight essential information at a glance and makes it easier to quickly reference specific details when revisiting the literature.
   
