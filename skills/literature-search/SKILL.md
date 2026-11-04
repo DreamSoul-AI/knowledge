@@ -61,6 +61,22 @@ number from a search snippet. If lookup fails, write “unavailable” and the
 reason, not zero or an invented estimate, and continue the literature search.
 Counts order exploration and reading; no automatic paper score is required.
 
+## Google Scholar through Computer Use
+
+For a small citation lookup, use Google Scholar's visible website through an
+available browser/Computer Use tool when requested or when API counts are
+unavailable. Follow that tool's current instructions; the skill does not bundle
+a browser or promise that every host can access Scholar. Replace the search
+field with the full title, verify the actual query, then match the result's
+title, authors and original paper link before reading that row's “Cited by”.
+Record its count, source/result link and observation date. Use the displayed
+count, not the overall search-result estimate, and do not infer zero from a
+missing citation link. Separate clusters or citation-only entries may overlap:
+record the selected matching entry and note ambiguity rather than adding counts.
+This is a limited interactive lookup, not a bulk scraping interface. Stop on a
+CAPTCHA, access block or rate limit; leave affected counts pending or request
+user handoff according to the tool's rules, without bypassing the restriction.
+
 ## Lightweight evidence and delivery
 
 For a small task, keep the evidence inside the result: a short note with the
