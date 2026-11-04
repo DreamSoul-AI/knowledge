@@ -24,6 +24,12 @@
 
 ---
 
+## Using material, standards and light evidence
+
+For example: “Start from this existing LoRA list, use the supplied literature-review standard, cover 2021–2024, emphasize influential work and show citation counts with their source/date. Return missing candidates and a reading order without renaming existing PDFs.” Read the provided inputs first and state which were available. Domain and output rules remain external; this tutorial does not override the task or project rules.
+
+A short result can use one search note (date, sources, key queries, window and limits) plus a table of paper identity, inclusion value, reading status and citation provenance. No separate log is required. Use original metadata or papers to verify identity; finding a DOI does not establish that the cited claim is supported. Preserve unknown counts and version differences explicitly. Saving, renaming, indexing and reproduction follow the task's scope and the project's current rules.
+
 ## Introduction
 
 Conducting a thorough literature search is a fundamental step in academic and professional research. It helps in understanding the existing body of knowledge, identifying gaps, and building on previous work. This tutorial will guide you through the process of finding relevant papers, organizing them effectively, and reproducing key results to deepen your understanding of the field.
@@ -41,9 +47,9 @@ Conducting a thorough literature search is a fundamental step in academic and pr
 You can access Google Scholar [here](https://scholar.google.com).
 
 ### Filter Papers
-- **Number of Citations:** Generally, the more citations a paper has, the better.
+- **Number of Citations:** Citation impact is an important signal of influence, especially for foundational work and established methods. Actively seek highly cited papers and show counts prominently with their source and observation date. Assess relevance and contribution alongside impact; account for publication age and field when judging recent work. Unavailable counts are not zero, and overlapping preprint/publication counts must not be added together.
 - **Publication Venue:** Prefer papers published in prestigious venues. You can determine the ranking of these venues using [Google Scholar metrics](https://scholar.google.com/citations?view_op=top_venues&hl=en).
-- **Publication Time:** Recent papers are usually more relevant. For instance, deep learning research became more prominent after 2013, and more advanced models using ResNet emerged after 2016. Recent trends include LLMs and diffusion models post-2020.
+- **Publication Time:** Match the time window to the question. New work matters for recent advances, while older highly cited work remains central to foundations and historical context.
 
 ---
 
@@ -70,12 +76,12 @@ You can access Google Scholar [here](https://scholar.google.com).
 ### Survey Papers
 - Summarize and organize previous research.
 - These are ideal starting points to understand a field.
-- **Evaluation Criteria:** Date > Citation > Publication Venue.
+- **Selection emphasis:** Scope and taxonomy quality first; recency, citation impact and venue provide important context. A newer date alone does not make a survey more useful.
 
 ### Novelty Papers
 - Present new discoveries and can be categorized into theory, method, and application papers. Some papers may touch on two or three factors.
 - Some of these papers are often cornerstones of a field, highly cited, and published in prestigious venues.
-- **Evaluation Criteria:** Citation > Publication Venue > Date.
+- **Selection emphasis:** Citation impact carries substantial weight for established contributions, together with relevance, contribution and evidence. Do not impose one fixed ranking across every research purpose.
 - For state-of-the-art advancements, the publication date is crucial.
 
 ---
@@ -93,8 +99,10 @@ You can access Google Scholar [here](https://scholar.google.com).
 - **Suggested Columns (sorted by Date):** 
 
   - **Title:** The title of the paper, which usually reflects the core research question or contribution.
+
+  - **Citation Count:** Display prominently with a source link and observation date. Use an explicit unavailable status when lookup fails, not zero. Do not add overlapping counts for versions of the same work.
   
-  - **Institution:** Instead of listing all authors' names, it's recommended to list the institution name for easy reference. This helps identify the research affiliation and can highlight trends from specific research groups.
+  - **Authors and optional Institution:** Preserve author identity with title and DOI/arXiv ID. Institutions can add context but do not replace authors or serve as a quality ranking.
   
   - **Venue:** The conference or journal where the paper was published. This can indicate the paper's credibility and impact, as some venues are more prestigious than others.
   
@@ -119,6 +127,8 @@ You can access Google Scholar [here](https://scholar.google.com).
 ---
 
 ## Reproducing Results
+
+The following are optional follow-up ideas for a separately requested reproduction task, not automatic steps of a literature search.
 
 - Select a foundational paper to reproduce its results, preferably one with available implementation.
 - Try to find benchmark code bases that include old baseline papers.
