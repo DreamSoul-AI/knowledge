@@ -46,6 +46,10 @@ Conducting a thorough literature search is a fundamental step in academic and pr
 
 You can access Google Scholar [here](https://scholar.google.com).
 
+### Citation lookup with Computer Use
+
+For a small number of papers, an available browser/Computer Use tool can search Google Scholar by full title and read “Cited by” from the matching result. Clear the previous query and verify the new one, title, authors and original paper link. Record the observed count, Scholar source link and date in the existing table. Do not use total search hits or add potentially overlapping clusters/citation-only entries. Missing counts stay unknown. A CAPTCHA, rate limit or access block stops the affected lookup; follow the tool's handoff rules rather than bypassing it. This is an optional interactive route when requested or APIs are unavailable, not a bundled browser or a bulk API.
+
 ### Filter Papers
 - **Number of Citations:** Citation impact is an important signal of influence, especially for foundational work and established methods. Actively seek highly cited papers and show counts prominently with their source and observation date. Assess relevance and contribution alongside impact; account for publication age and field when judging recent work. Unavailable counts are not zero, and overlapping preprint/publication counts must not be added together.
 - **Publication Venue:** Prefer papers published in prestigious venues. You can determine the ranking of these venues using [Google Scholar metrics](https://scholar.google.com/citations?view_op=top_venues&hl=en).
