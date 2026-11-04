@@ -61,6 +61,30 @@ number from a search snippet. If lookup fails, write “unavailable” and the
 reason, not zero or an invented estimate, and continue the literature search.
 Counts order exploration and reading; no automatic paper score is required.
 
+## Inclusion value tiers
+
+Give included papers an explicit task-relative tier and a short reason, rather
+than only free-text priority. Use the supplied tier rubric if present; otherwise
+use **A Core**, **B Important**, **C Supplementary**:
+
+- **A Core:** directly answers the central question or provides an essential
+  foundation; prioritize for core reading and synthesis.
+- **B Important:** fills a key comparison dimension, implementation condition or
+  directly relevant candidate route; retain for the corresponding research branch.
+- **C Supplementary:** contributes useful peripheral detail; revisit when that
+  subquestion becomes relevant.
+
+Keep the tier separate from relationship to existing material (e.g. existing
+seed or new candidate), the reason, actual reading depth and citation count with
+source/date. Citation impact remains a substantial signal for mature work;
+combine it with relevance and knowledge dependencies without converting counts
+into fixed thresholds or a numerical score. Tiers describe value for this task,
+not universal paper quality, venue rank or verification status. Abstract-only
+judgments are provisional and can change after deeper reading. If the available
+material cannot support a tier, mark it pending with the reason; do not force C.
+Do not impose a quota of papers in each tier. Show these fields in the existing
+list or compact table, without requiring a separate grading document.
+
 ## Google Scholar through Computer Use
 
 For a small citation lookup, use Google Scholar's visible website through an
@@ -82,7 +106,8 @@ user handoff according to the tool's rules, without bypassing the restriction.
 For a small task, keep the evidence inside the result: a short note with the
 date, sources, key queries, time window and access/coverage limits, followed by
 paper entries with title/authors, stable ID or original link, publication or
-version date, inclusion value, reading status and citation count provenance.
+version date, relationship to existing material, inclusion value tier and reason,
+reading status and citation count provenance.
 Distinguish metadata/abstract screening from full-text assessment. Explain
 important exclusions or uncertain matches when they affect the conclusion.
 Do not require separate logs, a database, fixed paper counts or a file tree.
