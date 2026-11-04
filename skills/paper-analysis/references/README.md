@@ -8,10 +8,15 @@
 </h4>
 
 ## Table of Contents
+- [Optional inputs and reading record](#optional-inputs-and-reading-record)
+- [Contribution and research infrastructure](#contribution-and-research-infrastructure)
+- [Adapt analysis to the material](#adapt-analysis-to-the-material)
+- [Scholar lookup and technical expression](#scholar-lookup-and-technical-expression)
+
 1. [Introduction](#introduction)
 2. [Understanding the Structure of a Paper](#understanding-the-structure-of-a-paper)
     - [Title and Abstract](#title-and-abstract)
-    - [Introduction](#introduction-section)
+    - [Introduction](#introduction-1)
     - [Related Work](#related-work)
     - [Methodology](#methodology)
     - [Experiments and Results](#experiments-and-results)
@@ -37,6 +42,50 @@
 
 
 ---
+
+## Optional inputs and reading record
+
+A paper or source link is enough to start. Optionally supply research plans/questions, prior notes, appendices, code or an analysis standard. For example: “Analyze this paper with the attached research plan and reading standard, focusing on which baselines we should compare; save only a local note.” Use the available inputs and state assumptions without demanding a fixed form. Missing supplementary material limits the corresponding conclusions, not every independent part of the analysis.
+
+Record paper identity, stable source, publication status/date, the actual version read, reading date and later update date/scope. A code revision matters only if code is actually examined. Record elapsed time only when measured. List the actual sections/pages/figures inspected and uncovered material. Metadata, abstract screening, targeted reading, deep reading and reproduction are different evidence depths. For an unversioned post, record visible publication/update and access dates; unknown dates stay unknown.
+
+## Contribution and research infrastructure
+
+Keep the original research question → claimed contribution → method → evidence → critical assessment → relationship to existing/user work structure. **Research infrastructure here means data, model, algorithm and metric**, connected to the contribution and results:
+
+| Component | Questions to answer when applicable |
+| --- | --- |
+| Contribution | What is claimed as new, relative to which closest work, and what evidence supports it? |
+| Data | What source, task, construction/annotation, scale, splits and preprocessing were used? What leakage or coverage limits matter? |
+| Model | What architecture/base model, checkpoint or scale, component roles and trainable/frozen parts are used? |
+| Algorithm | What inputs, outputs, steps, objective, assumptions and key mechanisms connect the data and model? |
+| Metric and evidence | How are metrics defined/aggregated? Under which protocol, baseline settings and conditions are results, ablations and uncertainty reported? |
+
+Tie each important result to those conditions. Hardware/runtime context belongs where needed to interpret a specific claim. Distinguish not applicable, not reported and inaccessible material. Retain code/data availability and reproducibility limitations without running training or modifying a library unless requested.
+
+For a consequential claim, concise prose or columns **Claim / Source position and observation / Conditions / Assessment** suffice. Separate authors' claims, your inference and any checks actually performed. “Not reported” does not mean “not done.” Do not require a score, an acceptance decision, a fixed number of strengths/weaknesses or a separate evidence database.
+
+## Adapt analysis to the material
+
+Theory, method and application can overlap. System/infrastructure, data/benchmark, survey/review and position contributions are also supported. Keep publication/source form separate: a blog may explain a method or advocate a position; establish its actual status and evidence.
+
+| Material | Main focus |
+| --- | --- |
+| Theory | Objects, assumptions, propositions, derivations, counterexamples and applicability |
+| Method / Application | Mechanism, scientific components, evaluation and limits of the target setting |
+| System | Design/interfaces, scientific components and workload-dependent performance claims |
+| Data / Benchmark | Collection, annotation, splits, leakage, coverage/bias, task/metric protocol, baselines and license |
+| Survey / Review | Scope/cutoff, inclusion basis, taxonomy, coverage gaps and supported synthesis |
+| Position / Perspective | Thesis, argument chain, factual evidence, alternatives and testable implications |
+| Blog / Technical post | Author/date/version and source status, then the relevant method, argument or tutorial evidence |
+
+Expand applicable content rather than forcing every work to have experiments or fabricated metrics.
+
+## Scholar lookup and technical expression
+
+When useful, use authoritative sources to identify the formal publication/version or related work. An available Computer Use/browser tool can query Google Scholar by full title, replacing the previous query and verifying authors and the original link. Report citation counts with source/date, do not sum overlapping clusters, and keep unknown counts explicit. Reused observations retain their original dates. Stop on CAPTCHA/rate limit/access block and follow the tool's handoff rules without bypassing restrictions. This limited interactive route does not bundle a browser or replace original-source reading, and reference exploration stays within the current question.
+
+Use LaTeX for formulas, define symbols/dimensions/assumptions and distinguish original equations, rewrites and your abstractions. Where helpful, pair prose with editable Mermaid and applicable formulas for the same mechanism. Check consistency and rendering when supported, disclose unverified work and never invent equations for a nonmathematical argument. The following tutorial remains optional background; follow the current task's saving, naming and output rules.
 
 ## Introduction
 
@@ -165,6 +214,8 @@ Relating the paper to your research is crucial for understanding its relevance a
 
 ## Saving Papers
 
+Saving, renaming and indexing are separate actions governed by the current task and existing library rules. The examples below are optional for a new collection, not instructions to reorganize an existing one.
+
 Properly organizing and saving academic papers is essential for easy retrieval and reference.
 
 ### Directory Structure
@@ -179,7 +230,7 @@ Properly organizing and saving academic papers is essential for easy retrieval a
 
 ## Next Steps
 
-After reading and analyzing a paper, there are several actions you can take:
+The following are optional follow-up ideas, not automatic actions or permission to share, run experiments or broaden the search:
 
 - **Discuss with Peers**: Share insights or questions with colleagues to deepen understanding.
 - **Explore References**: Follow the cited works to expand your knowledge on the topic.
