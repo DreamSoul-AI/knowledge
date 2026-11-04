@@ -25,6 +25,10 @@ actual version read. Keep preprint, publication, supplement and any inspected
 code revision identifiable; do not silently mix their results. Include the
 actual reading date and, for an updated note, its update date and changed scope.
 Record elapsed reading time only if actually measured, never inferred.
+Use a compact, structured preface with short labeled paragraphs or small
+subheadings for paper/version, reading date/scope and source/check status.
+Keep detailed page inventories and tool/process logs in validation records;
+do not turn the preface into a second introduction.
 For an unversioned post, record its visible publication/update date and access
 date; if absent, say so. Preserve existing notes and references when updating.
 
@@ -45,9 +49,11 @@ analysis, follow the paper's reasoning in this order, scaling depth to the task:
 
 1. **Background, motivation and research question:** establish the problem,
    why it matters and the authors' claimed contributions.
-2. **Related work and research position:** explain the closest approaches and
-   differences. Distinguish what the paper says about a cited work from your own
-   reading of that work; similarity is not proof that an approach is redundant.
+2. **Related work and research position:** distinguish the context available
+   when the authors wrote the work from subsequent research available by the
+   reading cutoff. Explain the closest approaches and differences. Label author
+   descriptions versus your actual reading, and record first-public/version dates
+   rather than treating every later submission as post-publication work.
 3. **Method:** explain the core idea, workflow, mechanisms and algorithms.
    Develop formalization, assumptions, propositions and derivations here only
    when the work contains relevant theory; theory is not a mandatory chapter.
@@ -60,8 +66,10 @@ analysis, follow the paper's reasoning in this order, scaling depth to the task:
 6. **Future work:** group discussion and limitations together, then combine
    future directions and open problems. For each substantive direction, connect
    the unresolved question, evidence, possible path and useful validation signal.
-   Distinguish authors' stated directions from your proposals. Do not declare
-   a problem open across the field solely because you have not checked it.
+   Distinguish authors' stated directions from your proposals. When discussing
+   current progress, align original questions with later evidence and remaining
+   conditions; insufficient search proves neither universal resolution nor an
+   unaddressed open problem.
 7. **References:** list actual sources used, including inspected versions and
    relevant locations or links; mark indirectly known references as such.
 
@@ -74,24 +82,28 @@ instead of forcing a theory proof or empirical experiment onto every work.
 
 ## Reusable research assets
 
-Research infrastructure here means reusable scientific assets and resources,
-not an inventory of everything the paper used or an operations checklist.
+Research infrastructure starts with the scientific resources the paper actually
+uses: data, models, algorithms, metrics, baselines and code. Identify the concrete
+items and their role first, including upstream resources; novelty is not an
+inclusion requirement. Then explain how another study could use them and the
+relevant conditions. Mark a new contribution as such without using "no new
+dataset/model" as a substitute for describing what was actually used.
 After method and evidence, develop these categories separately when applicable:
 
-- **数据 Data:** reusable datasets, collection/processing recipes or task splits.
-- **模型 Model:** reusable architecture, checkpoint, adapter or configuration.
-- **算法 Algorithm:** reusable procedure, update rule, objective or component.
-- **评价指标 Metrics:** reusable metric definition, evaluator or protocol.
-- **基线 Baselines:** reusable comparison methods, implementations and conditions.
+- **数据 Data:** datasets, collection/processing recipes and splits actually used.
+- **模型 Model:** architectures, base models, checkpoints, adapters and configurations used.
+- **算法 Algorithm:** procedures, update rules, objectives and components used or proposed.
+- **评价指标 Metrics:** metric definitions, evaluators and protocols used for the claims.
+- **基线 Baselines:** comparison methods actually run or cited, their implementations and conditions.
 - **代码与实现 Code and Implementation:** official/third-party source, revision,
   implementation entry points and relevant usage/configuration.
 
-For each category explain **what can be reused, how to obtain/use it, and its
-conditions or limits**, with source evidence and the actual verification depth.
+For each category explain **what the paper actually uses, its role, how to
+obtain/use it, and its conditions or limits**, with source evidence and the actual verification depth.
 Distinguish a new resource contributed by this work from an upstream resource
 it merely uses, and a conceptual recipe from a downloadable or tested artifact.
-State when no reusable item has been identified or access is unverified rather
-than inventing availability. Link back to method/experiment details instead of
+State when a category is unused, an item is unspecified or access is unverified
+rather than inventing availability. Link back to method/experiment details instead of
 copying them into the asset section. A combined summary table is not a substitute
 for developing the applicable categories.
 
@@ -102,6 +114,25 @@ in the paper. For code, record the repository and inspected commit/release,
 paper-to-code entry points, requirements, license and concrete reuse limitations
 when checked. Reading a README/source does not prove installation, compatibility,
 reproduction or performance. Checking code is not authorization to execute it.
+
+## Time-aware follow-up
+
+For targeted/deep analysis that discusses present-day position or future-work
+progress, do a bounded follow-up search around the original questions. Separate
+the paper's writing/first-publication context, later research dates/versions and
+the reading cutoff. A work appearing between a preprint and its conference
+publication needs that timing label. Verify primary sources and actual reading
+depth. Citing the paper does not prove a question was answered; work addressing
+the same question may be relevant without being a direct citation.
+
+Use related work to explain the subsequent research trajectory, then use future
+work to align **original question -> later evidence -> progress and conditions ->
+remaining uncertainty**. Distinguish substantial support, partial progress, a
+demonstrated gap and insufficient evidence where useful. Claims of resolution
+must match the studied models/tasks/assumptions, not just the abstract's wording.
+If current follow-up was not searched or could not be read, disclose that limit;
+not finding a result does not establish that the field has not addressed it.
+Do not claim exhaustive or fully current coverage from a small search.
 
 ## Evidence and interpretation
 
