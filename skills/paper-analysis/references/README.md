@@ -9,7 +9,7 @@
 
 ## Table of Contents
 - [Optional inputs and reading record](#optional-inputs-and-reading-record)
-- [Contribution and research infrastructure](#contribution-and-research-infrastructure)
+- [Analysis structure and reusable assets](#analysis-structure-and-reusable-assets)
 - [Adapt analysis to the material](#adapt-analysis-to-the-material)
 - [Scholar lookup and technical expression](#scholar-lookup-and-technical-expression)
 
@@ -32,9 +32,7 @@
 5. [Connecting the Paper to Existing Literature](#connecting-the-paper-to-existing-literature)
     - [Commonalities and Distinctions](#commonalities-and-distinctions)
     - [Fitting into a Taxonomy](#fitting-into-a-taxonomy)
-6. [Connecting the Paper to Your Work](#connecting-the-paper-to-your-work)
-    - [Relating to Your Research](#relating-to-your-research)
-    - [Citing the Paper](#citing-the-paper)
+6. [Citing the Paper](#citing-the-paper)
 7. [Saving Papers](#saving-papers)
     - [Directory Structure](#directory-structure)
     - [File Naming](#file-naming)
@@ -49,23 +47,36 @@ A paper or source link is enough to start. Optionally supply research plans/ques
 
 Record paper identity, stable source, publication status/date, the actual version read, reading date and later update date/scope. A code revision matters only if code is actually examined. Record elapsed time only when measured. List the actual sections/pages/figures inspected and uncovered material. Metadata, abstract screening, targeted reading, deep reading and reproduction are different evidence depths. For an unversioned post, record visible publication/update and access dates; unknown dates stay unknown.
 
-## Contribution and research infrastructure
+## Analysis structure and reusable assets
 
-Keep the original research question → claimed contribution → method → evidence → critical assessment → relationship to existing/user work structure. **Research infrastructure here means data, model, algorithm and metric**, connected to the contribution and results:
+Keep the brief identity/version/reading record before the numbered body. Explain the work in this order:
 
-| Component | Questions to answer when applicable |
+1. Background, motivation and research question, including the claimed contributions.
+2. Related work and research position: compare the closest approaches and label indirect knowledge of papers not actually read.
+3. Method: core idea, workflow, mechanism and algorithms. Include theoretical assumptions, propositions and derivations inside this section when applicable; theory is optional.
+4. Experiments and results: organize claims, design, data/model/settings, baseline fairness, metric/selection protocols, outcomes, ablations and uncertainty into a supported assessment.
+5. Reusable research assets, with the six categories below.
+6. Future work: one discussion/limitations subsection, then one combined future-directions/open-problems subsection. Explain the question, motivating evidence, potential path and validation signal; separate the authors' statements from analyst proposals.
+7. References: sources actually used, their inspected versions and direct locations. Mark second-hand references rather than suggesting all cited papers were read.
+
+There is no separate relationship-to-current-research chapter. Optional context guides focus and interpretation. In Chinese output, main headings remain Chinese and only asset subheadings pair Chinese and English. Adapt empirical/theory coverage to the source type.
+
+### Reusable asset categories
+
+Research infrastructure means what another study can reuse, rather than a list of all experimental ingredients. Develop each applicable category with **what is reusable / how to obtain and use it / conditions and limits / source and verification depth**:
+
+| Category | Reuse questions |
 | --- | --- |
-| Contribution | What is claimed as new, relative to which closest work, and what evidence supports it? |
-| Data | What source, task, construction/annotation, scale, splits and preprocessing were used? What leakage or coverage limits matter? |
-| Model | What architecture/base model, checkpoint or scale, component roles and trainable/frozen parts are used? |
-| Algorithm | What inputs, outputs, steps, objective, assumptions and key mechanisms connect the data and model? |
-| Metric and evidence | How are metrics defined/aggregated? Under which protocol, baseline settings and conditions are results, ablations and uncertainty reported? |
+| Data | Is there a dataset, collection/preprocessing recipe or task split? Who provides it, how is it accessed and what coverage/license/leakage limits matter? |
+| Model | Can the architecture, checkpoint, adapter or configuration be reused? What base model, compatible shapes, initialization and access conditions are required? |
+| Algorithm | Which procedure, update rule or component transfers? What are the inputs, parameters, integration steps, assumptions and failure conditions? |
+| Metrics | Is the definition, evaluator or protocol reusable? What aggregation, answer extraction, task and selection conditions must be retained? |
+| Baselines | Which comparator and implementation are reusable, for what role? Distinguish cited/rerun/proposed results and preserve data, metrics, search budgets and relevant control conditions. |
+| Code and Implementation | Which repository/revision and entry points were inspected? What usage/configuration, requirements and license were verified, and what remains untested? |
 
-For targeted/deep reading, give **Data**, **Model**, **Algorithm** and **Metric** separate named explanations. For each, describe its role, the paper's actual setup, supporting source locations and unresolved gaps. A heading listing four names or one merged experimental table does not develop the four components. A cross-component summary table can follow those explanations. Match detail to the question; do not shorten away substantive content to meet an arbitrary note length. Inapplicable or unavailable components retain an explicit explanation, without fabricated fields.
+Separate resources newly contributed by the paper from upstream resources merely used, a conceptual recipe from an artifact, and source inspection from successful execution. No identified reusable item or unverified access is a legitimate finding. Do not invent a new dataset, open license, available checkpoint or compatibility claim. Refer back to method/experiment details instead of repeating them, and do not replace the six explanations with one merged results table.
 
-Tie each important result to those conditions. Hardware/runtime context belongs where needed to interpret a specific claim. Distinguish not applicable, not reported and inaccessible material. Retain code/data availability and reproducibility limitations without running training or modifying a library unless requested.
-
-For a consequential claim, concise prose or columns **Claim / Source position and observation / Conditions / Assessment** suffice. Separate authors' claims, your inference and any checks actually performed. “Not reported” does not mean “not done.” Do not require a score, an acceptance decision, a fixed number of strengths/weaknesses or a separate evidence database.
+For code, a concrete source/configuration path supports reuse guidance; a repository link alone does not establish reproducibility. Record uninspected code as such. Reading is not permission to install dependencies, train or run scripts. Put tool failures and operational test logs in validation records; the paper note needs only the reading/verification scope affecting its conclusions.
 
 ## Adapt analysis to the material
 
@@ -196,18 +207,7 @@ Relating the paper to existing literature is essential for understanding its pla
     - Try to fit the paper into a proper taxonomy of the field.
     - Determine where the paper stands in relation to other key works and how it contributes to the development of the field.
 
-## Connecting the Paper to Your Work
-
-Relating the paper to your research is crucial for understanding its relevance and potential impact.
-
-### Relating to Your Research
-
-- **How to Do It**:
-    - Consider how the paper’s findings relate to your own research questions.
-    - Identify any methods or approaches that could be applied to your work.
-    - Think about how the paper influences or changes your understanding of the topic.
-
-### Citing the Paper
+## Citing the Paper
 
 - **How to Do It**:
     - If you plan to reference the paper in your work, make sure to record the citation in a reference manager using BibTeX format.

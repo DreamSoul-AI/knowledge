@@ -38,66 +38,83 @@ Name the sections, pages, figures, appendices or code actually inspected and
 material not covered. Extracting all PDF text does not mean reading it all;
 abstract screening is not full-text assessment, and reading is not reproduction.
 
-## Analysis framework
+## Analysis structure
 
-Preserve the original question, contribution, method, evidence, critical
-assessment and relationship-to-prior/user-work framework. Make the applicable
-scientific components explicit. Here **research infrastructure** groups
-**data, model, algorithm and metric** and their relationships:
+Keep identity, version and reading records in a brief preface. For substantive
+analysis, follow the paper's reasoning in this order, scaling depth to the task:
 
-### Contribution
+1. **Background, motivation and research question:** establish the problem,
+   why it matters and the authors' claimed contributions.
+2. **Related work and research position:** explain the closest approaches and
+   differences. Distinguish what the paper says about a cited work from your own
+   reading of that work; similarity is not proof that an approach is redundant.
+3. **Method:** explain the core idea, workflow, mechanisms and algorithms.
+   Develop formalization, assumptions, propositions and derivations here only
+   when the work contains relevant theory; theory is not a mandatory chapter.
+4. **Experiments and results:** connect each important claim to its design,
+   source location, comparison, observations and conditions. Explain applicable
+   data/model/algorithm/metric settings, baselines, tuning/selection protocols,
+   ablations, uncertainty and negative results before judging the evidence.
+5. **Reusable research assets:** identify what other research can take and use.
+   Separate the asset analysis from the preceding explanation of this paper.
+6. **Future work:** group discussion and limitations together, then combine
+   future directions and open problems. For each substantive direction, connect
+   the unresolved question, evidence, possible path and useful validation signal.
+   Distinguish authors' stated directions from your proposals. Do not declare
+   a problem open across the field solely because you have not checked it.
+7. **References:** list actual sources used, including inspected versions and
+   relevant locations or links; mark indirectly known references as such.
 
-Identify the problem, claimed novelty and difference from the closest work.
-Distinguish author claims from your assessment of support.
+Do not add a standalone relationship-to-current-research chapter. Optional
+research context may guide the question and interpretation without becoming
+an extra output section. For Chinese reports, main headings are Chinese; use
+Chinese-English pairs only for the six asset subheadings below. The guides
+show the default outline. Adapt method/experiment coverage to the material
+instead of forcing a theory proof or empirical experiment onto every work.
 
-### Data
+## Reusable research assets
 
-Explain the source, construction, task, scale, splits and preprocessing;
-assess leakage, representativeness or bias where relevant and supported.
+Research infrastructure here means reusable scientific assets and resources,
+not an inventory of everything the paper used or an operations checklist.
+After method and evidence, develop these categories separately when applicable:
 
-### Model
+- **数据 Data:** reusable datasets, collection/processing recipes or task splits.
+- **模型 Model:** reusable architecture, checkpoint, adapter or configuration.
+- **算法 Algorithm:** reusable procedure, update rule, objective or component.
+- **评价指标 Metrics:** reusable metric definition, evaluator or protocol.
+- **基线 Baselines:** reusable comparison methods, implementations and conditions.
+- **代码与实现 Code and Implementation:** official/third-party source, revision,
+  implementation entry points and relevant usage/configuration.
 
-Explain architecture/base model, scale or checkpoint, component roles,
-trainable/frozen parts and relevant training/inference settings.
+For each category explain **what can be reused, how to obtain/use it, and its
+conditions or limits**, with source evidence and the actual verification depth.
+Distinguish a new resource contributed by this work from an upstream resource
+it merely uses, and a conceptual recipe from a downloadable or tested artifact.
+State when no reusable item has been identified or access is unverified rather
+than inventing availability. Link back to method/experiment details instead of
+copying them into the asset section. A combined summary table is not a substitute
+for developing the applicable categories.
 
-### Algorithm
+For baselines, identify names/versions and their role, cited versus rerun results,
+implementation, data/metric comparability, training/tuning budgets and missing
+controls. An experiment proposed by the analyst is not a baseline already run
+in the paper. For code, record the repository and inspected commit/release,
+paper-to-code entry points, requirements, license and concrete reuse limitations
+when checked. Reading a README/source does not prove installation, compatibility,
+reproduction or performance. Checking code is not authorization to execute it.
 
-Explain inputs/outputs, mechanism, steps, objective and assumptions,
-and how the algorithm operates on the data and model.
+## Evidence and interpretation
 
-### Metric
-
-Explain metric definitions and aggregation, evaluation/selection protocol,
-baseline conditions, results, ablations and uncertainty. Distinguish task
-quality, training loss, convergence steps and runtime cost when present.
-
-### Develop the analysis
-
-For targeted/deep analysis, develop Data, Model, Algorithm and Metric separately
-as named subsections or clearly distinct structured explanations. For each
-applicable component, explain its role, the paper's actual instantiation,
-source evidence and gaps. Merely naming all four in a heading or merging them
-into one experimental-results table is insufficient. Cross-component tables
-can summarize their connections after the individual explanations. Scale detail
-to the question and reading depth; compact writing must not remove material
-conditions or substitute field names for analysis. Retain an explicit reason
-where a component is inapplicable or unavailable rather than inventing content.
-
-### Evidence and interpretation
-
-Connect results to their data, model, algorithm and metric conditions instead
-of listing names alone. Include hardware or deployment details when needed to
-interpret a particular claim, without replacing these scientific components
-with an operations checklist. Distinguish not applicable, not reported and
-unavailable material; do not invent values or fill every field mechanically.
-
-For important claims, connect the source position, evidence, conditions and
-your judgment in concise prose or a small table. Use section/page/figure/table
-locations when available. Separate author statements, your inference and any
-actual checks. Lack of reporting is not proof the authors did not do something.
-Discuss limitations, reproducibility information, unanswered questions and
-concrete relevance to the requested purpose. Do not impose numerical scores,
-acceptance recommendations, strength/weakness quotas or a separate evidence log.
+Preserve contribution, data, model, algorithm, metric and baseline detail where
+needed to explain the study; reusable-asset analysis does not replace that work.
+Connect results to their settings instead of listing names. Distinguish author
+claims, your inference and actual checks, not applicable, not reported and
+inaccessible material. Lack of reporting is not proof something was not done.
+Use page/section/figure/table/code locations when available and keep applicability
+limits. Include hardware/runtime details when needed to interpret a specific
+claim or fair comparison, rather than making them the default analysis subject.
+Do not impose scores, acceptance decisions, strength/weakness quotas, a separate
+evidence database or a word limit that removes substantive conditions.
 
 ## Adapt to the material
 
@@ -112,7 +129,7 @@ applications inspect mechanisms and evaluation; for systems inspect design and
 workload-dependent claims; for data/benchmarks inspect construction and evaluation
 protocols; for surveys inspect scope, taxonomy and synthesis; for positions/posts
 inspect arguments, factual sources, alternatives and testable implications.
-The guides provide type-specific prompts, not mandatory output templates.
+Use the shared narrative as a starting point; the guides give type-specific prompts.
 
 ## Scholar and source lookup when needed
 
@@ -144,6 +161,6 @@ Keep editable diagram source, check arrows and formulas against the text, and
 verify derivations/rendering where supported. State what was not checked; a
 numerical spot check is not a general proof. Follow destination conventions.
 
-Use the requested format and enough detail to support the analysis. The [English guide](references/README.md)
+Use the agreed outline and enough detail to support the requested analysis. The [English guide](references/README.md)
 and [Chinese guide](references/README_zh.md) preserve the human reading tutorial
 and offer optional analysis prompts. Neither overrides the current task or rules.
