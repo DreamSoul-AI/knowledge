@@ -47,6 +47,8 @@ A paper or source link is enough to start. Optionally supply research plans/ques
 
 Record paper identity, stable source, publication status/date, the actual version read, reading date and later update date/scope. A code revision matters only if code is actually examined. Record elapsed time only when measured. List the actual sections/pages/figures inspected and uncovered material. Metadata, abstract screening, targeted reading, deep reading and reproduction are different evidence depths. For an unversioned post, record visible publication/update and access dates; unknown dates stay unknown.
 
+Use short labeled paragraphs for paper/version, reading date/scope and checks before the numbered body. Keep detailed reading inventories and tool logs in validation records; the preface should remain easy to scan.
+
 ## Analysis structure and reusable assets
 
 Keep the brief identity/version/reading record before the numbered body. Explain the work in this order:
@@ -63,20 +65,26 @@ There is no separate relationship-to-current-research chapter. Optional context 
 
 ### Reusable asset categories
 
-Research infrastructure means what another study can reuse, rather than a list of all experimental ingredients. Develop each applicable category with **what is reusable / how to obtain and use it / conditions and limits / source and verification depth**:
+Research infrastructure first identifies **what this paper actually uses and for what role**, including upstream data, models, algorithms, metrics, baselines and code. Then explain **how to obtain/use it, conditions and limits, and source/verification depth**. Whether the authors newly contributed an item is an additional attribute, not a gate for including it. "No new dataset" does not replace naming and explaining the datasets actually used.
 
 | Category | Reuse questions |
 | --- | --- |
-| Data | Is there a dataset, collection/preprocessing recipe or task split? Who provides it, how is it accessed and what coverage/license/leakage limits matter? |
-| Model | Can the architecture, checkpoint, adapter or configuration be reused? What base model, compatible shapes, initialization and access conditions are required? |
-| Algorithm | Which procedure, update rule or component transfers? What are the inputs, parameters, integration steps, assumptions and failure conditions? |
-| Metrics | Is the definition, evaluator or protocol reusable? What aggregation, answer extraction, task and selection conditions must be retained? |
-| Baselines | Which comparator and implementation are reusable, for what role? Distinguish cited/rerun/proposed results and preserve data, metrics, search budgets and relevant control conditions. |
-| Code and Implementation | Which repository/revision and entry points were inspected? What usage/configuration, requirements and license were verified, and what remains untested? |
+| Data | Which datasets, collection/preprocessing recipes and task splits does the study use? Who provides it, how is it accessed and what coverage/license/leakage limits matter? |
+| Model | Which architectures, base models, checkpoints, adapters and configurations are actually used? What base model, compatible shapes, initialization and access conditions are required? |
+| Algorithm | Which procedures, update rules or components does the paper use or propose, and what role do they play? What are the inputs, parameters, integration steps, assumptions and failure conditions? |
+| Metrics | Which metric definitions, evaluators and protocols does the paper actually use? What aggregation, answer extraction, task and selection conditions must be retained? |
+| Baselines | Which comparators and implementations does the paper actually run or cite, for what role? Distinguish cited/rerun/proposed results and preserve data, metrics, search budgets and relevant control conditions. |
+| Code and Implementation | Which repositories/implementations does the paper point to, and which revision and entry points were actually inspected? What usage/configuration, requirements and license were verified, and what remains untested? |
 
 Separate resources newly contributed by the paper from upstream resources merely used, a conceptual recipe from an artifact, and source inspection from successful execution. No identified reusable item or unverified access is a legitimate finding. Do not invent a new dataset, open license, available checkpoint or compatibility claim. Refer back to method/experiment details instead of repeating them, and do not replace the six explanations with one merged results table.
 
 For code, a concrete source/configuration path supports reuse guidance; a repository link alone does not establish reproducibility. Record uninspected code as such. Reading is not permission to install dependencies, train or run scripts. Put tool failures and operational test logs in validation records; the paper note needs only the reading/verification scope affecting its conclusions.
+
+### Writing-time context and reading-time follow-up
+
+In related work, distinguish the authors' original context from subsequent research available by the reading cutoff. Record first-public and version dates; work between a preprint and conference publication should be labeled accordingly. For current-position analysis, perform a bounded search around the original questions and check primary sources at the stated reading depth. Do not equate a citation with solving a question.
+
+In future work, align original directions with later evidence, progress/conditions and unresolved uncertainty. Separate the authors' stated directions from analyst proposals. A result under specific model/task/assumption conditions does not establish a universal solution. Label insufficient evidence or incomplete search; absence from the retrieved set does not prove an open problem.
 
 ## Adapt analysis to the material
 
