@@ -45,16 +45,45 @@ assessment and relationship-to-prior/user-work framework. Make the applicable
 scientific components explicit. Here **research infrastructure** groups
 **data, model, algorithm and metric** and their relationships:
 
-- **Contribution:** identify the problem, claimed novelty and difference from
-  the closest work. Distinguish author claims from your assessment of support.
-- **Data:** source, construction, task, scale, splits and preprocessing; assess
-  leakage, representativeness or bias where relevant and supported.
-- **Model:** architecture/base model, scale or checkpoint, component roles,
-  trainable/frozen parts and relevant training/inference settings.
-- **Algorithm:** inputs/outputs, mechanism, steps, objective and assumptions;
-  explain how it operates on the data and model.
-- **Metric and evidence:** definition and aggregation, evaluation protocol,
-  baselines and settings, decisive results, ablations/uncertainty and boundaries.
+### Contribution
+
+Identify the problem, claimed novelty and difference from the closest work.
+Distinguish author claims from your assessment of support.
+
+### Data
+
+Explain the source, construction, task, scale, splits and preprocessing;
+assess leakage, representativeness or bias where relevant and supported.
+
+### Model
+
+Explain architecture/base model, scale or checkpoint, component roles,
+trainable/frozen parts and relevant training/inference settings.
+
+### Algorithm
+
+Explain inputs/outputs, mechanism, steps, objective and assumptions,
+and how the algorithm operates on the data and model.
+
+### Metric
+
+Explain metric definitions and aggregation, evaluation/selection protocol,
+baseline conditions, results, ablations and uncertainty. Distinguish task
+quality, training loss, convergence steps and runtime cost when present.
+
+### Develop the analysis
+
+For targeted/deep analysis, develop Data, Model, Algorithm and Metric separately
+as named subsections or clearly distinct structured explanations. For each
+applicable component, explain its role, the paper's actual instantiation,
+source evidence and gaps. Merely naming all four in a heading or merging them
+into one experimental-results table is insufficient. Cross-component tables
+can summarize their connections after the individual explanations. Scale detail
+to the question and reading depth; compact writing must not remove material
+conditions or substitute field names for analysis. Retain an explicit reason
+where a component is inapplicable or unavailable rather than inventing content.
+
+### Evidence and interpretation
 
 Connect results to their data, model, algorithm and metric conditions instead
 of listing names alone. Include hardware or deployment details when needed to
@@ -115,6 +144,6 @@ Keep editable diagram source, check arrows and formulas against the text, and
 verify derivations/rendering where supported. State what was not checked; a
 numerical spot check is not a general proof. Follow destination conventions.
 
-Use a compact note or the requested format. The [English guide](references/README.md)
+Use the requested format and enough detail to support the analysis. The [English guide](references/README.md)
 and [Chinese guide](references/README_zh.md) preserve the human reading tutorial
 and offer optional analysis prompts. Neither overrides the current task or rules.
