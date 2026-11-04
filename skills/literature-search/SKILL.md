@@ -1,24 +1,100 @@
 ---
 name: literature-search
-description: Plan and conduct academic literature searches, screen results, trace citations, and produce structured reading lists or evidence maps. Use for research discovery and review-scoping tasks, not for deep analysis of one already-selected paper.
+description: Plan and conduct academic literature searches using supplied material and applicable rules, emphasize citation impact, screen and deduplicate results, and produce traceable reading lists or evidence maps. Use for research discovery and review-scoping, not deep analysis of one already-selected paper.
 ---
 
 # Literature Search
 
-Start from the research question, intended scope, date range, and inclusion
-criteria. If these are not explicit, state reasonable assumptions and keep the
-search revisable.
+## Inputs and scope
 
-## Workflow
+Accept the research question, purpose, existing paper lists or other material,
+supplements, applicable standards, date range, output requirements and location
+in natural language or an external file. Read the supplied material, current
+project instructions and applicable standards before searching; use existing
+lists as seeds and a deduplication baseline. Report which inputs were used.
+Project-specific rules stay external, without requiring a company account or
+private path. If a requested input is inaccessible, state the affected scope and
+continue independent work; do not claim compliance with unread rules. State
+reasonable assumptions for unspecified details rather than requiring a form.
 
-1. Decompose the question into concepts, synonyms, abbreviations, and exclusions.
-2. Build several query families rather than relying on one literal search.
-3. Search appropriate scholarly sources and follow both references and citing works.
-4. Screen by topical relevance, evidence quality, venue, recency, and role in the field.
-5. Separate surveys, foundational work, representative methods, and recent advances.
-6. Deduplicate results and record stable identifiers such as DOI or arXiv ID when available.
-7. Deliver a cited search summary, selection rationale, gaps, and prioritized reading list.
+Keep discovery, deep reading, library maintenance and reproduction distinct.
+Searching does not itself authorize reorganizing existing papers, running
+experiments, uploading documents or sending messages. Reuse existing outputs
+where appropriate and follow the requested read/write boundaries.
 
-Never rank papers by citation count alone; citations are age- and field-dependent.
-Distinguish publication date from the date a source was accessed or indexed. The [Literature Search guide](references/README.md)
-provides optional background.
+## Search and selection
+
+1. Decompose the question into concepts, synonyms, abbreviations and exclusions.
+2. Build complementary query families and choose appropriate scholarly sources.
+   Use seed references and citing work to fill important gaps, not an unbounded
+   citation crawl. Record access failures and actual search coverage.
+3. Screen by research relevance, citation impact, evidence quality, venue,
+   recency and role in the field. Open the original paper or authoritative
+   metadata page for included works; snippets and curated lists are discovery
+   aids, not evidence of full-text reading.
+4. Deduplicate by DOI/arXiv ID, title and authors. Link preprint and publication
+   records, recording the version actually read; substantive extensions may be
+   separate works. Do not merge different works by similar titles alone.
+5. Separate surveys, foundational work, representative methods and recent
+   advances. Explain inclusion and reading priority for the current purpose.
+6. Stop when the scoped questions have useful coverage and further searches no
+   longer change the main picture, or report the remaining gaps and limits.
+   Do not claim exhaustive or systematic coverage without supporting records.
+
+## Citation impact is a prominent selection signal
+
+Actively seek influential, highly cited work and make citation counts prominent
+in the reading list. For foundational work and established methods, citation
+impact should carry substantial weight in selection and reading priority.
+Combine it with direct
+relevance and what the paper contributes. Recent research has had less time to
+accumulate citations, so explain that context rather than treating a low count
+as automatic exclusion or a high count as proof that every claim is sound.
+
+Retrieve counts from an identifiable bibliographic source when accessible.
+Report the count, source link and observation date; a shared source/date note
+can cover a whole table. Keep sources consistent where possible, or label
+differences rather than treating cross-platform counts as directly comparable.
+Confirm the count belongs to the correct paper/version group; do not sum
+overlapping preprint/publication counts, substitute GitHub stars or infer a
+number from a search snippet. If lookup fails, write “unavailable” and the
+reason, not zero or an invented estimate, and continue the literature search.
+Counts order exploration and reading; no automatic paper score is required.
+
+## Lightweight evidence and delivery
+
+For a small task, keep the evidence inside the result: a short note with the
+date, sources, key queries, time window and access/coverage limits, followed by
+paper entries with title/authors, stable ID or original link, publication or
+version date, inclusion value, reading status and citation count provenance.
+Distinguish metadata/abstract screening from full-text assessment. Explain
+important exclusions or uncertain matches when they affect the conclusion.
+Do not require separate logs, a database, fixed paper counts or a file tree.
+Larger or continuing reviews can reuse their existing search records.
+
+Return a cited synthesis of the scoped question, prioritized reading list and
+unresolved gaps. Keep source claims and your interpretation distinct. If the
+task requests a full literature review, apply its supplied reporting standard
+and state the actual synthesis and reading coverage. Rendering and derivation
+checks are separate from text checks. The [English guide](references/README.md)
+and [Chinese guide](references/README_zh.md) are optional human tutorials, not
+permission to execute all their follow-up suggestions.
+
+## Diagrams and mathematical abstraction
+
+Write all mathematical formulas in LaTeX, including inline and display equations.
+
+When the requested output explains method families or mechanisms, keep a clear
+text explanation and aim to accompany it with Mermaid diagrams and applicable
+LaTeX abstractions. Show the same concept from complementary perspectives:
+meaning and conditions in prose, structure and relationships in diagrams, and
+objects, constraints, or quantitative relationships in mathematics. Explain how
+these representations correspond and plan them together in any outline.
+A search list alone does not need formulas or diagrams. Do not invent formulas
+or imply deeper reading than was actually completed.
+
+Explain nodes, arrows, symbols, dimensions, and assumptions. Cite the supporting
+source locations and distinguish source content from your own abstraction.
+Keep editable diagram source, check consistency with the text, and verify
+rendering where supported; disclose unverified rendering. Follow the destination's
+math and diagram conventions rather than forcing a diagram or formula quota.
