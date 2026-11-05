@@ -2,10 +2,14 @@
 
 **English** | [中文](README_zh.md)
 
-This directory is a documentation entry, with no cleanup implementation, installer or automatic task. The package, CLI and desktop live in [cpu-memory-cleanup](https://github.com/DreamSoul-AI/cpu-memory-cleanup).
+[CPU Memory Cleanup](https://github.com/DreamSoul-AI/cpu-memory-cleanup) owns the Rust CLI distributed through its [latest stable Release](https://github.com/DreamSoul-AI/cpu-memory-cleanup/releases/latest); the historical Python package is not required.
 
-See the pinned [integration guide](https://github.com/DreamSoul-AI/cpu-memory-cleanup/blob/a539905f9bf1d43569fb6473fa7b0ff25963223c/docs/%E5%B7%A5%E5%85%B7%E6%8E%A5%E5%85%A5%20Tool%20Integration%20CPU%20%E5%86%85%E5%AD%98%E6%B8%85%E7%90%86.md) for installation, five tools, host authorization, target identity and offline replay. The guide is pinned to a539905 and the feature installation to9c7d725 from PR #11. The published v0.2.0 does not include the new single-process tools.
+Knowledge owns the [Skill](../../skills/cpu-memory-cleanup/SKILL.md), metadata and [installation guide](../../skills/cpu-memory-cleanup/references/README.md). All executable code, including release resolution, initialization and verification under scripts/agent-skill, belongs to the product repository.
 
-Consumers are local Python programs and agent hosts able to run local subprocesses. Use the package or CLI. This is not an MCP server or an installable SKILL directory. Preparing an environment and performing an operation are explicit actions, not side effects of reading this guide.
+Each new task defaults to the official latest stable release, verifies the selected asset SHA256 and installs or reuses an independent runtime. Explicit versions support reproducibility; a task keeps its selected executable. Discover the actual contract through --tool-info rather than pinning versions, builds or tool counts in the Skill. The host updates the Skill; product setup updates its runtime.
 
-When real sampling and cleanup are prohibited, use only the static tool catalog, offline replay or fake-interface validation. Target discovery also reads real processes and is not a default setup check. Product code and detailed tool contracts remain in the product repository.
+Real maintenance is Windows x64 working-set trimming, not CPU scheduling or a compression algorithm. Linux/macOS product packages are readonly and do not use this Windows initializer. Setup and updates do not sample memory, perform maintenance or enable auto rules. Agents need local file and shell access.
+
+Install the Skill from Knowledge main or an explicitly selected commit. Product setup scripts are available at the official [setup entry](https://github.com/DreamSoul-AI/cpu-memory-cleanup/tree/master/scripts/agent-skill) and in the Windows ZIP. Runtime setup resolves the latest stable Release; no source checkout is required.
+
+Normal Skill calls return stdout only and create no operation-history files or Markdown. Maintenance requires native stdout_only support and --no-record; updating instructions alone cannot change an old binary. Pass --output-dir only for an explicit save request; only saved results support replay. Verify native no-record support through the actual tool catalog before maintenance.
