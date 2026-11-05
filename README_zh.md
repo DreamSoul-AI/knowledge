@@ -20,6 +20,7 @@
 | [python-environment](skills/python-environment/SKILL.md) | Python 环境配置与排错 | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
 | [pytorch-project](skills/pytorch-project/SKILL.md) | PyTorch 训练与实验复现 | [English](skills/pytorch-project/references/README.md) / [中文](skills/pytorch-project/references/README_zh.md) |
 | [mongodb-development](skills/mongodb-development/SKILL.md) | MongoDB 开发与维护 | [English](skills/mongodb-development/references/README.md) / [中文](skills/mongodb-development/references/README_zh.md) |
+| [cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | 首次初始化 Windows 内存工具，读取真实状态并按请求整理工作集 | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [安装包](skills/cpu-memory-cleanup.zip) |
 
 ## 工具
 
