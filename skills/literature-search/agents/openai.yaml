@@ -1,4 +1,4 @@
 interface:
   display_name: "Literature Search"
-  short_description: "Plan, search, and organize academic literature"
-  default_prompt: "Use $literature-search to build a rigorous literature search for my research question."
+  short_description: "Search literature, synthesize reviews and reusable assets"
+  default_prompt: "Use $literature-search to research my topic using the supplied material and standards, producing the requested review and reusable research-asset synthesis."

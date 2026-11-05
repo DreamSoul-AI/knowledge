@@ -8,6 +8,10 @@
 
 ### Table of Contents
 
+- [From paper analysis to reusable research material](#from-paper-analysis-to-reusable-research-material)
+
+- [From search to a complete review](#from-search-to-a-complete-review)
+
 1. [Introduction](#introduction)
 2. [Using Google Scholar](#using-google-scholar)
    1. [Search with Keywords](#search-with-keywords)
@@ -24,6 +28,87 @@
 8. [Additional Resources](#additional-resources)
 
 ---
+
+## From search to a complete review
+
+A request for a survey or literature review needs a synthesized main text, not
+only a candidate table. First read the applicable research and document-presentation
+standards and existing topic documents. For a broad topic, develop an outline
+that states the research questions, boundary/cutoff, mechanism-based taxonomy, representative sources,
+comparison axes and planned diagrams or mathematical abstractions.
+
+Read primary methods and experiments deeply enough to support each central
+comparison. Group papers around a shared problem: explain the mechanism,
+differences, evidence/cost, limits and your current judgment. Show how changing
+research problems led to new approaches. Check recent direct neighbors before
+calling a question unexplored, and distinguish original questions from progress
+available at the reading cutoff.
+
+Unless the supplied standard differs, build the review around scope and
+definitions, the research trajectory, method families, other necessary analysis
+axes, evaluation, synthesis/open questions and references. Reconcile the outline
+and body, then write the executive summary. Keep citation counts and inclusion tiers
+visible in the bibliography while using prose to develop the argument.
+
+Keep the summary focused on conclusions and the body on synthesis. Consolidate
+repeated search, verification and library-maintenance details in existing
+supporting records, retaining brief limits where they affect interpretation.
+Preserve scientific settings and concrete reusable-asset detail.
+
+Before delivery, recheck the external document conventions and read the opening,
+dense passages, figure/table surroundings and references in order. Remove
+repetition and process commentary, and check heading hierarchy, paragraph load
+and emphasis. Report content review, parsing and actual destination-preview
+checks separately, with their real scope. A successful parser or local preview
+does not establish how an uninspected destination displays the document.
+Keep company-specific layout settings external.
+
+Finish with conventional readable reference entries: authors, complete title,
+year/venue or publication status, source version and original link/DOI. Keep
+detailed reading locations and verification notes in the existing table or
+evidence record, without repeating process commentary or bolding every title.
+For a requested compact bibliography, use consecutive entries with explicit
+line breaks rather than blank paragraphs or horizontal rules.
+A value-ranked table is additional guidance; raw URLs or Markdown definitions
+are not a bibliography. Preserve citation identities. Follow the requested body
+style: plain `[n]` is sufficient when number-only markers are requested, with
+links in the bibliography. A bibliography fix need not rewrite body markers.
+Use verified author information without inventing coauthors.
+
+For example: “Using this Skill Tuning review and the supplied literature-review
+standard, update the outline and write a complete review through the stated
+cutoff. Compare mechanisms, experimental evidence, baselines, costs and limits;
+give me the local Markdown first. Do not publish, install skills or run training.”
+An actual review, its supporting outline and disclosed evidence gaps are the
+deliverable; a validation report is supporting material. A narrowly requested
+search can still use the short table below. Review work does not automatically
+authorize reorganizing a paper library or running implementations.
+
+## From paper analysis to reusable research material
+
+Retain the original literature-entry fields: objective, method, contribution,
+data, metrics, results and code, as well as identity/version, citation impact
+and inclusion value. A report outline does not replace them.
+
+For core sources, reuse provided paper-analysis outputs or perform targeted
+close reading to fill the needed gaps. Capture the actual experiment
+configuration and its source location, not just a method label. For example,
+the existing LoRA+ analysis can supply GLUE task/split distinctions,
+RoBERTa/GPT-2/Llama adapter settings, the Flan-v2-to-MMLU data flow, optimizer
+groups and fixed-code limitations. This is reused evidence, not a new execution.
+
+Then connect three levels: explain each study's claims with its conditions;
+compare mechanisms and compatible protocols across studies; consolidate
+concrete Data/Model/Algorithm/Metrics/Baselines/Code resources in the report or
+existing index. Give the resource/configuration, use in each source, entry
+point, proposed reuse and missing prerequisites. Keep paper-run baselines,
+cited results and new proposed controls separate. Shared names do not establish
+identical splits, checkpoints or evaluator versions.
+
+The result should let a researcher choose an experiment and see what blocks
+reuse. Six generic paragraphs or links alone are insufficient. No mandatory
+database, one-note-per-paper rule or automatic execution is introduced. Follow
+the supplied citation style, keeping a mapping to stable source identities.
 
 ## Using material, standards and light evidence
 
@@ -49,9 +134,21 @@ You can access Google Scholar [here](https://scholar.google.com).
 
 ### Citation lookup with Computer Use
 
+Query one paper at a time, verify and save its result, then continue. For a
+sequence, leave at least 15 seconds between new search submissions by default,
+or longer when required. Avoid rapid or parallel Scholar queries. Slower pacing
+does not guarantee access; stop on a CAPTCHA or block and follow the handoff
+rules instead of continuing retries.
+
 For a small number of papers, an available browser/Computer Use tool can search Google Scholar by full title and read “Cited by” from the matching result. Clear the previous query and verify the new one, title, authors and original paper link. Record the observed count, Scholar source link and date in the existing table. Do not use total search hits or add potentially overlapping clusters/citation-only entries. Missing counts stay unknown. A CAPTCHA, rate limit or access block stops the affected lookup; follow the tool's handoff rules rather than bypassing it. This is an optional interactive route when requested or APIs are unavailable, not a bundled browser or a bulk API.
 
 ### Filter Papers
+
+Reconcile the included papers with actual citation lookup coverage. Show each
+count's source and observation date. A retained older count keeps its original
+date; distinguish failed attempts from lookups not attempted after a restriction
+in the supporting record, rather than replacing provenance with batch labels.
+
 - **Number of Citations:** Citation impact is an important signal of influence, especially for foundational work and established methods. Actively seek highly cited papers and show counts prominently with their source and observation date. Assess relevance and contribution alongside impact; account for publication age and field when judging recent work. Unavailable counts are not zero, and overlapping preprint/publication counts must not be added together.
 - **Publication Venue:** Prefer papers published in prestigious venues. You can determine the ranking of these venues using [Google Scholar metrics](https://scholar.google.com/citations?view_op=top_venues&hl=en).
 - **Publication Time:** Match the time window to the question. New work matters for recent advances, while older highly cited work remains central to foundations and historical context.
@@ -101,17 +198,25 @@ For a small number of papers, an available browser/Computer Use tool can search 
 
 ### Inclusion Value Tiers
 
-Use the task's supplied rubric, or default to **A Core**, **B Important**, **C Supplementary**. A papers directly support the central question or essential foundations; B papers fill key comparisons, implementation conditions or relevant candidate routes; C papers supply peripheral detail to revisit when needed. Give a brief reason for each tier. These are task-relative inclusion judgments, not numerical scores, venue ranks or verification levels. Citation impact remains prominent and carries substantial weight for mature work, alongside relevance and dependencies; no fixed citation threshold or tier quota is required.
+Default reading tables to task-relative value order: tier first, then a reasoned
+combination of relevance, knowledge dependencies, citation influence, evidenced
+novelty and recent progress. Mature foundations retain substantial citation
+weight; recent direct neighbors can rank early even with few citations when
+they change the research judgment. Newness alone is not novelty. Explain the
+main choices without adding a numerical score, and preserve citation labels
+and paper identities when sorting. Use date order separately for a timeline.
+
+Use the task's supplied rubric, or default to **A+ Decisive core**, **A Main line**, **A- Necessary support**, **B+ Key comparison**, **B Important reference**, **B- Branch reference**, **C Background**. A+ is reserved for the few works that materially determine the central novelty, method choice or acceptance criteria; A supplies central methods and indispensable foundations; A- closely supports the main line or strongest alternatives. B+ is a specific important comparison or evaluation protocol; B provides useful evidence/assets; B- serves optional branches; C supplies broad context or peripheral detail. Relatedness, recency or a foundational label alone does not put every paper in A. Revisit crowded top bands by role rather than only adding plus signs. Keep citation impact substantial for mature work; use no numerical score, citation-count quantile mapping or grade quota.
 
 Keep **relationship to existing material**, **tier**, **reason**, **reading status** and **citation count/source/date** separate. An existing seed is not automatically A, and a newly found paper is not automatically lower value. Abstract-only judgments remain provisional; insufficient material means pending with a reason, not automatic C.
 
-For a low-rank adaptation composition question, an illustrative list could mark LoRA **A Core** as a necessary foundation, LoraHub **A Core** for its direct combination route, and LoRA+ **C Supplementary** for optimizer detail outside that question's main scope. If the task changes to optimization, reassess those tiers. Record actual citation observations separately, without inventing example counts or implying full-text assessment.
+For a low-rank adaptation composition question, a foundation such as LoRA may be A, a directly relevant composition study may be A or A-, and optimizer detail may be B or B- when it is only a control variable. Reassess these roles when the task changes. Record actual citation observations separately, without inventing counts or implying full-text reading.
 
 Suggested compact columns: **Paper / Citation count (source, date) / Existing-material relationship / Inclusion tier / Reason / Reading status**. An existing Markdown list is sufficient; the spreadsheet suggestions below are optional, not an additional required artifact.
 
 - **Create a Spreadsheet:** A tool to systematically organize and manage your literature collection. To enhance readability and emphasize key concepts, it is recommended to **bold important keywords** throughout the spreadsheet. This can include critical concepts, methods, datasets, evaluation metrics, or any novel contributions. Bolding keywords helps highlight essential information at a glance and makes it easier to quickly reference specific details when revisiting the literature.
   
-- **Suggested Columns (sorted by Date):** 
+- **Suggested Columns (value order by default; date order for timelines):**
 
   - **Title:** The title of the paper, which usually reflects the core research question or contribution.
 
