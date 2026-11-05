@@ -21,6 +21,7 @@ instructions and reference material, so it can be installed independently.
 | [python-environment](skills/python-environment/SKILL.md) | Python environments and troubleshooting | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
 | [pytorch-project](skills/pytorch-project/SKILL.md) | PyTorch training and reproducibility | [English](skills/pytorch-project/references/README.md) / [中文](skills/pytorch-project/references/README_zh.md) |
 | [mongodb-development](skills/mongodb-development/SKILL.md) | MongoDB development workflows | [English](skills/mongodb-development/references/README.md) / [中文](skills/mongodb-development/references/README_zh.md) |
+| [cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | Initialize the Windows runtime, read real memory and perform requested working-set cleanup | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [ZIP](skills/cpu-memory-cleanup.zip) |
 
 ## Tools
 
