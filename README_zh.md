@@ -14,7 +14,7 @@
 | [document-sync](skills/document-sync/SKILL.md) | 按项目规范同步单文档或明确清单，逐份核对基线并保留冲突，目前支持飞书 | [English](skills/document-sync/references/README.md) / [中文](skills/document-sync/references/README_zh.md) |
 | [calendar-meeting-archive](skills/calendar-meeting-archive/SKILL.md) | 接入额外要求，按系列或共享分组归档，复用内容整理与文档交付 | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
 | [git-workflow](skills/git-workflow/SKILL.md) | Git 操作与恢复 | [English](skills/git-workflow/references/README.md) / [中文](skills/git-workflow/references/README_zh.md) |
-| [literature-search](skills/literature-search/SKILL.md) | 文献检索与筛选 | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
+| [literature-search](skills/literature-search/SKILL.md) | 检索筛选文献，形成综述与跨论文可复用研究资产 | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
 | [paper-analysis](skills/paper-analysis/SKILL.md) | 论文精读与分析 | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
 | [research-plan](skills/research-plan/SKILL.md) | 从灵感形成研究计划与实验方案 | [English](skills/research-plan/references/README.md) / [中文](skills/research-plan/references/README_zh.md) |
 | [python-environment](skills/python-environment/SKILL.md) | Python 环境配置与排错 | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
