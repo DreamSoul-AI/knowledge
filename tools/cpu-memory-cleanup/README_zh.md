@@ -10,6 +10,6 @@ Knowledge 维护 [cpu-memory-cleanup Skill](../../skills/cpu-memory-cleanup/SKIL
 
 真实工作集整理仅支持 Windows x64；Linux/macOS 产品包只读，不使用此 Windows 初始化入口。工作集整理不是 CPU 调度或内存压缩算法。安装或更新不采样、不清理、不启用自动规则，同机具备命令权限的 Agent 才可调用。
 
-产品接入脚本已在官方[对应源码提交](https://github.com/DreamSoul-AI/cpu-memory-cleanup/tree/fab1230ed0e63d5afa010b80e240e10b5bd559b0/scripts/agent-skill)，Skill 和 ZIP 以包含它们的 Knowledge 开发分支为准。当前先从云端固定提交重装验证，暂不发布新 Release；普通使用不依赖用户拥有源码仓库。
+从 Knowledge main 或明确指定的提交安装 Skill；产品初始化脚本见官方[初始化入口](https://github.com/DreamSoul-AI/cpu-memory-cleanup/tree/master/scripts/agent-skill)，也包含在产品 Windows ZIP 中。初始化默认解析最新稳定 Release，普通使用不依赖源码仓库。
 
-普通 Skill 使用只通过 stdout 返回结果，不创建任何运行历史文件或 Markdown，不写任何仓库。整理要求原生程序声明 stdout_only 能力并携带 --no-record；旧版不能靠更新 Skill 获得此能力。用户明确要求保存时才传 --output-dir，只有已保存结果可回看。新原生行为目前仅本地构建，尚未发布。
+普通 Skill 使用只通过 stdout 返回结果，不创建任何运行历史文件或 Markdown，不写任何仓库。整理要求原生程序声明 stdout_only 能力并携带 --no-record；旧版不能靠更新 Skill 获得此能力。用户明确要求保存时才传 --output-dir，只有已保存结果可回看。使用前按实际工具目录核对原生无记录能力。

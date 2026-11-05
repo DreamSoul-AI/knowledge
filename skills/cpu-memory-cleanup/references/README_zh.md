@@ -4,7 +4,7 @@
 
 把完整 cpu-memory-cleanup 技能文件夹安装到 Agent 支持的技能目录，保留 SKILL.md、agents 和 references。Codex 可放到 `~/.codex/skills/`，其他 Agent 使用其自身的技能加载方式。技能包只含指令、元数据和说明，不包含脚本或 EXE。
 
-所有可执行代码由 [CPU Memory Cleanup 产品仓库](https://github.com/DreamSoul-AI/cpu-memory-cleanup) 维护。普通用户不需要产品源码仓库、Git 或项目 docs。首次安装从官方已公开产品源码或发布附件取得 install-runtime.ps1 和依赖 release.ps1，核对来源，放到 `%LOCALAPPDATA%/DreamSoul/CPU Memory Cleanup/agent-runtime/setup/`。这是产品代码的安装副本，不属于 Knowledge 代码。开发验证脚本不需要安装。产品接入代码已在官方开发分支，见[对应源码提交](https://github.com/DreamSoul-AI/cpu-memory-cleanup/tree/fab1230ed0e63d5afa010b80e240e10b5bd559b0/scripts/agent-skill)；Skill 安装应使用实际包含该技能的 Knowledge 分支或提交。正式 Release 暂未包含无记录原生能力，不能以旧正式包代替开发构建。
+所有可执行代码由 [CPU Memory Cleanup 产品仓库](https://github.com/DreamSoul-AI/cpu-memory-cleanup) 维护。普通用户不需要产品源码仓库、Git 或项目 docs。首次安装从官方已公开产品源码或发布附件取得 install-runtime.ps1 和依赖 release.ps1，核对来源，放到 `%LOCALAPPDATA%/DreamSoul/CPU Memory Cleanup/agent-runtime/setup/`。这是产品代码的安装副本，不属于 Knowledge 代码。开发验证脚本不需要安装。产品接入代码见官方[初始化代码入口](https://github.com/DreamSoul-AI/cpu-memory-cleanup/tree/master/scripts/agent-skill)；Skill 从 Knowledge main 或明确指定的提交安装，运行时从产品正式 Release 获取。安装 ZIP 同时提供这两个初始化文件，使用者无需克隆源码仓库。
 
 ```powershell
 $setup = Join-Path $env:LOCALAPPDATA 'DreamSoul/CPU Memory Cleanup/agent-runtime/setup/install-runtime.ps1'
@@ -34,6 +34,6 @@ $runtime = & $setup | ConvertFrom-Json
 
 整理前读取实际 --tool-info：result_persistence.default 应为 stdout_only，no_record_option 应为 --no-record。普通命令为 `--tool memory_cleanup --confirm --no-record`，定向和批次也携带 --no-record。缺少此能力的旧正式版不能用于普通无记录整理，不得删参数重试或偷偷保存；更新原生程序与更新 Skill 是两件事。
 
-用户明确要求保存时才使用指定的 --output-dir，和 --no-record 互斥。仅这些已保存结果可通过 memory_result 回看，不自动为回看而落盘。用户提供可信本地候选 EXE 时可先静态核对并在任务内使用，注明真实来源及构建，不能把本地候选称为正式发布。新代码已同步开发分支，尚未发布新 Release；已有正式包仍是旧行为，开发构建需注明来源提交。
+用户明确要求保存时才使用指定的 --output-dir，和 --no-record 互斥。仅这些已保存结果可通过 memory_result 回看，不自动为回看而落盘。用户提供可信本地候选 EXE 时可先静态核对并在任务内使用，注明真实来源及构建，不能把本地候选称为正式发布。正式安装使用产品最新稳定 Release，并按静态目录核对无记录能力；开发构建需注明真实来源提交，不能伪装成正式 Release。
 
 使用者无需源码仓库或项目 docs，不修改 README、开发记录、测试目录或 Git。只有用户另行明确开展产品开发或要求归档时，才处理相应文档与保存目标。
