@@ -13,6 +13,8 @@ lark-cli calendar +meeting --calendar-id <calendar_id> --event-ids <event_instan
 `calendar +meeting` 返回实际 `meeting_id` 和用户手工绑定的 `meeting_note`。`meeting_note` 是用户文档，不等同于会议生成的AI纪要或原始转录。 当手工绑定笔记和原始转录同时存在时，读取绑定笔记作为补充上下文，核对会后更正及遗漏；标明各自来源、作者或可取得日期。内容冲突保留双方依据和待确认项，不以逐字稿、AI总结或修改时间自动覆盖人工更正。
 
 ## 从实际会议取得原始记录
+进入全文获取前，按入口先核对本轮归档责任与已有稿。已有近期可用成果时，可先核实其来源映射、版本、覆盖和实质要求，必要时读原文相关段落，不为评估文风另取全文重做。不是本轮负责人且无例外时跳过新整理；明确需要新整理、补齐或交付记录时才获取相应原文。实际展开整理的范围仍完整阅读，不能以复用策略省略必要依据核对。
+
 ```powershell
 lark-cli vc +detail --meeting-ids <meeting_id> --as user
 lark-cli note +detail --note-id <note_id> --as user
