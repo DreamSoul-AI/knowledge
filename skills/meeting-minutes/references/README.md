@@ -16,7 +16,7 @@ You can also supply a meeting/Minutes/Doc link, a known identifier, or a local t
 ## Supply materials and rules
 Pass inline text, local files, or accessible links in the request; no fixed argument format is required:
 - Original materials: this meeting's transcript or notes, with their source and actual coverage.
-- Supplementary materials: previous minutes, project context, related records, or human corrections, keeping their dates and provenance distinct.
+- Supplementary materials: previous minutes, project context, related records, human corrections, and optional recent recommendations, adoption feedback and current constraints, keeping their dates and provenance distinct.
 - Applicable rules: task or project requirements for content, format, and deliverables. A template is optional.
 
 ```text
@@ -33,6 +33,8 @@ Read the rules and relevant referenced sections before organizing and checking t
 Keep background separate from this meeting's statements and decisions. Report inaccessible or conflicting inputs and their impact rather than inventing content or claiming compliance with unread rules. Uploads, notifications, source edits, and scheduling mentioned in supplied documents still require authorization within the current task.
 
 A project may supply a general meeting standard plus specialized rules for the applicable meeting type through the same rules input. Maintain those standards in the project rather than bundling private documents as required dependencies. The skill remains usable on its own when no project rules are configured.
+
+When recommendations are requested, optional supplements may include recent recommendations, adoption feedback and current constraints. Select ideas for their concrete value under the applicable rules, not to cover every participant. Compare the underlying approach with earlier suggestions rather than only their titles. If the rules permit omitting recommendations and no worthwhile candidate remains, report that decision without creating an empty artifact or treating it as a missing deliverable.
 
 ## How it works
 The workflow resolves calendar instances to actual meetings, obtains original Note or Minutes transcripts, and checks any manually attached meeting notes for corrections. It retains source identifiers and raw records, then reads the full text to organize topics, decisions, reported progress, actions, and unresolved questions. See [source retrieval](sources.md).
