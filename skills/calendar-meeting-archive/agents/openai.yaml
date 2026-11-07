@@ -1,5 +1,5 @@
 interface:
-  display_name: "日历会议归档"
+  display_name: "日历会议归档 Calendar Meeting Archive"
   short_description: "接入额外要求，按系列或分组归档会议，支持定时接续、纪要整理与可选交付"
   default_prompt: "使用 $calendar-meeting-archive 结合本次额外要求与项目配置，逐场核对会议身份、别名、归档分组和适用规范，先复用已有成果，再按明确范围整理与交付。"
 policy:

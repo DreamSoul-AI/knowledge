@@ -24,6 +24,38 @@ def source(*records):
 
 
 class ArchiveTests(unittest.TestCase):
+    def test_goal_context_requires_known_harness_source_and_wrapper(self):
+        for kind, wrapper, counter in [("goal.internal_context", "goal", "injected_context"),
+                                       ("user.goal", "user_goal", "goal_lifecycle_context")]:
+            with self.subTest(kind=kind):
+                injected = message("goal", '<codex_internal_context source="' + wrapper + '">\nstate\n</codex_internal_context>')
+                meta = injected["payload"]["internal_chat_message_metadata_passthrough"]
+                meta.update(content_item_kinds=[kind], content_item_metadata=[{"provenance": {"type": "harness"}}])
+                direct = message("u1", "用户直接谈 goal.internal_context，原话保留。")
+                events, exclusions, _ = archive.extract(source(injected, direct), "session-one")
+                self.assertEqual([e["id"] for e in events], ["u1"])
+                self.assertEqual(events[0]["text"], direct["payload"]["content"][0]["text"])
+                self.assertEqual(exclusions[counter], 1)
+                for changed in [dict(meta, content_item_kinds=[kind, "future.unknown"]),
+                                dict(meta, content_item_metadata=[]),
+                                dict(meta, content_item_metadata=[{"provenance": {"type": "user"}}])]:
+                    injected["payload"]["internal_chat_message_metadata_passthrough"] = changed
+                    with self.assertRaises(ValueError):
+                        archive.extract(source(injected, direct), "session-one")
+                injected["payload"]["internal_chat_message_metadata_passthrough"] = meta
+                injected["payload"]["content"][0]["text"] = "unrecognized wrapper"
+                with self.assertRaises(ValueError):
+                    archive.extract(source(injected, direct), "session-one")
+
+    def test_confirmation_wrapper_is_literal_and_character_exact(self):
+        original = '<send_user_message_question_reply>\n[{"answer":"原话", "escaped":"\\x"}]\n</send_user_message_question_reply>\n'
+        events, _, _ = archive.extract(source(message("u1", original)), "session-one")
+        doc, spans, fenced = archive.render(events, archive.default_summary(), "session-one", "test")
+        self.assertEqual(fenced, ["u1"])
+        span = spans[0]
+        self.assertEqual(doc[span["start"]:span["end"]], original)
+        self.assertIn("```text\n" + original, doc)
+
     def test_explicit_skill_injection_is_not_user_speech(self):
         injected = message("skill-context", "INJECTED_SKILL_INSTRUCTIONS")
         injected["payload"]["internal_chat_message_metadata_passthrough"]["content_item_kinds"] = [

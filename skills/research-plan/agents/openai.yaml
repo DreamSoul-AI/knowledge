@@ -1,4 +1,4 @@
 interface:
-  display_name: "Research Plan"
+  display_name: "研究计划 Research Plan"
   short_description: "Turn research ideas into evidence and experiment plans"
   default_prompt: "Use $research-plan to develop my idea into a concise research plan with literature, hypotheses, and experiments."
