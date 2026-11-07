@@ -1,4 +1,4 @@
 interface:
-  display_name: "Literature Search"
+  display_name: "文献调研 Literature Search"
   short_description: "Search literature, synthesize reviews and reusable assets"
   default_prompt: "Use $literature-search to research my topic using the supplied material and standards, producing the requested review and reusable research-asset synthesis."
