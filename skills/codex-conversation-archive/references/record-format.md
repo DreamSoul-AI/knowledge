@@ -4,6 +4,8 @@
 
 - 只处理 session_meta 确认的指定会话。公开 message 来自 response_item；不同时导出 event_msg 镜像，避免重复。
 - 用户消息通过 `content_item_kinds` 中的 `user.text` 识别。规则注入和环境、打开页面等已知上下文不视为用户原话；显式调用技能产生的 `skills.selected_skill_instructions` 属于系统提供的技能上下文，单独排除，不冒充用户发言。无法识别的用户来源停止并提示，不静默丢弃。
+- Goals 的 `goal.internal_context` 和 `user.goal` 仅在来源为 harness 且正文具有对应 `codex_internal_context` 包装时作为自动上下文排除，并计入 exclusions。直接用户发言仍按 `user.text` 保留，未知类型、混合未知类型、来源或包装不匹配继续停止。
+- 确认回复中的 `send_user_message_question_reply` 包装按字面原文使用 text 代码围栏，避免导入器将其作为 XML 标签移除，标签、反斜杠和换行仍逐字符核对。
 - assistant 的 commentary 属于公开进度，final_answer 属于正式回复。reasoning 不输出。未知 phase 停止。
 - 两种工具调用族 custom_tool_call / function_call 及其 output 按原顺序保留。转达 XML 从 function_call_output 提取 input 和 source_thread_id，保留独立来源与边界，不冒充用户直接发言；不把整段工具返回重复显示为转达正文。
 - 消息正文按 content 分段顺序连接，不 strip、不改链接、不修错别字。附件平台包装单列；用户消息附带的非文字内容仅记录类型，不宣称已取得原始附件。工具图片仅记录类型，不导出 data URL、图片编码或隐藏推理。
