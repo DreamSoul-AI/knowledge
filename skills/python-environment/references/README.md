@@ -1,4 +1,4 @@
-# Setting Up a Python Development Environment with PyCharm and Anaconda
+# Python Environment Management
 
 <h4 align="center">
     <p>
@@ -47,25 +47,43 @@
 ---
 
 ## Introduction
-This tutorial will guide you through setting up a robust Python development environment using PyCharm and Anaconda. We'll cover installation steps for different operating systems, verify your existing Python installations, and configure PyCharm for efficient coding.
+Inspect, prepare and troubleshoot the Python environment for an actual project command. Deliver a verified environment or an evidence-based diagnosis; a diagnosis-only request does not authorize repair. The invocation name remains `python-environment`. Follow existing project tools, versions and environments first; the PyCharm/Anaconda route below is optional background, not a universal installation requirement.
+
+### Use and verify
+See the focused [environment operations reference](environment-operations.md) for manager selection, command side effects and handoff. In particular, `uv run` may synchronize dependencies; a passing `pip check` does not establish native-runtime or application health. For diagnosis, prefer the confirmed existing interpreter without automatic sync or repair.
+
+Optionally supply a project path, interpreter/environment, applicable requirements and target command. Otherwise read the current project's declarations. A useful request is: “Check this project's environment, reuse what exists, run its lightweight tests, and do not install or upgrade dependencies.”
+
+Use the selected interpreter directly to inspect `sys.executable`, `sys.prefix`, `sys.base_prefix`, package import locations and `-m pip --version`. Equal versions or an activation prompt do not establish interpreter identity. Direct invocation selects the interpreter without defaulting to global PATH changes, but Conda or native extensions may still require their runtime setup. See the [Python venv documentation](https://docs.python.org/3/library/venv.html).
+
+Read dependency files before executing them. When pip is appropriate, use the confirmed interpreter's full path with `-m pip`; otherwise follow the project's declared manager. A requirements file can contain builds, editable installs and remote sources, and need not be a complete lock. See the [pip user guide](https://pip.pypa.io/en/stable/user_guide/).
+
+Respect pins, lock semantics and hashes. Do not bypass failure by relaxing versions, disabling checks or installing globally. See [pip hash-checking guidance](https://pip.pypa.io/en/stable/topics/secure-installs/). A failed install is not guaranteed to be transactional: inspect affected packages rather than assuming nothing changed.
+
+For missing or broken environments, distinguish interpreter failure, missing packages, project import paths and IDE/kernel selection. Preserve the old directory and user files; recover separately within the authorized scope or ask before replacement. Prefer declared source-layout/test entry points over unnecessary installation. Report the actual environment, changes, runnable command, result and unresolved limits; a small successful test does not establish all backends or workflows.
+
+### Fill gaps and hand off
+Judge readiness against the target command, separating blocking gaps, optional features and unrelated findings. Reuse a working environment without cleanup or upgrades. Before a needed change, state the evidence, smallest sufficient action, affected scope and verification command; execute within existing authorization through the project's manager and constraints. Do not cherry-pick around a lockfile or install all extras.
+
+Return the environment/manager, cwd and copyable command, actual change or none, observed result and remaining limits. Separate proposals from executed changes and successful execution from diagnosis only. For recreation, reference existing project declarations and locks rather than dumping all shared-environment packages. See the decision and handoff examples in [Environment operations](environment-operations.md).
 
 ## Verify Existing Python Installations
 Before installing new software, check for any existing Python installations to avoid conflicts.
 
 ### Windows
 - Open Command Prompt and type: `python --version` or `py --version`.
-- Check installed Python versions and uninstall unnecessary ones from the Control Panel.
+- Check the interpreter path and required version; preserve installations used by the OS or other projects instead of uninstalling as routine diagnosis.
 
 ### Mac
 - Open Terminal and type: `python --version` or `python3 --version`.
-- To uninstall, remove the Python directories from `/Library/Frameworks/Python.framework/Versions/`.
+- Identify the interpreter and project environment; do not directly delete system or third-party-managed Python directories.
 
 ### Linux
 - Open Terminal and type: `python --version` or `python3 --version`.
-- Use your package manager to uninstall unnecessary Python versions (e.g., `sudo apt-get remove python`).
+- Preserve Python used by the OS and package manager. Prefer an isolated project environment over uninstalling system Python.
 
 ## Install Anaconda
-Install the latest Anaconda distribution, which includes numerous pre-installed libraries and tools for data science.
+Use this route only when the project adopts Conda or the user chooses it. Skip it when a suitable environment already exists; check the required Python version and platform rather than automatically downloading a large distribution or upgrading to the newest release.
 
 ### Download Anaconda
 - Go to the [Anaconda download page](https://www.anaconda.com/products/distribution) and download the installer for your operating system.
@@ -74,16 +92,16 @@ Install the latest Anaconda distribution, which includes numerous pre-installed 
 
 #### Windows
 - Run the downloaded installer.
-- If select "Administrator", then select "Register Anaconda as the system Python" during installation. (recommended)
-- If select "Just Me", then check "Add Anaconda to my PATH environment variable" during installation.
+- Select the installation scope for the actual user and project; do not default to registering system Python or changing global PATH.
+- Keep existing terminal and project defaults unless changing them is within the requested scope.
 - Complete the installation process.
 
 #### Mac
-- Open Terminal and run the downloaded `.sh` script: `bash Anaconda3-2023.03-MacOSX-x86_64.sh` (version number may vary).
+- Select the installer for the actual processor architecture and run `bash` with its downloaded `.sh` filename, not an old release or another architecture's filename.
 - Follow the prompts to complete the installation.
 
 #### Linux
-- Open Terminal and run the downloaded `.sh` script: `bash Anaconda3-2023.03-Linux-x86_64.sh` (version number may vary).
+- Select the installer for the actual OS and processor architecture and run `bash` with its downloaded `.sh` filename.
 - Follow the prompts to complete the installation.
 
 ### Verify Anaconda Installation
@@ -94,10 +112,7 @@ Install the latest Anaconda distribution, which includes numerous pre-installed 
 PyCharm is a powerful IDE specifically designed for Python development.
 
 ### PyCharm Editions
-PyCharm comes in several editions:
-- **Community Edition**: Free and open-source, suitable for pure Python development.
-- **Professional Edition**: Paid version with additional features for web development, database management, and more.
-- **Educational Edition**: Free for educational purposes, includes features included in the Professional Edition. You can learn more and apply for an educational license [here](https://www.jetbrains.com/community/education/#students).
+Check the current product and licensing information on the [official download page](https://www.jetbrains.com/pycharm/download/) rather than treating historical edition names as current requirements. An existing suitable editor is sufficient.
 
 ### Download PyCharm
 - Go to the [PyCharm download page](https://www.jetbrains.com/pycharm/download/) and download the appropriate edition for your operating system.
@@ -127,7 +142,7 @@ Create a new project or open an existing one.
 - Choose `System Environment` or `Conda Environment` and specify the path to your Anaconda installation.
 
 ### Configure Terminal for Conda
-- If the `(base)` prefix does not appear in front of the command prompt, set the default terminal to Conda by going to `File` > `Settings` > `Tools` > `Terminal` and setting the shell path to the Conda terminal executable.
+- For a Conda project, check that the terminal and IDE use the intended environment. A missing `(base)` prefix alone is not a reason to change the default shell. Menu names vary; select the actual project interpreter rather than relying on a fixed menu path.
 
 ## Exclude Data and Output Folders
 
@@ -233,10 +248,10 @@ These methods offer a range of options for debugging, from quick checks with `pr
 
 ## Additional Tips
 - **Using Terminal Instead of PyCharm Runner**:
-  - It's recommended to use the Terminal for running scripts to avoid issues with the built-in runner.
+  - Terminal, IDE runner and Notebook are all valid entry points. Diagnose their interpreter, working directory, environment variables and kernel separately instead of disabling one by default.
   
 - **Code Navigation**:
-  - One of the advantages of using PyCharm over VSCode is the ability to navigate to definitions with `Ctrl + Left Click`.
+  - Use navigation, completion and debugging supported by the chosen editor and extensions; a shortcut is not a reason to change environment managers.
 
 - **Educational Licenses**:
-  - If you're a student or educator, you can apply for a free educational license for PyCharm Professional Edition through the JetBrains website [here](https://www.jetbrains.com/community/education/#students
+  - Check current eligibility and terms on the JetBrains [education page](https://www.jetbrains.com/community/education/#students).
