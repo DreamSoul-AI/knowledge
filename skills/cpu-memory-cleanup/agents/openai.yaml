@@ -1,4 +1,4 @@
 interface:
-  display_name: "CPU 内存清理"
+  display_name: "CPU 内存清理 CPU Memory Cleanup"
   short_description: "初始化 Windows 内存整理工具，读取真实状态并按请求执行工作集整理"
   default_prompt: "使用 $cpu-memory-cleanup 查看真实内存，并按我本次指定的范围整理一次。"

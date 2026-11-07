@@ -40,6 +40,26 @@ def public_output(value):
             else {"type": part.get("type"), "omitted": "non-text content"} for part in value]
 
 
+def known_goal_context(payload, meta, kinds):
+    """Recognize harness-origin goal context without discarding unknown user records."""
+    wrappers = {"goal.internal_context": "goal", "user.goal": "user_goal"}
+    if len(kinds) != 1 or not kinds <= wrappers.keys():
+        return None
+    provenance = meta.get("content_item_metadata", [])
+    if not provenance or any(item.get("provenance", {}).get("type") != "harness"
+                             for item in provenance):
+        return None
+    content = payload.get("content", [])
+    if not content or any(part.get("type") != "input_text" for part in content):
+        return None
+    text = "".join(part.get("text", "") for part in content).strip()
+    source_kind = next(iter(kinds))
+    if not (text.startswith('<codex_internal_context source="' + wrappers[source_kind] + '">')
+            and text.endswith("</codex_internal_context>")):
+        return None
+    return "injected_context" if source_kind == "goal.internal_context" else "goal_lifecycle_context"
+
+
 def extract(data, session_id, through_id=None):
     events, excluded, warnings = [], Counter(), []
     session_seen = cutoff_found = False
@@ -68,6 +88,9 @@ def extract(data, session_id, through_id=None):
                 kinds = set(meta.get("content_item_kinds", []))
                 if "user.text" in kinds:
                     selected = "user"
+                elif known_goal_context(p, meta, kinds):
+                    excluded[known_goal_context(p, meta, kinds)] += 1
+                    selected = None
                 elif kinds and kinds <= CONTEXT_KINDS:
                     excluded["injected_context"] += 1
                     selected = None
@@ -171,6 +194,8 @@ def conflicts(text):
             continue
         if marker:
             continue
+        if line.strip() in {"<send_user_message_question_reply>", "</send_user_message_question_reply>"}:
+            return True
         if re.match(r"^ {0,3}#{1,4}(?:\s|$)", line):
             return True
         if previous.strip() and re.fullmatch(r" {0,3}(?:=+|-+)\s*", line):
