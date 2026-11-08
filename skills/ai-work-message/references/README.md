@@ -1,5 +1,5 @@
 # AI work updates
-Prepare complete, usable work messages from the specified conversation and feedback, completing necessary research and internal checks before delivery. Aim to get the message right the first time. Multiple boards may need multiple versions delivered together; there is no fixed count or structure.
+Prepare usable work messages from the specified conversation and feedback. Complete necessary research and checks, then select and refine the text around what the reader needs to understand, decide or do about the current change. Aim to get the message right the first time. Multiple boards may need multiple versions delivered together; there is no fixed count or structure.
 Without publication authorization, show complete message text. When sending or updating is authorized, save it to the intended location, then read the actual saved content to check the wording, links, date, recipients and author. Do not ask for the same authorization again. Later scope restrictions take precedence.
 Keep the opening short and concrete, leading with the matter or result the reader most needs to know rather than adding a stock introduction. Use semicolons sparingly without banning them. Let meaning guide sentence breaks instead of mechanically splitting sentences to shorten the opening or avoid semicolons.
 
@@ -13,7 +13,9 @@ Use the board's display-name rules and a verified mapping between the person's f
 
 Retain the board's actual heading structure. Where H3 identifies the recipient and H4 distinguishes senders, a fixed two-person board may use H3 alone. Place the message directly beneath it without adding H4 or a redundant signature. Verify the actual sender, but do not treat an intentionally unused heading level as missing information. Other boards retain their own conventions.
 
-Keep messages concise, fluent and easy to read so readers can quickly find useful information, retaining the core matter, concrete changes, necessary status and real material links. Expand only details that affect the reader's understanding or action, leaving the rest in the linked material. Parallel matters may use short bullets without becoming vague or imposing fixed counts, length limits, or scenario templates.
+Keep messages concise, fluent and easy to read so readers can quickly find useful information, retaining the core matter, concrete changes, necessary status and real material links. Expand only details that affect the reader's understanding or action, leaving the rest in the linked material. When the reader needs to act or choose, give the objective and a feasible approach directly, keeping conditions that would change the choice. Explain the purpose and scope of relevant limits, including which parts the task or project may adapt. Parallel matters may use short bullets, keeping each item concrete and retaining necessary status. Let the reader's needs determine the length and organization.
+
+Before delivering the first independently drafted version, edit it from the recipient's perspective. Combine repeated points and the materials belonging to one matter; retain the change, necessary action, real links and conditions that affect the reader's judgment. Leave detailed methods and verification history in the linked material. Add a purpose or request only when the text, prior context or priority label does not already convey it.
 
 Install the entire `ai-work-message` directory, then ask:
 ```text
