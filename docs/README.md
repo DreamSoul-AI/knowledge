@@ -9,5 +9,6 @@
 | 中文安装与技能指南 | [README_zh.md](../README_zh.md) |
 | 技能目录 | [skills](../skills/) |
 | 工具目录 | [tools](../tools/) |
+| 开发与验证 | [开发与验证](<开发 Development/README.md>) |
 
 现行设计与计划从对应入口维护。历史开发、运行证据和研究素材按原有记录定位，保留实际日期、版本及证据来源。
