@@ -130,7 +130,7 @@ evidence only when those actions are requested. Keep enough code, data/model,
 configuration, environment, command, and result information to revisit important
 findings; choose recording detail for the study rather than a fixed checklist.
 
-Read the [English guide and template](references/README.md) or
-[Chinese guide and template](references/README_zh.md) when drafting a full plan,
+Read the Research Plan Standard and its template in [English](references/README.md)
+or [Chinese](references/README_zh.md) when drafting a full plan,
 reviewing method choices, or needing the methodological sources. These are
 self-contained; adjacent skills are optional, not installation dependencies.

@@ -1,4 +1,4 @@
-# 研究计划
+# 研究计划规范
 
 [English](README.md) | **中文**
 
@@ -15,9 +15,35 @@ Agent 在浏览资料、听人讲述经历或分析研究证据时，也要主�
 
 ### 研究怎样推进
 
-![研究过程与实验过程。灵感可以在任一步骤接入。研究缺口沿「调整问法」返回初步问题。结论向下整理为成果，向右沿「补查文献」「修订问题」「修正假设」「补充实验」四条回线分别返回文献调研、研究问题、假设和实验设计。](research-flow.png)
+![研究过程与实验过程。灵感可以在任一步骤接入。研究缺口沿「调整问法」返回初步问题。结论向下整理为成果，向右沿「补查文献」「修订问题」「修正假设」「补充实验」四条回线分别返回文献调研、研究问题、假设和实验设计。](research-flow.svg)
 
-[直接打开流程图](research-flow.png) · [查看 SVG 源图](research-flow.svg)
+[打开 SVG 流程图](research-flow.svg)
+
+<details>
+<summary>查看 Mermaid 版</summary>
+
+```mermaid
+flowchart TD
+    inspiration["灵感"] --> initial
+    subgraph research["研究过程"]
+        initial["初步问题"] --> literature["文献调研"] --> gap["研究缺口"] --> question["研究问题"]
+        subgraph experiment["实验过程"]
+            hypothesis["假设"] --> design["实验设计"]
+            design --> thought["思想实验"] --> analysis["分析"]
+            design --> empirical["实际实验"] --> analysis
+            analysis --> conclusion["结论"]
+        end
+        question --> hypothesis
+    end
+    conclusion --> output["成果"]
+    gap -. 调整问法 .-> initial
+    conclusion -. 补查文献 .-> literature
+    conclusion -. 修订问题 .-> question
+    conclusion -. 修正假设 .-> hypothesis
+    conclusion -. 补充实验 .-> design
+```
+
+</details>
 
 1. **查清已有证据，界定研究问题。** 先查文献和已有实验记录。现有证据足以回答初步问题，就写出答案和适用范围。还有值得追的缺口，就把它收窄成一个可以验证的研究问题。
 2. **设计验证，形成结论。** 写清什么观察会支持或反驳假设。思想实验和实际实验可以择一、并行或接续。探索性研究可以先收集证据，再提出假设。分析后说明证据支持到哪一步，还有哪些不确定。
