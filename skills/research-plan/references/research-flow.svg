@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="886" viewBox="0 0 680 886" role="img" aria-labelledby="title desc">
+<title id="title">研究过程与实验过程</title>
+<desc id="desc">灵感可以在任一步骤接入。研究缺口从左侧返回初步问题，调整问法。结论向下整理为成果。右侧四条回线分别是补查文献（返回文献调研）、修订问题（返回研究问题）、修正假设（返回假设）、补充实验（返回实验设计）。</desc>
+<defs>
+<marker id="forward" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#475569"/></marker>
+<marker id="return" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#566c98"/></marker>
+</defs>
+<style>
+text { font: 16px "Microsoft YaHei", "PingFang SC", sans-serif; fill:#1e293b; text-anchor:middle; dominant-baseline:middle }
+.heading { font-weight:700; text-anchor:start }
+.note { font-size:14px; fill:#405782 }
+.step { fill:white; stroke:#94a3b8 }
+.main { fill:none; stroke:#475569; stroke-width:1.5; marker-end:url(#forward) }
+.feedback { fill:none; stroke:#566c98; stroke-width:1.5; stroke-dasharray:5 4; stroke-linejoin:round }
+</style>
+<rect width="680" height="886" fill="white"/>
+<rect x="113" y="78" width="398" height="727" rx="14" fill="#f8fafc" stroke="#aab8ca"/>
+<rect x="133" y="408" width="358" height="380" rx="12" fill="#edf4ff" stroke="#86a5ce"/>
+<text class="heading" x="131" y="102">研究过程</text>
+<text class="heading" x="151" y="433">实验过程</text>
+<rect x="249" y="17" width="126" height="40" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="4 3"/>
+<text x="312" y="37" style="font-weight:700">灵感</text>
+<path class="main" d="M312 57 V76"/>
+
+<path class="main" d="M312 167 V195"/>
+<path class="main" d="M312 237 V265"/>
+<path class="main" d="M312 307 V335"/>
+<path class="main" d="M312 377 V452"/>
+<path class="main" d="M312 494 V522"/>
+<path class="main" d="M312 704 V726"/>
+<path class="main" d="M312 768 V822"/>
+<path class="main" d="M312 564 V578 H221 V592"/>
+<path class="main" d="M221 634 V647 H312 V662"/>
+<path class="main" d="M312 564 V578 H403 V592"/>
+<path class="main" d="M403 634 V647 H312 V662"/>
+<path class="feedback" marker-end="url(#return)" d="M249 286 H65 V146 H249"/>
+<text class="note" x="65" y="124">调整问法</text>
+<path class="feedback" d="M375 747 H565 V216"/>
+<g id="return-to-literature">
+  <path class="feedback" marker-end="url(#return)" d="M565 216 H375"/>
+  <text class="note" x="452" y="201">补查文献</text>
+</g>
+<g id="return-to-question">
+  <path class="feedback" marker-end="url(#return)" d="M565 356 H375"/>
+  <text class="note" x="452" y="341">修订问题</text>
+</g>
+<g id="return-to-hypothesis">
+  <path class="feedback" marker-end="url(#return)" d="M565 473 H375"/>
+  <text class="note" x="452" y="458">修正假设</text>
+</g>
+<g id="return-to-experiment-design">
+  <path class="feedback" marker-end="url(#return)" d="M565 543 H375"/>
+  <text class="note" x="452" y="528">补充实验</text>
+</g>
+
+<rect class="step" x="249" y="125" width="126" height="42" rx="7"/><text x="312" y="146">初步问题</text>
+<rect class="step" x="249" y="195" width="126" height="42" rx="7"/><text x="312" y="216">文献调研</text>
+<rect class="step" x="249" y="265" width="126" height="42" rx="7"/><text x="312" y="286">研究缺口</text>
+<rect class="step" x="249" y="335" width="126" height="42" rx="7"/><text x="312" y="356">研究问题</text>
+<rect class="step" x="249" y="452" width="126" height="42" rx="7"/><text x="312" y="473">假设</text>
+<rect class="step" x="249" y="522" width="126" height="42" rx="7"/><text x="312" y="543">实验设计</text>
+<rect class="step" x="249" y="662" width="126" height="42" rx="7"/><text x="312" y="683">分析</text>
+<rect class="step" x="249" y="726" width="126" height="42" rx="7"/><text x="312" y="747">结论</text>
+<rect class="step" x="249" y="822" width="126" height="42" rx="7"/><text x="312" y="843">成果</text>
+<rect class="step" x="158" y="592" width="126" height="42" rx="7"/><text x="221" y="613">思想实验</text>
+<rect class="step" x="340" y="592" width="126" height="42" rx="7"/><text x="403" y="613">实际实验</text>
+</svg>

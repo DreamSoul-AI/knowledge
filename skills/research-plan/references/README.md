@@ -9,20 +9,61 @@ describe what was actually done, and support conclusions with traceable evidence
 AI checks should identify consequential gaps, not block progress because fields
 remain empty. Choose the detail and precision for the research question.
 
-## From inspiration to evidence
+## From inspiration to research outputs
 
-**Inspiration → literature review → research question and hypothesis → coordinated
-data, model, algorithm, metric, and experiment choices → execution and analysis →
-conclusions and new ideas.**
+### Where to start
 
-An inspiration may be an anomaly, practical difficulty, conjecture, or question
-about an existing explanation. Record its origin and use a preliminary question
-to search. Literature then helps refine the question, assess novelty, identify
-alternatives, and decide whether to continue, revise, or set the idea aside.
-Ideas can also emerge from reading and experiments. This is an iterative working
-convention rather than a universal fixed order. Ackermann et al. [1] discuss the
-idea-to-question transition; Cohen and Howe [2] discuss evaluation throughout AI
-research; Forde and Paganini [3] emphasize hypothesis testing and uncertainty.
+**Inspiration can strike at any moment in everyday life.** A conversation, a
+small frustration, or a surprise can be a starting point. Note what happened,
+what caught your attention, and what you want to understand. An idea that comes
+up later can enter at the step where it matters.
+
+An agent should also look for leads while browsing, listening to people describe
+their experiences, or examining research evidence. When an observation, conflict,
+or connection stands out, propose an initial question, explain where it came
+from, and suggest a first check.
+
+### How research progresses
+
+![Research flow from an initial question to an output. Thought experiments and empirical experiments both feed into analysis. A research gap can prompt a rephrased question. From the conclusion, revisit the literature, revise the question or hypothesis, or add experiments.](research-flow-en.png)
+
+[Open the diagram](research-flow-en.png) · [View the SVG source](research-flow-en.svg)
+
+1. **Review existing evidence and define the research question.** Check the
+   literature and previous experiments. If the evidence answers the initial
+   question, state the answer and where it applies. If a worthwhile gap remains,
+   narrow it into a research question you can investigate.
+2. **Plan the test and draw a conclusion.** State what would support or challenge
+   the hypothesis. Choose a thought experiment or an empirical experiment, or
+   use both in parallel or in sequence. An exploratory study can gather evidence
+   before forming a hypothesis. Explain what the evidence supports and what
+   remains uncertain.
+3. **Turn the conclusion into an output.** Put the conclusion and its evidence
+   in a paper, a research report, or code with a record of how it was verified.
+   If you pause the study, keep its results and open questions.
+
+### When to go back
+
+- **Reframe the question.** If the current question reveals no worthwhile gap
+  but the observation still calls for an explanation, try a different angle.
+- **Revisit the literature.** Go back when you find overlooked work or when a
+  result conflicts with prior findings.
+- **Revise the question.** Refine the scope when it is too broad or when the
+  evidence points to a more specific question.
+- **Revise the hypothesis.** Reconsider the explanation when you find a
+  counterexample or a better explanation.
+- **Add experiments.** Return to the design when the evidence cannot distinguish
+  competing explanations or the measurements need improvement.
+
+When you go back, note what prompted the change and what to check next. Steps can
+be combined or expanded, and several lines of inquiry can run in parallel or in
+sequence.
+
+For an existing study, start with its current plan and applicable standards. The
+user may also supply literature reviews, paper analyses, prior results, and resource
+constraints. Trace decisive claims back to the paper, configuration, or run record.
+Focus additional reading on gaps that affect the decision. Preserve confirmed
+priorities and distinguish completed work, remaining work, and proposed changes.
 
 ## Connect the six aspects
 
@@ -117,6 +158,8 @@ measurement implementation/conditions, uncertainty and decision criteria.
 # Experimental design
 For each experiment: question, treatment/control, varied/fixed conditions,
 data, metrics, repetition/analysis, budget, and interpretation.
+For decisive comparisons, state which results would support the hypothesis,
+count against it, or leave it unresolved.
 Small checks, baseline readiness, tuning/test separation, confounders.
 Representative reproduction: main target/trend, source, key conditions,
 observed gap and next step. Numerical tolerances only where the claim needs them.
