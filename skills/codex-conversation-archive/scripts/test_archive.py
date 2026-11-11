@@ -24,6 +24,83 @@ def source(*records):
 
 
 class ArchiveTests(unittest.TestCase):
+    def test_known_internal_metadata_is_excluded_and_unknown_shape_stops(self):
+        config = {"type": "response_item", "payload": {"type": "configuration_update", "reasoning": {"effort": "high"}}}
+        agent = {"type": "response_item", "payload": {
+            "type": "agent_message", "author": "/root/review", "recipient": "/root",
+            "content": [{"type": "input_text", "text": "INTERNAL_SENTINEL"}],
+            "internal_chat_message_metadata_passthrough": {
+                "content_item_metadata": [{"provenance": {"type": "tool", "namespace": "collaboration"}}]}}}
+        events, excluded, _ = archive.extract(source(config, agent, message("u", "用户原话")), "session-one")
+        self.assertEqual([e["id"] for e in events], ["u"])
+        self.assertEqual(excluded, {"configuration_update": 1, "agent_message": 1})
+        config["payload"]["unexpected"] = "unknown"
+        with self.assertRaises(ValueError):
+            archive.extract(source(config, message("u", "用户原话")), "session-one")
+        agent["payload"]["internal_chat_message_metadata_passthrough"] = {}
+        with self.assertRaises(ValueError):
+            archive.extract(source(agent, message("u", "用户原话")), "session-one")
+        page = message("page", "SELECTED_PAGE_CONTEXT")
+        page["payload"]["internal_chat_message_metadata_passthrough"]["content_item_kinds"] = [
+            "additional_content.codex_apps_selected_page_part_1_of_1"]
+        events, excluded, _ = archive.extract(source(page, message("u", "用户原话")), "session-one")
+        self.assertEqual([e["id"] for e in events], ["u"])
+        self.assertEqual(excluded["injected_context"], 1)
+
+    def test_timestamps_native_duration_and_original_text(self):
+        user = dict(message("u1", "# 原始标题\n原话不变。\n"), timestamp="2026-11-10T16:01:02.345Z")
+        extra = dict(message("u2", "中途补充"), timestamp="2026-11-10T16:01:03Z")
+        final = dict(message("a1", "正式回复", "assistant", "final_answer"), timestamp="2026-11-10T16:02:02Z")
+        def task(kind, **values):
+            return {"type": "event_msg", "timestamp": "2026-11-10T16:02:02Z",
+                    "payload": dict(type=kind, turn_id="t1", started_at=100, **values)}
+        data = source(task("task_started"), user, extra, final,
+                      task("task_complete", duration_ms=60501), message("u3", "下一轮"))
+        events, _, _ = archive.extract(data, "session-one")
+        timing, warnings = archive.collect_timing(data, events, "+08:00")
+        self.assertEqual(timing["messages"]["u1"]["display"], "2026-11-11 00:01:02")
+        self.assertEqual(timing["messages"]["a1"]["display"], "2026-11-11 00:02:02 · 本轮耗时 1 分 01 秒")
+        doc, spans, _ = archive.render(events, archive.default_summary(), "session-one", "test", timing)
+        self.assertIn("## 用户\n\n*2026-11-11 00:01:02*\n\n```text", doc)
+        originals = {e["id"]: e["text"] for e in events}
+        for span in spans:
+            self.assertEqual(doc[span["start"]:span["end"]], originals[span["id"]])
+        self.assertTrue(warnings)  # u3 has no source timestamp.
+        utc, _ = archive.collect_timing(data, events, "+00:00")
+        self.assertEqual(utc["messages"]["u1"]["display"], "2026-11-10 16:01:02")
+
+    def test_missing_and_ambiguous_times_are_not_invented(self):
+        for stamp in [None, "invalid", "2026-11-11T12:00:00"]:
+            data = source(dict(message("u1", "原话"), timestamp=stamp),
+                          message("a1", "回复", "assistant", "final_answer"))
+            events, _, _ = archive.extract(data, "session-one")
+            timing, warnings = archive.collect_timing(data, events, "+08:00")
+            self.assertEqual(timing["messages"]["u1"]["display"], "时间未记录")
+            self.assertEqual(timing["messages"]["a1"]["display"], "时间未记录 · 本轮耗时未记录")
+            self.assertEqual(len(warnings), 2)
+        for offset in ["08:00", "+24:00", "+08:60"]:
+            with self.assertRaises(ValueError):
+                archive.display_timezone(offset)
+
+    def test_timing_cutoff_and_aborted_turn(self):
+        started = {"type": "event_msg", "payload": {"type": "task_started", "turn_id": "t1", "started_at": 100}}
+        final = message("a1", "回复", "assistant", "final_answer")
+        ended = {"type": "event_msg", "timestamp": "2026-11-11T01:00:00Z",
+                 "payload": {"type": "task_complete", "turn_id": "t1", "started_at": 100, "duration_ms": 9000}}
+        data = source(started, message("u1", "问题"), final, ended)
+        events, _, _ = archive.extract(data, "session-one", "a1")
+        timing, _ = archive.collect_timing(data, events, "+08:00")
+        self.assertNotIn("duration_ms", timing["messages"]["a1"])
+        ended["payload"]["type"] = "turn_aborted"
+        data = source(started, message("u1", "问题"), message("u2", "追加问题"), ended, message("u3", "接续"))
+        events, _, _ = archive.extract(data, "session-one")
+        timing, _ = archive.collect_timing(data, events, "+08:00")
+        self.assertNotIn("duration_ms", timing["messages"]["u1"])
+        self.assertIn("本轮中断于 2026-11-11 09:00:00，耗时 9 秒", timing["messages"]["u2"]["display"])
+        ended["payload"]["duration_ms"] = -1
+        with self.assertRaises(ValueError):
+            archive.collect_timing(source(started, ended, message("u", "问题")), events, "+08:00")
+
     def test_goal_context_requires_known_harness_source_and_wrapper(self):
         for kind, wrapper, counter in [("goal.internal_context", "goal", "injected_context"),
                                        ("user.goal", "user_goal", "goal_lifecycle_context")]:
