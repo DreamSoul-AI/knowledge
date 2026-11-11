@@ -11,29 +11,49 @@ constraints, and implementation before changing them. Preserve the user's scope:
 planning alone does not authorize training, data collection, publishing, or
 external repository changes.
 
+## Starting materials
+
+Use the current plan and applicable project standards when available. The user may also
+supply a literature review, paper analyses, prior results, or constraints on the scope
+and resources. Trace decisive claims to the underlying paper, configuration, or run
+record as appropriate. Record evidence gaps that affect the decision and focus any
+additional reading on those gaps. A new idea can start with the evidence at hand.
+
 ## Workflow
 
 Use this workflow as adaptable prompts, not mandatory gates. Combine or omit
 sections that do not help the study. When information is missing, decide whether
 to investigate, note a limitation, or continue; do not stall just to fill a template.
 
-1. Record the inspiration: an observation, practical difficulty, conjecture, or
-   disagreement with an explanation. Capture its source and a preliminary
-   question without assuming novelty or feasibility.
+1. Notice what sparks a question. Inspiration can come at any moment in everyday
+   life. Draw on experiences people describe, and look actively for surprises,
+   contradictions, and connections while browsing or examining research evidence.
+   Propose preliminary questions and new research directions as leads emerge.
+   Record what sparked each idea and how to investigate it.
 2. Review relevant literature and competing explanations. Extract the data,
    models, algorithms, metrics, and validation conditions of decisive work.
    State the search scope, actual reading depth, and unresolved evidence gaps.
 3. Refine the research question, scope, contribution, and mechanism hypothesis.
    Identify observations that would count against it. Exploratory studies may
    start with questions; distinguish hypothesis discovery from later testing.
+   Record which part remains open after reviewing the evidence. Mark novelty as
+   unverified when the nearest work has not been checked.
 4. Coordinate the six aspects below. They are planning dimensions, not an
    irreversible sequence. Revisit earlier choices when evidence changes them.
 5. Define the smallest informative validation plan, resource needs, decision
-   criteria, and execution order. Leave consequential unknowns explicit rather
-   than inventing budgets, owners, dates, thresholds, or results.
+   criteria, and execution order. For each decisive comparison, name what changes,
+   what stays fixed, and which result would support the claim, count against it, or
+   leave it unresolved. Leave budgets, owners, dates, thresholds, and results open
+   where evidence or decisions are missing.
 6. Deliver or update the plan in the requested format. For execution follow-up,
    compare actual runs with the protocol, retain failures and negative results,
    and record amendments, conclusion boundaries, and new questions.
+
+When revising a plan, preserve confirmed priorities and distinguish completed work,
+remaining work, and proposed changes. Revisit the literature when a relevant source
+or conflict appears, refine the question when the scope changes, revise the hypothesis
+when evidence challenges its mechanism, and add experiments when current evidence
+cannot distinguish explanations. Briefly record what prompted the revision.
 
 ## Six connected aspects
 
