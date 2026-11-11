@@ -129,3 +129,5 @@ scripts/
 
 !skills/document-sync/scripts/
 !skills/document-sync/scripts/*.py
+
+/USER.md

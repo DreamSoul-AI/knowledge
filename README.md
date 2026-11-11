@@ -61,6 +61,8 @@ optional further reading, not required local dependencies.
 
 ## Repository maintenance
 
+See [repository conventions](REPO.md) and the [engineering document index](docs/README.md) for maintenance.
+
 Repository: [DreamSoul-AI/knowledge](https://github.com/DreamSoul-AI/knowledge). Read [AGENTS.md](AGENTS.md) for repository maintenance and shared-reference discovery. These rules govern maintainers; installing a skill does not require access to DreamSoul private documents.
 
 This repository distributes Markdown instructions, YAML metadata and bundled scripts. Runtime requirements and checks belong to each skill or tool guide; there is no single repository-wide install, build or test command. Keep guides, scripts, references and licenses together.
