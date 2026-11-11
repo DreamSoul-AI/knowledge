@@ -2,6 +2,7 @@
 
 import argparse
 from collections import Counter
+from datetime import datetime, timedelta, timezone
 import hashlib
 import json
 import os
@@ -81,6 +82,17 @@ def extract(data, session_id, through_id=None):
         event = None
         if kind in {"reasoning", "additional_tools"}:
             excluded[kind] += 1
+        elif kind == "configuration_update" and set(p) <= {"type", "reasoning"} and isinstance(p.get("reasoning"), dict):
+            excluded[kind] += 1
+        elif kind == "agent_message":
+            meta = p.get("internal_chat_message_metadata_passthrough") or {}
+            provenance = meta.get("content_item_metadata", [])
+            if (not provenance or not p.get("author", "").startswith("/root")
+                    or not p.get("recipient", "").startswith("/root")
+                    or any(item.get("provenance") != {"type": "tool", "namespace": "collaboration"}
+                           for item in provenance)):
+                raise ValueError(f"Unknown internal agent-message provenance at line {number}")
+            excluded[kind] += 1
         elif kind == "message":
             role, phase = p.get("role"), p.get("phase")
             meta = p.get("internal_chat_message_metadata_passthrough") or {}
@@ -91,7 +103,9 @@ def extract(data, session_id, through_id=None):
                 elif known_goal_context(p, meta, kinds):
                     excluded[known_goal_context(p, meta, kinds)] += 1
                     selected = None
-                elif kinds and kinds <= CONTEXT_KINDS:
+                elif kinds and all(k in CONTEXT_KINDS or re.fullmatch(
+                        r"additional_content\.codex_apps_selected_page_part_[1-9]\d*_of_[1-9]\d*", k)
+                        for k in kinds):
                     excluded["injected_context"] += 1
                     selected = None
                 else:
@@ -163,6 +177,106 @@ def check_increment(old, new):
     return len(new) - len(old)
 
 
+def display_timezone(offset):
+    if not re.fullmatch(r"[+-]\d{2}:\d{2}", offset):
+        raise ValueError("UTC offset must use +HH:MM or -HH:MM")
+    hours, minutes = map(int, offset[1:].split(":"))
+    if hours > 23 or minutes > 59:
+        raise ValueError("Invalid UTC offset")
+    delta = timedelta(hours=hours, minutes=minutes)
+    return timezone(delta if offset[0] == "+" else -delta)
+
+
+def message_time(stamp, zone):
+    if not isinstance(stamp, str):
+        return None
+    try:
+        value = datetime.fromisoformat(stamp.replace("Z", "+00:00"))
+        if value.tzinfo is None:
+            return None
+        return value.astimezone(zone).strftime("%Y-%m-%d %H:%M:%S")
+    except (ValueError, OverflowError):
+        return None
+
+
+def duration_text(milliseconds):
+    seconds = (milliseconds + 500) // 1000
+    hours, remaining = divmod(seconds, 3600)
+    minutes, seconds = divmod(remaining, 60)
+    if hours:
+        return f"{hours} 小时 {minutes:02d} 分 {seconds:02d} 秒"
+    if minutes:
+        return f"{minutes} 分 {seconds:02d} 秒"
+    return f"{seconds} 秒"
+
+
+def collect_timing(data, events, utc_offset):
+    """Read lifecycle metadata only through the same public-record cutoff."""
+    zone = display_timezone(utc_offset)
+    needed = {e["source_line"]: e for e in events if e["kind"] in {"user", "final_answer"}}
+    messages, tasks, warnings = {}, {}, []
+    active = None
+    prefix = hashlib.sha256()
+    cutoff_line = events[-1]["source_line"]
+    for number, line in enumerate(data.splitlines(keepends=True), 1):
+        if number > cutoff_line:
+            break
+        prefix.update(line)
+        row = json.loads(line)
+        payload = row.get("payload") or {}
+        kind = payload.get("type")
+        if row.get("type") == "event_msg" and kind == "task_started":
+            active = payload.get("turn_id")
+            if active:
+                if active in tasks:
+                    raise ValueError("Repeated task_started for the same turn")
+                tasks[active] = {"started": row.get("timestamp"), "started_epoch": payload.get("started_at")}
+        elif row.get("type") == "event_msg" and kind in {"task_complete", "turn_aborted"}:
+            turn_id = payload.get("turn_id")
+            task = tasks.get(turn_id)
+            duration = payload.get("duration_ms")
+            if task is not None:
+                if ("ended" in task or task["started_epoch"] != payload.get("started_at")
+                        or type(duration) is not int or duration < 0):
+                    raise ValueError("Inconsistent native turn timing")
+                task.update(ended=row.get("timestamp"), duration_ms=duration,
+                            status="complete" if kind == "task_complete" else "aborted")
+            if turn_id == active:
+                active = None
+        if number in needed:
+            event = needed[number]
+            if payload.get("id") != event["id"] or row.get("timestamp") != event["recorded_timestamp"]:
+                raise ValueError("Timeline does not match archived message")
+            messages[event["id"]] = {"turn_id": active, "source_line": number,
+                                      "recorded_timestamp": event["recorded_timestamp"], "kind": event["kind"]}
+    finals = Counter(m["turn_id"] for m in messages.values() if m["kind"] == "final_answer")
+    last_users = {m["turn_id"]: identifier for identifier, m in messages.items() if m["kind"] == "user"}
+    for identifier, entry in messages.items():
+        stamp = message_time(entry["recorded_timestamp"], zone)
+        entry["display"] = stamp or "时间未记录"
+        if stamp is None:
+            warnings.append(f"{identifier}: 原始时间缺失、无时区或无效，未推测")
+        turn_id = entry["turn_id"]
+        task = tasks.get(turn_id, {})
+        if entry["kind"] == "final_answer":
+            if turn_id and task.get("status") == "complete" and finals[turn_id] == 1:
+                entry.update(turn_status="complete", duration_ms=task["duration_ms"])
+                entry["display"] += " · 本轮耗时 " + duration_text(task["duration_ms"])
+            else:
+                entry["display"] += " · 本轮耗时未记录"
+        elif task.get("status") == "aborted" and last_users[turn_id] == identifier:
+            entry.update(turn_status="aborted", duration_ms=task["duration_ms"])
+            ended = message_time(task.get("ended"), zone) or "时间未记录"
+            entry["display"] += f" · 本轮中断于 {ended}，耗时 {duration_text(task['duration_ms'])}"
+    note = ("消息时间均为北京时间（UTC+08:00）。" if utc_offset == "+08:00"
+            else f"消息时间均为 UTC{utc_offset}。")
+    note += "整轮耗时取 Codex 记录的任务耗时，包含执行和等待，缺失时不推算。"
+    return {"utc_offset": utc_offset, "cutoff_id": events[-1]["id"],
+            "source_prefix_sha256": prefix.hexdigest(), "note": note,
+            "messages": messages,
+            "tasks": {k: v for k, v in tasks.items() if k in finals or k in last_users}}, warnings
+
+
 def quoted(text):
     # Escape Markdown inside operation quotes; the inverse is checked before publishing.
     escaped = re.sub(r"([\\`*_{}\[\]()#+.!>|~=-])", r"\\\1", text)
@@ -232,18 +346,20 @@ def command_results(output):
     return results
 
 
-def render(events, summary, session, title):
+def render(events, summary, session, title, timing=None):
     if not summary.startswith("# 一、流程摘要\n") or re.search(r"(?m)^# 二、沟通记录", summary):
         raise ValueError("Summary must contain only the first section")
-    document = summary.rstrip() + (
-        f"\n\n记录范围：会话 `{session}`，截止记录 `{events[-1]['id']}`。\n\n"
-        "原文与工具证据：[公开记录](archive.json)、[完整工具记录](tools.json)、[核对报告](verification.json)。"
-        "本地 Markdown 不保存默认折叠状态。\n\n# 二、沟通记录\n\n")
+    document = summary.rstrip() + "\n\n"
+    if timing is not None:
+        document += timing["note"] + "\n\n"
+    document += "# 二、沟通记录\n\n"
     spans, agent_open, operations_open, fenced = [], False, False, []
     for event in events:
         kind = event["kind"]
         if kind in {"user", "attachment_context"}:
             document += "## 用户\n\n"
+            if timing is not None and kind == "user":
+                document += "*" + timing["messages"][event["id"]]["display"] + "*\n\n"
             agent_open = operations_open = False
         elif not agent_open:
             document += "### Agent\n\n"
@@ -267,13 +383,15 @@ def render(events, summary, session, title):
                     for result in results:
                         if result["exit_code"] not in (0, None) and result["output"]:
                             document += quoted("非零退出的实际输出：\n" + result["output"]) + "\n\n"
-                document += quoted(detail) + "\n>\n> 完整可取得参数或返回见 [工具记录](tools.json)。\n\n"
+                document += quoted(detail) + "\n\n"
                 continue
             text, transformation = quoted(event["text"]), "escaped_quote"
         else:
             operations_open = False
             if kind == "final_answer":
                 document += "#### 正式回复\n\n"
+                if timing is not None:
+                    document += "*" + timing["messages"][event["id"]]["display"] + "*\n\n"
             elif kind == "relay":
                 document += ("**转达消息开始（Agent 转达，非用户直接发言）**\n\n"
                              f"来源会话 ID：`{event['source_thread_id']}`；来源工具：`{event['source_tool']}`。\n\n")
@@ -308,13 +426,14 @@ def render(events, summary, session, title):
 
 
 def default_summary():
-    return ("# 一、流程摘要\n\n## （一）沟通目标\n\n待根据公开记录整理。\n\n"
-            "## （二）流程演进\n\n待根据公开记录整理。\n\n"
-            "## （三）关键决策\n\n原话由程序写入，摘要不得替代原始记录。\n\n"
-            "## （四）主要产出\n\n本地 Markdown、公开记录与核对报告。\n")
+    return ("# 一、流程摘要\n\n待根据公开记录整理沟通目标、主线、结果与未完事项，本占位内容不能作为正式交付。\n\n"
+            "## （一）流程演进\n\n待绘制基于实际记录的流程图，并解释关键转折。\n\n"
+            "## （二）关键决策\n\n待整理已确认选择、依据与边界。\n\n"
+            "## （三）主要产出\n\n待核对成果入口、完成状态与未完事项。\n\n"
+            "## （四）反思与经验\n\n待从记录提炼有依据的问题、有效做法与适用条件。\n")
 
 
-def run(source, session, title, output, rules, through_id=None, summary=None):
+def run(source, session, title, output, rules, through_id=None, summary=None, utc_offset="+08:00"):
     if not re.fullmatch(r"[\w\u4e00-\u9fff ()（）.-]+", title) or title in {".", ".."}:
         raise ValueError("Title must be a safe local filename")
     rules_bytes = rules.read_bytes()
@@ -322,6 +441,8 @@ def run(source, session, title, output, rules, through_id=None, summary=None):
         raise ValueError("Rules do not contain the supported H4 operation layout")
     data = source.read_bytes()
     events, exclusions, warnings = extract(data, session, through_id)
+    timing, timing_warnings = collect_timing(data, events, utc_offset)
+    warnings.extend(timing_warnings)
     output.mkdir(parents=True, exist_ok=True)
     pointer = output / "current.json"
     previous = None
@@ -341,10 +462,11 @@ def run(source, session, title, output, rules, through_id=None, summary=None):
     else:
         added = len(events)
     summary_text = summary.read_text(encoding="utf-8-sig") if summary else default_summary()
-    document, spans, fenced = render(events, summary_text, session, title)
+    document, spans, fenced = render(events, summary_text, session, title, timing)
     archive = {"session_id": session, "events": events}
     archive_bytes = encode(archive)
-    version = digest(archive_bytes + document.encode("utf-8") + rules_bytes + title.encode("utf-8"))
+    timing_bytes = encode(timing)
+    version = digest(archive_bytes + document.encode("utf-8") + timing_bytes + rules_bytes + title.encode("utf-8"))
     target = output / "versions" / version
     filename = "AI 沟通流程 " + title + ".md"
     counts = dict(Counter(e["kind"] for e in events))
@@ -357,10 +479,13 @@ def run(source, session, title, output, rules, through_id=None, summary=None):
                     "message_spans": spans, "fenced_original_messages": fenced,
                     "exclusions": exclusions, "warnings": warnings,
                     "summary_provided": bool(summary), "default_fold_in_markdown": False,
+                    "timing_messages": len(timing["messages"]), "utc_offset": utc_offset,
+                    "timing_native_durations": sum("duration_ms" in m for m in timing["messages"].values()),
                     "limits": ["Only available source records checked; no fresh UI export comparison",
                                "Non-text attachments not copied", "Truncated source output not reconstructed",
                                "Unknown Codex record formats stop processing", "No cloud sync or scheduling"]}
     files = {"archive.json": archive_bytes, filename: document.encode("utf-8"),
+             "timing.json": timing_bytes,
              "tools.json": encode([e for e in events if e["kind"].startswith("tool_")]),
              "verification.json": encode(verification)}
     target.mkdir(parents=True, exist_ok=True)
@@ -402,6 +527,7 @@ def main():
                         help="Workspace standard; defaults to the bundled archive standard")
     parser.add_argument("--through-id")
     parser.add_argument("--summary", type=Path)
+    parser.add_argument("--utc-offset", default="+08:00", help="Display offset, default Beijing +08:00")
     args = parser.parse_args()
     print(json.dumps(run(**vars(args)), ensure_ascii=True))
 
