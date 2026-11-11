@@ -1,4 +1,4 @@
-# Research Planning
+# Research Plan Standard
 
 **English** | [中文](README_zh.md)
 
@@ -25,9 +25,35 @@ from, and suggest a first check.
 
 ### How research progresses
 
-![Research flow from an initial question to an output. Thought experiments and empirical experiments both feed into analysis. A research gap can prompt a rephrased question. From the conclusion, revisit the literature, revise the question or hypothesis, or add experiments.](research-flow-en.png)
+![Research flow from an initial question to an output. Thought experiments and empirical experiments both feed into analysis. A research gap can prompt a rephrased question. From the conclusion, revisit the literature, revise the question or hypothesis, or add experiments.](research-flow-en.svg)
 
-[Open the diagram](research-flow-en.png) · [View the SVG source](research-flow-en.svg)
+[Open the SVG diagram](research-flow-en.svg)
+
+<details>
+<summary>View the Mermaid version</summary>
+
+```mermaid
+flowchart TD
+    inspiration["Inspiration"] --> initial
+    subgraph research["Research process"]
+        initial["Initial question"] --> literature["Literature review"] --> gap["Research gap"] --> question["Research question"]
+        subgraph experiment["Experiment process"]
+            hypothesis["Hypothesis"] --> design["Experiment design"]
+            design --> thought["Thought experiment"] --> analysis["Analysis"]
+            design --> empirical["Empirical experiment"] --> analysis
+            analysis --> conclusion["Conclusion"]
+        end
+        question --> hypothesis
+    end
+    conclusion --> output["Outputs"]
+    gap -. Reframe question .-> initial
+    conclusion -. Revisit literature .-> literature
+    conclusion -. Revise question .-> question
+    conclusion -. Revise hypothesis .-> hypothesis
+    conclusion -. Add experiments .-> design
+```
+
+</details>
 
 1. **Review existing evidence and define the research question.** Check the
    literature and previous experiments. If the evidence answers the initial
