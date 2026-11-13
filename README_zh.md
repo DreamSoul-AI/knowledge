@@ -21,6 +21,14 @@
 
 技能显示名统一采用“中文名 English Name”，调用标识仍沿用目录中的英文形式，例如“文献调研 Literature Search”使用 `$literature-search`。中英文名称指向同一技能，不另建中文副本。
 
+## 由其他仓库维护的技能
+
+| 技能 | 用途 | 安装 |
+| --- | --- | --- |
+| Figma 设计交付 Figma Design Delivery | 新建或改版可编辑设计稿，按规格和运行前端核对原型 | [Figma 仓库发布页](https://github.com/DreamSoul-AI/figma/releases)，需要 DreamSoul Figma 仓库访问权限 |
+
+安装 Figma 设计交付时，从发布页下载 ZIP，把解压得到的整个 `figma-design-delivery` 文件夹放到 `<项目>/.agents/skills/`，再在 Codex 中调用 `$figma-design-delivery`。说明、Node.js 工具和随包依赖一起安装。运行条件见发布页。
+
 ## 工具
 
 | 工具 | 用途 | 教程 |
@@ -38,7 +46,7 @@ $skill-installer
 https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
 ```
 
-将 paper-analysis 替换为表格中的其他技能名即可安装对应技能。
+将 paper-analysis 替换为本仓维护的技能目录名即可安装对应技能。
 如果手动安装到某个项目，将整个技能文件夹复制到 `<项目>/.agents/skills/` 下，
 保留 SKILL.md 和所有随包目录，包括 scripts/。
 
