@@ -20,6 +20,14 @@ instructions and reference material, so it can be installed independently.
 | [python-environment](skills/python-environment/SKILL.md) | Python Environment Management: inspect, prepare and troubleshoot project environments | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
 | [cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | Initialize the Windows runtime, read real memory and perform requested working-set cleanup | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [ZIP](skills/cpu-memory-cleanup.zip) |
 
+## Skills maintained in other repositories
+
+| Skill | Purpose | Installation |
+| --- | --- | --- |
+| Figma Design Delivery | Create or revise editable Figma designs and verify prototypes against specifications and a running frontend | [Figma repository releases](https://github.com/DreamSoul-AI/figma/releases) · DreamSoul Figma repository access required |
+
+For Figma Design Delivery, download the ZIP from the Figma release page. Extract the entire `figma-design-delivery` folder into `<project>/.agents/skills/`, then invoke `$figma-design-delivery` in Codex. The ZIP includes the instructions, Node.js tools, and bundled dependencies. Use the install steps on the release page for runtime requirements.
+
 ## Tools
 
 | Tool | Purpose | Guide |
@@ -37,7 +45,7 @@ Install the skill at:
 https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
 ```
 
-Replace paper-analysis with another skill name from the table.
+Replace paper-analysis with the directory name of a skill hosted in this repository.
 To install manually for a project, copy the entire skill directory into
 `<project>/.agents/skills/`. Keep SKILL.md and all bundled directories, including scripts/, together.
 
