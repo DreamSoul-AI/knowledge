@@ -132,7 +132,7 @@ Conducting a thorough literature search is a fundamental step in academic and pr
 
 You can access Google Scholar [here](https://scholar.google.com).
 
-### Citation lookup with Computer Use
+### Citation lookup with Browser Use
 
 Query one paper at a time, verify and save its result, then continue. For a
 sequence, leave at least 15 seconds between new search submissions by default,
@@ -140,7 +140,7 @@ or longer when required. Avoid rapid or parallel Scholar queries. Slower pacing
 does not guarantee access; stop on a CAPTCHA or block and follow the handoff
 rules instead of continuing retries.
 
-For a small number of papers, an available browser/Computer Use tool can search Google Scholar by full title and read “Cited by” from the matching result. Clear the previous query and verify the new one, title, authors and original paper link. Record the observed count, Scholar source link and date in the existing table. Do not use total search hits or add potentially overlapping clusters/citation-only entries. Missing counts stay unknown. A CAPTCHA, rate limit or access block stops the affected lookup; follow the tool's handoff rules rather than bypassing it. This is an optional interactive route when requested or APIs are unavailable, not a bundled browser or a bulk API.
+For a small number of papers, an available Browser Use tool can search Google Scholar by full title and read “Cited by” from the matching result. Clear the previous query and verify the new one, title, authors and original paper link. Record the observed count, Scholar source link and date in the existing table. Do not use total search hits or add potentially overlapping clusters/citation-only entries. Missing counts stay unknown. A CAPTCHA, rate limit or access block stops the affected lookup; follow the tool's handoff rules rather than bypassing it. This is an optional interactive route when requested or APIs are unavailable, not a bundled browser or a bulk API.
 
 ### Filter Papers
 
@@ -190,7 +190,10 @@ in the supporting record, rather than replacing provenance with batch labels.
 
 ## Downloading Papers
 
-- If access to the original source is restricted, search for the paper title and look for alternative sources like [arXiv](https://arxiv.org/).
+1. If an API only returns metadata or its PDF link fails, use Browser Use to open the DOI or official paper page. Match the title, authors, and identifier. If the publisher does not offer an accessible PDF, check the conference proceedings, [arXiv](https://arxiv.org/), or an institutional repository. Record the source URL and whether you obtained the published paper, accepted manuscript, or preprint.
+2. Use the page's normal PDF or download action. If the browser cannot provide an accessible local file, use a direct PDF URL verified in the browser with an available downloader, where access permits. If access is blocked or no file can be retrieved, record the source and mark the download pending.
+3. Open the actual file and check its title, authors, and version. Reject login pages, HTML saved as PDF, and incomplete downloads. Check DOI/arXiv ID and existing files for duplicates before adding anything to the library.
+4. If the task includes intake, locate the confirmed library and existing topic from the project instructions or index. Follow its naming rules, update the topic index and intake record as applicable, and verify the saved path. If the destination is unclear, keep the PDF in the task's working area and report the pending intake.
 
 ---
 
