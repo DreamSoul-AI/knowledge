@@ -34,6 +34,7 @@ For Figma Design Delivery, download the ZIP from the Figma release page. Extract
 | --- | --- | --- |
 | [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Native Windows notifications for Codex turns in VS Code | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
 | [cpu-memory-cleanup](tools/cpu-memory-cleanup/) | Reusable memory package and CLI entry; no duplicated cleanup implementation | [English](tools/cpu-memory-cleanup/README.md) / [中文](tools/cpu-memory-cleanup/README_zh.md) |
+| [shared-repository-resources](tools/shared-repository-resources/) | Share datasets, models and run artifacts across repositories through configurable symlink mappings | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
 
 ## Automations
 
@@ -90,10 +91,4 @@ Development uses two long-lived branches: `dev` for integration and `main` for p
 
 ### Capability candidates
 
-**Shared resources across repositories**: pending evaluation of whether an independent skill is justified. Reuse the workspace shared-directory tool first, separating agent judgment and orchestration from file operations. Evaluate user configuration, resource and consumer discovery, mapping and migration previews, occupied directories and Git tracking conflicts, files in use, legacy paths, integrity and link-target verification, reruns and interrupted execution. Decide whether to create a skill, retain the tool or integrate with existing capabilities before defining implementation and release scope.
-
-On 2026-11-15, isolated checks covered preview, real symlink creation, reruns, occupied directories, tracked content and recovery after an injected interruption; see the [run record](<docs/运行记录 Run Record/2026-11-15 定时任务与共享资源验证.md>). Next evaluate portable configuration and agent decisions, along with the data-migration boundary not provided by the initializer. No independent skill has been created or released.
-
-Handoff sources are in the associated workspace repository: `docs/经验 Learnings/多仓库共享目录与符号链接.md`, `工具/本机共享目录/README.md`, its `link_shared.py` and `初始化共享目录.cmd`, shared-root configuration in `USER.template.md`, and “共享数据与产物” in `使用教程.md`. These sources were not yet committed or published at handoff. Locate their latest content through the actual associated workspace; they are not dependencies already distributed by this repository.
-
-The current script previews and creates shared entry points; moving existing data remains a separate operation. Keep personal paths and business data in the runtime environment, and verify symlink permissions for the actual process. Prior migrations remain source evidence. Registering this candidate does not initiate another migration or operations on real data.
+**Shared resources across repositories**: the [tool](tools/shared-repository-resources/README.md) now accepts arbitrary directory resource names and per-repository mappings. A research profile is an optional example. Agent-level discovery and migration orchestration remain candidates; no separate skill has been added. See the [current plan](<docs/开发 Development/开发计划 Development Plan 多仓库共享资源接入.md>) for remaining work and adoption boundaries.
