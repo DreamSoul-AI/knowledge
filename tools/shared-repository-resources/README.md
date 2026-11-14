@@ -2,9 +2,13 @@
 
 English | [简体中文](README_zh.md)
 
-Primarily for research and engineering repositories that share datasets (data), models and weights (models), and selected run outputs (artifacts). Resources remain in explicit target directories and each repository accesses them through directory symlinks, avoiding duplicate storage. Outputs may be isolated per project or explicitly shared when reuse is intended.
+Let multiple repositories reuse selected resources through directory symlinks while keeping their own access paths. Resources remain in explicit target directories, reducing duplicate storage.
 
-Resource names, locations, repository entry points and the adopted subset are configurable in JSON. The [research example guide](examples/README.md) and [configuration](examples/research.config.example.json) show a data/models/artifacts convention; the same tool can handle other directory resource types.
+Resource names, locations, repository entry points and the adopted subset are configurable in JSON for different project layouts and directory resource types.
+
+## Research and engineering example
+
+Research repositories can share datasets (data), models and weights (models), and selected run outputs (artifacts). Outputs may be isolated per project or explicitly shared when reuse is intended. The [research example guide](examples/README.md) and [configuration](examples/research.config.example.json) show this convention. Other scenarios can choose different resources and mappings.
 
 ## Configuration
 
