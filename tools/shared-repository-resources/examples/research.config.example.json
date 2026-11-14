@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "resources": {
+    "training_corpus": {"path": "shared/data"},
+    "base_weights": {"path": "shared/models"},
+    "project_a_outputs": {"path": "shared/artifacts/project-a", "create": true},
+    "project_b_outputs": {"path": "shared/artifacts/project-b", "create": true}
+  },
+  "repositories": {
+    "project-a": {
+      "path": "repositories/project-a",
+      "links": {
+        ".local/data": "training_corpus",
+        ".local/models": "base_weights",
+        ".local/artifacts": "project_a_outputs"
+      }
+    },
+    "project-b": {
+      "path": "repositories/project-b",
+      "links": {
+        ".local/data": "training_corpus",
+        ".local/models": "base_weights",
+        ".local/artifacts": "project_b_outputs"
+      }
+    }
+  }
+}
