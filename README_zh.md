@@ -35,6 +35,7 @@
 | --- | --- | --- |
 | [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Codex VS Code 任务完成后的原生 Windows 通知 | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
 | [cpu-memory-cleanup](tools/cpu-memory-cleanup/) | 内存Package与CLI接入说明，不复制清理实现 | [English](tools/cpu-memory-cleanup/README.md) / [中文](tools/cpu-memory-cleanup/README_zh.md) |
+| [shared-repository-resources](tools/shared-repository-resources/) | 跨仓库共享数据、模型和运行产物，映射可配置 | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
 
 ## 定时任务
 
@@ -92,10 +93,4 @@ https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
 
 ### 待评估能力
 
-**多仓库共享资源接入**：候选，待后续评估是否值得独立技能化。先复用 workspace 的共享目录工具，区分 Agent 的判断与编排、工具的文件操作。评估用户配置、资源及消费者识别、映射和迁移预览、实体目录与 Git 跟踪冲突、在用文件、旧路径保留、完整性及链接目标核验、重复执行和中断接续。评估结论明确独立 Skill、沿用工具或接入已有能力的理由，再确定实现和发布范围。
-
-2026年11月15日已对现有工具完成隔离预览、真实建链、重跑、实体目录冲突、Git 跟踪拦截和注入中断后的接续验证，详见 [运行记录](<docs/运行记录 Run Record/2026-11-15 定时任务与共享资源验证.md>)。下一步评估重点为可移植的配置与判断流程，以及现有初始化工具未提供的实体迁移边界，尚未创建或发布独立技能。
-
-交接来源为关联 workspace 仓库中的 `docs/经验 Learnings/多仓库共享目录与符号链接.md`、`工具/本机共享目录/README.md`、同目录 `link_shared.py` 与 `初始化共享目录.cmd`，以及 `USER.template.md` 的共享根配置和 `使用教程.md` 的“共享数据与产物”。这些材料交接时尚未提交发布，后续按实际关联目录读取最新来源，不视为本仓库已分发的依赖。
-
-当前脚本负责预览和建立共享入口，实体数据迁移仍需另行处理。个人路径和业务数据保留在运行环境，符号链接权限按实际进程核验。既有迁移结果作为来源记录，本候选登记不触发再次迁移或真实数据操作。
+**多仓库共享资源接入**：已提供可配置目录资源和逐仓库映射的 [工具](tools/shared-repository-resources/README_zh.md)，研发惯例作为可选示例。Agent 侧的识别与迁移编排仍属候选，尚未新增独立技能。后续范围及采用边界见 [当前计划](<docs/开发 Development/开发计划 Development Plan 多仓库共享资源接入.md>)。
