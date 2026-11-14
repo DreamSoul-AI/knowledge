@@ -253,10 +253,10 @@ weighted score. Keep citation labels and stable paper identities unchanged when
 sorting rows. A chronological view serves a timeline rather than replacing
 the default reading-priority order.
 
-## Google Scholar through Computer Use
+## Google Scholar with Browser Use
 
 For a small citation lookup, use Google Scholar's visible website through an
-available browser/Computer Use tool when requested or when API counts are
+available Browser Use tool when requested or when API counts are
 unavailable. Follow that tool's current instructions; the skill does not bundle
 a browser or promise that every host can access Scholar. Replace the search
 field with the full title, verify the actual query, then match the result's
@@ -275,6 +275,22 @@ search submissions by default, or longer when the user or service requires it.
 Do not batch rapid submissions or run parallel Scholar searches. This pacing
 reduces request frequency but does not guarantee access or permit retries past
 a CAPTCHA or access block.
+
+## Full-text retrieval and library intake
+
+When the task needs a PDF and the API returns only metadata, an abstract, or an
+unusable download link, use Browser Use to open the DOI, publisher, venue, or
+authoritative repository page and find an accessible PDF. Prefer the requested
+version and record the version actually obtained. Use the browser's download
+flow if the resulting file is accessible, or pass a verified direct PDF URL to
+an available downloader. Stop at access controls and mark the PDF pending if
+no permitted route yields a readable file.
+
+Verify the downloaded file opens as a PDF and matches the paper and version.
+When the task includes intake, reuse any matching copy and use the project's
+confirmed library location, naming, and index rules. Follow the
+[English](references/README.md#downloading-papers) or
+[Chinese](references/README_zh.md#下载论文) guide for the handoff.
 
 ## Lightweight evidence and delivery
 
