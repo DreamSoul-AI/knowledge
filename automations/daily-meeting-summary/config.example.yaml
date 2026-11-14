@@ -1,0 +1,74 @@
+# Agent-readable task configuration. Paths resolve against project_root.
+# This file is an example, with no scheduler registration or execution effect.
+name: 每日会议总结
+project_root: "<实际项目根目录>"
+deployment:
+  enabled: false
+  schedule:
+    frequency: daily
+    time_local: "00:00"
+    timezone: Asia/Shanghai
+  result_destination: current_task_chat
+skills:
+  calendar-meeting-archive: "<已安装的技能目录>/calendar-meeting-archive/SKILL.md"
+  meeting-minutes: "<已安装的技能目录>/meeting-minutes/SKILL.md"
+  document-sync: "<已安装的技能目录>/document-sync/SKILL.md"
+identity:
+  expected_user_source: USER.md
+  calendar: "<本人可访问且已确认的来源日历>"
+execution:
+  cloud_reads: true
+  cloud_writes: false  # Set only after deployment scope is confirmed.
+  direction: upload
+  conflict: stop
+  delete: false
+  cloud_directory_creation: false
+  record_directory_creation_scope: []
+  # Example after confirmation: [{parent: "<verified parent URL>", child_name: "会议记录"}]
+scan:
+  initial_lookback_days: 7
+  recurring_lookback_days: 7
+  cutoff: run_start
+  include: ended_meetings_organized_or_invited
+  resume_incomplete: true
+state:
+  path: .local/daily-meeting-summary/state.json
+  lock_path: .local/daily-meeting-summary/run.lock
+  known_artifacts_indexes: []
+  prior_state_files_read_only: []
+classification:
+  profile: null  # Actual project aliases, grouping and confirmed responsibility.
+  local_output_root: null
+  unclassified_material_root: null
+rules:
+  general: null
+  placement: null
+  format: null
+  upload: null
+  artifact_naming: null  # Applicable standard and its artifact-naming section.
+  specialized:
+    - match:
+        series: "<已确认的例会系列>"
+      standard: "<该系列会议总结专项规范路径或完整链接>"
+      supplementary_materials:
+        current_week_meetings: "<本周相关会议材料入口>"
+        recent_advice: "<近期会议建议入口>"
+        adoption_feedback: null  # Use feedback when available; report actual coverage.
+        participant_todos: "<规范要求时核对的日志或待办入口>"
+outputs:
+  required: [source_record, summary]
+  conditional: [advice, weekly_review, copyable_message]
+cloud_routes:
+  - name: "<已确认的会议系列或归档分组>"
+    audience: "<已确认的受众范围>"
+    targets:
+      source_record: "<会议记录目标文件夹的完整链接>"
+      summary: "<会议总结目标文件夹的完整链接>"
+      advice: null  # Fill only if required and authorized.
+cloud_reconciliation:
+  authorized_scope: []  # Empty means report differences and retain existing objects.
+  # A confirmed scope can name meeting/group, artifact kind, audience, canonical
+  # document, permitted content edits and separately permitted other-draft actions.
+reporting:
+  separate_meeting_groups: []  # Specialized groups whose links need a separate section.
+  include_reused_on_manual_review: true
