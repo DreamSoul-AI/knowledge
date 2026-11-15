@@ -38,7 +38,13 @@ For Figma Design Delivery, download the ZIP from the Figma release page. Extract
 
 ## Automations
 
-Task definitions and configuration examples live in [automations](automations/README.md). The [Daily Meeting Summary](automations/daily-meeting-summary/README.md) local review draft composes Calendar Meeting Archive, Meeting Minutes and Document Sync. Deployment uses the actual project's configuration and separately confirmed scheduler scope.
+Automations are maintained separately in [automations](automations/README.md), composing skills through task prompts and external configuration.
+
+| Automation | Purpose | Status | Guide |
+| --- | --- | --- | --- |
+| [Daily Meeting Summary](automations/daily-meeting-summary/) | Incremental meeting archiving, summaries and authorized delivery | First version; manual reuse path verified | [English](automations/daily-meeting-summary/README.md) / [中文](automations/daily-meeting-summary/README_zh.md) |
+
+Deployment uses the actual project's configuration and confirmed scheduler scope. New generation, upload writes and scheduled triggering were not exercised in the latest manual run; see the [automation registry](automations/README.md) for validation details.
 
 ## Install in Codex
 

@@ -37,9 +37,15 @@
 | [cpu-memory-cleanup](tools/cpu-memory-cleanup/) | 内存Package与CLI接入说明，不复制清理实现 | [English](tools/cpu-memory-cleanup/README.md) / [中文](tools/cpu-memory-cleanup/README_zh.md) |
 | [shared-repository-resources](tools/shared-repository-resources/) | 按配置让多个仓库通过符号链接复用部分目录资源 | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
 
-## 定时任务
+## 定时任务 Automations
 
-任务定义和配置示例维护在 [automations](automations/README_zh.md)。当前提供 [每日会议总结](automations/daily-meeting-summary/README_zh.md) 的本地审阅稿，复用日历会议归档、会议总结和文档同步三个技能。实际项目填写配置后，另按确认范围部署到调度平台。
+定时任务在 [automations](automations/README_zh.md) 独立维护，通过提示词和外部配置组合已有技能。
+
+| 定时任务 | 用途 | 状态 | 说明 |
+| --- | --- | --- | --- |
+| [每日会议总结 Daily Meeting Summary](automations/daily-meeting-summary/) | 增量归档会议、整理总结并按授权交付 | 首版，手动复用流程已验证 | [中文](automations/daily-meeting-summary/README_zh.md) / [English](automations/daily-meeting-summary/README.md) |
+
+实际项目按自己的配置和授权部署。最近手动运行未触发新增生成、上传写入和实际定时触发，具体覆盖范围见 [任务总表](automations/README_zh.md)。
 
 ## 在 Codex 中安装
 
