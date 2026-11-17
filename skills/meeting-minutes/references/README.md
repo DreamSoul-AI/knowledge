@@ -38,6 +38,8 @@ When recommendations are requested, optional supplements may include recent reco
 
 Identify the actual beneficiary of each recommendation and name the people involved in a shared recommendation. Beneficiaries are not assigned execution owners. Balance direction and practical detail according to the problem, using a brief example when it clarifies the proposed change or decision. Keep details concise rather than turning recommendations into routine test or inspection checklists; do not require both levels in every item. Check assumed tool capabilities, communication direction and resource conditions. State unverified prerequisites rather than treating them as available. If the rules permit omitting recommendations and no worthwhile candidate remains, report that decision without creating an empty artifact or treating it as a missing deliverable.
 
+In a short version for sharing, give enough meeting context for each recommendation to stand on its own. Name the issue, current approach, or constraint that prompted it, then say what you suggest and what it would address. Link readers to the full recommendation for details.
+
 ## How it works
 The workflow resolves calendar instances to actual meetings, obtains original Note or Minutes transcripts, and checks any manually attached meeting notes for corrections. It retains source identifiers and raw records, then reads the full text to organize topics, decisions, reported progress, actions, and unresolved questions. See [source retrieval](sources.md).
 
