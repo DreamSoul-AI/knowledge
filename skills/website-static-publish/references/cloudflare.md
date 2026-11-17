@@ -34,6 +34,18 @@ Wrangler 接收目录，不直接接收 ZIP；ZIP 须先按共用流程安全解
 
 上传前检查文件数、单文件大小与静态边界；超限先报告具体文件或数量。外置大文件、拆分项目、引入 R2 或付费方案需要按本次需求另行处理。已有项目的 CLI 发布与同址更新已实测；CLI 新建、真实恢复、无人值守 CI 和额度边界尚未实测。
 
+## 首次绑定自定义子域名
+
+处理已有项目首次绑定、新项目发布后绑定新子域名。目标主机名由本次请求提供，当前 CONFIG.md 不新增域名字段。`showcase.dreamsoul.cn` 用作展示示例，实际执行时使用用户自己的子域名并查询绑定状态。域名可以在阿里云等注册商购买；使用子域名时可保留原 DNS 服务商，无需转移域名注册或根域名 NS。根域名直接接入 Pages 另需 Cloudflare Zone 和 NS 接入，本流程聚焦子域名。[官方域名说明](https://developers.cloudflare.com/pages/configuration/custom-domains/)
+
+1. **核对对象。** 确认实际账户、Pages 项目、生产分支与子域名归属，检查现有绑定、权威 DNS 和 CAA。新项目先按已授权的新建流程创建并发布，再验收实际 `pages.dev` 生产地址。已有项目仅绑定时无需重新上传。
+2. **检查配额与冲突。** 2026-11-17 [Pages 限制](https://developers.cloudflare.com/pages/platform/limits/)列出免费／Pro／Business／Enterprise 每项目分别最多 100／250／500／500 个自定义域名，账户另限 100 个 Pages 项目；权威 DNS 记录配额单独计算。相同绑定已存在时复用，其他项目绑定或同名记录冲突时停止，不覆盖或改绑。
+3. **添加绑定。** 网站上传继续使用 Wrangler；域名设置走官方控制台 Workers & Pages → 目标项目 → Custom domains → Set up a domain，输入用户指定的完整子域名。核对账户、项目与待添加名称后提交；Wrangler OAuth 不等于 DNS 管理权限，控制台登录也单独核对。不编造 `wrangler pages domain` 命令。
+4. **配置 DNS。** 在当前权威 DNS 为该子域名添加 CNAME，目标为实际查询到的 `<项目>.pages.dev`；以平台返回值为准。若 Cloudflare 自动生成记录则回读核对，不重复添加。必须先在 Pages 添加域名，单独写 CNAME 可能返回 522。保留无关记录和现有 TTL，不切换根域名 NS。
+5. **等待并验收。** 等待域名及证书激活；pending 或校验失败时检查 CNAME、CAA、平台验证要求与权限，不重复创建。用匿名会话正常校验 TLS 主机名、信任链和有效期，检查新域名的生产版本、资源、中文路径、交互、子页刷新、404 和 HTTP→HTTPS 跳转；跳转保留路径与查询参数。
+
+绑定后通过 Wrangler 更新同一项目，并验证自定义域名显示新版本。保留原 `pages.dev` 入口，不添加旧域名跳转、停用或项目间改绑。只部分完成时分别报告绑定、DNS、证书和访问状态，不自动删除资源。2026-11-17 已完成已有项目首次绑定、外部 DNS CNAME、证书激活及公开访问验收，原生产部署及 `pages.dev` 入口保持不变；绑定后的再次上传更新未在本轮执行。
+
 ## 访客与链接
 
 - 用无 Cloudflare 登录 Cookie 的会话访问普通生产网址，确认 HTTP 状态、目标内容、版本、HTTPS、资源、交互与子页刷新。检查是否启用 Access 等保护；需要登录时分别报告部署成功和公开验收未通过，不自行关闭保护。生产与预览可能不同，见[预览说明](https://developers.cloudflare.com/pages/configuration/preview-deployments/)。
@@ -45,4 +57,4 @@ Wrangler 接收目录，不直接接收 ZIP；ZIP 须先按共用流程安全解
 
 用户要求恢复时先核对原项目、账户与目标历史生产部署；官方[Rollback](https://developers.cloudflare.com/pages/configuration/rollbacks/)仅支持成功的生产部署，预览部署不作为恢复目标。不可用时可按授权重发保留的完整旧包，随后核对生产指向和实际版本；不编造 Wrangler rollback 或用删除项目代替恢复。
 
-自定义域名、DNS、付费资源、Workers／Functions 后端、Git 集成和无人值守 CI 按实际任务处理。本文路径不会更改未选择的 EdgeOne 目标。
+自定义子域名首次绑定按[上述流程](#首次绑定自定义子域名)处理。域名更换与改绑、付费资源、Workers／Functions 后端、Git 集成和无人值守 CI 按各自任务范围处理。

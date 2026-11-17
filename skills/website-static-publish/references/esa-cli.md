@@ -69,6 +69,27 @@ deploy --name my-demo --assets ./dist --environment production --description rel
 
 --no-preview 避免生成和输出带 Token 的预览链接，不影响正常部署。没有固定域名且本次需要测试链接时按主流程处理完整临时参数及有效期。新建、多项目、恢复与无人值守 CI 不由既有项目更新成功推定通过。
 
+## 首次绑定子域名
+
+完成 [ESA 域名前置检查](esa.md#自定义域名与-https)后执行。1.0.14 的 `domain add <domain>` 和 `domain list` 从工作目录的 `esa.jsonc` 读取项目名，不接受用于替代项目选择的 `--name` 或 `--site`。核对 `$esaArgs` 的 `--cwd` 指向目标项目；新项目须先完成已授权发布并回读生产状态。以下复用[指南中的参数](README_zh.md#esa-首次授权与使用)：
+
+```powershell
+$esaDomain = '<用户配置的完整子域名>'
+node $esaRunner @esaArgs -- site list
+node $esaRunner @esaArgs -- domain list
+```
+
+确认可用站点、原绑定和权威 DNS 均无冲突后添加；已绑定同一项目时跳过添加：
+
+```powershell
+node $esaRunner @esaArgs -- domain add $esaDomain
+node $esaRunner @esaArgs -- domain list
+```
+
+CLI 返回成功后回读绑定关系，再完成权威 DNS、边缘证书和 HTTPS 验收。`domain add` 不替代外部 DNS 写入和证书申请；缺少 DNS 或证书权限时明确报告缺项，不提升为管理员、不删除旧记录重试。2026-11-17 已用上述固定版本完成新项目发布和域名绑定，并完成外部 DNS、免费证书及公开访问验收；访问中发生的超时与复查见 [验证状态](../SKILL.md#验证状态)。
+
+使用阿里云 CLI 回读时，`aliyun esa ListRoutineRelatedRecords --Name <项目名> --profile <OAuth配置名>` 返回项目绑定及 RecordId，随后用 `aliyun esa GetRecord --RecordId <记录ID> --profile <OAuth配置名>` 读取该记录的实际 RecordCname。普通 `ListRecords` 查询可能不包含计算绑定记录，不能以其空列表判断该子域名未占用。
+
 ## 本地验证
 
 ~~~powershell

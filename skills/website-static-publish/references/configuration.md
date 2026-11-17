@@ -24,7 +24,7 @@
 | esa.project.environment | production 或 staging，采用 ESA 含义，不照搬其他平台 preview |
 | esa.project.deployMethod | console、cli 或 github；本次明确入口优先，普通升级保留原值。新模板默认 cli，按 ESA CLI 参考核对版本与认证；切换已有 console 配置须有本次明确要求 |
 | esa.project.productionBranch | github 方式更新生产时必填；console／cli 方式可留空 |
-| esa.domain.name | 不含协议、路径或 Token 的自定义域名；长期交付必填，短时预览可留空 |
+| esa.domain.name | 用户填写的默认完整子域名，不含协议、端口、路径或 Token；本次明确域名优先。长期交付须明确目标，短时预览可留空；填值后仍需完成平台绑定、DNS 与 HTTPS 验收 |
 | edgeone.site | china，固定为中国站账号入口 |
 | edgeone.account.uin | 实际登录身份的完整 UIN，纯数字文本；云端操作前必填，不是 APPID |
 | edgeone.account.label | 可选备注，不用于认证 |
@@ -40,6 +40,14 @@
 | cloudflare.project.environment | production 或 preview；preview 还需本次明确一个不同于生产的预览分支 |
 
 新模板使用 `default.target=china`、`china.provider=esa`；未指定目标的发布请求走 ESA，明确指定 Cloudflare 或双端时覆盖该默认值。china 只决定平台路线，实际加速区域仍由 ESA 站点决定。Cloudflare 默认使用 Wrangler CLI；用户可在本次请求中指定控制台。当前 schema 不含 cloudflare.project.deployMethod，CLI 路径、OAuth profile 和凭据也不属于本表字段。
+
+## 首次绑定的输入
+
+配置格式保持 2，保留已有域名配置；新增绑定流程限定子域名。ESA 复用 `esa.site.*`、`esa.project.*` 和 `esa.domain.name`；明确新建时使用本次项目名和子域名，已有默认项目只作为默认值。Cloudflare 复用 `cloudflare.account.*` 与 `cloudflare.project.*`，子域名从本次请求读取，当前表不新增 `cloudflare.domain.name`。缺少目标时只补问缺失值，不从示例生成真实配置。
+
+将输入作为完整主机名核对，去除首尾空白并按 DNS 大小写不敏感比较；拒绝网址、端口、路径、通配符和空标签。国际化域名核对其 IDNA 形式和平台支持。ESA 目标须属于已核验站点的实际域名边界，不能仅凭字符串后缀相似认定归属。DNS 服务商与域名注册商分别确认，凭据仍由各服务官方工具管理。
+
+仅首次绑定或新项目绑定新子域名；已有相同绑定直接验收，冲突先处理目标问题。本次域名不自动写回私人 CONFIG.md，只有明确要求更改默认值时才保存。详细流程见 [ESA](esa.md#自定义域名与-https)和 [Cloudflare](cloudflare.md#首次绑定自定义子域名)。
 
 ## 身份与覆盖
 

@@ -2,7 +2,7 @@
 
 [English](README.md) | 简体中文
 
-把 HTML、静态目录或 ZIP 发布到阿里云 ESA Pages、Cloudflare Pages，支持首次发布和原网址更新。新配置默认国内 ESA，两端默认 CLI。
+把 HTML、静态目录或 ZIP 发布到阿里云 ESA Pages、Cloudflare Pages，支持首次发布、原网址更新和自定义子域名首次绑定。新配置默认国内 ESA，两端网站上传默认 CLI。
 
 首次使用：安装 Skill → 填写配置 → 完成 CLI 授权 → 检查并发布。以后复用配置和登录更新同一项目。
 
@@ -27,6 +27,22 @@
 ```
 
 新建时明确说“新建项目”并指定名称。ESA 独立 Demo 使用独立项目和子域名；小实验可加入已有合集的稳定路径。合集更新需基于当前完整站点保留其他实验，详见 [Demo 组织方式](../SKILL.md#esa-demo-组织方式)。
+
+首次绑定可以直接说：
+
+```text
+使用 $website-static-publish，为 ESA 已有项目 my-demo 首次绑定 tools.example.com，完成 DNS 和 HTTPS 验收，不重新上传网站。
+```
+
+```text
+使用 $website-static-publish，将 ./dist 发布为 ESA 新项目 my-new-demo，并首次绑定我指定的新子域名 lab.example.com。
+```
+
+```text
+使用 $website-static-publish，为 Cloudflare 已有项目 my-site 首次绑定 showcase.dreamsoul.cn，完成 DNS 和 HTTPS 验收，保留 pages.dev 入口。
+```
+
+子域名由使用者提供；`showcase.dreamsoul.cn` 是展示示例，使用时替换为自己的子域名。新 Cloudflare 项目同样明确说“新建项目”、给出名称和子域名。详细步骤见[首次绑定](#首次绑定自定义子域名)。
 
 ## 安装与运行条件
 
@@ -73,11 +89,13 @@ npm install --prefix .artifacts/wrangler --save-exact --ignore-scripts --no-audi
 | --- | --- |
 | ESA 身份 | `esa.account.ramLogin` 填官方 RAM 登录名，`esa.account.ownerId` 填资源主账号 ID；用 RAM 资料及 `aliyun sts GetCallerIdentity` 的 AccountId、Arn 核对 |
 | ESA 项目 | `esa.project.name` 填已有项目名，`environment` 填 `production` 或 `staging`；从项目列表核对。CLI 方式的 `productionBranch` 可留空 |
-| ESA 长期网址 | `esa.site.*` 填站点 ID、名称、实际区域和 `ns`/`cname` 接入方式；`esa.domain.name` 填域名，不含协议和路径。短时测试可留空 |
+| ESA 长期网址 | `esa.site.*` 填站点 ID、名称、实际区域和 `ns`/`cname` 接入方式；`esa.domain.name` 填用户自己的完整子域名，不含协议和路径，本次明确值优先。短时测试可留空 |
 | Cloudflare 身份 | `cloudflare.account.id` 填 32 位 Account ID，`email` 填实际操作者邮箱；从 `whoami --json` 核对，Account ID 与 Zone ID 分开识别 |
 | Cloudflare 项目 | `cloudflare.project.name`、`productionBranch`、`environment` 分别填已有 Pages 项目、云端实际生产分支、`production`/`preview`；Preview 另指定预览分支 |
 
 可选备注和未使用平台的账号、项目留空。完整字段与旧配置迁移见 [configuration.md](configuration.md)。
+
+Cloudflare 自定义子域名直接在本次请求中指定，配置格式仍为 2，不新增字段。绑定还需要相应的域名、DNS 与证书管理权限；发布登录不自动提供这些权限。本次新项目和域名不会自动覆盖 CONFIG.md 中的默认项目。
 
 `CONFIG.md` 保存账号标识和业务默认值。登录与凭据由官方工具管理：阿里云 OAuth 在本机 `~/.aliyun/config.json`，Wrangler 使用自己的用户配置。CLI 路径和 OAuth profile 名称通过命令传入；密码、密钥、Cookie、Token 不写入配置表或公开产物。
 
@@ -116,7 +134,7 @@ node $esaRunner @esaArgs -- deployments list
 node $esaRunner @esaArgs -- domain list
 ```
 
-后两条查询读取工作目录的 `esa.jsonc`。确认查询成功、原项目存在且环境和域名正确后发布；更新查不到目标时先处理，不转为新建。
+后两条查询读取工作目录的 `esa.jsonc`，用于已有项目。更新前确认原项目存在且环境和域名正确；查不到目标时先处理，不转为新建。明确新建时先用 project list 检查名称未占用，跳过尚不存在项目的部署和域名查询，再按本次授权执行 deploy；生产版本成功后首次绑定子域名。
 
 **4. 发布并回读。** 以下命令会更新 production：
 
@@ -171,6 +189,31 @@ $env:CLOUDFLARE_ACCOUNT_ID = $previousAccountId
 
 Wrangler 接收目录，ZIP 先解压。单文件上限 25 MiB，免费站点上限 20,000 文件；付费额度、项目数量和 Direct Upload 模式限制见 [Cloudflare 参考](cloudflare.md#发布范围与平台限制)。
 
+## 首次绑定自定义子域名
+
+支持已有项目首次绑定、新项目发布成功后绑定新子域名。已有相同绑定直接验收；目标被其他项目或业务使用时停止。本流程不更换域名、不改绑项目、不跳转或停用旧入口。
+
+**ESA：配置目标 → 绑定 → DNS → HTTPS。** 使用 `esa.domain.name` 或本次指定值，复用可用站点。先确认项目已有生产版本，并核对站点、现有绑定和 DNS；已有项目只做绑定时不重新上传。复用前文 `$esaRunner`、`$esaArgs`：
+
+```powershell
+$esaDomain = '<用户配置的完整子域名>'
+node $esaRunner @esaArgs -- site list
+node $esaRunner @esaArgs -- domain list
+```
+
+无冲突且尚未绑定时执行：
+
+```powershell
+node $esaRunner @esaArgs -- domain add $esaDomain
+node $esaRunner @esaArgs -- domain list
+```
+
+项目由 `$esaArgs` 的 `--cwd` 下 `esa.jsonc` 决定。NS 接入核对自动生成的记录；CNAME 接入把平台返回的实际目标写入当前权威 DNS。复用覆盖子域名的有效证书，或按平台要求申请并验证；证书正常后检查 HTTPS 和 HTTP 跳转。完整步骤见 [ESA 域名流程](esa.md#自定义域名与-https)。
+
+**Cloudflare：发布项目 → Custom domains → CNAME → HTTPS。** 网站仍通过 Wrangler 发布；首次域名绑定在已核验账户的 Workers & Pages → 目标项目 → Custom domains → Set up a domain 中填写本次子域名。随后在权威 DNS 添加指向该项目实际 `pages.dev` 地址的 CNAME，等待域名及证书激活，再验证网站。仅写 DNS、不在 Pages 中绑定是不完整的。详见 [Cloudflare 域名流程](cloudflare.md#首次绑定自定义子域名)。
+
+域名可在阿里云等注册商购买。Cloudflare 子域名接入可保留原 DNS 服务商；根域名直接接入需另行处理 NS，不包含在本次子域名流程中。两端均核对记录、域名绑定、项目和证书配额；子域名数量不等于可创建的网站数量，当前限额及来源见各平台参考。绑定后交付实际 HTTPS 入口与验证结果，保留已有入口及配置。2026-11-17 已完成 ESA 新项目绑定新子域名、Cloudflare 已有项目首次绑定的线上验收；具体范围见 [验证状态](../SKILL.md#验证状态)。
+
 ## 发布前检查与访问验收
 
 1. 按网站现有命令构建，核对入口、资源、路由和额度。仅上传公开静态目录，排除私人配置、凭据和日志；后端、SSR 或 Functions 需求另行确认。
@@ -202,4 +245,4 @@ Wrangler 接收目录，ZIP 先解压。单文件上限 25 MiB，免费站点上
 
 独立安装或打包时附带 knowledge 根 MIT LICENSE。检查文件清单，排除 CONFIG.md、USER.md、凭据、日志、截图、私人备份和平台 CLI 安装包；`.gitignore` 保护新文件，打包和已跟踪文件另行核对。
 
-2026-11-17 已用 1.2.0、ESA CLI 1.0.14 和 Wrangler 4.163.0 完成两个已有项目的同站发布、原网址更新及访客验收。ESA 资源版本问题通过版本参数修正，部分连接超时经重试完成核验。CLI 新建、合集发布、恢复、无人值守 CI、跨天和目标地区网络仍待验证；完整状态见 [验证状态](../SKILL.md#验证状态)。
+2026-11-17 已用 1.2.0、ESA CLI 1.0.14 和 Wrangler 4.163.0 完成两个已有项目的同站发布、原网址更新及访客验收；随后完成 ESA CLI 新建项目绑定新子域名、Cloudflare 已有项目首次绑定及双端 DNS、证书和访问验收。ESA 资源版本问题通过版本参数修正，部分连接超时经重试完成核验。Cloudflare CLI 新建、绑定后的再次同址更新、合集发布、恢复、无人值守 CI、跨天和目标地区网络仍待验证；完整状态见 [验证状态](../SKILL.md#验证状态)。
