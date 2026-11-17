@@ -33,3 +33,5 @@
 | cloudflare.project.environment | production |
 
 只用一个平台时，未选平台的账号与项目可留空；整张表的字段行保留。china.provider 可填 esa、edgeone 或 ask。账号标识、站点及字段要求见 Skill 根目录下的 references/configuration.md。不填写密码、AccessKey、MFA 密钥、Cookie 或限时访问参数。实际 CONFIG.md 不随网站或 Skill 分发，升级保留已有值。
+
+首次绑定时，用户在 `esa.domain.name` 填写自己的完整子域名，或在本次请求中指定；Cloudflare 子域名由本次请求提供。新项目名称与子域名一起指定，不覆盖已有默认项目。模板不预置域名，示例名称不代表已创建或可用；填写配置后仍需完成绑定、DNS 和 HTTPS 验收。

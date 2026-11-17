@@ -2,7 +2,7 @@
 
 English | [简体中文](README_zh.md)
 
-Publish an HTML file, static directory or ZIP to Alibaba Cloud ESA Pages or Cloudflare Pages, including first deployment and updates at the original URL. New configurations default to the China/ESA route. Both providers use CLI by default.
+Publish an HTML file, static directory or ZIP to Alibaba Cloud ESA Pages or Cloudflare Pages, including first deployment, updates at the original URL and first custom-subdomain binding. New configurations default to the China/ESA route. Website uploads use CLI by default on both providers.
 
 First use: install the skill → fill configuration → authorize the CLI → check and publish. Reuse configuration and authentication for later updates.
 
@@ -27,6 +27,22 @@ Use $website-static-publish to update the configured ESA and Cloudflare projects
 ```
 
 For a new project, explicitly request creation and specify its name. ESA standalone demos use separate projects and subdomains; small experiments can share a collection with stable paths. Collection updates start from the complete current site and preserve other experiments. See [demo organization](../SKILL.md#esa-demo-组织方式).
+
+For first domain binding, ask:
+
+```text
+Use $website-static-publish to bind tools.example.com to my existing ESA project my-demo for the first time. Complete DNS and HTTPS checks without uploading the website again.
+```
+
+```text
+Use $website-static-publish to publish ./dist as a new ESA project my-new-demo and bind my chosen new subdomain lab.example.com for the first time.
+```
+
+```text
+Use $website-static-publish to bind showcase.dreamsoul.cn to my existing Cloudflare project my-site for the first time. Complete DNS and HTTPS checks and keep the pages.dev endpoint.
+```
+
+Users supply their own subdomains. Replace the display example `showcase.dreamsoul.cn` with your own subdomain. For a new Cloudflare project, explicitly request creation and provide its name and subdomain. See [first binding](#first-custom-subdomain-binding) for the steps.
 
 ## Installation and requirements
 
@@ -73,11 +89,13 @@ The provider, project and environment specified in a request override defaults. 
 | --- | --- |
 | ESA identity | Set `esa.account.ramLogin` to the official RAM login and `esa.account.ownerId` to the resource owner's account ID. Verify RAM details against AccountId and Arn from `aliyun sts GetCallerIdentity` |
 | ESA project | Set `esa.project.name` to the existing project and `environment` to `production` or `staging`, checked against the project list. CLI use can leave `productionBranch` empty |
-| ESA long-term URL | Fill `esa.site.*` with site ID, name, actual region and `ns`/`cname` access type. Set `esa.domain.name` to the domain without protocol or path. Short-lived tests can leave these empty |
+| ESA long-term URL | Fill `esa.site.*` with site ID, name, actual region and `ns`/`cname` access type. Set `esa.domain.name` to your full subdomain without protocol or path; an explicit task value takes precedence. Short-lived tests can leave these empty |
 | Cloudflare identity | Set `cloudflare.account.id` to the 32-character Account ID and `email` to the actual operator email from `whoami --json`. Distinguish Account ID from Zone ID |
 | Cloudflare project | Set `cloudflare.project.name`, `productionBranch` and `environment` to the existing Pages project, actual production branch and `production`/`preview`. Specify a separate branch for Preview |
 
 Optional labels and unused providers' account/project values can remain empty. See [configuration.md](configuration.md) for all fields and legacy migration rules.
+
+Specify a Cloudflare custom subdomain in the current request. The configuration format stays at 2 with no new fields. Binding also requires the relevant domain, DNS and certificate permissions; deployment authentication does not grant them automatically. A new project or domain in the current request does not overwrite CONFIG.md defaults.
 
 `CONFIG.md` stores identifiers and business defaults. Official tools manage authentication and credentials: Alibaba Cloud OAuth uses the local `~/.aliyun/config.json`; Wrangler uses its own user configuration. Pass CLI paths and OAuth profile names as command arguments. Keep passwords, keys, cookies and tokens out of the table and public artifacts.
 
@@ -116,7 +134,7 @@ node $esaRunner @esaArgs -- deployments list
 node $esaRunner @esaArgs -- domain list
 ```
 
-The last two queries read `esa.jsonc` in the working directory. Deploy after the queries succeed and the original project, environment and domain match. Resolve a missing update target before proceeding; do not create a replacement.
+The last two queries read `esa.jsonc` in the working directory and apply to existing projects. Before an update, confirm the original project, environment and domain. Resolve a missing update target instead of creating a replacement. For explicitly requested creation, first use project list to check that the name is unused, skip deployment and domain queries for the nonexistent project, then run the authorized deploy. Bind the subdomain after the production version succeeds.
 
 **4. Deploy and read back.** These commands update production:
 
@@ -171,6 +189,31 @@ $env:CLOUDFLARE_ACCOUNT_ID = $previousAccountId
 
 Wrangler accepts a directory; extract ZIPs first. The per-file limit is 25 MiB and the Free-plan site limit is 20,000 files. See [Cloudflare limits](cloudflare.md#发布范围与平台限制) for paid quotas, project counts and Direct Upload restrictions.
 
+## First custom-subdomain binding
+
+This covers first binding for an existing project or a newly deployed project using a new subdomain. Verify an existing identical binding without adding it again. Stop if another project or service uses the target. Domain replacement, rebinding between projects, redirects from old domains and retiring old endpoints are outside this workflow.
+
+**ESA: select the target → bind → configure DNS → verify HTTPS.** Use `esa.domain.name` or the domain supplied in the request and reuse an active site. Confirm a production version, the site, current bindings and DNS records first. Binding an existing project does not require another upload. Reuse `$esaRunner` and `$esaArgs` from above:
+
+```powershell
+$esaDomain = '<user-configured full subdomain>'
+node $esaRunner @esaArgs -- site list
+node $esaRunner @esaArgs -- domain list
+```
+
+If there is no conflict and the domain is not already bound, run:
+
+```powershell
+node $esaRunner @esaArgs -- domain add $esaDomain
+node $esaRunner @esaArgs -- domain list
+```
+
+The project is selected by `esa.jsonc` under the `--cwd` in `$esaArgs`. For NS access, verify the automatically created record. For CNAME access, add the actual target returned by ESA at the current authoritative DNS provider. Reuse a valid certificate covering the subdomain or request and validate one; then check HTTPS and HTTP redirects. See the [ESA domain workflow](esa.md#自定义域名与-https).
+
+**Cloudflare: deploy the project → Custom domains → CNAME → HTTPS.** Keep using Wrangler for website uploads. In the verified account, open Workers & Pages → target project → Custom domains → Set up a domain and enter the requested subdomain. Add its CNAME at the authoritative DNS provider, pointing to the project's actual pages.dev address. Wait for domain and certificate activation, then verify the site. DNS alone does not complete the Pages binding. See the [Cloudflare domain workflow](cloudflare.md#首次绑定自定义子域名).
+
+The domain can be registered with Alibaba Cloud or another registrar. A Cloudflare subdomain can retain its existing DNS provider; direct use of an apex domain requires separate NS setup outside this subdomain workflow. Check DNS-record, domain-binding, project and certificate quotas on both providers. Subdomain counts are not website-project counts; see each provider reference for current limits and sources. Deliver the verified HTTPS URL and results while preserving existing endpoints and configuration. Live acceptance on 2026-11-17 covered a new ESA project with a new subdomain and the first custom domain on an existing Cloudflare project. See [validation status](../SKILL.md#验证状态) for the tested scope.
+
 ## Preflight and visitor acceptance
 
 1. Build with the website's existing commands and check the entry page, resources, routing and quotas. Upload public static files only, excluding private configuration, credentials and logs. Confirm backend, SSR or Functions requirements separately.
@@ -202,4 +245,4 @@ The new template defaults to china. Existing ask, both, overseas and ESA console
 
 Include the knowledge root MIT LICENSE in standalone installations and packages. Check the manifest and exclude CONFIG.md, USER.md, credentials, logs, screenshots, private backups and provider CLI packages. `.gitignore` protects new files; check packaging and already tracked files separately.
 
-On 2026-11-17, Skill 1.2.0, ESA CLI 1.0.14 and Wrangler 4.163.0 deployed the same site to two existing projects and verified updates at their original URLs and visitor access. Versioned references resolved the ESA resource-version issue; some connections passed after targeted retries. CLI creation, collection deployment, restoration, unattended CI, checks across days and target-region networks remain unverified. See [validation status](../SKILL.md#验证状态).
+On 2026-11-17, Skill 1.2.0, ESA CLI 1.0.14 and Wrangler 4.163.0 deployed the same site to two existing projects and verified updates at their original URLs and visitor access. Subsequent tests created an ESA project through the CLI, bound a new subdomain, added the first custom domain to the existing Cloudflare project, and verified DNS, certificates and access on both providers. Versioned references resolved the ESA resource-version issue; some connections passed after targeted retries. Cloudflare CLI creation, further updates after domain binding, collection deployment, restoration, unattended CI, checks across days and target-region networks remain unverified. See [validation status](../SKILL.md#验证状态).
