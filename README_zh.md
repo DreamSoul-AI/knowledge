@@ -14,6 +14,7 @@
 | [代码架构分析 Code Architecture Analysis](skills/code-architecture-analysis/SKILL.md) | 沿实现路径核对架构结论，说明源码和运行证据支持的范围 | [用法](skills/code-architecture-analysis/SKILL.md) |
 | [文档同步 Document Sync](skills/document-sync/SKILL.md) | 按项目规范同步单文档或明确清单，逐份核对基线并保留冲突，目前支持飞书 | [English](skills/document-sync/references/README.md) / [中文](skills/document-sync/references/README_zh.md) |
 | [日历会议归档 Calendar Meeting Archive](skills/calendar-meeting-archive/SKILL.md) | 按负责人及明确例外处理，先判断已有稿复用与局部补齐，再归档交付 | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
+| [通用调研 General Search](skills/general-search/SKILL.md) | 调研技术、工具和工程实践，依据直接来源解释机制并比较实际取舍 | [用法](skills/general-search/SKILL.md) |
 | [文献调研 Literature Search](skills/literature-search/SKILL.md) | 检索筛选文献，形成综述与跨论文可复用研究资产 | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
 | [论文分析 Paper Analysis](skills/paper-analysis/SKILL.md) | 论文精读与分析 | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
 | [研究计划 Research Plan](skills/research-plan/SKILL.md) | 从灵感形成研究计划与实验方案 | [English](skills/research-plan/references/README.md) / [中文](skills/research-plan/references/README_zh.md) |
