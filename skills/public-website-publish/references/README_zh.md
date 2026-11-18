@@ -46,7 +46,7 @@
 
 ## 安装与运行条件
 
-当前 1.2.0 的接入版维护在 knowledge 的 `dev` 分支，尚未发布到 `main`。从 `dev` 安装完整目录；原名称为 `website-static-publish`，功能范围保持不变。Agent 需要文件读写、命令执行和浏览器授权能力。安装请求：
+当前正式版 1.2.0 从 knowledge 的 [main 分支](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-publish) 安装完整目录。原名称为 `website-static-publish`，现统一使用 `public-website-publish`，功能范围保持不变。Agent 需要文件读写、命令执行和浏览器授权能力。安装请求：
 
 ```text
 将提供的 public-website-publish 安装到当前项目的 .agents/skills/。

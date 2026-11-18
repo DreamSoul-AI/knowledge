@@ -69,7 +69,7 @@ ESA 默认按 [ESA CLI](references/esa-cli.md)执行，已有 console／github �
 
 ## 验证状态
 
-当前为 1.2.0 的 dev 接入版，尚未发布到 main；配置 schemaVersion 2；ESA OAuth 接续脚本检查身份和临时凭据，再调用官方 CLI。
+当前正式版为 1.2.0，维护于 knowledge 的 main 分支，配置 schemaVersion 2；ESA OAuth 接续脚本检查身份和临时凭据，再调用官方 CLI。以下线上验证为原日期的历史结果，每次实际发布仍需按目标验收。
 
 - 2026-11-06：Cloudflare 首次发布、同项目更新和共用案例验证通过。
 - 2026-11-16：ESA 控制台首次发布、固定域名与 HTTPS、境外区域接入，以及 RAM OAuth／STS 下的既有项目 CLI 发布与更新通过。

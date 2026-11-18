@@ -46,7 +46,7 @@ Users supply their own subdomains. Replace the display example `showcase.dreamso
 
 ## Installation and requirements
 
-The integration of version 1.2.0 is maintained on knowledge's `dev` branch and is not yet published on `main`. Install the complete directory from `dev`. It was previously named `website-static-publish`; its functional scope is unchanged. Your agent needs file access, command execution and a browser for authorization. Installation request:
+Install the complete version 1.2.0 package from knowledge's [main branch](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-publish). It was previously named `website-static-publish` and is now invoked as `public-website-publish`; its functional scope is unchanged. Your agent needs file access, command execution and a browser for authorization. Installation request:
 
 ```text
 Install the supplied public-website-publish into this project's .agents/skills/.
