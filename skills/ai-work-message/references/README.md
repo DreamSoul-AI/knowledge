@@ -17,6 +17,8 @@ Keep messages concise, fluent and easy to read so readers can quickly find usefu
 
 Before delivering the first independently drafted version, edit it from the recipient's perspective. Combine repeated points and the materials belonging to one matter; retain the change, necessary action, real links and conditions that affect the reader's judgment. Leave detailed methods and verification history in the linked material. Add a purpose or request only when the text, prior context or priority label does not already convey it.
 
+Use selective bold emphasis for key actions, verified deadlines, main conclusions and links readers need to open. Preserve links and check emphasis during publication readback; do not bold whole paragraphs or every link. For a set of skill updates, retain the repository link. Begin each parallel item with the bold, linked skill name, followed by one sentence explaining its purpose and relevant change. Link `SKILL.md` when it is the official entry; state unpublished status accurately. Preserve a user-approved shared version across boards.
+
 Install the entire `ai-work-message` directory, then ask:
 ```text
 Use $ai-work-message to read this conversation excerpt and draft one plain-language work update. Show it to me without publishing it.
