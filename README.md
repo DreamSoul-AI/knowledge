@@ -21,6 +21,7 @@ instructions and reference material, so it can be installed independently.
 | [research-plan](skills/research-plan/SKILL.md) | Research ideas, study plans, and experiment protocols | [English](skills/research-plan/references/README.md) / [中文](skills/research-plan/references/README_zh.md) |
 | [python-environment](skills/python-environment/SKILL.md) | Python Environment Management: inspect, prepare and troubleshoot project environments | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
 | [cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | Initialize the Windows runtime, read real memory and perform requested working-set cleanup | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [ZIP](skills/cpu-memory-cleanup.zip) |
+| [Public Website Publish](skills/public-website-publish/SKILL.md) | Publish and update static sites on Alibaba Cloud ESA Pages or Cloudflare Pages, with first custom-subdomain binding; defaults to China/ESA and CLI uploads | [English](skills/public-website-publish/references/README.md) / [中文](skills/public-website-publish/references/README_zh.md) |
 
 ## Skills maintained in other repositories
 

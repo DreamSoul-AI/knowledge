@@ -20,6 +20,7 @@
 | [研究计划 Research Plan](skills/research-plan/SKILL.md) | 从灵感形成研究计划与实验方案 | [English](skills/research-plan/references/README.md) / [中文](skills/research-plan/references/README_zh.md) |
 | [Python 环境管理与排障 Python Environment Management](skills/python-environment/SKILL.md) | 检查、准备与诊断项目环境，优先复用已有环境 | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
 | [CPU 内存清理 CPU Memory Cleanup](skills/cpu-memory-cleanup/SKILL.md) | 首次初始化 Windows 内存工具，读取真实状态并按请求整理工作集 | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [安装包](skills/cpu-memory-cleanup.zip) |
+| [公开网站发布 Public Website Publish](skills/public-website-publish/SKILL.md) | 在阿里云 ESA Pages 或 Cloudflare Pages 发布静态站点、同址更新及首次绑定自定义子域名；默认国内 ESA、CLI 上传 | [English](skills/public-website-publish/references/README.md) / [中文](skills/public-website-publish/references/README_zh.md) |
 
 技能显示名统一采用“中文名 English Name”，调用标识仍沿用目录中的英文形式，例如“文献调研 Literature Search”使用 `$literature-search`。中英文名称指向同一技能，不另建中文副本。
 
