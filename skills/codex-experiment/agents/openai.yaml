@@ -1,4 +1,0 @@
-interface:
-  display_name: "Codex 实验执行"
-  short_description: "从一句验证问题出发，自主设计、执行并核验 Codex 实验，按需保留可复跑证据"
-  default_prompt: "用 $codex-experiment 实际验证这个 Codex 行为，给我结论、依据和适用条件。"
