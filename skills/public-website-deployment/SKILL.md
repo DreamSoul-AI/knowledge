@@ -1,11 +1,11 @@
 ---
-name: public-website-publish
+name: public-website-deployment
 description: "把已有 HTML、静态目录或 ZIP 发布到阿里云 ESA Pages 或 Cloudflare Pages；网站上传默认走 CLI，支持首次发布、同址更新、用户指定子域名的首次绑定与访问验证。"
 metadata:
   version: "1.2.0"
 ---
 
-# 公开网站发布 Public Website Publish
+# 公开网站部署 Public Website Deployment
 
 发布已有完整静态站点，支持首次发布、原网址更新和双端验收。新配置默认 `china → ESA`，海外使用 Cloudflare；网站上传默认 CLI。本次明确要求优先，已有配置按迁移规则保留。
 
