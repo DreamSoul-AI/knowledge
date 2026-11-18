@@ -1,4 +1,4 @@
-# Public Website Publish
+# Public Website Deployment
 
 English | [简体中文](README_zh.md)
 
@@ -11,19 +11,19 @@ First use: install the skill → fill configuration → authorize the CLI → ch
 After setup, send a request to your agent. Replace paths, project names and URLs with your actual targets:
 
 ```text
-Use $public-website-publish to check ./dist and my deployment configuration. List missing items; do not upload.
+Use $public-website-deployment to check ./dist and my deployment configuration. List missing items; do not upload.
 ```
 
 ```text
-Use $public-website-publish to update the existing ESA project my-demo from ./dist and verify the original URL.
+Use $public-website-deployment to update the existing ESA project my-demo from ./dist and verify the original URL.
 ```
 
 ```text
-Use $public-website-publish to update the existing Cloudflare project my-site from ./dist and verify the original URL.
+Use $public-website-deployment to update the existing Cloudflare project my-site from ./dist and verify the original URL.
 ```
 
 ```text
-Use $public-website-publish to update the configured ESA and Cloudflare projects from the same ./dist. Verify each original URL.
+Use $public-website-deployment to update the configured ESA and Cloudflare projects from the same ./dist. Verify each original URL.
 ```
 
 For a new project, explicitly request creation and specify its name. ESA standalone demos use separate projects and subdomains; small experiments can share a collection with stable paths. Collection updates start from the complete current site and preserve other experiments. See [demo organization](../SKILL.md#esa-demo-组织方式).
@@ -31,25 +31,25 @@ For a new project, explicitly request creation and specify its name. ESA standal
 For first domain binding, ask:
 
 ```text
-Use $public-website-publish to bind tools.example.com to my existing ESA project my-demo for the first time. Complete DNS and HTTPS checks without uploading the website again.
+Use $public-website-deployment to bind tools.example.com to my existing ESA project my-demo for the first time. Complete DNS and HTTPS checks without uploading the website again.
 ```
 
 ```text
-Use $public-website-publish to publish ./dist as a new ESA project my-new-demo and bind my chosen new subdomain lab.example.com for the first time.
+Use $public-website-deployment to publish ./dist as a new ESA project my-new-demo and bind my chosen new subdomain lab.example.com for the first time.
 ```
 
 ```text
-Use $public-website-publish to bind showcase.dreamsoul.cn to my existing Cloudflare project my-site for the first time. Complete DNS and HTTPS checks and keep the pages.dev endpoint.
+Use $public-website-deployment to bind showcase.dreamsoul.cn to my existing Cloudflare project my-site for the first time. Complete DNS and HTTPS checks and keep the pages.dev endpoint.
 ```
 
 Users supply their own subdomains. Replace the display example `showcase.dreamsoul.cn` with your own subdomain. For a new Cloudflare project, explicitly request creation and provide its name and subdomain. See [first binding](#first-custom-subdomain-binding) for the steps.
 
 ## Installation and requirements
 
-Install the complete version 1.2.0 package from knowledge's [main branch](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-publish). It was previously named `website-static-publish` and is now invoked as `public-website-publish`; its functional scope is unchanged. Your agent needs file access, command execution and a browser for authorization. Installation request:
+Install the complete version 1.2.0 package from knowledge's [main branch](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-deployment). Its previous names were `website-static-publish` and `public-website-publish`; invoke it as `public-website-deployment`; its functional scope is unchanged. Your agent needs file access, command execution and a browser for authorization. Installation request:
 
 ```text
-Install the supplied public-website-publish into this project's .agents/skills/.
+Install the supplied public-website-deployment into this project's .agents/skills/.
 Copy the complete skill directory, exclude real CONFIG.md and private files, and keep the bundled LICENSE.
 Back up an existing installation and preserve its configuration. Only install in this task.
 ```
