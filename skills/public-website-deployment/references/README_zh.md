@@ -1,4 +1,4 @@
-# 公开网站发布 Public Website Publish
+# 公开网站部署 Public Website Deployment
 
 [English](README.md) | 简体中文
 
@@ -11,19 +11,19 @@
 安装配置完成后，直接向 Agent 发送请求。将路径、项目名和网址换成实际值：
 
 ```text
-使用 $public-website-publish，检查 ./dist 和发布配置，列出缺项，不上传。
+使用 $public-website-deployment，检查 ./dist 和发布配置，列出缺项，不上传。
 ```
 
 ```text
-使用 $public-website-publish，把 ./dist 更新到 ESA 已有项目 my-demo，验证原网址。
+使用 $public-website-deployment，把 ./dist 更新到 ESA 已有项目 my-demo，验证原网址。
 ```
 
 ```text
-使用 $public-website-publish，把 ./dist 更新到 Cloudflare 已有项目 my-site，验证原网址。
+使用 $public-website-deployment，把 ./dist 更新到 Cloudflare 已有项目 my-site，验证原网址。
 ```
 
 ```text
-使用 $public-website-publish，把同一份 ./dist 更新到配置中的 ESA 和 Cloudflare 项目，分别验证原网址。
+使用 $public-website-deployment，把同一份 ./dist 更新到配置中的 ESA 和 Cloudflare 项目，分别验证原网址。
 ```
 
 新建时明确说“新建项目”并指定名称。ESA 独立 Demo 使用独立项目和子域名；小实验可加入已有合集的稳定路径。合集更新需基于当前完整站点保留其他实验，详见 [Demo 组织方式](../SKILL.md#esa-demo-组织方式)。
@@ -31,25 +31,25 @@
 首次绑定可以直接说：
 
 ```text
-使用 $public-website-publish，为 ESA 已有项目 my-demo 首次绑定 tools.example.com，完成 DNS 和 HTTPS 验收，不重新上传网站。
+使用 $public-website-deployment，为 ESA 已有项目 my-demo 首次绑定 tools.example.com，完成 DNS 和 HTTPS 验收，不重新上传网站。
 ```
 
 ```text
-使用 $public-website-publish，将 ./dist 发布为 ESA 新项目 my-new-demo，并首次绑定我指定的新子域名 lab.example.com。
+使用 $public-website-deployment，将 ./dist 发布为 ESA 新项目 my-new-demo，并首次绑定我指定的新子域名 lab.example.com。
 ```
 
 ```text
-使用 $public-website-publish，为 Cloudflare 已有项目 my-site 首次绑定 showcase.dreamsoul.cn，完成 DNS 和 HTTPS 验收，保留 pages.dev 入口。
+使用 $public-website-deployment，为 Cloudflare 已有项目 my-site 首次绑定 showcase.dreamsoul.cn，完成 DNS 和 HTTPS 验收，保留 pages.dev 入口。
 ```
 
 子域名由使用者提供；`showcase.dreamsoul.cn` 是展示示例，使用时替换为自己的子域名。新 Cloudflare 项目同样明确说“新建项目”、给出名称和子域名。详细步骤见[首次绑定](#首次绑定自定义子域名)。
 
 ## 安装与运行条件
 
-当前正式版 1.2.0 从 knowledge 的 [main 分支](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-publish) 安装完整目录。原名称为 `website-static-publish`，现统一使用 `public-website-publish`，功能范围保持不变。Agent 需要文件读写、命令执行和浏览器授权能力。安装请求：
+当前正式版 1.2.0 从 knowledge 的 [main 分支](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-deployment) 安装完整目录。原名称依次为 `website-static-publish`、`public-website-publish`，现统一使用 `public-website-deployment`，功能范围保持不变。Agent 需要文件读写、命令执行和浏览器授权能力。安装请求：
 
 ```text
-将提供的 public-website-publish 安装到当前项目的 .agents/skills/。
+将提供的 public-website-deployment 安装到当前项目的 .agents/skills/。
 复制完整技能目录，排除真实 CONFIG.md 和私人文件，并保留随包 LICENSE。
 已有安装先备份并保留配置。此次只安装。
 ```
