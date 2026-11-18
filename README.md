@@ -27,9 +27,9 @@ instructions and reference material, so it can be installed independently.
 
 | Skill | Purpose | Installation |
 | --- | --- | --- |
-| Figma Design Delivery | Create or revise editable Figma designs and verify prototypes against specifications and a running frontend | [Figma repository releases](https://github.com/DreamSoul-AI/figma/releases) · DreamSoul Figma repository access required |
+| [Figma Design](https://github.com/DreamSoul-AI/figma/blob/main/src/figma-design/SKILL.md) | Create or revise editable Figma designs and verify prototypes against specifications and a running frontend | [Figma repository releases](https://github.com/DreamSoul-AI/figma/releases) · DreamSoul Figma repository access required |
 
-For Figma Design Delivery, download the ZIP from the Figma release page. Extract the entire `figma-design-delivery` folder into `<project>/.agents/skills/`, then invoke `$figma-design-delivery` in Codex. The ZIP includes the instructions, Node.js tools, and bundled dependencies. Use the install steps on the release page for runtime requirements.
+For Figma Design, download the ZIP from the Figma release page. Extract the entire `figma-design` folder into `<project>/.agents/skills/`, then invoke `$figma-design` in Codex. The ZIP includes the instructions, Node.js tools, and bundled dependencies. Use the install steps on the release page for runtime requirements. If upgrading an installation named `figma-design-delivery`, preserve personal changes before replacing it with the complete new package, and avoid loading both names.
 
 ## Tools
 

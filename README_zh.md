@@ -28,9 +28,9 @@
 
 | 技能 | 用途 | 安装 |
 | --- | --- | --- |
-| Figma 设计交付 Figma Design Delivery | 新建或改版可编辑设计稿，按规格和运行前端核对原型 | [Figma 仓库发布页](https://github.com/DreamSoul-AI/figma/releases)，需要 DreamSoul Figma 仓库访问权限 |
+| [Figma 设计 Figma Design](https://github.com/DreamSoul-AI/figma/blob/main/src/figma-design/SKILL.md) | 新建或改版可编辑设计稿，按规格和运行前端核对原型 | [Figma 仓库发布页](https://github.com/DreamSoul-AI/figma/releases)，需要 DreamSoul Figma 仓库访问权限 |
 
-安装 Figma 设计交付时，从发布页下载 ZIP，把解压得到的整个 `figma-design-delivery` 文件夹放到 `<项目>/.agents/skills/`，再在 Codex 中调用 `$figma-design-delivery`。说明、Node.js 工具和随包依赖一起安装。运行条件见发布页。
+安装 Figma 设计时，从发布页下载 ZIP，把解压得到的整个 `figma-design` 文件夹放到 `<项目>/.agents/skills/`，再在 Codex 中调用 `$figma-design`。说明、Node.js 工具和随包依赖一起安装。运行条件见发布页。已有旧名 `figma-design-delivery` 安装时，先保留个人修改，再替换为完整新版，避免同时加载两份 Skill。
 
 ## 工具
 
