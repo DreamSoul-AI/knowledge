@@ -1,4 +1,4 @@
-# Website Static Publish
+# Public Website Publish
 
 English | [简体中文](README_zh.md)
 
@@ -11,19 +11,19 @@ First use: install the skill → fill configuration → authorize the CLI → ch
 After setup, send a request to your agent. Replace paths, project names and URLs with your actual targets:
 
 ```text
-Use $website-static-publish to check ./dist and my deployment configuration. List missing items; do not upload.
+Use $public-website-publish to check ./dist and my deployment configuration. List missing items; do not upload.
 ```
 
 ```text
-Use $website-static-publish to update the existing ESA project my-demo from ./dist and verify the original URL.
+Use $public-website-publish to update the existing ESA project my-demo from ./dist and verify the original URL.
 ```
 
 ```text
-Use $website-static-publish to update the existing Cloudflare project my-site from ./dist and verify the original URL.
+Use $public-website-publish to update the existing Cloudflare project my-site from ./dist and verify the original URL.
 ```
 
 ```text
-Use $website-static-publish to update the configured ESA and Cloudflare projects from the same ./dist. Verify each original URL.
+Use $public-website-publish to update the configured ESA and Cloudflare projects from the same ./dist. Verify each original URL.
 ```
 
 For a new project, explicitly request creation and specify its name. ESA standalone demos use separate projects and subdomains; small experiments can share a collection with stable paths. Collection updates start from the complete current site and preserve other experiments. See [demo organization](../SKILL.md#esa-demo-组织方式).
@@ -31,26 +31,26 @@ For a new project, explicitly request creation and specify its name. ESA standal
 For first domain binding, ask:
 
 ```text
-Use $website-static-publish to bind tools.example.com to my existing ESA project my-demo for the first time. Complete DNS and HTTPS checks without uploading the website again.
+Use $public-website-publish to bind tools.example.com to my existing ESA project my-demo for the first time. Complete DNS and HTTPS checks without uploading the website again.
 ```
 
 ```text
-Use $website-static-publish to publish ./dist as a new ESA project my-new-demo and bind my chosen new subdomain lab.example.com for the first time.
+Use $public-website-publish to publish ./dist as a new ESA project my-new-demo and bind my chosen new subdomain lab.example.com for the first time.
 ```
 
 ```text
-Use $website-static-publish to bind showcase.dreamsoul.cn to my existing Cloudflare project my-site for the first time. Complete DNS and HTTPS checks and keep the pages.dev endpoint.
+Use $public-website-publish to bind showcase.dreamsoul.cn to my existing Cloudflare project my-site for the first time. Complete DNS and HTTPS checks and keep the pages.dev endpoint.
 ```
 
 Users supply their own subdomains. Replace the display example `showcase.dreamsoul.cn` with your own subdomain. For a new Cloudflare project, explicitly request creation and provide its name and subdomain. See [first binding](#first-custom-subdomain-binding) for the steps.
 
 ## Installation and requirements
 
-Version 1.2.0 is on knowledge's `feature/migrate-website-static-publish` migration branch, pending integration into the release branch. Check out that branch and install from the local directory. Your agent needs file access, command execution and a browser for authorization. Installation request:
+The integration of version 1.2.0 is maintained on knowledge's `dev` branch and is not yet published on `main`. Install the complete directory from `dev`. It was previously named `website-static-publish`; its functional scope is unchanged. Your agent needs file access, command execution and a browser for authorization. Installation request:
 
 ```text
-Install the supplied website-static-publish into this project's .agents/skills/.
-Copy the complete skill directory, exclude real CONFIG.md and private files, and include the knowledge root LICENSE.
+Install the supplied public-website-publish into this project's .agents/skills/.
+Copy the complete skill directory, exclude real CONFIG.md and private files, and keep the bundled LICENSE.
 Back up an existing installation and preserve its configuration. Only install in this task.
 ```
 
@@ -243,6 +243,6 @@ Back up the installation to a private location outside skill discovery directori
 
 The new template defaults to china. Existing ask, both, overseas and ESA console/github values remain intact. To make ESA the default, set `default.target=china` and `china.provider=esa`; the configuration format remains 2.
 
-Include the knowledge root MIT LICENSE in standalone installations and packages. Check the manifest and exclude CONFIG.md, USER.md, credentials, logs, screenshots, private backups and provider CLI packages. `.gitignore` protects new files; check packaging and already tracked files separately.
+Keep the bundled MIT LICENSE in standalone installations and packages. Check the manifest and exclude CONFIG.md, USER.md, credentials, logs, screenshots, private backups and provider CLI packages. `.gitignore` protects new files; check packaging and already tracked files separately.
 
 On 2026-11-17, Skill 1.2.0, ESA CLI 1.0.14 and Wrangler 4.163.0 deployed the same site to two existing projects and verified updates at their original URLs and visitor access. Subsequent tests created an ESA project through the CLI, bound a new subdomain, added the first custom domain to the existing Cloudflare project, and verified DNS, certificates and access on both providers. Versioned references resolved the ESA resource-version issue; some connections passed after targeted retries. Cloudflare CLI creation, further updates after domain binding, collection deployment, restoration, unattended CI, checks across days and target-region networks remain unverified. See [validation status](../SKILL.md#验证状态).

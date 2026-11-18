@@ -1,4 +1,4 @@
-# 网站静态发布 Website Static Publish
+# 公开网站发布 Public Website Publish
 
 [English](README.md) | 简体中文
 
@@ -11,19 +11,19 @@
 安装配置完成后，直接向 Agent 发送请求。将路径、项目名和网址换成实际值：
 
 ```text
-使用 $website-static-publish，检查 ./dist 和发布配置，列出缺项，不上传。
+使用 $public-website-publish，检查 ./dist 和发布配置，列出缺项，不上传。
 ```
 
 ```text
-使用 $website-static-publish，把 ./dist 更新到 ESA 已有项目 my-demo，验证原网址。
+使用 $public-website-publish，把 ./dist 更新到 ESA 已有项目 my-demo，验证原网址。
 ```
 
 ```text
-使用 $website-static-publish，把 ./dist 更新到 Cloudflare 已有项目 my-site，验证原网址。
+使用 $public-website-publish，把 ./dist 更新到 Cloudflare 已有项目 my-site，验证原网址。
 ```
 
 ```text
-使用 $website-static-publish，把同一份 ./dist 更新到配置中的 ESA 和 Cloudflare 项目，分别验证原网址。
+使用 $public-website-publish，把同一份 ./dist 更新到配置中的 ESA 和 Cloudflare 项目，分别验证原网址。
 ```
 
 新建时明确说“新建项目”并指定名称。ESA 独立 Demo 使用独立项目和子域名；小实验可加入已有合集的稳定路径。合集更新需基于当前完整站点保留其他实验，详见 [Demo 组织方式](../SKILL.md#esa-demo-组织方式)。
@@ -31,26 +31,26 @@
 首次绑定可以直接说：
 
 ```text
-使用 $website-static-publish，为 ESA 已有项目 my-demo 首次绑定 tools.example.com，完成 DNS 和 HTTPS 验收，不重新上传网站。
+使用 $public-website-publish，为 ESA 已有项目 my-demo 首次绑定 tools.example.com，完成 DNS 和 HTTPS 验收，不重新上传网站。
 ```
 
 ```text
-使用 $website-static-publish，将 ./dist 发布为 ESA 新项目 my-new-demo，并首次绑定我指定的新子域名 lab.example.com。
+使用 $public-website-publish，将 ./dist 发布为 ESA 新项目 my-new-demo，并首次绑定我指定的新子域名 lab.example.com。
 ```
 
 ```text
-使用 $website-static-publish，为 Cloudflare 已有项目 my-site 首次绑定 showcase.dreamsoul.cn，完成 DNS 和 HTTPS 验收，保留 pages.dev 入口。
+使用 $public-website-publish，为 Cloudflare 已有项目 my-site 首次绑定 showcase.dreamsoul.cn，完成 DNS 和 HTTPS 验收，保留 pages.dev 入口。
 ```
 
 子域名由使用者提供；`showcase.dreamsoul.cn` 是展示示例，使用时替换为自己的子域名。新 Cloudflare 项目同样明确说“新建项目”、给出名称和子域名。详细步骤见[首次绑定](#首次绑定自定义子域名)。
 
 ## 安装与运行条件
 
-当前 1.2.0 位于 knowledge 的 `feature/migrate-website-static-publish` 迁移分支，尚未合入发布分支；检出该分支后从本地目录安装。Agent 需要文件读写、命令执行和浏览器授权能力。安装请求：
+当前 1.2.0 的接入版维护在 knowledge 的 `dev` 分支，尚未发布到 `main`。从 `dev` 安装完整目录；原名称为 `website-static-publish`，功能范围保持不变。Agent 需要文件读写、命令执行和浏览器授权能力。安装请求：
 
 ```text
-将提供的 website-static-publish 安装到当前项目的 .agents/skills/。
-复制完整技能目录，排除真实 CONFIG.md 和私人文件，并附带 knowledge 根 LICENSE。
+将提供的 public-website-publish 安装到当前项目的 .agents/skills/。
+复制完整技能目录，排除真实 CONFIG.md 和私人文件，并保留随包 LICENSE。
 已有安装先备份并保留配置。此次只安装。
 ```
 
@@ -243,6 +243,6 @@ node $esaRunner @esaArgs -- domain list
 
 新模板默认 china；已有 ask、both、overseas 和 ESA console／github 值继续保留。需要改默认 ESA 时设置 `default.target=china`、`china.provider=esa`，配置格式仍为 2。
 
-独立安装或打包时附带 knowledge 根 MIT LICENSE。检查文件清单，排除 CONFIG.md、USER.md、凭据、日志、截图、私人备份和平台 CLI 安装包；`.gitignore` 保护新文件，打包和已跟踪文件另行核对。
+独立安装或打包时保留随包 MIT LICENSE。检查文件清单，排除 CONFIG.md、USER.md、凭据、日志、截图、私人备份和平台 CLI 安装包；`.gitignore` 保护新文件，打包和已跟踪文件另行核对。
 
 2026-11-17 已用 1.2.0、ESA CLI 1.0.14 和 Wrangler 4.163.0 完成两个已有项目的同站发布、原网址更新及访客验收；随后完成 ESA CLI 新建项目绑定新子域名、Cloudflare 已有项目首次绑定及双端 DNS、证书和访问验收。ESA 资源版本问题通过版本参数修正，部分连接超时经重试完成核验。Cloudflare CLI 新建、绑定后的再次同址更新、合集发布、恢复、无人值守 CI、跨天和目标地区网络仍待验证；完整状态见 [验证状态](../SKILL.md#验证状态)。

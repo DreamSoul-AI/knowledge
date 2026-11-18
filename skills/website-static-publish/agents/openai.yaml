@@ -1,4 +1,0 @@
-interface:
-  display_name: "网站静态发布 Website Static Publish"
-  short_description: "发布到阿里云 ESA 或 Cloudflare；两端默认 CLI，验证同址更新"
-  default_prompt: "使用 $website-static-publish，读取 Skill 内 CONFIG.md，按我指定的阿里云 ESA、Cloudflare 或双端目标发布完整静态产物；两端默认走 CLI，验证同址更新并交付访问链接。"

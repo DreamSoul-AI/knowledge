@@ -1,11 +1,11 @@
 ---
-name: website-static-publish
+name: public-website-publish
 description: "把已有 HTML、静态目录或 ZIP 发布到阿里云 ESA Pages 或 Cloudflare Pages；网站上传默认走 CLI，支持首次发布、同址更新、用户指定子域名的首次绑定与访问验证。"
 metadata:
   version: "1.2.0"
 ---
 
-# 网站静态发布 Website Static Publish
+# 公开网站发布 Public Website Publish
 
 发布已有完整静态站点，支持首次发布、原网址更新和双端验收。新配置默认 `china → ESA`，海外使用 Cloudflare；网站上传默认 CLI。本次明确要求优先，已有配置按迁移规则保留。
 
@@ -69,7 +69,7 @@ ESA 默认按 [ESA CLI](references/esa-cli.md)执行，已有 console／github �
 
 ## 验证状态
 
-当前为 1.2.0，待合并发布，配置 schemaVersion 2；ESA OAuth 接续脚本检查身份和临时凭据，再调用官方 CLI。
+当前为 1.2.0 的 dev 接入版，尚未发布到 main；配置 schemaVersion 2；ESA OAuth 接续脚本检查身份和临时凭据，再调用官方 CLI。
 
 - 2026-11-06：Cloudflare 首次发布、同项目更新和共用案例验证通过。
 - 2026-11-16：ESA 控制台首次发布、固定域名与 HTTPS、境外区域接入，以及 RAM OAuth／STS 下的既有项目 CLI 发布与更新通过。

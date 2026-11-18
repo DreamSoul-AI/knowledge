@@ -131,8 +131,8 @@ scripts/
 !skills/document-sync/scripts/*.py
 
 # Keep the static-publishing OAuth runner and its tests in the distribution.
-!skills/website-static-publish/scripts/
-!skills/website-static-publish/scripts/esa-cli.mjs
-!skills/website-static-publish/scripts/esa-cli.test.mjs
+!skills/public-website-publish/scripts/
+!skills/public-website-publish/scripts/esa-cli.mjs
+!skills/public-website-publish/scripts/esa-cli.test.mjs
 
 /USER.md
