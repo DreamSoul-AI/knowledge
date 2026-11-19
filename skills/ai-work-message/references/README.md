@@ -3,6 +3,19 @@ Prepare usable work messages from the specified conversation and feedback. Compl
 Without publication authorization, show complete message text. When sending or updating is authorized, save it to the intended location, then read the actual saved content to check the wording, links, date, recipients and author. Do not ask for the same authorization again. Later scope restrictions take precedence.
 Keep the opening short and concrete, leading with the matter or result the reader most needs to know rather than adding a stock introduction. Use semicolons sparingly without banning them. Let meaning guide sentence breaks instead of mechanically splitting sentences to shorten the opening or avoid semicolons.
 
+## Global review across conversations
+During calibration, adding a destination version means completing its proposed text, not automatically switching to publication. Account authorization and publication scope are separate. Follow explicit pauses or withdrawals immediately and update the run status; reuse existing publication authorization only while it remains applicable.
+
+First present a work inventory grouped by recommended or deferred sharing, then completed or unfinished deliverables, with task details beneath. Calibrate the selection with the user before composing board-specific messages with recipients, priority and real links. An inventory is not a publishable message, and progress alone does not justify sharing. Examples do not become permanent personal rules. See the [cross-conversation workflow](global-review.md) for discovery, grouping and recovery after partial delivery.
+
+At the start of every global review, ask the user to confirm the exact start and end dates, times, and time zone, even when continuing from the last successful consolidated publication. Previous publication records provide a candidate boundary, not confirmation for the current run. After confirmation, group work by matter and calibrate the sharing scope and wording with the user. Deliver only the selected work messages; do not upload conversation transcripts by default. Do not repeat the question for every item within a confirmed run. Ordinary single-message date rules remain unchanged.
+
+```text
+Use $ai-work-message to review work across conversations. First propose the exact time window for me to confirm.
+Group by sharing recommendation, completion status and task details, noting existing posts and deferred items.
+After calibration, prepare every selected board's complete message. Do not publish in this run.
+```
+
 ## Use
 Always start by reading the project's applicable message-board standard, using the supplied rules, project AGENTS.md or standards index to locate the source. DreamSoul uses `文档/规范/产品/留言板规范.md`; other projects use their own rules. An explicitly selected candidate standard takes precedence for a local trial. Report inaccessible rules rather than claiming compliance with unread material.
 
