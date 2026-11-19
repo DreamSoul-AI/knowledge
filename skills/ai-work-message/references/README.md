@@ -3,16 +3,16 @@ Prepare usable work messages from the specified conversation and feedback. Compl
 Without publication authorization, show complete message text. When sending or updating is authorized, save it to the intended location, then read the actual saved content to check the wording, links, date, recipients and author. Do not ask for the same authorization again. Later scope restrictions take precedence.
 Keep the opening short and concrete, leading with the matter or result the reader most needs to know rather than adding a stock introduction. Use semicolons sparingly without banning them. Let meaning guide sentence breaks instead of mechanically splitting sentences to shorten the opening or avoid semicolons.
 
-## Global review across conversations
+## Compose multiple messages from a work summary
 During calibration, adding a destination version means completing its proposed text, not automatically switching to publication. Account authorization and publication scope are separate. Follow explicit pauses or withdrawals immediately and update the run status; reuse existing publication authorization only while it remains applicable.
 
-First present a work inventory grouped by recommended or deferred sharing, then completed or unfinished deliverables, with task details beneath. Calibrate the selection with the user before composing board-specific messages with recipients, priority and real links. An inventory is not a publishable message, and progress alone does not justify sharing. Examples do not become permanent personal rules. See the [cross-conversation workflow](global-review.md) for discovery, grouping and recovery after partial delivery.
+Accept summary text, a readable file or link. Present sharing choices grouped by recommended or deferred sharing, then completed or unfinished deliverables, with task details beneath. Calibrate with the user before composing board-specific messages with recipients, priority and real links. Work Summary retains the full factual inventory; progress alone does not justify sharing, and examples do not become permanent personal rules. See [composing from a summary](global-review.md) for selection and recovery after partial delivery.
 
-At the start of every global review, ask the user to confirm the exact start and end dates, times, and time zone, even when continuing from the last successful consolidated publication. Previous publication records provide a candidate boundary, not confirmation for the current run. After confirmation, group work by matter and calibrate the sharing scope and wording with the user. Deliver only the selected work messages; do not upload conversation transcripts by default. Do not repeat the question for every item within a confirmed run. Ordinary single-message date rules remain unchanged.
+When collection across conversations is needed and no summary exists, use `work-summary` first to confirm exact times, time zone and sources and prepare the full summary. Reuse that confirmed scope downstream and investigate only missing or changed facts. If the skill is unavailable, accept the user's summary or specified material and disclose coverage. A single-conversation message does not require a separate summary. Filing dates remain a separate check under this skill.
 
 ```text
-Use $ai-work-message to review work across conversations. First propose the exact time window for me to confirm.
-Group by sharing recommendation, completion status and task details, noting existing posts and deferred items.
+Use $work-summary to confirm the time window and prepare the complete work summary.
+Then use $ai-work-message to select what to share, noting existing posts and deferred items.
 After calibration, prepare every selected board's complete message. Do not publish in this run.
 ```
 
