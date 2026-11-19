@@ -9,7 +9,8 @@ instructions and reference material, so it can be installed independently.
 
 | Skill | Purpose | Guide |
 | --- | --- | --- |
-| [ai-work-message](skills/ai-work-message/SKILL.md) | Review one or multiple conversations, calibrate what to share, and prepare board-specific updates with authorized delivery | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
+| [Work Summary](skills/work-summary/SKILL.md) | Consolidate work, evidence, unfinished items and next steps for review or handoff | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
+| [ai-work-message](skills/ai-work-message/SKILL.md) | Turn conversations or a work summary into selected board-specific updates with authorized delivery | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
 | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
 | [meeting-minutes](skills/meeting-minutes/SKILL.md) | Organize meeting material with context and rules; select advice by value and actual beneficiaries; optional delivery handler | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
 | [code-architecture-analysis](skills/code-architecture-analysis/SKILL.md) | Trace implementation paths and verify architecture claims against source and runtime evidence | [Usage](skills/code-architecture-analysis/SKILL.md) |
