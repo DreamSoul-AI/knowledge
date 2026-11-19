@@ -1,0 +1,52 @@
+# No mailbox, schedule or cloud destination is enabled by this example.
+name: Daily Email Summary
+project_root: null
+deployment:
+  enabled: false
+  timezone: null
+  time_local: null
+mailboxes:
+  - name: primary
+    provider: null  # User-selected, e.g. outlook or feishu; requires a working adapter.
+    connection: null  # Connector/CLI connection reference, never credentials.
+    expected_account: null
+    folders: []  # Explicit folder IDs/names, or all_visible if intentionally selected.
+    adapter:
+      profile: null
+      list: null
+      detail: null
+      pagination: null
+scan:
+  timezone: null
+  start: null  # Optional explicit trial window. Supply both boundaries together.
+  end_exclusive: null
+  initial_lookback_hours: 24
+  overlap_hours: 24
+  cutoff: run_start
+  include_read: true
+  resume_incomplete: true
+selection:
+  interests: []
+  important_senders: []
+  exclude_senders: []
+  exclude_subjects: []
+  newsletter_policy: brief
+  max_highlights: 8
+rules:
+  format: null
+  additional_requirements: []
+output:
+  directory: null
+  destination: current_task_chat
+  cloud_write: false
+state:
+  path: null
+  lock_path: null
+retention:
+  raw_messages: false
+  source_index: false
+execution:
+  mode: manual_preview
+  advance_checkpoint: false
+  mailbox_writes: false
+  send_messages: false
