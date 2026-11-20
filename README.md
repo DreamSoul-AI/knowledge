@@ -9,6 +9,7 @@ instructions and reference material, so it can be installed independently.
 
 | Skill | Purpose | Guide |
 | --- | --- | --- |
+| [Workspace Update](skills/workspace-update/SKILL.md) | Update adopted projects and complete release distribution with per-target verification | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
 | [Work Summary](skills/work-summary/SKILL.md) | Consolidate work, evidence, unfinished items and next steps for review or handoff | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
 | [ai-work-message](skills/ai-work-message/SKILL.md) | Turn conversations or a work summary into selected board-specific updates with authorized delivery | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
 | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
