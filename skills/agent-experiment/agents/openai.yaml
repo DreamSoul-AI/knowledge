@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent 实验执行 agent-experiment"
+  short_description: "从验证问题出发，选择可用环境设计、执行和核验实验，按需保留可复跑证据"
+  default_prompt: "用 $agent-experiment 实际验证这个问题，给我结论、依据和适用条件。"

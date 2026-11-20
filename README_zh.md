@@ -8,6 +8,7 @@
 
 | 技能 | 用途 | 教程 |
 | --- | --- | --- |
+| [Agent 实验执行 agent-experiment](skills/agent-experiment/SKILL.md) | 设计、执行和核验有界 Agent 实验，区分实际观察和结论边界 | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
 | [工作区更新 Workspace Update](skills/workspace-update/SKILL.md) | 更新已采用项目和配套发布位置，逐项核对 | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
 | [工作总结 Work Summary](skills/work-summary/SKILL.md) | 盘点成果、依据、未收尾项和下一步，可用于回顾、交接和工作留言 | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
 | [Grok Bot CLI](skills/grok-bot-cli/SKILL.md) | 连接 Grok Bot，检查访问及按授权验证收发 | [接入教程](skills/grok-bot-cli/references/connection.md) |
