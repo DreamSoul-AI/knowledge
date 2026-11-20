@@ -18,3 +18,7 @@
 - 验证按目标技能或工具现有能力选择，不虚构全仓统一测试命令。打包时保留长期依赖和许可证，检查包内路径与敏感数据；不自动安装到用户环境或发布
 - 分支沿研发协作规范使用：`main` 保存已发布版本，`dev` 为长期开发集成分支；日常改动从 `dev` 创建必要的短期分支，经 PR 核验后合入 `dev`，稳定后通过 `dev → main` 发布 PR 进入正式版本，不直接推送这两个长期分支。
 - PR 完成合并后在同轮收尾中删除对应远端及不再使用的本地短期分支；未合并分支先核对差异，明确合入、被替代或放弃后再清理。保留 `main`、`dev` 和仍有实际工作的短期分支，不留已完成分支作历史存档。清理前保留未提交改动，检查关联工作区；活动工作区不强制删除。
+
+## Workspace 采用记录
+
+- 单项更新：[Workspace 65657c5](https://github.com/DreamSoul-AI/workspace/tree/65657c50cf6d98ac1898ae0183cb9ca98498e0a9)。采用旧对话重读、新对话定位、文档主动补链接、浏览器收尾、飞书专节及 CLI 任务临时目录、共享资源主动检查；保留项目专有约定和原整版基线。共享 data/models 直接复用，仅 artifacts 按仓库隔离，接入示例见 [Workspace 教程](https://github.com/DreamSoul-AI/workspace/blob/main/templates/software-engineering/examples/shared-resources/README.md)。
