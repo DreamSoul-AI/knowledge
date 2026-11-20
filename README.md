@@ -9,6 +9,7 @@ instructions and reference material, so it can be installed independently.
 
 | Skill | Purpose | Guide |
 | --- | --- | --- |
+| [agent-experiment](skills/agent-experiment/SKILL.md) | Design, run and assess bounded Agent experiments with observable evidence | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
 | [Workspace Update](skills/workspace-update/SKILL.md) | Update adopted projects and complete release distribution with per-target verification | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
 | [Work Summary](skills/work-summary/SKILL.md) | Consolidate work, evidence, unfinished items and next steps for review or handoff | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
 | [Grok Bot CLI](skills/grok-bot-cli/SKILL.md) | Connect to Grok Bot and verify access or authorized messaging | [Connection guide](skills/grok-bot-cli/references/connection.md) |
