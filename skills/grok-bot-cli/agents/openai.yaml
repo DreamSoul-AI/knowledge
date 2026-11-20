@@ -1,0 +1,3 @@
+interface:
+  display_name: "Grok Bot CLI"
+  short_description: "接入 Grok Bot，检查本机连接和会话，并按授权验证消息收发"
