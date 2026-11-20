@@ -1,11 +1,11 @@
 ---
-name: website-static-publish
-description: "把已有 HTML、静态目录或 ZIP 发布到阿里云 ESA Pages 或 Cloudflare Pages；网站上传默认走 CLI，支持首次发布、同址更新、用户指定子域名的首次绑定与访问验证。"
+name: public-website-deployment
+description: "把已有 HTML、静态目录或 ZIP 发布到阿里云 ESA Pages 或 Cloudflare Pages；默认 CLI，支持首次发布、同址更新与子域名绑定，按需处理多来源站点组装、ESA 旧域名迁移和续订检查。"
 metadata:
   version: "1.2.0"
 ---
 
-# 网站静态发布 Website Static Publish
+# 公开网站部署 Public Website Deployment
 
 发布已有完整静态站点，支持首次发布、原网址更新和双端验收。新配置默认 `china → ESA`，海外使用 Cloudflare；网站上传默认 CLI。本次明确要求优先，已有配置按迁移规则保留。
 
@@ -45,7 +45,16 @@ ESA 默认按 [ESA CLI](references/esa-cli.md)执行，已有 console／github �
 
 网站上传仍默认 CLI；域名、DNS、证书分别使用对应参考中已核验的入口和权限。完成后检查解析、证书、HTTPS、HTTP 跳转及完整页面，再交付固定网址。已有入口保持原用途；部分完成时记录成功步骤与阻塞原因，不自动删除项目、记录或证书。
 
+## ESA 迁移与续订
+
+- 明确要求将旧入口迁往新域名或路径时，读取[旧域名迁移](references/esa-domain-migration.md)：先验证新入口，再启用逐页跳转，保留查询参数及旧 DNS、证书和恢复基线。
+- 检查服务期限或处理自动续订时，读取[订阅与续订检查](references/esa-renewal.md)：分别核对计算订阅与站点套餐，设置按已授权范围及费用条件执行，配置成功与实际续订成功分别记录。
+
+这两项按本次请求开展，普通内容上传不默认更改域名规则或续订设置。
+
 ## 共用产物流程
+
+需要把多个独立来源合并到同一站点的不同路径，或更新其中一个专题时，先读[多来源静态站点组装](references/multi-source-sites.md)。按项目选定的路径记录来源版本、公开文件清单与摘要，适配链接后生成完整产物；源仓库可以继续独立维护。
 
 1. **整理目录**：单 HTML 带齐依赖；源码按项目现有命令构建；ZIP 检查根入口、条目和体积，拒绝绝对路径、向上穿越及范围外链接后解压。保留中文和空格路径，只上传公开产物目录。
 2. **核对范围**：排除 CONFIG.md、USER.md、Git 历史、环境文件、账号缓存、凭据和部署记录。发现 SSR、Functions、`_worker.js`、数据库或服务端 API 需求时，另行确认运行时与发布范围。
@@ -69,7 +78,7 @@ ESA 默认按 [ESA CLI](references/esa-cli.md)执行，已有 console／github �
 
 ## 验证状态
 
-当前为 1.2.0，待合并发布，配置 schemaVersion 2；ESA OAuth 接续脚本检查身份和临时凭据，再调用官方 CLI。
+当前正式版为 1.2.0，维护于 knowledge 的 main 分支，配置 schemaVersion 2；ESA OAuth 接续脚本检查身份和临时凭据，再调用官方 CLI。以下线上验证为原日期的历史结果，每次实际发布仍需按目标验收。
 
 - 2026-11-06：Cloudflare 首次发布、同项目更新和共用案例验证通过。
 - 2026-11-16：ESA 控制台首次发布、固定域名与 HTTPS、境外区域接入，以及 RAM OAuth／STS 下的既有项目 CLI 发布与更新通过。
@@ -77,4 +86,7 @@ ESA 默认按 [ESA CLI](references/esa-cli.md)执行，已有 console／github �
 
 - 同日完成 ESA CLI 新建独立项目并绑定新子域名、Cloudflare 已有项目首次绑定自定义子域名；保留原权威 DNS，新增 CNAME，证书激活后通过新入口的资源、HTTPS、HTTP 跳转和浏览器交互验收。旧项目、DNS 和产物保持不变。ESA 部分请求超时，经针对性重试取得结果，持续稳定性仍待验证。
 
-待验证：Cloudflare CLI 新建项目、绑定后的再次同址更新、合集增量发布、真实恢复、无人值守 CI、跨天及目标地区网络。每次发布仍按本次目标验收。
+- 2026-11-19：来源项目分别设置计算免费订阅与站点免费套餐的自动续订，API 回读状态与周期成功；实际自动续订尚未发生。方法及费用依据见[续订参考](references/esa-renewal.md)。
+- 2026-11-20：来源项目完成两个独立静态专题的固定版本组装、子路径适配与 ESA 首次合并发布。完整资源、专题交互、深层页面和 404 取得通过证据；旧域名逐页 301、查询参数与浏览器锚点通过。国内直连 HTTP 与代理浏览器分别记录，部分连接超时经针对性重查通过。此项为项目案例证据，通用方法见[组装参考](references/multi-source-sites.md)及[迁移参考](references/esa-domain-migration.md)，没有新增随包组装器。
+
+待验证：Cloudflare CLI 新建项目、绑定后的再次同址更新、合并站点上线后的单专题更新、Cloudflare 多来源组合发布及域名迁移、真实恢复、自动续订实际执行、无人值守 CI、跨天及多地区网络；国内直连浏览器交互也未验证。每次操作仍按本次目标验收。

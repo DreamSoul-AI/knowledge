@@ -12,6 +12,7 @@
 | 开发与验证 | [开发与验证](<开发 Development/README.md>) |
 | 定时任务 | [任务总表](../automations/README_zh.md) |
 | 共享资源接入候选 | [范围与开发计划](<开发 Development/开发计划 Development Plan 多仓库共享资源接入.md>) |
+| 网站发布方法 | [多来源组装](../skills/public-website-deployment/references/multi-source-sites.md) · [ESA 旧域名迁移](../skills/public-website-deployment/references/esa-domain-migration.md) · [ESA 续订检查](../skills/public-website-deployment/references/esa-renewal.md) · [提炼记录](<开发记录 Development Record/2026-11-20 网站发布通用方法提炼.md>) |
 | 实际运行证据 | [运行记录](<运行记录 Run Record/>) |
 | 变更说明 | [开发记录](<开发记录 Development Record/>) |
 
