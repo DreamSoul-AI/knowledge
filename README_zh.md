@@ -10,6 +10,7 @@
 | --- | --- | --- |
 | [工作区更新 Workspace Update](skills/workspace-update/SKILL.md) | 更新已采用项目和配套发布位置，逐项核对 | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
 | [工作总结 Work Summary](skills/work-summary/SKILL.md) | 盘点成果、依据、未收尾项和下一步，可用于回顾、交接和工作留言 | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
+| [Grok Bot CLI](skills/grok-bot-cli/SKILL.md) | 连接 Grok Bot，检查访问及按授权验证收发 | [接入教程](skills/grok-bot-cli/references/connection.md) |
 | [工作留言 AI Work Message](skills/ai-work-message/SKILL.md) | 从沟通或工作总结筛选分享事项，逐板成文并按授权交付 | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
 | [Codex 对话归档 Codex Conversation Archive](skills/codex-conversation-archive/SKILL.md) | 保留原话并增量归档 Codex 本地会话 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [安装包](skills/codex-conversation-archive.zip) |
 | [会议总结 Meeting Minutes](skills/meeting-minutes/SKILL.md) | 结合材料和规范整理会议，建议按实际价值与受益人筛选，可按授权外接交付 | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
@@ -41,6 +42,7 @@
 | [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Codex VS Code 任务完成后的原生 Windows 通知 | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
 | [cpu-memory-cleanup](tools/cpu-memory-cleanup/) | 内存Package与CLI接入说明，不复制清理实现 | [English](tools/cpu-memory-cleanup/README.md) / [中文](tools/cpu-memory-cleanup/README_zh.md) |
 | [shared-repository-resources](tools/shared-repository-resources/) | 按配置让多个仓库通过符号链接复用部分目录资源 | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
+| [Grok Bot CLI](tools/grok-bot-cli/) | 启动本机安装的上游 CLI | [English](tools/grok-bot-cli/README.md) / [中文](tools/grok-bot-cli/README_zh.md) |
 
 ## 定时任务 Automations
 

@@ -11,6 +11,7 @@ instructions and reference material, so it can be installed independently.
 | --- | --- | --- |
 | [Workspace Update](skills/workspace-update/SKILL.md) | Update adopted projects and complete release distribution with per-target verification | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
 | [Work Summary](skills/work-summary/SKILL.md) | Consolidate work, evidence, unfinished items and next steps for review or handoff | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
+| [Grok Bot CLI](skills/grok-bot-cli/SKILL.md) | Connect to Grok Bot and verify access or authorized messaging | [Connection guide](skills/grok-bot-cli/references/connection.md) |
 | [ai-work-message](skills/ai-work-message/SKILL.md) | Turn conversations or a work summary into selected board-specific updates with authorized delivery | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
 | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
 | [meeting-minutes](skills/meeting-minutes/SKILL.md) | Organize meeting material with context and rules; select advice by value and actual beneficiaries; optional delivery handler | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
@@ -40,6 +41,7 @@ For Figma Design, download the ZIP from the Figma release page. Extract the enti
 | [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Native Windows notifications for Codex turns in VS Code | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
 | [cpu-memory-cleanup](tools/cpu-memory-cleanup/) | Reusable memory package and CLI entry; no duplicated cleanup implementation | [English](tools/cpu-memory-cleanup/README.md) / [中文](tools/cpu-memory-cleanup/README_zh.md) |
 | [shared-repository-resources](tools/shared-repository-resources/) | Reuse selected directory resources across repositories through configurable symlink mappings | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
+| [Grok Bot CLI](tools/grok-bot-cli/) | Launch the locally installed upstream CLI | [English](tools/grok-bot-cli/README.md) / [中文](tools/grok-bot-cli/README_zh.md) |
 
 ## Automations
 
