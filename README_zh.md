@@ -8,6 +8,7 @@
 
 | 技能 | 用途 | 教程 |
 | --- | --- | --- |
+| [工作区更新 Workspace Update](skills/workspace-update/SKILL.md) | 更新已采用项目和配套发布位置，逐项核对 | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
 | [工作总结 Work Summary](skills/work-summary/SKILL.md) | 盘点成果、依据、未收尾项和下一步，可用于回顾、交接和工作留言 | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
 | [工作留言 AI Work Message](skills/ai-work-message/SKILL.md) | 从沟通或工作总结筛选分享事项，逐板成文并按授权交付 | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
 | [Codex 对话归档 Codex Conversation Archive](skills/codex-conversation-archive/SKILL.md) | 保留原话并增量归档 Codex 本地会话 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [安装包](skills/codex-conversation-archive.zip) |
