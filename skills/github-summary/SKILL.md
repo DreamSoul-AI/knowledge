@@ -44,4 +44,3 @@ description: 盘点指定 GitHub 仓库和分支的经验来源，保存原文�
 记录实际来源版本、接收位置、归并与采用状态、外部操作结果和剩余项。中断后从已有接收和目标现状继续，结果不明先核实，不清空记录后全量重发。对话里给出成果入口和具体缺口。
 
 使用说明：[中文](references/README_zh.md) · [English](references/README.md)
-

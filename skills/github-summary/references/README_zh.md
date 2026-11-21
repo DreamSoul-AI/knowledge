@@ -61,5 +61,3 @@ python scripts/github_summary.py collect --repo <仓库路径> --name owner/proj
 ~~~text
 python -B tests/test_intake.py -v
 ~~~
-
-

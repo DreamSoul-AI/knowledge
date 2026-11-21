@@ -61,5 +61,3 @@ python -B tests/test_intake.py -v
 ~~~
 
 After installation, compare all distributed files against the adopted fixed commit and run the checks from the installed directory. Explicit use of the skill does not establish automatic discovery or selection by the desktop app. These tests do not establish production cleanup, concurrent writers, other devices or untested platform behavior.
-
-
