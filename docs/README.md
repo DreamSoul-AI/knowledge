@@ -8,6 +8,7 @@
 | 仓库专用工作约定 | [REPO.md](../REPO.md) |
 | 中文安装与技能指南 | [README_zh.md](../README_zh.md) |
 | 技能目录 | [skills](../skills/) |
+| GitHub 汇总验证 | [本轮验证](<运行记录 Run Record/2026-11-22 GitHub 汇总技能验证.md>) |
 | 工具目录 | [tools](../tools/) |
 | 开发与验证 | [开发与验证](<开发 Development/README.md>) |
 | 定时任务 | [任务总表](../automations/README_zh.md) |
