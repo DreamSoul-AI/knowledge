@@ -10,6 +10,8 @@ Resource names, locations, repository entry points and the adopted subset are co
 
 Research repositories can share datasets (data), models and weights (models), and selected run outputs (artifacts). Outputs may be isolated per project or explicitly shared when reuse is intended. The [research example guide](examples/README.md) and [configuration](examples/research.config.example.json) show this convention. Other scenarios can choose different resources and mappings.
 
+Name directories under `data/` and `models/` after the resource, such as `data/<dataset-name>/` and `models/<model-name>/`. Neither directory uses a research topic as a grouping layer. Multiple topics can reuse the same dataset or model. Run outputs can be grouped under `artifacts/<project-name>/`.
+
 ## Configuration
 
 For research projects, start with the [research example](examples/research.config.example.json); for other layouts, see [config.example.json](config.example.json). Supply actual paths. Relative paths resolve against the configuration file's directory, independently of the script location or current working directory. Verify paths and resource availability on each device.
@@ -53,6 +55,14 @@ All mappings are preflighted before writes. Occupied files/directories, wrong-ta
 Correct links are reused and their actual targets and Git ignore behavior are checked. An interrupted apply may leave partial progress. `completed` reports verified entries; reruns inspect actual filesystem state and resume without deleting or replacing old entries. Keep configuration and paths stable during execution; concurrent mutation is not supported.
 
 Only directory resources are supported. The tool does not copy, move, delete or upload content, or edit consumer settings. Verify that each project actually uses the configured entry. Symlinks do not implement cross-device transfer, runtime compatibility or multi-writer coordination.
+
+## Agent calls and completion checks
+
+Select only repositories authorized for the current task. Check symlink permissions in the process that actually runs the tool; success in an outer terminal does not establish permission in a restricted Agent process.
+
+On a permission error, preserve the error and current state. If the runtime offers approval and the operation remains within the authorized scope, request that approval before retrying. Otherwise report the blocker. Do not silently substitute junctions, copies or another implementation and report completion. Report incompatible existing entries rather than deleting or migrating them without authorization.
+
+After applying, preview the same repositories with this tool and confirm that existing entries are recognized for reuse. Then verify the consumer's actual read paths. Successful consumer access and repeatable tool management are both required for completed integration.
 
 ## Research example and tests
 
