@@ -39,6 +39,7 @@ instructions and reference material, so it can be installed independently.
 | [Workspace Update](skills/workspace-update/SKILL.md) | Update adopted projects, skills and delivery locations | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
 | [github-summary](skills/github-summary/SKILL.md) | Receive versioned Learnings and consolidate them by recipient | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
 | [agent-experiment](skills/agent-experiment/SKILL.md) | Run bounded Agent experiments and assess observed behavior | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
+
 ## Skills maintained in other repositories
 
 | Skill | Purpose | Installation |
