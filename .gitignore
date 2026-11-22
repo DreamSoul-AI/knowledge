@@ -139,3 +139,4 @@ scripts/
 !skills/public-website-deployment/scripts/esa-cli.test.mjs
 
 /USER.md
+/.shared/
