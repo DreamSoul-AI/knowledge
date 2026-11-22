@@ -10,17 +10,17 @@
     "project-a": {
       "path": "repositories/project-a",
       "links": {
-        ".local/data": "training_corpus",
-        ".local/models": "base_weights",
-        ".local/artifacts": "project_a_outputs"
+        ".shared/data": "training_corpus",
+        ".shared/models": "base_weights",
+        ".shared/artifacts": "project_a_outputs"
       }
     },
     "project-b": {
       "path": "repositories/project-b",
       "links": {
-        ".local/data": "training_corpus",
-        ".local/models": "base_weights",
-        ".local/artifacts": "project_b_outputs"
+        ".shared/data": "training_corpus",
+        ".shared/models": "base_weights",
+        ".shared/artifacts": "project_b_outputs"
       }
     }
   }
