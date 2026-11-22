@@ -6,6 +6,8 @@ Let multiple repositories reuse selected resources through directory symlinks wh
 
 Resource names, locations, repository entry points and the adopted subset are configurable in JSON for different project layouts and directory resource types.
 
+For new configurations, use an external `shared/` directory for resource storage and `.shared/<resource-name>` for repository symlink entries. This is an example convention, not a tool requirement; existing custom entries remain supported. `.shared/` itself is an ordinary directory containing the resource symlinks.
+
 ## Research and engineering example
 
 Research repositories can share datasets (data), models and weights (models), and selected run outputs (artifacts). Outputs may be isolated per project or explicitly shared when reuse is intended. The [research example guide](examples/README.md) and [configuration](examples/research.config.example.json) show this convention. Other scenarios can choose different resources and mappings.
@@ -23,6 +25,12 @@ For research projects, start with the [research example](examples/research.confi
 - `create: true` permits creating a missing resource directory. It does not permit replacing a broken existing link or silently recreating lost linked data
 
 Shared and per-project resources are explicit mappings; targets are not derived from repository folder names. Keep actual personal paths in local configuration. Preview does not create the sample repositories or directories.
+
+## Existing entries
+
+The tool still accepts legacy `.local/` and other custom configurations. Updating the examples does not rename existing entries. When a project adopts `.shared/`, rename the relevant shared entries and their consumer paths; permanently keeping two sets of entries is not the completion criterion. Resource targets remain unchanged.
+
+The project or workspace maintenance process handles the rename and updates consumers, configuration, Git ignore rules and related documentation. If `.local/` also contains unrelated content, change only the identified shared entries. Preview and rerun the new configuration with this tool, then verify actual consumer reads. The tool itself does not move or delete existing entries or edit consumer configuration.
 
 ## Usage
 
