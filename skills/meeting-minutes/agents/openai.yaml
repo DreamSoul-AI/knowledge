@@ -1,5 +1,5 @@
 interface:
-  display_name: "会议总结 Meeting Minutes"
+  display_name: "会议总结 meeting-minutes"
   short_description: "结合原始材料、补充背景和适用规范整理会议总结，保留来源与决定边界"
   default_prompt: "使用 $meeting-minutes 按提供的原始材料、补充材料和适用规范整理会议，保留原始依据并先保存本地。"
 policy:

@@ -7,26 +7,38 @@ instructions and reference material, so it can be installed independently.
 
 ## Skills and guides
 
+### Work and documents
+
 | Skill | Purpose | Guide |
 | --- | --- | --- |
-| [github-summary](skills/github-summary/SKILL.md) | Receive versioned learning sources, curate by recipient and verify cleanup prerequisites | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
-| [agent-experiment](skills/agent-experiment/SKILL.md) | Design, run and assess bounded Agent experiments with observable evidence | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
-| [Workspace Update](skills/workspace-update/SKILL.md) | Update adopted projects and complete release distribution with per-target verification | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
-| [Work Summary](skills/work-summary/SKILL.md) | Consolidate work, evidence, unfinished items and next steps for review or handoff | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
-| [Grok Bot CLI](skills/grok-bot-cli/SKILL.md) | Connect to Grok Bot and verify access or authorized messaging | [Connection guide](skills/grok-bot-cli/references/connection.md) |
-| [ai-work-message](skills/ai-work-message/SKILL.md) | Turn conversations or a work summary into selected board-specific updates with authorized delivery | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
+| [work-summary](skills/work-summary/SKILL.md) | Consolidate results, evidence and unfinished work | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
+| [ai-work-message](skills/ai-work-message/SKILL.md) | Prepare board-specific work messages and deliver as authorized | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
 | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
-| [meeting-minutes](skills/meeting-minutes/SKILL.md) | Organize meeting material with context and rules; select advice by value and actual beneficiaries; optional delivery handler | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
-| [code-architecture-analysis](skills/code-architecture-analysis/SKILL.md) | Trace implementation paths and verify architecture claims against source and runtime evidence | [Usage](skills/code-architecture-analysis/SKILL.md) |
-| [document-sync](skills/document-sync/SKILL.md) | Upload, download or sync a document or explicit list with project rules and per-document baselines; Feishu adapter available | [English](skills/document-sync/references/README.md) / [简体中文](skills/document-sync/references/README_zh.md) |
-| [calendar-meeting-archive](skills/calendar-meeting-archive/SKILL.md) | Apply archive ownership and explicit overrides, reuse or patch existing results, then archive and deliver calendar meetings | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
-| [general-search](skills/general-search/SKILL.md) | Research technologies, tools, and engineering practices, with direct sources and practical comparisons | [English](skills/general-search/references/README.md) / [中文](skills/general-search/references/README_zh.md) |
+| [meeting-minutes](skills/meeting-minutes/SKILL.md) | Summarize meetings using supplied material and rules | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
+| [calendar-meeting-archive](skills/calendar-meeting-archive/SKILL.md) | Reuse existing results and archive calendar meetings by ownership | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
+| [document-sync](skills/document-sync/SKILL.md) | Sync selected documents with baseline and conflict checks; Feishu supported | [English](skills/document-sync/references/README.md) / [简体中文](skills/document-sync/references/README_zh.md) |
+| [grok-bot-cli](skills/grok-bot-cli/SKILL.md) | Connect to Grok Bot and verify access or authorized messaging | [Connection guide](skills/grok-bot-cli/references/connection.md) |
+
+### Research
+
+| Skill | Purpose | Guide |
+| --- | --- | --- |
+| [general-search](skills/general-search/SKILL.md) | Research technologies, tools and engineering practices | [English](skills/general-search/references/README.md) / [中文](skills/general-search/references/README_zh.md) |
 | [literature-search](skills/literature-search/SKILL.md) | Search academic literature, synthesize reviews and reusable research assets | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
 | [paper-analysis](skills/paper-analysis/SKILL.md) | Critical reading of selected papers | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
 | [research-plan](skills/research-plan/SKILL.md) | Research ideas, study plans, and experiment protocols | [English](skills/research-plan/references/README.md) / [中文](skills/research-plan/references/README_zh.md) |
-| [python-environment](skills/python-environment/SKILL.md) | Python Environment Management: inspect, prepare and troubleshoot project environments | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
-| [cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | Initialize the Windows runtime, read real memory and perform requested working-set cleanup | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [ZIP](skills/cpu-memory-cleanup.zip) |
-| [Public Website Deployment](skills/public-website-deployment/SKILL.md) | Publish and update static sites on Alibaba Cloud ESA Pages or Cloudflare Pages, with first custom-subdomain binding; defaults to China/ESA and CLI uploads | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
+
+### Engineering and runtime
+
+| Skill | Purpose | Guide |
+| --- | --- | --- |
+| [code-architecture-analysis](skills/code-architecture-analysis/SKILL.md) | Verify architecture claims against source and runtime evidence | [Usage](skills/code-architecture-analysis/SKILL.md) |
+| [python-environment](skills/python-environment/SKILL.md) | Inspect, prepare and troubleshoot Python environments | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
+| [cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | Read Windows memory and perform requested working-set cleanup | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [ZIP](skills/cpu-memory-cleanup.zip) |
+| [public-website-deployment](skills/public-website-deployment/SKILL.md) | Deploy and update static sites on ESA Pages or Cloudflare Pages | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
+| [workspace-update](skills/workspace-update/SKILL.md) | Update adopted projects, skills and delivery locations | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
+| [github-summary](skills/github-summary/SKILL.md) | Receive versioned Learnings and consolidate them by recipient | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
+| [agent-experiment](skills/agent-experiment/SKILL.md) | Run bounded Agent experiments and assess observed behavior | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
 
 ## Skills maintained in other repositories
 
@@ -42,10 +54,10 @@ For Figma Design, download the ZIP from the Figma release page. Extract the enti
 
 | Tool | Purpose | Guide |
 | --- | --- | --- |
+| [grok-bot-cli](tools/grok-bot-cli/) | Launch the locally installed upstream CLI | [English](tools/grok-bot-cli/README.md) / [中文](tools/grok-bot-cli/README_zh.md) |
 | [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Native Windows notifications for Codex turns in VS Code | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
 | [cpu-memory-cleanup](tools/cpu-memory-cleanup/) | Reusable memory package and CLI entry; no duplicated cleanup implementation | [English](tools/cpu-memory-cleanup/README.md) / [中文](tools/cpu-memory-cleanup/README_zh.md) |
 | [shared-repository-resources](tools/shared-repository-resources/) | Reuse configurable directory resources; new examples use `shared/` storage and `.shared/` entries | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
-| [Grok Bot CLI](tools/grok-bot-cli/) | Launch the locally installed upstream CLI | [English](tools/grok-bot-cli/README.md) / [中文](tools/grok-bot-cli/README_zh.md) |
 
 ## Automations
 
