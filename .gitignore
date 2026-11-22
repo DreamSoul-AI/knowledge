@@ -140,3 +140,5 @@ scripts/
 
 /USER.md
 /.shared/
+/.tmp/
+/.workspace/local/
