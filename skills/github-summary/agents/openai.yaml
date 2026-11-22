@@ -1,3 +1,3 @@
 interface:
   display_name: "GitHub 汇总 GitHub Summary"
-  short_description: "盘点指定仓库和分支的经验来源，完整接收、去重归并并跟进授权清理"
+  short_description: "分步接收归并仓库经验，接入外部规范检查仓库状态，明确每步影响并按授权收尾"
