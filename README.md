@@ -11,7 +11,7 @@ instructions and reference material, so it can be installed independently.
 
 | Skill | Purpose | Usage |
 | --- | --- | --- |
-| [wrap-up](skills/wrap-up/SKILL.md) | Close out one conversation's round with results, remaining work and a resume point | [English](skills/wrap-up/references/README.md) / [中文](skills/wrap-up/references/README_zh.md) |
+| [wrap-up](skills/wrap-up/SKILL.md) | Inspect closeout readiness first; execute remaining steps when requested | [English](skills/wrap-up/references/README.md) / [中文](skills/wrap-up/references/README_zh.md) |
 | [work-summary](skills/work-summary/SKILL.md) | Consolidate results, evidence and unfinished work | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
 | [work-message](skills/work-message/SKILL.md) | Prepare board-specific work messages and deliver as authorized | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
 | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
@@ -37,7 +37,8 @@ instructions and reference material, so it can be installed independently.
 | [python-environment](skills/python-environment/SKILL.md) | Inspect, prepare and troubleshoot Python environments | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
 | [cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | Read Windows memory and perform requested working-set cleanup | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [ZIP](skills/cpu-memory-cleanup.zip) |
 | [public-website-deployment](skills/public-website-deployment/SKILL.md) | ESA / Cloudflare static publishing, updates and subdomain binding; optional multi-source assembly, ESA domain migration and renewal checks; defaults to China/ESA and CLI uploads | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
-| [workspace-update](skills/workspace-update/SKILL.md) | Update adopted projects, skills and delivery locations | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
+| [knowledge-update](skills/knowledge-update/SKILL.md) | Check or update adopted skills and tools, preserving local changes | [English](skills/knowledge-update/references/README.md) / [中文](skills/knowledge-update/references/README_zh.md) |
+| [workspace-update](skills/workspace-update/SKILL.md) | Update Workspace templates and delegate adopted capabilities to knowledge-update | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
 | [github-summary](skills/github-summary/SKILL.md) | Receive versioned Learnings and consolidate them by recipient | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
 | [agent-experiment](skills/agent-experiment/SKILL.md) | Run bounded Agent experiments and assess observed behavior | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
 

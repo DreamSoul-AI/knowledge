@@ -70,6 +70,8 @@ python scripts/github_summary.py collect --repo <checkout> --name owner/project 
 
 Read project conventions first. Supply custom sources with --source-path, exclusions with --exclude, and additional navigation pages with --nav. Registered worktrees and ignored experience files are checked by default. Do not place receipts inside a learning source in any scanned worktree.
 
+Ordinary `.tmp`, tmp and temp directories are excluded by default; a registered worktree inside one is still scanned from its own root. Explicit --source-path overrides default exclusions, while explicit --exclude takes precedence. Results, last-run.json and intake.md list actual excluded scopes, paths and reasons; coverage records both default and explicit exclusions. Decide whether to exclude output from project usage rather than a new global rule.
+
 Reruns reuse unchanged source identities. Review changes, errors, exclusions and navigation in last-run.json before making item-level judgments. objects/ preserves complete original bytes; index.json preserves repository, branch, fixed commit, worktree identity and history. These receipts can contain private originals and are not distributed with the skill.
 
 A remote manifest that has not covered a complete source scope returns coverage_complete=false. Limited intake can succeed without establishing branch-wide coverage. Ambiguous path migrations remain independent sources for Agent review.

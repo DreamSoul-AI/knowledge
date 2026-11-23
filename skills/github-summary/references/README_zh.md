@@ -70,6 +70,8 @@ python scripts/github_summary.py collect --repo <仓库路径> --name owner/proj
 
 先按项目约定选择来源，自定义路径加 --source-path；脚本默认检查登记的其他 worktree 和被忽略的经验原文。--exclude 可声明缓存或其他本次排除，--nav 可补相关目录页。接收目录不要放进任何被扫描工作树的经验目录。
 
+普通 `.tmp`、tmp、temp 默认排除，登记在其中的独立worktree仍从自身根读取。显式--source-path可覆盖默认排除，显式--exclude优先。返回结果、last-run.json及intake.md会列实际排除位置和原因；coverage记录默认及显式排除，避免把排除当成已经扫描。output是否排除按项目用途配置。
+
 相同输入重跑不会新增同义条目；有变化时，查看 last-run.json 的 changes、errors、exclusions 和 navigation，再由 Agent 逐条判断。objects/ 保存可恢复字节，index.json 保存分支、固定提交、工作树与历史身份。保留这些接续材料；它们可能含私有原文，不随技能分发。
 
 未完整枚举的远端清单会标记 coverage_complete=false；它可以完成有限接收，但不能据此声称覆盖整个分支。路径迁移有多种可能时保留独立来源，交由 Agent 核对。
