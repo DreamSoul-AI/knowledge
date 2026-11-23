@@ -13,6 +13,8 @@
 | 工作留言分享核验 | [调整说明](<开发记录 Development Record/2026-11-23 工作留言分享核验.md>) · [验证结果](<运行记录 Run Record/2026-11-23 工作留言分享核验验证.md>) |
 | 首页与工作留言改名 | [调整说明](<开发记录 Development Record/2026-11-24 首页分类与工作留言改名.md>) · [核对结果](<运行记录 Run Record/2026-11-24 首页与工作留言改名核对.md>) |
 | 收尾与总结留言 | [调整说明](<开发记录 Development Record/2026-11-24 收尾技能与总结留言核对.md>) · [行为验证](<运行记录 Run Record/2026-11-24 收尾与总结留言行为验证.md>) |
+| 能力更新与收尾盘点 | [调整说明](<开发记录 Development Record/2026-11-24 能力更新与个人来源.md>) · [实际验证](<运行记录 Run Record/2026-11-24 能力更新与收尾盘点验证.md>) |
+| GitHub汇总排除 | [调整说明](<开发记录 Development Record/2026-11-24 GitHub汇总临时目录排除.md>) · [验证结果](<运行记录 Run Record/2026-11-24 GitHub汇总排除验证.md>) |
 | 工具目录 | [tools](../tools/) |
 | 开发与验证 | [开发与验证](<开发 Development/README.md>) |
 | 定时任务 | [任务总表](../automations/README_zh.md) |

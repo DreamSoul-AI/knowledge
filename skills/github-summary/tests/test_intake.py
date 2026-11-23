@@ -31,6 +31,8 @@ class Intake(unittest.TestCase):
         self.put("notes/decisions/custom.md", "custom project source\n")
         self.put("src/sklearn/data/readme.md", "not an experience source\n")
         self.put("tmp/Learnings/cached.md", "not a current source\n")
+        self.put(".tmp/Learnings/snapshot.md", "ordinary historical snapshot, not current\n")
+        self.put("output/Learnings/current.md", "project-specific output source\n")
         self.git("add", ".")
         self.git("commit", "-m", "initial")
         self.git("branch", "dev")
@@ -210,6 +212,59 @@ class Intake(unittest.TestCase):
         index = json.loads((out / "index.json").read_text(encoding="utf-8"))
         entries = [r["entry_id"] for r in index["sources"].values() if r["present"]]
         self.assertEqual(len(set(entries)), 2)
+
+    def test_dot_tmp_snapshots_excluded_with_visible_reasons(self):
+        r = self.collect()
+        rows = list(self.index()["sources"].values())
+        self.assertFalse(any(x["path"].startswith(".tmp/") for x in rows))
+        self.assertTrue(any(x["path"] == "output/Learnings/current.md" for x in rows))
+        excluded = r["exclusions"]
+        self.assertTrue(any(x["scope"] == "ref:main" and x["path"] == ".tmp/Learnings/snapshot.md"
+                            and x["reason"] == "default excluded directory: .tmp" for x in excluded))
+        self.assertTrue(any(x["scope"] == "worktree:" + os.path.normcase(str(self.repo))
+                            and x["path"] == ".tmp" for x in excluded))
+        run = self.index()["last_run"]
+        self.assertEqual(excluded, run["exclusions"])
+        self.assertIn(".tmp", run["coverage"]["default_excluded_components"])
+        report = (self.out / "intake.md").read_text(encoding="utf-8")
+        self.assertIn("## 本轮排除", report)
+        self.assertIn(".tmp/Learnings/snapshot.md | default excluded directory: .tmp", report)
+
+    def test_registered_worktree_inside_dot_tmp_still_scanned(self):
+        dot_wt = self.repo / ".tmp/registered-worktree"
+        self.git("worktree", "add", "--detach", str(dot_wt), "main")
+        p = dot_wt / "docs/经验 Learnings/dot-worktree.md"
+        p.write_text("independent registered original\n", encoding="utf-8")
+        r = self.collect()
+        self.assertTrue(r["coverage_complete"])
+        self.assertTrue(any(x["kind"] == "worktree" and x["worktree"] == str(dot_wt)
+                            and x["path"] == "docs/经验 Learnings/dot-worktree.md"
+                            for x in self.index()["sources"].values()))
+
+    def test_explicit_source_overrides_default_but_explicit_exclude_wins(self):
+        source = ".tmp/confirmed/custom.md"
+        self.put(source, "explicitly confirmed current source\n")
+        self.git("add", source)
+        self.git("commit", "-m", "confirmed source")
+        args = ("collect", "--repo", str(self.repo), "--name", "test/repo", "--ref", "main",
+                "--source-path", ".tmp/confirmed", "--out", str(self.out))
+        r = self.cli(*args)
+        self.assertTrue(r["coverage_complete"])
+        self.assertTrue(any(x["path"] == source and x.get("present") for x in self.index()["sources"].values()))
+        r = self.cli(*args, "--exclude", ".tmp/confirmed")
+        self.assertFalse(any(x["path"] == source and x.get("present") for x in self.index()["sources"].values()))
+        self.assertTrue(any(x["path"] == source and x["reason"] == "explicit --exclude: .tmp/confirmed"
+                            for x in r["exclusions"]))
+        self.assertEqual(self.index()["last_run"]["coverage"]["exclusions"], [".tmp/confirmed"])
+
+    def test_remote_scope_exclusion_without_file_path_remains_readable(self):
+        manifest = self.root / "excluded-remote.json"
+        manifest.write_text(json.dumps({"repository": "owner/project", "sources": [],
+            "exclusions": [{"scope": "ref:archive", "reason": "outside requested branches"}]}), encoding="utf-8")
+        out = self.root / "remote-excluded"
+        result = self.cli("ingest", "--manifest", str(manifest), "--out", str(out))
+        self.assertEqual(result["exclusions"][0]["scope"], "ref:archive")
+        self.assertIn("outside requested branches", (out / "intake.md").read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

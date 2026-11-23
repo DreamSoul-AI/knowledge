@@ -1,0 +1,4 @@
+interface:
+  display_name: "能力更新 knowledge-update"
+  short_description: "检查或更新已采用的技能和工具，保留本地定制，核对完整内容、来源版本与实际结果"
+  default_prompt: "用 $knowledge-update 更新本工作区已采用的Knowledge能力，保留本地定制并核对实际结果。"

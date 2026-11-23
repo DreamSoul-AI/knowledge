@@ -133,6 +133,9 @@ scripts/
 !skills/github-summary/scripts/
 !skills/github-summary/scripts/*.py
 
+!skills/knowledge-update/scripts/
+!skills/knowledge-update/scripts/*.py
+
 # Keep the static-publishing OAuth runner and its tests in the distribution.
 !skills/public-website-deployment/scripts/
 !skills/public-website-deployment/scripts/esa-cli.mjs

@@ -16,7 +16,7 @@ from collections import Counter
 from urllib.parse import unquote, urlsplit
 
 EXCLUDED = {".git", "node_modules", ".venv", "venv", "__pycache__", ".pytest_cache",
-            ".mypy_cache", ".ruff_cache", ".cache", "tmp", "temp", "build", "dist",
+            ".mypy_cache", ".ruff_cache", ".cache", ".tmp", "tmp", "temp", "build", "dist",
             "data", "models", "artifacts", "outputs", ".local", ".test-results"}
 NAV = ["AGENTS.md", "REPO.md", "README.md", "README_zh.md", "docs/README.md"]
 TEXT = {".md", ".markdown", ".txt", ".rst"}
@@ -53,14 +53,23 @@ def selected(path, declared):
             or bool(SOURCE_FILE.fullmatch(parts[-1])))
 
 
-def excluded(path, declared, patterns):
+def exclusion_reason(path, declared, patterns):
     # Explicit source paths may live inside ordinary caches; explicit user exclusions still win.
-    if any(fnmatch.fnmatchcase(path, p) or (not any(c in p for c in '*?[')
-                                         and path.startswith(p.rstrip('/') + '/')) for p in patterns):
-        return True
+    for pattern in patterns:
+        if fnmatch.fnmatchcase(path, pattern) or (not any(c in pattern for c in '*?[')
+                                                and path.startswith(pattern.rstrip('/') + '/')):
+            return "explicit --exclude: " + pattern
     explicit = any(path == p or path.startswith(p.rstrip("/") + "/")
                    or p.startswith(path.rstrip("/") + "/") for p in declared)
-    return not explicit and any(p.casefold() in EXCLUDED for p in PurePosixPath(path).parts)
+    if not explicit:
+        for part in PurePosixPath(path).parts:
+            if part.casefold() in EXCLUDED:
+                return "default excluded directory: " + part
+    return None
+
+
+def excluded(path, declared, patterns):
+    return exclusion_reason(path, declared, patterns) is not None
 
 
 def git(repo, *args):
@@ -226,10 +235,18 @@ def receive(out, state, incoming, scopes, complete, errors, exclusions, findings
     lines = ["# 来源接收", "", "这里只记录来源及变化，不自动生成语义待办或认定正式采用。", ""]
     for c in changes:
         lines.append(f"- {c['change']} | {c['scope']} | {c['path']} | entry {c['entry_id']}")
+    lines += ["", "## 本轮排除", ""]
+    for item in exclusions:
+        if isinstance(item, dict):
+            lines.append(f"- {item.get('scope', 'worktree')} | {item.get('path', '(scope)')} | {item.get('reason', 'reason not supplied')}")
+        else:
+            lines.append("- " + str(item))
+    if not exclusions:
+        lines.append("本轮没有实际排除位置；范围以 coverage 记录为准。")
     (out / "intake.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     return {"sources": len(incoming), "coverage_complete": not errors and set(scopes).issubset(complete), "changes": {c: sum(x["change"] == c for x in changes)
             for c in sorted({x["change"] for x in changes})},
-            "errors": len(errors), "navigation_findings": len(findings),
+            "errors": len(errors), "exclusions": exclusions, "navigation_findings": len(findings),
             "duplicate_content_groups": len(duplicate_groups)}
 
 
@@ -263,8 +280,9 @@ def collect(args):
             for path, (mode, typ, oid) in entries.items():
                 if not selected(path, declared):
                     continue
-                if excluded(path, declared, args.exclude):
-                    exclusions.append({"scope": scope, "path": path, "reason": "excluded path"})
+                reason = exclusion_reason(path, declared, args.exclude)
+                if reason:
+                    exclusions.append({"scope": scope, "path": path, "reason": reason})
                     continue
                 if typ != "blob" or mode == "120000":
                     exclusions.append({"scope": scope, "path": path, "reason": "symlink or non-blob"})
@@ -295,9 +313,11 @@ def collect(args):
             for d in list(dirs):
                 path = Path(parent) / d
                 rel = path.relative_to(root).as_posix()
-                if excluded(rel, declared, args.exclude) or redirected(path):
+                reason = exclusion_reason(rel, declared, args.exclude)
+                if reason or redirected(path):
                     dirs.remove(d)
-                    exclusions.append({"scope": scope, "path": rel, "reason": "cache/excluded/redirected directory"})
+                    exclusions.append({"scope": scope, "path": rel,
+                                       "reason": reason or "redirected directory (symlink/reparse point)"})
             for name in names:
                 p = Path(parent) / name
                 rel = p.relative_to(root).as_posix()
@@ -306,8 +326,9 @@ def collect(args):
         for path in sorted(files):
             if not selected(path, declared):
                 continue
-            if excluded(path, declared, args.exclude):
-                exclusions.append({"scope": scope, "path": path, "reason": "excluded path"})
+            reason = exclusion_reason(path, declared, args.exclude)
+            if reason:
+                exclusions.append({"scope": scope, "path": path, "reason": reason})
                 continue
             p = root / path
             if p.is_symlink():
@@ -334,7 +355,8 @@ def collect(args):
     with writer(out) as state:
         result = receive(out, state, incoming, scopes, complete, errors, exclusions, findings,
                          {"repository": args.name, "repo": str(repo), "refs": refs,
-                          "worktrees": rows, "declared_paths": declared, "exclusions": args.exclude})
+                          "worktrees": rows, "declared_paths": declared, "exclusions": args.exclude,
+                          "default_excluded_components": sorted(EXCLUDED)})
     return result
 
 
