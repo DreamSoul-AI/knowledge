@@ -1,8 +1,18 @@
-# DreamSoul Knowledge
+# diaoenmao 的个人技能 Personal Skills
 
 [**English**](README.md)&nbsp; | &nbsp;**简体中文**
 
 可复用的 Agent 技能、独立工具和定时任务定义。每个技能都包含自己的执行说明和参考资料，可以独立安装。
+
+## 个人技能 Personal Skills
+
+本长期分支为GitHub用户 [diaoenmao](https://github.com/diaoenmao) 维护个人技能。共用能力继承自knowledge基线，下面已有的通用文件不是另一套个人发布，更新时仍沿各自实际采用来源。
+
+| **技能** | **用途** | **使用说明** |
+| --- | --- | --- |
+| [个人日志 personal-log](skills/personal-log/SKILL.md) | 按本人习惯转日、归档和清理，保留记录及待办接续 | [English](skills/personal-log/references/README.md) / [中文](skills/personal-log/references/README_zh.md) |
+
+个人技能默认在本分支维护，不自动合回main/dev。本分支沿用仓库公开范围，不包含私人日志原文、凭据或真实USER.md。技能已推送不代表已安装，也不产生修改实际日志的授权。
 
 ## 技能 Skills
 
@@ -79,14 +89,14 @@
 ```text
 $skill-installer
 请安装这个目录里的技能：
-https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
+https://github.com/DreamSoul-AI/knowledge/tree/diaoenmao/skills/personal-log
 ```
 
-将 paper-analysis 替换为本仓维护的技能目录名即可安装对应技能。
+此示例从个人分支安装personal-log。通用技能继续沿各自已确认的正式来源安装。
 如果手动安装到某个项目，将整个技能文件夹复制到 `<项目>/.agents/skills/` 下，
 保留 SKILL.md 和所有随包目录，包括 scripts/。
 
-安装后可以直接说：“请使用 paper-analysis 分析这篇论文。”
+安装后可以直接说：“用 $personal-log 查看个人日志中指定日期的整理情况。”
 
 原 `ai-work-message` 已改名为 `work-message`。安装完整的
 [work-message 目录](skills/work-message/)，升级前保留个人修改，避免同时加载新旧两份技能。
@@ -120,11 +130,13 @@ https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
 
 文档职责按 AGENTS.md 维护：通用调研只回答机制、方案、来源与当前判断，历史设计、迁移和修复经过归开发记录，实际执行及旧结果归运行记录，不保留历史摘要章。设计呈现当前选定方向及实现差距，计划维护后续工作与判据。已有内容尚未符合时逐文件迁移并登记缺口，不能只改名或把旧验证记为当前结果。
 
-长期分支仅保留 `main`（正式发布）和 `dev`（开发集成）。日常从 `dev` 建必要的短期分支，通过 PR 核验后集成，稳定后以 `dev → main` 发布 PR 合入正式版。合并完成当轮清理对应远端和不再使用的本地短期分支；清理前保存未提交改动并核对关联工作区。
+通用开发长期分支使用 `main`（正式发布）和 `dev`（开发集成）。日常从 `dev` 建必要的短期分支，通过 PR 核验后集成，稳定后以 `dev → main` 发布 PR 合入正式版。合并完成当轮清理对应远端和不再使用的本地短期分支；清理前保存未提交改动并核对关联工作区。
 
 ## 研发维护
 
 维护入口见 [仓库约定](REPO.md) 和 [研发文档导航](docs/README.md)。
+
+已登记的个人分支 `diaoenmao` 长期保留，不纳入任务分支清理；服务端仅禁止删除，不添加审批或推送限制。
 
 ### 待评估能力
 

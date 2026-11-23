@@ -1,0 +1,4 @@
+interface:
+  display_name: "个人日志 personal-log"
+  short_description: "按本人日志习惯转日、归档和清理，保留已勾记录、原有格式及待办接续"
+  default_prompt: "用 $personal-log 按本次指定范围整理我的个人日志，保留原有标记和已完成记录。"

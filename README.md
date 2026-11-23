@@ -1,9 +1,19 @@
-# DreamSoul Knowledge
+# diaoenmao Personal Skills
 
 **English**&nbsp; | &nbsp;[**简体中文**](README_zh.md)
 
 Reusable Agent Skills, standalone Tools and automation definitions. Each skill contains its own
 instructions and reference material, so it can be installed independently.
+
+## Personal Skills
+
+This long-lived `diaoenmao` branch maintains personal skills for GitHub user [diaoenmao](https://github.com/diaoenmao). It inherits the common knowledge baseline; inherited common files are not a separate personal release and should keep their own adopted sources.
+
+| Skill | Purpose | Usage |
+| --- | --- | --- |
+| [personal-log](skills/personal-log/SKILL.md) | Maintain this user's daily log, archive dates and preserve task continuity | [English](skills/personal-log/references/README.md) / [中文](skills/personal-log/references/README_zh.md) |
+
+Personal skills remain on this branch unless separately agreed for common use. This branch has the repository's public visibility; raw private logs, credentials and real USER.md are not included. Publishing a skill does not install it or authorize edits to a real log.
 
 ## Skills
 
@@ -78,15 +88,15 @@ Send this message to Codex to install one skill:
 ```text
 $skill-installer
 Install the skill at:
-https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
+https://github.com/DreamSoul-AI/knowledge/tree/diaoenmao/skills/personal-log
 ```
 
-Replace paper-analysis with the directory name of a skill hosted in this repository.
+This example installs personal-log from the personal branch. Select common skills from their own recorded release sources.
 To install manually for a project, copy the entire skill directory into
 `<project>/.agents/skills/`. Keep SKILL.md and all bundled directories, including scripts/, together.
 
 After installation, ask Codex to use the skill, for example:
-“Use paper-analysis to analyze this paper.”
+“Use $personal-log to inspect the specified date in my daily log.”
 
 The former `ai-work-message` skill is now `work-message`. Install the complete
 [work-message directory](skills/work-message/). Preserve personal changes before
@@ -123,7 +133,9 @@ Candidate-specific work is tracked in the [shared-resource integration plan](<do
 
 Document roles follow AGENTS.md: General Research covers mechanisms, options, sources and current conclusions. Design decisions, migrations and fixes belong in Development Record; executions and past results belong in Run Record, without history-summary chapters in research documents. Designs describe the chosen direction and implementation gaps; plans describe future work and acceptance criteria. Review and migrate existing content file by file where needed; renaming alone does not complete this work.
 
-Development uses two long-lived branches: `dev` for integration and `main` for published versions. Start necessary short-lived branches from `dev`, merge through a reviewed and validated PR, then release with a `dev → main` PR. Delete completed remote and unused local short-lived branches during the same closeout; preserve uncommitted work and check attached worktrees before cleanup.
+Common development uses two long-lived branches: `dev` for integration and `main` for published versions. Start necessary short-lived branches from `dev`, merge through a reviewed and validated PR, then release with a `dev → main` PR. Delete completed remote and unused local short-lived branches during the same closeout; preserve uncommitted work and check attached worktrees before cleanup.
+
+The registered personal branch `diaoenmao` is long-lived and excluded from task-branch cleanup. Its deletion-only server rule does not add review or push restrictions.
 
 ### Capability candidates
 
