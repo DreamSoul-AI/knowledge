@@ -2,17 +2,17 @@
 
 **English**&nbsp; | &nbsp;[**简体中文**](README_zh.md)
 
-Reusable agent skills, tools and automation definitions with human-readable guides. Each skill contains its own
+Reusable Agent Skills, standalone Tools and automation definitions. Each skill contains its own
 instructions and reference material, so it can be installed independently.
 
-## Skills and guides
+## Skills
 
 ### Work and documents
 
-| Skill | Purpose | Guide |
+| Skill | Purpose | Usage |
 | --- | --- | --- |
 | [work-summary](skills/work-summary/SKILL.md) | Consolidate results, evidence and unfinished work | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
-| [ai-work-message](skills/ai-work-message/SKILL.md) | Prepare board-specific work messages and deliver as authorized | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
+| [work-message](skills/work-message/SKILL.md) | Prepare board-specific work messages and deliver as authorized | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
 | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
 | [meeting-minutes](skills/meeting-minutes/SKILL.md) | Summarize meetings using supplied material and rules | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
 | [calendar-meeting-archive](skills/calendar-meeting-archive/SKILL.md) | Reuse existing results and archive calendar meetings by ownership | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
@@ -21,7 +21,7 @@ instructions and reference material, so it can be installed independently.
 
 ### Research
 
-| Skill | Purpose | Guide |
+| Skill | Purpose | Usage |
 | --- | --- | --- |
 | [general-search](skills/general-search/SKILL.md) | Research technologies, tools and engineering practices | [English](skills/general-search/references/README.md) / [中文](skills/general-search/references/README_zh.md) |
 | [literature-search](skills/literature-search/SKILL.md) | Search academic literature, synthesize reviews and reusable research assets | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
@@ -30,7 +30,7 @@ instructions and reference material, so it can be installed independently.
 
 ### Engineering and runtime
 
-| Skill | Purpose | Guide |
+| Skill | Purpose | Usage |
 | --- | --- | --- |
 | [code-architecture-analysis](skills/code-architecture-analysis/SKILL.md) | Verify architecture claims against source and runtime evidence | [Usage](skills/code-architecture-analysis/SKILL.md) |
 | [python-environment](skills/python-environment/SKILL.md) | Inspect, prepare and troubleshoot Python environments | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
@@ -40,7 +40,7 @@ instructions and reference material, so it can be installed independently.
 | [github-summary](skills/github-summary/SKILL.md) | Receive versioned Learnings and consolidate them by recipient | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
 | [agent-experiment](skills/agent-experiment/SKILL.md) | Run bounded Agent experiments and assess observed behavior | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
 
-## Skills maintained in other repositories
+### Design
 
 | Skill | Purpose | Installation |
 | --- | --- | --- |
@@ -52,7 +52,7 @@ For Figma Design, download the ZIP from the Figma release page. Extract the enti
 
 ## Tools
 
-| Tool | Purpose | Guide |
+| Tool | Purpose | Usage |
 | --- | --- | --- |
 | [grok-bot-cli](tools/grok-bot-cli/) | Launch the locally installed upstream CLI | [English](tools/grok-bot-cli/README.md) / [中文](tools/grok-bot-cli/README_zh.md) |
 | [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Native Windows notifications for Codex turns in VS Code | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
@@ -63,7 +63,7 @@ For Figma Design, download the ZIP from the Figma release page. Extract the enti
 
 Automations are maintained separately in [automations](automations/README.md), composing skills through task prompts and external configuration.
 
-| Automation | Purpose | Status | Guide |
+| Automation | Purpose | Status | Usage |
 | --- | --- | --- | --- |
 | [Daily Meeting Summary](automations/daily-meeting-summary/) | Incremental meeting archiving, summaries and authorized delivery | First version; manual reuse path verified | [English](automations/daily-meeting-summary/README.md) / [中文](automations/daily-meeting-summary/README_zh.md) |
 | [Daily Email Summary](automations/daily-email-summary/) | Summarize user-configured mailboxes with topics, next actions and original links | First definition; Outlook read and format verified, scheduling pending | [English](automations/daily-email-summary/README.md) / [中文](automations/daily-email-summary/README_zh.md) |
@@ -86,6 +86,11 @@ To install manually for a project, copy the entire skill directory into
 
 After installation, ask Codex to use the skill, for example:
 “Use paper-analysis to analyze this paper.”
+
+The former `ai-work-message` skill is now `work-message`. Install the complete
+[work-message directory](skills/work-message/). Preserve personal changes before
+replacing an old installation, and keep only the new skill active. Old document
+URLs remain migration notices; they are not a second installable package.
 
 ## Structure
 
