@@ -124,7 +124,7 @@ Candidate-specific work is tracked in the [shared-resource integration plan](<do
 
 Document roles follow AGENTS.md: General Research covers mechanisms, options, sources and current conclusions. Design decisions, migrations and fixes belong in Development Record; executions and past results belong in Run Record, without history-summary chapters in research documents. Designs describe the chosen direction and implementation gaps; plans describe future work and acceptance criteria. Review and migrate existing content file by file where needed; renaming alone does not complete this work.
 
-Development uses two long-lived branches: `dev` for integration and `main` for published versions. Start necessary short-lived branches from `dev`, merge through a reviewed and validated PR, then release with a `dev → main` PR. Delete completed remote and unused local short-lived branches during the same closeout; preserve uncommitted work and check attached worktrees before cleanup.
+Common development uses `dev` for integration and `main` for published versions. Registered personal long-lived branches follow [repository conventions](REPO.md) and are excluded from task-branch cleanup. Start necessary short-lived branches from `dev`, merge through a reviewed and validated PR, then release with a `dev → main` PR. Delete completed remote and unused local short-lived branches during the same closeout; preserve uncommitted work and check attached worktrees before cleanup.
 
 ### Capability candidates
 
