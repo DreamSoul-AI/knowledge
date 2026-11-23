@@ -28,6 +28,14 @@ Use $public-website-deployment to update the configured ESA and Cloudflare proje
 
 For a new project, explicitly request creation and specify its name. ESA standalone demos use separate projects and subdomains; small experiments can share a collection with stable paths. Collection updates start from the complete current site and preserve other experiments. See [demo organization](../SKILL.md#esa-demo-组织方式).
 
+For sites assembled from multiple sources, ask:
+
+```text
+Use $public-website-deployment to assemble two static sections at /topics/alpha/ and /topics/beta/ using the fixed versions in my supplied manifest, then update the existing project my-portal with the complete site. Preserve the portal and other content, and verify both sections and existing entry points.
+```
+
+Source repositories can stay independent. Verify source versions, public file lists and checksums before adapting links for the target paths; keep separate source and output checksums. Later updates to one section still produce a complete site and verify preserved content. See [assembly guidance](multi-source-sites.md) (Chinese). The request determines the project and paths; assembly does not automatically change domains or redirect old endpoints.
+
 For first domain binding, ask:
 
 ```text
@@ -44,9 +52,23 @@ Use $public-website-deployment to bind showcase.dreamsoul.cn to my existing Clou
 
 Users supply their own subdomains. Replace the display example `showcase.dreamsoul.cn` with your own subdomain. For a new Cloudflare project, explicitly request creation and provide its name and subdomain. See [first binding](#first-custom-subdomain-binding) for the steps.
 
+Request ESA migration or renewal checks separately:
+
+```text
+Use $public-website-deployment to permanently redirect each page of the old ESA endpoint old.example.com to the prepared site at https://www.example.com/topics/alpha/. Verify the new site first, preserve paths, query parameters and browser fragments, and retain the old DNS, certificates and recovery baseline.
+```
+
+```text
+Use $public-website-deployment to check the target ESA project's compute subscription and its domain's site plan. Enable monthly auto-renewal only if both are confirmed to remain free, and read back each status and cycle. Do not place an immediate renewal order or upgrade a plan.
+```
+
+Follow [domain migration](esa-domain-migration.md) separately from first subdomain binding, and [subscription and renewal checks](esa-renewal.md) for instance and cost verification (both references are in Chinese). Check-only requests do not change settings; a successful setting change is not evidence of a future completed renewal. Ordinary website uploads do not trigger these operations.
+
 ## Installation and requirements
 
-Install the complete version 1.2.0 package from knowledge's [main branch](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-deployment). Its previous names were `website-static-publish` and `public-website-publish`; invoke it as `public-website-deployment`; its functional scope is unchanged. Your agent needs file access, command execution and a browser for authorization. Installation request:
+Install the complete version 1.2.0 package from knowledge's [main branch](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-deployment). Its previous names were `website-static-publish` and `public-website-publish`; invoke it as `public-website-deployment`. The renames preserved its publishing functions. Your agent needs file access, command execution and a browser for authorization.
+
+Assembly, ESA migration and renewal guidance is included in the [main distribution](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-deployment). Install the complete skill directory and preserve your private CONFIG.md. The following request installs the released main version:
 
 ```text
 Install the supplied public-website-deployment into this project's .agents/skills/.
@@ -245,4 +267,8 @@ The new template defaults to china. Existing ask, both, overseas and ESA console
 
 Keep the bundled MIT LICENSE in standalone installations and packages. Check the manifest and exclude CONFIG.md, USER.md, credentials, logs, screenshots, private backups and provider CLI packages. `.gitignore` protects new files; check packaging and already tracked files separately.
 
-On 2026-11-17, Skill 1.2.0, ESA CLI 1.0.14 and Wrangler 4.163.0 deployed the same site to two existing projects and verified updates at their original URLs and visitor access. Subsequent tests created an ESA project through the CLI, bound a new subdomain, added the first custom domain to the existing Cloudflare project, and verified DNS, certificates and access on both providers. Versioned references resolved the ESA resource-version issue; some connections passed after targeted retries. Cloudflare CLI creation, further updates after domain binding, collection deployment, restoration, unattended CI, checks across days and target-region networks remain unverified. See [validation status](../SKILL.md#验证状态).
+On 2026-11-17, Skill 1.2.0, ESA CLI 1.0.14 and Wrangler 4.163.0 deployed the same site to two existing projects and verified updates at their original URLs and visitor access. Subsequent tests created an ESA project through the CLI, bound a new subdomain, added the first custom domain to the existing Cloudflare project, and verified DNS, certificates and access on both providers. Versioned references resolved the ESA resource-version issue; some connections passed after targeted retries.
+
+A separate project on 2026-11-19 configured and read back auto-renewal for both the free compute subscription and the free site plan; actual renewal had not occurred. On 2026-11-20, the project verified assembly from fixed source versions, adaptation to subpaths and an initial combined ESA deployment, including complete resources, section access, per-page 301 redirects from old domains, query parameters and browser fragments. Direct HTTP checks from mainland China and browser checks through a proxy were recorded separately; some connections passed after targeted retries.
+
+Cloudflare CLI creation, further updates after domain binding, single-section updates after the combined site goes live, combined deployment and domain migration on Cloudflare, actual restoration, completed automatic renewal, unattended CI, checks across days and regions, and direct browser interaction from mainland China remain unverified. See [validation status](../SKILL.md#验证状态).
