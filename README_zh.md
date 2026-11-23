@@ -2,25 +2,25 @@
 
 [**English**](README.md)&nbsp; | &nbsp;**简体中文**
 
-可复用的 Agent Skills、工具、定时任务定义与面向人的参考教程。每个技能都包含自己的执行说明和参考资料，可以独立安装。
+可复用的 Agent 技能、独立工具和定时任务定义。每个技能都包含自己的执行说明和参考资料，可以独立安装。
 
-## 技能与教程
+## 技能 Skills
 
 ### 工作整理
 
-| 技能 | 用途 | 教程 |
+| 技能 | 用途 | 使用说明 |
 | --- | --- | --- |
 | [工作总结 work-summary](skills/work-summary/SKILL.md) | 盘点成果、依据和未收尾项 | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
-| [工作留言 ai-work-message](skills/ai-work-message/SKILL.md) | 按各留言板成文，按授权交付 | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
+| [工作留言 work-message](skills/work-message/SKILL.md) | 按各留言板成文，按授权交付 | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
 | [Codex 对话归档 codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | 保留原话并增量归档 Codex 本地会话 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [安装包](skills/codex-conversation-archive.zip) |
 | [会议总结 meeting-minutes](skills/meeting-minutes/SKILL.md) | 结合原始材料、补充材料和规范整理会议 | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
 | [日历会议归档 calendar-meeting-archive](skills/calendar-meeting-archive/SKILL.md) | 按负责人归档会议，优先复用已有成果 | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
 | [文档同步 document-sync](skills/document-sync/SKILL.md) | 同步指定文档，检查基线和冲突，目前支持飞书 | [English](skills/document-sync/references/README.md) / [中文](skills/document-sync/references/README_zh.md) |
-| [grok-bot-cli](skills/grok-bot-cli/SKILL.md) | 连接 Grok Bot，检查访问及按授权验证收发 | [接入教程](skills/grok-bot-cli/references/connection.md) |
+| [grok-bot-cli](skills/grok-bot-cli/SKILL.md) | 连接 Grok Bot，检查访问及按授权验证收发 | [接入说明](skills/grok-bot-cli/references/connection.md) |
 
 ### 调研研究
 
-| 技能 | 用途 | 教程 |
+| 技能 | 用途 | 使用说明 |
 | --- | --- | --- |
 | [通用调研 general-search](skills/general-search/SKILL.md) | 调研技术、工具和工程实践 | [English](skills/general-search/references/README.md) / [中文](skills/general-search/references/README_zh.md) |
 | [文献调研 literature-search](skills/literature-search/SKILL.md) | 检索筛选文献，形成综述与跨论文可复用研究资产 | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
@@ -29,7 +29,7 @@
 
 ### 研发运行
 
-| 技能 | 用途 | 教程 |
+| 技能 | 用途 | 使用说明 |
 | --- | --- | --- |
 | [代码架构分析 code-architecture-analysis](skills/code-architecture-analysis/SKILL.md) | 依据源码和运行证据核对架构结论 | [用法](skills/code-architecture-analysis/SKILL.md) |
 | [Python 环境管理与排障 python-environment](skills/python-environment/SKILL.md) | 检查、准备与诊断项目环境，优先复用已有环境 | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
@@ -39,9 +39,7 @@
 | [GitHub 汇总 github-summary](skills/github-summary/SKILL.md) | 接收固定版本经验原文，按接收方归并 | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
 | [Agent 实验执行 agent-experiment](skills/agent-experiment/SKILL.md) | 实跑有界 Agent 实验，核对实际行为和结论 | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
 
-中文说明可与英文标识并列，如“工作总结 work-summary”。英文部分沿用小写连字符标识，调用时使用 `$work-summary`，不另建中文副本。
-
-## 由其他仓库维护的技能
+### 设计
 
 | 技能 | 用途 | 安装 |
 | --- | --- | --- |
@@ -51,9 +49,11 @@
 
 安装 Figma 设计时，从发布页下载 ZIP，把解压得到的整个 `figma-design` 文件夹放到 `<项目>/.agents/skills/`，再在 Codex 中调用 `$figma-design`。说明、Node.js 工具和随包依赖一起安装。运行条件见发布页。已有旧名 `figma-design-delivery` 安装时，先保留个人修改，再替换为完整新版，避免同时加载两份 Skill。
 
-## 工具
+中文名称可与英文标识并列，便于搜索。技能英文标识使用小写连字符，如 `work-message`，调用时使用 `$work-message`，不另建中文副本。
 
-| 工具 | 用途 | 教程 |
+## 工具 Tools
+
+| 工具 | 用途 | 使用说明 |
 | --- | --- | --- |
 | [grok-bot-cli](tools/grok-bot-cli/) | 启动本机安装的上游 CLI | [English](tools/grok-bot-cli/README.md) / [中文](tools/grok-bot-cli/README_zh.md) |
 | [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Codex VS Code 任务完成后的原生 Windows 通知 | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
@@ -87,15 +87,19 @@ https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
 
 安装后可以直接说：“请使用 paper-analysis 分析这篇论文。”
 
+原 `ai-work-message` 已改名为 `work-message`。安装完整的
+[work-message 目录](skills/work-message/)，升级前保留个人修改，避免同时加载新旧两份技能。
+旧文档链接保留迁移提示，不再提供第二份可安装的技能。
+
 ## 目录结构
 
 - `skills/<技能名>/SKILL.md`：适用场景和执行流程。
 - `skills/<技能名>/agents/openai.yaml`：Codex 界面元数据。
-- `skills/<技能名>/references/`：按需阅读的中英文教程。
-- `tools/<工具名>/`：包含脚本和使用教程的独立工具。
+- `skills/<技能名>/references/`：按需阅读的中英文使用说明。
+- `tools/<工具名>/`：包含脚本和使用说明的独立工具。
 - `automations/<任务名>/`：任务提示词、配置示例和中英文说明。
 
-每份教程只在对应技能中维护。指向 GitHub 上其他技能的链接仅用于延伸阅读，
+使用说明随对应技能维护。指向 GitHub 上其他技能的链接仅用于延伸阅读，
 不作为本地必需依赖。
 
 ## 许可证
@@ -107,9 +111,9 @@ https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
 
 仓库：[DreamSoul-AI/knowledge](https://github.com/DreamSoul-AI/knowledge)。维护工作先读 [AGENTS.md](AGENTS.md) 的协作与资料定位要求；这些规则约束维护者，不将 DreamSoul 私有资料访问变成安装技能的前置条件。
 
-本仓库分发 Markdown 指令、YAML 元数据和随包脚本。运行条件与验证命令在各技能或工具教程中维护，没有全仓统一安装、构建或测试命令。指南、脚本、引用资源与许可证保持完整。
+本仓库分发 Markdown 指令、YAML 元数据和随包脚本。运行条件与验证命令在各技能或工具的使用说明中维护，没有全仓统一安装、构建或测试命令。说明、脚本、引用资源与许可证保持完整。
 
-项目级执行证据从 [运行记录 Run Record](<docs/运行记录 Run Record/>) 定位，变更说明从 [开发记录 Development Record](<docs/开发记录 Development Record/>) 定位。通用调研 General Research、架构设计、代码结构设计、开发计划和缺陷记录尚无独立项目级当前入口，不能用各技能的使用教程冒充已完成的项目工程文档。本分发仓库当前没有独立维护的文献调研或研究计划。入口、依赖或范围变化时同步维护中英文 README。
+项目级执行证据从 [运行记录 Run Record](<docs/运行记录 Run Record/>) 定位，变更说明从 [开发记录 Development Record](<docs/开发记录 Development Record/>) 定位。通用调研 General Research、架构设计、代码结构设计、开发计划和缺陷记录尚无独立项目级当前入口，不能用各技能的使用说明冒充已完成的项目工程文档。本分发仓库当前没有独立维护的文献调研或研究计划。入口、依赖或范围变化时同步维护中英文 README。
 
 专项候选的后续工作见 [多仓库共享资源接入计划](<docs/开发 Development/开发计划 Development Plan 多仓库共享资源接入.md>)，不代表全仓开发文档已经补齐。
 
