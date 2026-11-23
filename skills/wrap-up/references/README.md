@@ -10,7 +10,7 @@ Install the complete `wrap-up` directory, then ask:
 Use $wrap-up to close out this round. Reuse the existing summary and report the results, remaining work, anything I need to handle, and the next starting point.
 ```
 
-Reuse the agreed scope and acceptance conditions. Separate necessary remaining steps from optional improvements. Finish authorized necessary steps where possible; explain specific blockers. If explicitly told to stop immediately, preserve the checkpoint rather than continuing operations.
+By default, inspect and report what can finish, what cannot, why, and the suggested next action. Do not complete remaining steps or change working state merely to produce this inventory. When execution is explicitly requested, follow the agreed scope without asking again for actions already authorized in this round. An immediate stop request takes effect without delaying it for an inventory.
 
 ## Multiple conversations
 
