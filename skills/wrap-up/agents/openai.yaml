@@ -1,0 +1,4 @@
+interface:
+  display_name: "收尾 wrap-up"
+  short_description: "核对当前对话的本轮结果、必要尾项和能否暂停，留下清楚可用的下次入口"
+  default_prompt: "用 $wrap-up 收尾这个对话的本轮工作，说明结果、剩余事情、能否停及下次入口。"
