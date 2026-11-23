@@ -144,8 +144,91 @@ class SharedResourcesTests(unittest.TestCase):
         report = self.cli(path, '--apply')
         self.assertEqual(len(report['completed']), 6)
         self.verify_layout(config, report)
-        self.assertNotEqual((self.root / 'repositories/project-a/.local/artifacts').resolve(),
-                            (self.root / 'repositories/project-b/.local/artifacts').resolve())
+        first = self.root / 'repositories/project-a/.shared'
+        second = self.root / 'repositories/project-b/.shared'
+        self.assertFalse(first.is_symlink())
+        self.assertFalse(second.is_symlink())
+        for name in ('data', 'models'):
+            self.assertTrue(os.path.samefile(first / name, second / name))
+        self.assertNotEqual((first / 'artifacts').resolve(), (second / 'artifacts').resolve())
+        repeat = self.cli(path, '--apply')
+        self.assertTrue(all(entry['action'] == 'reuse' for entry in repeat['completed']))
+        self.assertTrue(all(not entry['gitignore_updated'] for entry in repeat['completed']))
+
+    def test_generic_profile_keeps_custom_entries(self):
+        config = json.loads((SCRIPT.parent / 'config.example.json').read_text(encoding='utf-8'))
+        for spec in config['repositories'].values():
+            repo = self.root / spec['path']
+            repo.mkdir(parents=True)
+            self.git(repo, 'init', '-q')
+        for resource in config['resources'].values():
+            if not resource.get('create', False):
+                target = self.root / resource['path']
+                target.mkdir(parents=True)
+                (target / 'sentinel.txt').write_bytes(b'generic profile resource')
+        path = self.root / 'generic.json'
+        self.save(path, config)
+        first = self.cli(path, '--apply')
+        self.assertEqual(len(first['completed']), 4)
+        self.verify_layout(config, first)
+        alpha = self.root / 'repositories/alpha/.shared/references'
+        beta = self.root / 'repositories/beta/inputs/references'
+        self.assertTrue(os.path.samefile(alpha, beta))
+        self.assertTrue((self.root / 'repositories/beta/assets/brand').is_symlink())
+        repeat = self.cli(path, '--apply')
+        self.assertTrue(all(entry['action'] == 'reuse' for entry in repeat['completed']))
+        self.assertTrue(all(not entry['gitignore_updated'] for entry in repeat['completed']))
+
+    def test_legacy_and_new_entries_coexist_without_resource_migration(self):
+        path, config = self.fixture()
+        spec = config['repositories']['repo-0']
+        spec['links'] = {'.local/data': 'corpus', '.local/models': 'checkpoint'}
+        self.save(path, config)
+        self.cli(path, '--apply')
+        repo = self.root / spec['path']
+        private = repo / '.local/notes.txt'
+        private.write_bytes(b'unrelated local notes')
+        original_targets = {name: (repo / '.local' / name).resolve() for name in ('data', 'models')}
+        original_data = {name: (target / 'sentinel.txt').read_bytes() for name, target in original_targets.items()}
+        spec['links'].update({'.shared/data': 'corpus', '.shared/models': 'checkpoint'})
+        self.save(path, config)
+        report = self.cli(path, '--apply')
+        self.verify_layout(config, report)
+        for name, target in original_targets.items():
+            self.assertTrue(os.path.samefile(repo / '.local' / name, target))
+            self.assertTrue(os.path.samefile(repo / '.shared' / name, target))
+            self.assertEqual((repo / '.shared' / name / 'sentinel.txt').read_bytes(), original_data[name])
+        self.assertEqual(private.read_bytes(), b'unrelated local notes')
+        self.assertFalse((repo / '.shared').is_symlink())
+        ignore_before = (repo / '.gitignore').read_bytes()
+        repeat = self.cli(path, '--apply')
+        self.assertTrue(all(entry['action'] == 'reuse' for entry in repeat['completed']))
+        self.assertEqual((repo / '.gitignore').read_bytes(), ignore_before)
+        legacy = copy.deepcopy(config)
+        legacy['repositories']['repo-0']['links'] = {'.local/data': 'corpus', '.local/models': 'checkpoint'}
+        self.save(path, legacy)
+        rollback = self.cli(path)
+        self.assertTrue(all(entry['action'] == 'reuse' for entry in rollback['entries']))
+
+    def test_new_entry_conflict_preserves_old_entry_and_payload(self):
+        path, config = self.fixture()
+        spec = config['repositories']['repo-0']
+        spec['links'] = {'.local/data': 'corpus'}
+        self.save(path, config)
+        self.cli(path, '--apply')
+        repo = self.root / spec['path']
+        occupied = repo / '.shared/data'
+        occupied.mkdir(parents=True)
+        (occupied / 'keep.txt').write_bytes(b'occupied entry')
+        ignore_before = (repo / '.gitignore').read_bytes()
+        spec['links'].update({'.shared/data': 'corpus'})
+        self.save(path, config)
+        result = self.cli(path, '--apply', expected=1)
+        self.assertIn('Entry occupied', result['error'])
+        self.assertEqual(result['completed'], [])
+        self.assertTrue(os.path.samefile(repo / '.local/data', self.root / 'shared/text corpus'))
+        self.assertEqual((occupied / 'keep.txt').read_bytes(), b'occupied entry')
+        self.assertEqual((repo / '.gitignore').read_bytes(), ignore_before)
 
     def test_later_entity_conflict_prevents_all_writes(self):
         path, config = self.fixture(design=True)

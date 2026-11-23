@@ -1,0 +1,3 @@
+interface:
+  display_name: "GitHub 汇总 github-summary"
+  short_description: "分步接收归并仓库经验，接入外部规范检查仓库状态，明确每步影响并按授权收尾"

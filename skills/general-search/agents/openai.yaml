@@ -1,0 +1,4 @@
+interface:
+  display_name: "通用调研 general-search"
+  short_description: "Research technology, tools, and engineering practices"
+  default_prompt: "用 $general-search 调研这个课题，结合现有材料和适用规范，说明实际机制、适用条件和关键取舍。"

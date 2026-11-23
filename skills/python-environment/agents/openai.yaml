@@ -1,4 +1,4 @@
 interface:
-  display_name: "Python 环境管理与排障 Python Environment Management"
+  display_name: "Python 环境管理与排障 python-environment"
   short_description: "Inspect, prepare and troubleshoot Python environments"
   default_prompt: "Use $python-environment to check this project's target command, fill only necessary gaps within scope, and return the environment, actual changes, runnable command and verification result."

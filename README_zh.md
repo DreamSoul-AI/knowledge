@@ -6,37 +6,59 @@
 
 ## 技能与教程
 
+### 工作整理
+
 | 技能 | 用途 | 教程 |
 | --- | --- | --- |
-| [工作留言 AI Work Message](skills/ai-work-message/SKILL.md) | 先读规范与各板语境，完整成文，按授权发送或更新并回读 | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
-| [Codex 对话归档 Codex Conversation Archive](skills/codex-conversation-archive/SKILL.md) | 保留原话并增量归档 Codex 本地会话 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [安装包](skills/codex-conversation-archive.zip) |
-| [会议总结 Meeting Minutes](skills/meeting-minutes/SKILL.md) | 结合材料和规范整理会议，建议按实际价值与受益人筛选，可按授权外接交付 | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
-| [文档同步 Document Sync](skills/document-sync/SKILL.md) | 按项目规范同步单文档或明确清单，逐份核对基线并保留冲突，目前支持飞书 | [English](skills/document-sync/references/README.md) / [中文](skills/document-sync/references/README_zh.md) |
-| [日历会议归档 Calendar Meeting Archive](skills/calendar-meeting-archive/SKILL.md) | 按负责人及明确例外处理，先判断已有稿复用与局部补齐，再归档交付 | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
-| [文献调研 Literature Search](skills/literature-search/SKILL.md) | 检索筛选文献，形成综述与跨论文可复用研究资产 | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
-| [论文分析 Paper Analysis](skills/paper-analysis/SKILL.md) | 论文精读与分析 | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
-| [研究计划 Research Plan](skills/research-plan/SKILL.md) | 从灵感形成研究计划与实验方案 | [English](skills/research-plan/references/README.md) / [中文](skills/research-plan/references/README_zh.md) |
-| [Python 环境管理与排障 Python Environment Management](skills/python-environment/SKILL.md) | 检查、准备与诊断项目环境，优先复用已有环境 | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
-| [CPU 内存清理 CPU Memory Cleanup](skills/cpu-memory-cleanup/SKILL.md) | 首次初始化 Windows 内存工具，读取真实状态并按请求整理工作集 | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [安装包](skills/cpu-memory-cleanup.zip) |
-| [公开网站部署 Public Website Deployment](skills/public-website-deployment/SKILL.md) | ESA / Cloudflare 静态发布、同址更新与子域名绑定；按需组装多来源站点、处理 ESA 旧域名迁移与续订检查，默认国内 ESA、CLI 上传 | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
+| [工作总结 work-summary](skills/work-summary/SKILL.md) | 盘点成果、依据和未收尾项 | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
+| [工作留言 ai-work-message](skills/ai-work-message/SKILL.md) | 按各留言板成文，按授权交付 | [English](skills/ai-work-message/references/README.md) / [中文](skills/ai-work-message/references/README_zh.md) |
+| [Codex 对话归档 codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | 保留原话并增量归档 Codex 本地会话 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [安装包](skills/codex-conversation-archive.zip) |
+| [会议总结 meeting-minutes](skills/meeting-minutes/SKILL.md) | 结合原始材料、补充材料和规范整理会议 | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
+| [日历会议归档 calendar-meeting-archive](skills/calendar-meeting-archive/SKILL.md) | 按负责人归档会议，优先复用已有成果 | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
+| [文档同步 document-sync](skills/document-sync/SKILL.md) | 同步指定文档，检查基线和冲突，目前支持飞书 | [English](skills/document-sync/references/README.md) / [中文](skills/document-sync/references/README_zh.md) |
+| [grok-bot-cli](skills/grok-bot-cli/SKILL.md) | 连接 Grok Bot，检查访问及按授权验证收发 | [接入教程](skills/grok-bot-cli/references/connection.md) |
 
-技能显示名统一采用“中文名 English Name”，调用标识仍沿用目录中的英文形式，例如“文献调研 Literature Search”使用 `$literature-search`。中英文名称指向同一技能，不另建中文副本。
+### 调研研究
+
+| 技能 | 用途 | 教程 |
+| --- | --- | --- |
+| [通用调研 general-search](skills/general-search/SKILL.md) | 调研技术、工具和工程实践 | [English](skills/general-search/references/README.md) / [中文](skills/general-search/references/README_zh.md) |
+| [文献调研 literature-search](skills/literature-search/SKILL.md) | 检索筛选文献，形成综述与跨论文可复用研究资产 | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
+| [论文分析 paper-analysis](skills/paper-analysis/SKILL.md) | 论文精读与分析 | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
+| [研究计划 research-plan](skills/research-plan/SKILL.md) | 从灵感形成研究计划与实验方案 | [English](skills/research-plan/references/README.md) / [中文](skills/research-plan/references/README_zh.md) |
+
+### 研发运行
+
+| 技能 | 用途 | 教程 |
+| --- | --- | --- |
+| [代码架构分析 code-architecture-analysis](skills/code-architecture-analysis/SKILL.md) | 依据源码和运行证据核对架构结论 | [用法](skills/code-architecture-analysis/SKILL.md) |
+| [Python 环境管理与排障 python-environment](skills/python-environment/SKILL.md) | 检查、准备与诊断项目环境，优先复用已有环境 | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
+| [CPU 内存清理 cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | 读取 Windows 内存，按请求整理工作集 | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [安装包](skills/cpu-memory-cleanup.zip) |
+| [公开网站部署 public-website-deployment](skills/public-website-deployment/SKILL.md) | ESA / Cloudflare 静态发布、同址更新与子域名绑定；按需组装多来源站点、处理 ESA 旧域名迁移与续订检查，默认国内 ESA、CLI 上传 | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
+| [工作区更新 workspace-update](skills/workspace-update/SKILL.md) | 更新已采用项目、技能和配套发布位置 | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
+| [GitHub 汇总 github-summary](skills/github-summary/SKILL.md) | 接收固定版本经验原文，按接收方归并 | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
+| [Agent 实验执行 agent-experiment](skills/agent-experiment/SKILL.md) | 实跑有界 Agent 实验，核对实际行为和结论 | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
+
+中文说明可与英文标识并列，如“工作总结 work-summary”。英文部分沿用小写连字符标识，调用时使用 `$work-summary`，不另建中文副本。
 
 ## 由其他仓库维护的技能
 
 | 技能 | 用途 | 安装 |
 | --- | --- | --- |
-| Figma 设计交付 Figma Design Delivery | 新建或改版可编辑设计稿，按规格和运行前端核对原型 | [Figma 仓库发布页](https://github.com/DreamSoul-AI/figma/releases)，需要 DreamSoul Figma 仓库访问权限 |
+| [Figma 设计 figma-design](https://github.com/DreamSoul-AI/figma/blob/main/src/figma-design/SKILL.md) | 按独立维护的完整工作流制作可编辑设计稿并验证原型 | [v1.1.1 安装包与说明](https://github.com/DreamSoul-AI/figma/releases/tag/figma-design-v1.1.1)，需要 Figma 仓库访问权限 |
 
-安装 Figma 设计交付时，从发布页下载 ZIP，把解压得到的整个 `figma-design-delivery` 文件夹放到 `<项目>/.agents/skills/`，再在 Codex 中调用 `$figma-design-delivery`。说明、Node.js 工具和随包依赖一起安装。运行条件见发布页。
+完整工作流与互译手册统一在 Figma 仓库维护，knowledge 只保留发现和安装入口，不维护第二份正文。
+
+安装 Figma 设计时，从发布页下载 ZIP，把解压得到的整个 `figma-design` 文件夹放到 `<项目>/.agents/skills/`，再在 Codex 中调用 `$figma-design`。说明、Node.js 工具和随包依赖一起安装。运行条件见发布页。已有旧名 `figma-design-delivery` 安装时，先保留个人修改，再替换为完整新版，避免同时加载两份 Skill。
 
 ## 工具
 
 | 工具 | 用途 | 教程 |
 | --- | --- | --- |
+| [grok-bot-cli](tools/grok-bot-cli/) | 启动本机安装的上游 CLI | [English](tools/grok-bot-cli/README.md) / [中文](tools/grok-bot-cli/README_zh.md) |
 | [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Codex VS Code 任务完成后的原生 Windows 通知 | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
 | [cpu-memory-cleanup](tools/cpu-memory-cleanup/) | 内存Package与CLI接入说明，不复制清理实现 | [English](tools/cpu-memory-cleanup/README.md) / [中文](tools/cpu-memory-cleanup/README_zh.md) |
-| [shared-repository-resources](tools/shared-repository-resources/) | 按配置让多个仓库通过符号链接复用部分目录资源 | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
+| [shared-repository-resources](tools/shared-repository-resources/) | 按配置复用目录资源；新示例使用 `shared/` 存储、`.shared/` 仓内入口 | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
 
 ## 定时任务 Automations
 
@@ -45,6 +67,7 @@
 | 定时任务 | 用途 | 状态 | 说明 |
 | --- | --- | --- | --- |
 | [每日会议总结 Daily Meeting Summary](automations/daily-meeting-summary/) | 增量归档会议、整理总结并按授权交付 | 首版，手动复用流程已验证 | [中文](automations/daily-meeting-summary/README_zh.md) / [English](automations/daily-meeting-summary/README.md) |
+| [每日电子邮件总结 Daily Email Summary](automations/daily-email-summary/) | 按自定义邮箱整理主题、下一步行动及原邮件入口 | 首版定义，Outlook 读取与格式已验证，调度待验证 | [中文](automations/daily-email-summary/README_zh.md) / [English](automations/daily-email-summary/README.md) |
 
 实际项目按自己的配置和授权部署。最近手动运行未触发新增生成、上传写入和实际定时触发，具体覆盖范围见 [任务总表](automations/README_zh.md)。
 

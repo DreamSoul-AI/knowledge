@@ -1,0 +1,4 @@
+interface:
+  display_name: "代码架构分析 code-architecture-analysis"
+  short_description: "追溯固定版本的调用与状态，以源码和运行证据核对具体架构结论"
+  default_prompt: "用 $code-architecture-analysis 核对这条架构结论，给出源码路径、实际条件和能支持它的运行证据。"

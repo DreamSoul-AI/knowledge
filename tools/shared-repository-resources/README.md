@@ -6,9 +6,13 @@ Let multiple repositories reuse selected resources through directory symlinks wh
 
 Resource names, locations, repository entry points and the adopted subset are configurable in JSON for different project layouts and directory resource types.
 
+For new configurations, use an external `shared/` directory for resource storage and `.shared/<resource-name>` for repository symlink entries. This is an example convention, not a tool requirement; existing custom entries remain supported. `.shared/` itself is an ordinary directory containing the resource symlinks.
+
 ## Research and engineering example
 
 Research repositories can share datasets (data), models and weights (models), and selected run outputs (artifacts). Outputs may be isolated per project or explicitly shared when reuse is intended. The [research example guide](examples/README.md) and [configuration](examples/research.config.example.json) show this convention. Other scenarios can choose different resources and mappings.
+
+Name directories under `data/` and `models/` after the resource, such as `data/<dataset-name>/` and `models/<model-name>/`. Neither directory uses a research topic as a grouping layer. Multiple topics can reuse the same dataset or model. Run outputs can be grouped under `artifacts/<project-name>/`.
 
 ## Configuration
 
@@ -21,6 +25,12 @@ For research projects, start with the [research example](examples/research.confi
 - `create: true` permits creating a missing resource directory. It does not permit replacing a broken existing link or silently recreating lost linked data
 
 Shared and per-project resources are explicit mappings; targets are not derived from repository folder names. Keep actual personal paths in local configuration. Preview does not create the sample repositories or directories.
+
+## Existing entries
+
+The tool still accepts legacy `.local/` and other custom configurations. Updating the examples does not rename existing entries. When a project adopts `.shared/`, rename the relevant shared entries and their consumer paths; permanently keeping two sets of entries is not the completion criterion. Resource targets remain unchanged.
+
+The project or workspace maintenance process handles the rename and updates consumers, configuration, Git ignore rules and related documentation. If `.local/` also contains unrelated content, change only the identified shared entries. Preview and rerun the new configuration with this tool, then verify actual consumer reads. The tool itself does not move or delete existing entries or edit consumer configuration.
 
 ## Usage
 
@@ -53,6 +63,14 @@ All mappings are preflighted before writes. Occupied files/directories, wrong-ta
 Correct links are reused and their actual targets and Git ignore behavior are checked. An interrupted apply may leave partial progress. `completed` reports verified entries; reruns inspect actual filesystem state and resume without deleting or replacing old entries. Keep configuration and paths stable during execution; concurrent mutation is not supported.
 
 Only directory resources are supported. The tool does not copy, move, delete or upload content, or edit consumer settings. Verify that each project actually uses the configured entry. Symlinks do not implement cross-device transfer, runtime compatibility or multi-writer coordination.
+
+## Agent calls and completion checks
+
+Select only repositories authorized for the current task. Check symlink permissions in the process that actually runs the tool; success in an outer terminal does not establish permission in a restricted Agent process.
+
+On a permission error, preserve the error and current state. If the runtime offers approval and the operation remains within the authorized scope, request that approval before retrying. Otherwise report the blocker. Do not silently substitute junctions, copies or another implementation and report completion. Report incompatible existing entries rather than deleting or migrating them without authorization.
+
+After applying, preview the same repositories with this tool and confirm that existing entries are recognized for reuse. Then verify the consumer's actual read paths. Successful consumer access and repeatable tool management are both required for completed integration.
 
 ## Research example and tests
 

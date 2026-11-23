@@ -4,7 +4,7 @@
 
 把完整 cpu-memory-cleanup 技能文件夹安装到 Agent 支持的技能目录，保留 SKILL.md、agents 和 references。Codex 可放到 `~/.codex/skills/`，其他 Agent 使用其自身的技能加载方式。技能包只含指令、元数据和说明，不包含脚本或 EXE。
 
-所有可执行代码由 [CPU Memory Cleanup 产品仓库](https://github.com/DreamSoul-AI/cpu-memory-cleanup) 维护。普通用户不需要产品源码仓库、Git 或项目 docs。首次安装从官方已公开产品源码或发布附件取得 install-runtime.ps1 和依赖 release.ps1，核对来源，放到 `%LOCALAPPDATA%/DreamSoul/CPU Memory Cleanup/agent-runtime/setup/`。这是产品代码的安装副本，不属于 Knowledge 代码。开发验证脚本不需要安装。产品接入代码见官方[初始化代码入口](https://github.com/DreamSoul-AI/cpu-memory-cleanup/tree/master/scripts/agent-skill)；Skill 从 Knowledge main 或明确指定的提交安装，运行时从产品正式 Release 获取。安装 ZIP 同时提供这两个初始化文件，使用者无需克隆源码仓库。
+所有可执行代码由 [CPU Memory Cleanup 产品仓库](https://github.com/DreamSoul-AI/cpu-memory-cleanup) 维护。普通用户不需要产品源码仓库、Git 或项目 docs。首次安装从官方已公开产品源码或发布附件取得 install-runtime.ps1 和依赖 release.ps1，核对来源，放到 `%LOCALAPPDATA%/DreamSoul/CPU Memory Cleanup/agent-runtime/setup/`。这是产品代码的安装副本，不属于 Knowledge 代码。开发验证脚本不需要安装。产品接入代码见官方[初始化代码入口](https://github.com/DreamSoul-AI/cpu-memory-cleanup/tree/main/scripts/agent-skill)；Skill 从 Knowledge main 或明确指定的提交安装，运行时从产品正式 Release 获取。安装 ZIP 同时提供这两个初始化文件，使用者无需克隆源码仓库。
 
 ```powershell
 $setup = Join-Path $env:LOCALAPPDATA 'DreamSoul/CPU Memory Cleanup/agent-runtime/setup/install-runtime.ps1'
@@ -12,15 +12,17 @@ $runtime = & $setup | ConvertFrom-Json
 & $runtime.executable --tool memory_status
 ```
 
-每项任务开始时默认查询[最新正式 Release](https://github.com/DreamSoul-AI/cpu-memory-cleanup/releases/latest)，解析当前 Windows x64 ZIP 和 GitHub 返回的 SHA256，核验后只安装 Rust CLI 与许可证。安装 Skill 本身没有通用执行钩子；用户安装要求包含准备运行时，就安装后准备，否则首次使用时准备。初始化只查询静态工具目录，不读取主机内存、不清理、不创建服务或自动规则。无需 Rust、Python、Node、GUI 或管理员安装。
+未指定已安装目录或可信 EXE 时，初始化默认查询[最新正式 Release](https://github.com/DreamSoul-AI/cpu-memory-cleanup/releases/latest)，解析当前 Windows x64 ZIP 和 GitHub 返回的 SHA256，核验后安装 Rust CLI 与许可证。安装 Skill 本身没有通用执行钩子，按实际需要准备运行时。初始化只查询静态工具目录。无需 Rust、Python、Node、GUI 或管理员安装。
 
 ## 更新、指定版本与离线使用
 
-默认参数 `-Version latest`，每项新任务检查一次当前正式版。脚本保存实际 tag、版本、构建和摘要；同一项任务始终使用返回的同一路径。不同发布按 tag 与附件 SHA256 前 12 位分别存放在 `%LOCALAPPDATA%/DreamSoul/CPU Memory Cleanup/agent-runtime/`，新版本不覆盖旧程序，不终止旧任务，旧记录仍保留。普通维护只通过 stdout 返回，不提供默认历史目录；只有用户主动要求保存时才传 --output-dir。
+默认初始化参数为 `-Version latest`。脚本保存实际 tag、版本、构建和摘要，同一项任务始终使用同一路径。不同发布按 tag 与附件 SHA256 前 12 位分别存放在运行时根目录下，新版本和旧运行时并存。
 
 复现时传入 `-Version` 和用户指定的正式版本，带 v 或不带 v 均可；不会选草稿或预发布版。离线准备时传入 `-ReleaseMetadataPath` 指向从官方 GitHub Release API 保存的 JSON，同时用 `-ArchivePath` 指向同一发布的官方 ZIP。离线元数据表示保存时所见发布，不能声称它仍是当前 latest。独立运行时目录可用 `-RuntimeRoot` 指定。
 
 复用前核对安装回执与逐文件 SHA256，异常则保留并停止；联网失败不会静默换源或降级。使用宿主已允许的 PowerShell，已验收 PowerShell 7，5.1 运行未验证。不更改执行策略或关闭防护。
+
+已装好时可以直接指定包含安装回执和 EXE 的版本目录。使用绝对路径完成回执校验和 `--tool-info` 只读检查，默认路径找不到时先核对是否处于沙箱。仅在允许准备运行时、且确认 EXE 缺失时，使用支持 `-RepairMissing` 的官方初始化脚本恢复同一版本。此时 `-RuntimeRoot` 传该版本目录的父目录，`-Version` 传回执中的版本。拒绝启动和摘要不匹配按原始错误诊断。
 
 ## 调用与结果
 

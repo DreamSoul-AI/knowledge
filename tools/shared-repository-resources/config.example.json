@@ -9,8 +9,8 @@
     "alpha": {
       "path": "repositories/alpha",
       "links": {
-        ".local/references": "reference_library",
-        ".local/results": "alpha_results"
+        ".shared/references": "reference_library",
+        ".shared/results": "alpha_results"
       }
     },
     "beta": {

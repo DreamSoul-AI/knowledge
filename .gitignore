@@ -130,9 +130,15 @@ scripts/
 !skills/document-sync/scripts/
 !skills/document-sync/scripts/*.py
 
+!skills/github-summary/scripts/
+!skills/github-summary/scripts/*.py
+
 # Keep the static-publishing OAuth runner and its tests in the distribution.
 !skills/public-website-deployment/scripts/
 !skills/public-website-deployment/scripts/esa-cli.mjs
 !skills/public-website-deployment/scripts/esa-cli.test.mjs
 
 /USER.md
+/.shared/
+/.tmp/
+/.workspace/local/
