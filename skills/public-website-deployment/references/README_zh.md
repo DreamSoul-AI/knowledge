@@ -68,7 +68,7 @@ ESA 旧入口迁移和续订检查可单独请求：
 
 当前正式版 1.2.0 从 knowledge 的 [main 分支](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-deployment) 安装完整目录。原名称依次为 `website-static-publish`、`public-website-publish`，现统一使用 `public-website-deployment`；此前改名保留了原有发布功能。Agent 需要文件读写、命令执行和浏览器授权能力。
 
-本文新增的多来源组装、ESA 迁移与续订方法本次集成后位于[dev 分支](https://github.com/DreamSoul-AI/knowledge/tree/dev/skills/public-website-deployment)，尚未合入 main。试用时安装该分支的完整技能目录并保留私人 CONFIG.md。以下请求安装 main 正式版：
+多来源组装、ESA 迁移与续订方法随 [main 正式版](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-deployment)分发。安装完整技能目录并保留私人 CONFIG.md。以下请求安装 main 正式版：
 
 ```text
 将提供的 public-website-deployment 安装到当前项目的 .agents/skills/。
