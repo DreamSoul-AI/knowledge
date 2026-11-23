@@ -28,6 +28,14 @@
 
 新建时明确说“新建项目”并指定名称。ESA 独立 Demo 使用独立项目和子域名；小实验可加入已有合集的稳定路径。合集更新需基于当前完整站点保留其他实验，详见 [Demo 组织方式](../SKILL.md#esa-demo-组织方式)。
 
+需要合并多个来源时，可以说：
+
+```text
+使用 $public-website-deployment，按我提供的固定版本清单，将两个静态专题分别放到 /topics/alpha/ 和 /topics/beta/，组装为完整站点并更新已有项目 my-portal。保留门户和其他内容，验证两个专题及原有入口。
+```
+
+源仓库可以继续独立维护。先核对来源版本、公开文件与摘要，再适配子路径链接，分别保存源文件与输出文件摘要。以后更新一个专题也要生成完整站点并检查保留内容。具体方法见[多来源静态站点组装](multi-source-sites.md)；目标项目及路径由本次请求确定，组装不自动更换域名或跳转旧入口。
+
 首次绑定可以直接说：
 
 ```text
@@ -44,9 +52,23 @@
 
 子域名由使用者提供；`showcase.dreamsoul.cn` 是展示示例，使用时替换为自己的子域名。新 Cloudflare 项目同样明确说“新建项目”、给出名称和子域名。详细步骤见[首次绑定](#首次绑定自定义子域名)。
 
+ESA 旧入口迁移和续订检查可单独请求：
+
+```text
+使用 $public-website-deployment，将 ESA 旧入口 old.example.com 逐页永久跳转到已准备好的 https://www.example.com/topics/alpha/。先验收新站，保留原路径、查询参数和浏览器锚点，保留旧 DNS、证书与恢复基线。
+```
+
+```text
+使用 $public-website-deployment，检查目标 ESA 项目的计算订阅和域名所属站点套餐。只有确认仍免费时才设置自动续订，每次一个月，分别回读状态和周期；不提交立即续费订单或升级套餐。
+```
+
+迁移按[旧域名迁移](esa-domain-migration.md)处理，不属于首次子域名绑定；续订按[订阅与续订检查](esa-renewal.md)核对实例和费用。仅要求查询时不修改设置，已配置成功不等于未来实际续订已成功。这些操作不会由普通网站上传自动触发。
+
 ## 安装与运行条件
 
-当前正式版 1.2.0 从 knowledge 的 [main 分支](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-deployment) 安装完整目录。原名称依次为 `website-static-publish`、`public-website-publish`，现统一使用 `public-website-deployment`，功能范围保持不变。Agent 需要文件读写、命令执行和浏览器授权能力。安装请求：
+当前正式版 1.2.0 从 knowledge 的 [main 分支](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-deployment) 安装完整目录。原名称依次为 `website-static-publish`、`public-website-publish`，现统一使用 `public-website-deployment`；此前改名保留了原有发布功能。Agent 需要文件读写、命令执行和浏览器授权能力。
+
+本文新增的多来源组装、ESA 迁移与续订方法本次集成后位于[dev 分支](https://github.com/DreamSoul-AI/knowledge/tree/dev/skills/public-website-deployment)，尚未合入 main。试用时安装该分支的完整技能目录并保留私人 CONFIG.md。以下请求安装 main 正式版：
 
 ```text
 将提供的 public-website-deployment 安装到当前项目的 .agents/skills/。
@@ -245,4 +267,8 @@ node $esaRunner @esaArgs -- domain list
 
 独立安装或打包时保留随包 MIT LICENSE。检查文件清单，排除 CONFIG.md、USER.md、凭据、日志、截图、私人备份和平台 CLI 安装包；`.gitignore` 保护新文件，打包和已跟踪文件另行核对。
 
-2026-11-17 已用 1.2.0、ESA CLI 1.0.14 和 Wrangler 4.163.0 完成两个已有项目的同站发布、原网址更新及访客验收；随后完成 ESA CLI 新建项目绑定新子域名、Cloudflare 已有项目首次绑定及双端 DNS、证书和访问验收。ESA 资源版本问题通过版本参数修正，部分连接超时经重试完成核验。Cloudflare CLI 新建、绑定后的再次同址更新、合集发布、恢复、无人值守 CI、跨天和目标地区网络仍待验证；完整状态见 [验证状态](../SKILL.md#验证状态)。
+2026-11-17 已用 1.2.0、ESA CLI 1.0.14 和 Wrangler 4.163.0 完成两个已有项目的同站发布、原网址更新及访客验收；随后完成 ESA CLI 新建项目绑定新子域名、Cloudflare 已有项目首次绑定及双端 DNS、证书和访问验收。ESA 资源版本问题通过版本参数修正，部分连接超时经重试完成核验。
+
+2026-11-19 来源项目分别完成计算免费订阅与站点免费套餐的自动续订设置及回读，实际续订尚未发生。2026-11-20 另有固定版本组装、子路径适配与 ESA 首次合并发布证据，完整资源、专题访问、旧域名逐页 301、查询参数和浏览器锚点已验收；国内直连 HTTP 与代理浏览器分别记录，部分连接超时经针对性复查通过。
+
+Cloudflare CLI 新建、绑定后的再次同址更新、合并站点上线后的单专题更新、Cloudflare 多来源组合发布及域名迁移、真实恢复、自动续订实际执行、无人值守 CI、跨天与多地区网络及国内直连浏览器交互仍待验证；完整状态见 [验证状态](../SKILL.md#验证状态)。

@@ -6,7 +6,7 @@
 
 - 控制台入口：[ESA](https://esa.console.aliyun.com/) → 边缘计算和 AI → 函数和 Pages。RAM 登录名与资源主账号 ID 分别核对。账号密码登录成功不代表 Pages、DNS 或证书权限通过。
 - 读取项目现状和计算订阅，确认函数和 Pages 可用。仅测试链接发布检查项目创建／更新权限；长期域名再检查站点、绑定、实际权威 DNS 和证书所需权限。记录缺失动作与资源，不默认授予账号级管理员权限。
-- 2026-11-16 计算免费订阅标价为 ¥0/月、100 Credits。额度耗尽暂停与订阅到期释放资源是不同条件；官方说明订阅到期停止服务并立即释放资源。逐单记录实际期限和自动续费状态，不把零元订单解释为永久有效；新增订阅按本次授权处理。
+- 2026-11-20 核对计算免费订阅为 ¥0/月、100 Credits，额度耗尽停止相关服务且不自动转按量。额度耗尽与订阅到期处理分别核对；逐单记录实际期限、释放规则与自动续费状态，不把零元订单解释为永久有效。检查或设置续订时读取[订阅与续订检查](esa-renewal.md)；新增订阅按本次授权处理。
 - 自定义域名要求账号下已有配置套餐并完成 NS 或 CNAME 接入的可用 ESA 站点。核对套餐、到期、静态额度及超限处理；需要动态函数时另核对计费。新购、续费或超出任务范围的权限变更按本次授权处理。
 - 中国内地或全球区域要求域名 ICP 备案；域名注册成功不代表已备案。现有域名在阿里云注册也不代表权威 DNS 一定由阿里云托管。
 
@@ -15,6 +15,8 @@
 ## 选择发布入口
 
 按[主流程的组织规则](../SKILL.md#esa-demo-组织方式)区分独立 Demo 与实验合集。独立 Demo 使用各自的 Pages 项目和子域名；合集按项目根目录整体部署，实验子目录成为访问路径，不能把某个实验目录当成整个项目上传。核对项目与版本配额，不因额度不足自动覆盖其他项目或升级套餐。
+
+多个独立来源需要共用一个发布项目时，先按[多来源静态站点组装](multi-source-sites.md)固定来源与路径映射，生成包含全部专题的公开目录，再进入 ESA 发布流程。
 
 同一根域名下的多个 Demo 优先复用已有可用 ESA 站点，分别绑定子域名并核对各自的 DNS 与证书覆盖，无需每个 Pages 项目再开一个站点套餐。项目独立部署不等于额度隔离：同一计算订阅的项目共用 Credits；站点配置与站点用量封顶会影响该站点下的多个子域名。合集新增路径无需新增 DNS 或证书。依据：[域名绑定](https://help.aliyun.com/zh/edge-security-acceleration/esa/user-guide/trigger)、[计算订阅](https://help.aliyun.com/zh/edge-security-acceleration/esa/user-guide/functions-and-pages-billing)、[用量封顶](https://help.aliyun.com/zh/edge-security-acceleration/esa/product-overview/usage-cap)。
 
@@ -82,6 +84,8 @@ DNS 写入使用该服务已授权的官方工具；域名注册在阿里云不�
 核对证书覆盖、HTTPS 状态、DNS 生效和匿名实际页面。后续更新保留绑定。备案完成后仍需在原站点手动切换加速区域、等待配置生效并从目标网络复验，不自动重建项目或更换网址。依据：[域名配置](https://help.aliyun.com/zh/edge-security-acceleration/esa/user-guide/trigger)、[免费站点](https://help.aliyun.com/zh/edge-security-acceleration/esa/product-overview/free-plan)、[用量封顶](https://help.aliyun.com/zh/edge-security-acceleration/esa/product-overview/usage-cap)。
 
 ## 交付
+
+本次明确迁移旧入口时，按[旧域名迁移](esa-domain-migration.md)验证逐页跳转、查询参数和浏览器锚点；新站就绪后再启用，保留旧 DNS、证书及恢复基线。
 
 长期交付提供已验证的自定义域名。短时测试链接保留完整参数，注明生成时间、到期时间及用户时区，并标注 60 分钟有效期。记录项目、环境、V1／V2 版本、产物摘要、域名、套餐及实际网络范围。账号详情放私人配置，密码、MFA 密钥、AccessKey、登录 Cookie 与 Token 不进入共享记录或网站。
 
