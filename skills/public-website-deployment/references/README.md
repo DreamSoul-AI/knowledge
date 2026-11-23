@@ -68,7 +68,7 @@ Follow [domain migration](esa-domain-migration.md) separately from first subdoma
 
 Install the complete version 1.2.0 package from knowledge's [main branch](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-deployment). Its previous names were `website-static-publish` and `public-website-publish`; invoke it as `public-website-deployment`. The renames preserved its publishing functions. Your agent needs file access, command execution and a browser for authorization.
 
-The assembly, ESA migration and renewal guidance added here is currently available on the [dev branch](https://github.com/DreamSoul-AI/knowledge/tree/dev/skills/public-website-deployment), pending integration into main. To try it, install that branch's complete skill directory and preserve your private CONFIG.md. The following request installs the released main version:
+Assembly, ESA migration and renewal guidance is included in the [main distribution](https://github.com/DreamSoul-AI/knowledge/tree/main/skills/public-website-deployment). Install the complete skill directory and preserve your private CONFIG.md. The following request installs the released main version:
 
 ```text
 Install the supplied public-website-deployment into this project's .agents/skills/.
