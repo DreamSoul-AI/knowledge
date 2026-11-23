@@ -14,6 +14,8 @@ For each new global review, confirm start, end, time zone and source scope. Reus
 
 ## Handoff to work-message
 
+Before delivery, check the summary against the sources actually obtained. Preserve independently completed deliverables even when their project is unfinished. If the user identifies one omission, check comparable items while organizing the report by the task rather than the order of examples.
+
 ```text
 Use $work-summary to prepare the complete summary, then use $work-message to calibrate what to share and prepare every selected board's text. Do not send it yet.
 ```

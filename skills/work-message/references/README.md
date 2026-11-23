@@ -1,4 +1,7 @@
 # work-message
+
+Each invocation follows the current skill, current request and applicable rules. A previous round's temporary shortening, omissions or ordering do not become defaults. Retain relevant facts, confirmed text, applicable personal configuration and valid permissions or restrictions; honor a current explicit request for a shorter version.
+
 Prepare usable work messages from the specified conversation and feedback. Complete necessary research and checks, then select and refine the text around what the reader needs to understand, decide or do about the current change. Aim to get the message right the first time. Multiple boards may need multiple versions delivered together; there is no fixed count or structure.
 Without publication authorization, show complete message text. When sending or updating is authorized, save it to the intended location, then read the actual saved content to check the wording, links, date, recipients and author. Do not ask for the same authorization again. Later scope restrictions take precedence.
 Keep the opening short and concrete, leading with the matter or result the reader most needs to know rather than adding a stock introduction. Use semicolons sparingly without banning them. Let meaning guide sentence breaks instead of mechanically splitting sentences to shorten the opening or avoid semicolons.
