@@ -12,8 +12,9 @@ This long-lived `diaoenmao` branch maintains personal skills for GitHub user [di
 | Skill | Purpose | Usage |
 | --- | --- | --- |
 | [personal-log](skills/personal-log/SKILL.md) | Maintain this user's daily log, archive dates and preserve task continuity | [English](skills/personal-log/references/README.md) / [中文](skills/personal-log/references/README_zh.md) |
+| [meeting-background](skills/meeting-background/SKILL.md) | Prepare the author's weekly progress, summary and next-week plan | [English](skills/meeting-background/references/README.md) / [中文](skills/meeting-background/references/README_zh.md) |
 
-Personal skills remain on this branch unless separately agreed for common use. This branch has the repository's public visibility; raw private logs, credentials and real USER.md are not included. Publishing a skill does not install it or authorize edits to a real log.
+Personal skills remain on this branch unless separately agreed for common use. This branch has the repository's public visibility; raw private logs, credentials and real USER.md are not included. Publishing a skill does not install it or authorize edits to a real log or meeting document. meeting-background has bounded local validation; the next actual meeting remains its real-use check.
 
 ## Skills
 
@@ -91,7 +92,7 @@ Install the skill at:
 https://github.com/DreamSoul-AI/knowledge/tree/diaoenmao/skills/personal-log
 ```
 
-This example installs personal-log from the personal branch. Select common skills from their own recorded release sources.
+This example installs personal-log from the personal branch. To select [meeting-background](https://github.com/DreamSoul-AI/knowledge/tree/diaoenmao/skills/meeting-background) instead, use its branch entry with the same installer. Select only the personal skills requested; keep `diaoenmao` as their source rather than `main`. Select common skills from their own recorded release sources.
 To install manually for a project, copy the entire skill directory into
 `<project>/.agents/skills/`. Keep SKILL.md and all bundled directories, including scripts/, together.
 

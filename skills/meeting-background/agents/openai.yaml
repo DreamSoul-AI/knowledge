@@ -1,0 +1,4 @@
+interface:
+  display_name: "例会背景 meeting-background"
+  short_description: "从指定周次的个人日志整理上周进展、总结和本周安排，按授权更新本人章节"
+  default_prompt: "用 $meeting-background 整理指定周次的个人例会背景，先核对当期文档与本人章节。"

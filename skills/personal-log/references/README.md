@@ -15,6 +15,6 @@ Keep the complete skill folder and preserve existing customizations. Publishing 
 
 Ask to clean a specified historical date, prepare the next date after manual archiving, or perform a complete rollover. Existing manual progress must be read first to avoid duplicate archives or date advancement. Editing a draft is separate from authorization to maintain the real log.
 
-A checked item records work done that day, not completion of the entire project. Retain checked historical records and formatting. For the new day, uncheck bold continuing items; temporarily strike through checked non-bold items instead of deleting them. Cleaning an old date leaves the current checklist alone. Do not remove historical bold formatting as a blanket rule.
+A checked item records work done that day, not completion of the entire project. Remove bold and underline from the specified historical date while retaining checked records, hierarchy, colors, links and other styling. For the new day, uncheck bold continuing items; temporarily strike through checked non-bold items instead of deleting them. During a full rollover, save the old day's original styling and use it to prepare the new checklist before clearing historical emphasis. Cleaning an old date leaves the current checklist and its bold emphasis alone.
 
 [Complete workflow](../SKILL.md) · [中文](README_zh.md)
