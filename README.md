@@ -12,7 +12,7 @@ instructions and reference material, so it can be installed independently.
 | Skill | Purpose | Usage |
 | --- | --- | --- |
 | [wrap-up](skills/wrap-up/SKILL.md) | Inspect closeout readiness first; execute remaining steps when requested | [English](skills/wrap-up/references/README.md) / [中文](skills/wrap-up/references/README_zh.md) |
-| [resume-interrupted-chat](skills/resume-interrupted-chat/SKILL.md) | Continue authorized work from verified state, with only necessary context | [English](skills/resume-interrupted-chat/references/README.md) / [中文](skills/resume-interrupted-chat/references/README_zh.md) |
+| [resume-chat](skills/resume-chat/SKILL.md) | Continue authorized work from verified state, with only necessary context | [English](skills/resume-chat/references/README.md) / [中文](skills/resume-chat/references/README_zh.md) |
 | [work-summary](skills/work-summary/SKILL.md) | Consolidate results, evidence and unfinished work | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
 | [work-message](skills/work-message/SKILL.md) | Prepare board-specific work messages and deliver as authorized | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
 | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
@@ -95,6 +95,10 @@ The former `ai-work-message` skill is now `work-message`. Install the complete
 [work-message directory](skills/work-message/). Preserve personal changes before
 replacing an old installation, and keep only the new skill active. Old document
 URLs remain migration notices; they are not a second installable package.
+
+`resume-interrupted-chat` is now [resume-chat](skills/resume-chat/SKILL.md).
+Preserve personal changes when replacing the complete installation, and keep only
+`resume-chat` discoverable. Invoke it as `$resume-chat`.
 
 ## Structure
 

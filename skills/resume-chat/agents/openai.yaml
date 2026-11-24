@@ -1,0 +1,4 @@
+interface:
+  display_name: "中断恢复 resume-chat"
+  short_description: "核对当前授权、停下原因和真实断点，用足够简短的消息接回中断工作并核验结果"
+  default_prompt: "用 $resume-chat 查看指定对话的中断状态，按当前授权和实际断点恢复可继续的工作。"

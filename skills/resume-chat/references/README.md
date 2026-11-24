@@ -1,8 +1,10 @@
-# resume-interrupted-chat
+# resume-chat
 
 Reconnect interrupted work to its existing context. Inspect the current request, verified stop reason, recent relevant turns and necessary artifacts before choosing a short continuation, a changed requirement, a clarification or no resume action.
 
 # 1. Use
+
+Invoke `$resume-chat`. When migrating an installation named `resume-interrupted-chat`, preserve personal changes before switching the complete directory, and retain only one discoverable skill entry.
 
 - “Continue this interrupted task with the original requirements.”
 - “Resume that chat, but return JSON. Keep the other requirements.”
