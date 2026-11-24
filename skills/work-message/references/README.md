@@ -20,9 +20,13 @@ After calibration, prepare every selected board's complete message. Do not publi
 ```
 
 ## Use
+See the [audience and wording examples](audience-examples.md) for selecting items from one summary, explaining capability calls, and investigating incomplete access evidence. These examples do not fix recipients, labels or exclusions for later runs.
+
 Always start by reading the project's applicable message-board standard, using the supplied rules, project AGENTS.md or standards index to locate the source. DreamSoul uses `文档/规范/产品/留言板规范.md`; other projects use their own rules. An explicitly selected candidate standard takes precedence for a local trial. Report inaccessible rules rather than claiming compliance with unread material.
 
-Then inspect each target board's actual content, including the sender's similar earlier posts to the intended recipient. Use this to choose the address, courtesy, tone and background, rather than mechanically replacing pronouns. Keep verified group names, signatures and forms of address distinct. Read all requested boards as needed and deliver their suitable message versions together, labeled by destination. Do not require separate user requests per board or hard-code a set of boards, courtesy phrases or version counts.
+Read each target board and similar earlier messages. First consider who will read it and what they need to know, decide or do, then select content, tone and detail. Lead with familiar names and the main change, explain concrete relationships, and include the detail and entry points needed for that purpose. Vague references or execution history should not obscure the point. Deliver the appropriate versions together rather than changing only the salutation; no fixed board count or courtesy phrase is required.
+
+Separate verified facts from what remains unclear. Investigate available evidence instead of treating missing evidence as a negative finding. Describe consequential gaps and ask together when essential information or a choice genuinely requires the user. Leave unresolved evidence conflicts unverified rather than declaring completion, without asking for information that can be obtained automatically.
 
 A concise version shortens the wording while retaining applicable, accessible items and links; do not omit them merely because of a job role or board name.
 
