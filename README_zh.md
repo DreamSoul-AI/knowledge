@@ -11,6 +11,7 @@
 | 技能 | 用途 | 使用说明 |
 | --- | --- | --- |
 | [收尾 wrap-up](skills/wrap-up/SKILL.md) | 默认先盘点能否收尾，明确要求后执行尾项 | [English](skills/wrap-up/references/README.md) / [中文](skills/wrap-up/references/README_zh.md) |
+| [中断恢复 resume-interrupted-chat](skills/resume-interrupted-chat/SKILL.md) | 按当前授权与真实断点接续，只补必要上下文 | [English](skills/resume-interrupted-chat/references/README.md) / [中文](skills/resume-interrupted-chat/references/README_zh.md) |
 | [工作总结 work-summary](skills/work-summary/SKILL.md) | 盘点成果、依据和未收尾项 | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
 | [工作留言 work-message](skills/work-message/SKILL.md) | 按各留言板成文，按授权交付 | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
 | [Codex 对话归档 codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | 保留原话并增量归档 Codex 本地会话 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [安装包](skills/codex-conversation-archive.zip) |
@@ -25,6 +26,7 @@
 | --- | --- | --- |
 | [通用调研 general-search](skills/general-search/SKILL.md) | 调研技术、工具和工程实践 | [English](skills/general-search/references/README.md) / [中文](skills/general-search/references/README_zh.md) |
 | [文献调研 literature-search](skills/literature-search/SKILL.md) | 检索筛选文献，形成综述与跨论文可复用研究资产 | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
+| [论文入库 paper-intake](skills/paper-intake/SKILL.md) | 核验并收录指定论文，维护索引及多目标同步交接 | [English](skills/paper-intake/references/README.md) / [中文](skills/paper-intake/references/README_zh.md) |
 | [论文分析 paper-analysis](skills/paper-analysis/SKILL.md) | 论文精读与分析 | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
 | [研究计划 research-plan](skills/research-plan/SKILL.md) | 从灵感形成研究计划与实验方案 | [English](skills/research-plan/references/README.md) / [中文](skills/research-plan/references/README_zh.md) |
 

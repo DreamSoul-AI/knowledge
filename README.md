@@ -12,6 +12,7 @@ instructions and reference material, so it can be installed independently.
 | Skill | Purpose | Usage |
 | --- | --- | --- |
 | [wrap-up](skills/wrap-up/SKILL.md) | Inspect closeout readiness first; execute remaining steps when requested | [English](skills/wrap-up/references/README.md) / [中文](skills/wrap-up/references/README_zh.md) |
+| [resume-interrupted-chat](skills/resume-interrupted-chat/SKILL.md) | Continue authorized work from verified state, with only necessary context | [English](skills/resume-interrupted-chat/references/README.md) / [中文](skills/resume-interrupted-chat/references/README_zh.md) |
 | [work-summary](skills/work-summary/SKILL.md) | Consolidate results, evidence and unfinished work | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
 | [work-message](skills/work-message/SKILL.md) | Prepare board-specific work messages and deliver as authorized | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
 | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
@@ -26,6 +27,7 @@ instructions and reference material, so it can be installed independently.
 | --- | --- | --- |
 | [general-search](skills/general-search/SKILL.md) | Research technologies, tools and engineering practices | [English](skills/general-search/references/README.md) / [中文](skills/general-search/references/README_zh.md) |
 | [literature-search](skills/literature-search/SKILL.md) | Search academic literature, synthesize reviews and reusable research assets | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
+| [paper-intake](skills/paper-intake/SKILL.md) | Verify and file selected papers, reconcile indexes and hand off configured sync targets | [English](skills/paper-intake/references/README.md) / [中文](skills/paper-intake/references/README_zh.md) |
 | [paper-analysis](skills/paper-analysis/SKILL.md) | Critical reading of selected papers | [English](skills/paper-analysis/references/README.md) / [中文](skills/paper-analysis/references/README_zh.md) |
 | [research-plan](skills/research-plan/SKILL.md) | Research ideas, study plans, and experiment protocols | [English](skills/research-plan/references/README.md) / [中文](skills/research-plan/references/README_zh.md) |
 
