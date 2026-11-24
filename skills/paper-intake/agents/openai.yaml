@@ -1,0 +1,4 @@
+interface:
+  display_name: "论文入库 paper-intake"
+  short_description: "核验给定论文并入库，维护索引和记录，接续已授权的多目标同步"
+  default_prompt: "用 $paper-intake 将这篇论文收入现有论文库，核对版本和重复项，并报告各同步目标的实际结果。"

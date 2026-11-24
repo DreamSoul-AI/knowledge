@@ -136,6 +136,9 @@ scripts/
 !skills/knowledge-update/scripts/
 !skills/knowledge-update/scripts/*.py
 
+!skills/resume-interrupted-chat/scripts/
+!skills/resume-interrupted-chat/scripts/classify.py
+
 # Keep the static-publishing OAuth runner and its tests in the distribution.
 !skills/public-website-deployment/scripts/
 !skills/public-website-deployment/scripts/esa-cli.mjs

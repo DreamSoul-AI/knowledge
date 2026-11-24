@@ -98,7 +98,8 @@ organization below; do not copy a private standard into the distributed skill.
    answers with source evidence and conditions, key comparisons use compatible
    protocols or explain incompatibility, and opportunity claims reflect the
    covered literature. Link representative sources to the existing topic index;
-   update bibliography/library records only within the authorized scope.
+   update the review's bibliography within scope and delegate authorized library
+   intake to paper-intake as described below.
    Distinguish a complete scoped review from exhaustive coverage or reproduction.
    Deliver the actual review Markdown and outline when required, with remaining
    coverage, reading and rendering limits. Verification logs support this
@@ -287,8 +288,21 @@ an available downloader. Stop at access controls and mark the PDF pending if
 no permitted route yields a readable file.
 
 Verify the downloaded file opens as a PDF and matches the paper and version.
-When the task includes intake, reuse any matching copy and use the project's
-confirmed library location, naming, and index rules. Follow the
+Retrieval for reading can stay in the task workspace without changing a library.
+
+When authorized library intake is requested, invoke [paper-intake](../paper-intake/SKILL.md). Pass the
+selected paper URLs/identifiers, verified versions and downloaded files if any,
+actual reading depth, topic purpose, existing entries, applicable library rules
+and configured target scope. It owns library deduplication, placement, index and
+ledger consistency, and authorized synchronization/partial retry. Its companion
+document sync delegates to document-sync; do not run a second intake or cloud
+update procedure here. If paper-intake is unavailable, keep the reading material
+and report the specific intake handoff that remains, without calling it filed.
+
+Reconcile its returned stable identities, actual file versions, paths/links,
+index entries and per-target outcomes with this review's source list. Retain
+screening, relevance/value ranking, reading and cross-paper synthesis here.
+Intake success is not evidence of deeper reading or reproduction. See the
 [English](references/README.md#downloading-papers) or
 [Chinese](references/README_zh.md#下载论文) guide for the handoff.
 

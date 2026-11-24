@@ -1,4 +1,4 @@
-# Work Summary
+# work-summary
 
 Consolidate work from one or multiple conversations into completed deliverables, unfinished work, uncertainties and next steps. Use it independently for wrap-up, review or handoff, or as input to work-message.
 
@@ -11,6 +11,16 @@ Use $work-summary to summarize the work and remaining issues. Propose the exact 
 ```
 
 For each new global review, confirm start, end, time zone and source scope. Reuse that scope during the same review. Optional inputs include conversations, source material, supplementary context and applicable standards. Preserve the full factual picture, including work unsuitable for public sharing.
+
+## Archive location
+
+Save `工作总结 <date>.md` directly under `工作总结/<author's real name>/`, without a date subfolder. Use the corresponding document title `工作总结 <date>` in Feishu. Resolve the real name from the applicable `USER.md` or explicit instructions, rather than a GitHub handle, device account or message signature. Locate the local and cloud roots separately from existing configuration. A missing cloud destination does not block the local summary. See the [archive reference](archiving.md) for root selection, continuation and relative links.
+
+```text
+Use $work-summary to summarize these materials. Save under the real author name and local work-summary root in USER.md. Reuse this round's archive date, link the coverage evidence and message candidates, and do not upload yet.
+```
+
+Use the explicitly assigned work date for the filename; otherwise apply the user's confirmed date convention and task context rather than the generation date. Continue the same round in its existing file, including after midnight. Distinguish the assigned work date, actual coverage window and time zone, and latest update time. Preserve necessary cutoff context instead of presenting later results as already known then. The naming convention does not authorize moving historical material or creating cloud folders; check current objects and repair references before an authorized move or sync.
 
 ## Handoff to work-message
 
