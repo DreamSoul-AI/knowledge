@@ -80,6 +80,7 @@
 | --- | --- | --- | --- |
 | [每日会议总结 Daily Meeting Summary](automations/daily-meeting-summary/) | 增量归档会议、整理总结并按授权交付 | 首版，手动复用流程已验证 | [中文](automations/daily-meeting-summary/README_zh.md) / [English](automations/daily-meeting-summary/README.md) |
 | [每日电子邮件总结 Daily Email Summary](automations/daily-email-summary/) | 按自定义邮箱整理主题、下一步行动及原邮件入口 | 首版定义，Outlook 读取与格式已验证，调度待验证 | [中文](automations/daily-email-summary/README_zh.md) / [English](automations/daily-email-summary/README.md) |
+| [每日工作区更新 daily-workspace-update](automations/daily-workspace-update/) | 更新已采用工作区，接续已采用技能和工具 | 整轮只检查已验证，更新与触发待验 | [中文](automations/daily-workspace-update/README_zh.md) / [English](automations/daily-workspace-update/README.md) |
 
 实际项目按自己的配置和授权部署。最近手动运行未触发新增生成、上传写入和实际定时触发，具体覆盖范围见 [任务总表](automations/README_zh.md)。
 
