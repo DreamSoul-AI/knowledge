@@ -15,6 +15,14 @@
 
 个人技能默认在本分支维护，不自动合回main/dev。本分支沿用仓库公开范围，不包含私人日志原文、凭据或真实USER.md。技能已推送不代表已安装，也不产生修改实际日志或会议背景的授权。meeting-background已有有限本地验证，实际会期使用留待下一次真实会议核对。
 
+## 个人自动化 Personal Automations
+
+本节由GitHub用户 [diaoenmao](https://github.com/diaoenmao) 在个人长期分支维护。自动化定义与个人技能分开，保存提示词、配置示例及使用说明，不表示已经启用定时任务。
+
+| **自动化** | **用途** | **状态** |
+| --- | --- | --- |
+| [每周会议背景 weekly-meeting-background](automations/weekly-meeting-background/README_zh.md) | 调用本人已采用的meeting-background准备当期背景 | 个人定义已入库，定时暂不启用 |
+
 ## 技能 Skills
 
 ### 工作整理

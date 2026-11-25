@@ -1,0 +1,28 @@
+# Definition only. No schedule is created or enabled.
+name: weekly-meeting-background
+project_root: null
+deployment:
+  enabled: false
+  timezone: null
+  schedule: null
+  carrier_chat: null
+source:
+  user_config: null
+  meeting_series: null
+  meeting_date: null
+  review_start: null
+  review_end: null
+  plan_start: null
+skill:
+  name: meeting-background
+  adopted_source: null
+  fixed_version: null
+output:
+  mode: local_draft
+  directory: null
+  target_document: null
+  author_section: null
+  cloud_write: false
+state:
+  path: null
+  resume_same_week: true

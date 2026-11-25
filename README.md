@@ -16,6 +16,14 @@ This long-lived `diaoenmao` branch maintains personal skills for GitHub user [di
 
 Personal skills remain on this branch unless separately agreed for common use. This branch has the repository's public visibility; raw private logs, credentials and real USER.md are not included. Publishing a skill does not install it or authorize edits to a real log or meeting document. meeting-background has bounded local validation; the next actual meeting remains its real-use check.
 
+## Personal Automations
+
+GitHub user [diaoenmao](https://github.com/diaoenmao) maintains these definitions on this personal branch. Automation prompts, example configuration and guides are separate from personal skills; storing them does not enable a scheduled task.
+
+| **Automation** | **Purpose** | **Status** |
+| --- | --- | --- |
+| [weekly-meeting-background](automations/weekly-meeting-background/README.md) | Call the adopted personal meeting-background skill to prepare the current meeting background | Personal definition stored; scheduling not enabled |
+
 ## Skills
 
 ### Work and documents
