@@ -20,6 +20,7 @@ instructions and reference material, so it can be installed independently.
 | [calendar-meeting-archive](skills/calendar-meeting-archive/SKILL.md) | Reuse existing results and archive calendar meetings by ownership | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
 | [document-sync](skills/document-sync/SKILL.md) | Sync selected documents with baseline and conflict checks; Feishu supported | [English](skills/document-sync/references/README.md) / [简体中文](skills/document-sync/references/README_zh.md) |
 | [grok-bot-cli](skills/grok-bot-cli/SKILL.md) | Connect to Grok Bot and verify access or authorized messaging | [Connection guide](skills/grok-bot-cli/references/connection.md) |
+| [lark-auth-reuse](skills/lark-auth-reuse/SKILL.md) | Reuse existing Feishu authorization across chats and diagnose execution-identity differences | [English](skills/lark-auth-reuse/references/README.md) / [中文](skills/lark-auth-reuse/references/README_zh.md) |
 
 ### Research
 
