@@ -10,6 +10,7 @@
 | --- | --- | --- | --- | --- |
 | 每日会议总结 Daily Meeting Summary | 每天 00:00，Asia/Shanghai | 首版 | 手动核验通过，新增写入及触发待覆盖 | [说明](daily-meeting-summary/README_zh.md) / [提示词](daily-meeting-summary/prompt.md) / [配置](daily-meeting-summary/config.example.yaml) |
 | 每日电子邮件总结 Daily Email Summary | 由使用者配置 | 首版定义 | Outlook 只读及摘要格式已验证，其他平台及调度待验证 | [说明](daily-email-summary/README_zh.md) / [提示词](daily-email-summary/prompt.md) / [配置](daily-email-summary/config.example.yaml) |
+| 每日工作区更新 daily-workspace-update | 每天，时间及时区由使用者配置 | 首版定义 | 整轮只检查已验证，更新、刷新及触发待验 | [说明](daily-workspace-update/README_zh.md) / [提示词](daily-workspace-update/prompt.md) / [配置](daily-workspace-update/config.example.yaml) |
 
 总表登记本仓库实际存在的任务定义，后续新增任务继续加行，维护其目录和验证状态。参考安排不代表任务已启用，运行账号、承载聊天、平台任务标识和部署状态留在各使用者环境。
 

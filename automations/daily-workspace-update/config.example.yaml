@@ -1,0 +1,31 @@
+# Preparation only. This file does not register or enable a scheduled task.
+name: daily-workspace-update
+deployment:
+  enabled: false
+  timezone: null
+  schedule: null
+  project: null
+  thread: null
+scope:
+  workspace: null
+  adopted_record: null
+  capabilities: [] # Source/ref, actual install path and retained customizations come from adoption records.
+  include_workspace_templates: true
+  exclusions: []
+execution:
+  mode: check # update requires confirmed scope and authorization.
+  source_policy: adopted_sources
+  fixed_revision_per_run: true
+  install_all: false
+refresh:
+  when: verified_changes
+  skill: refresh-chat
+  skill_entry: null # Optional external integration: an adopted entry or an explicitly configured local trial entry.
+  targets: [] # Current execution chat plus related chats identified in this update's confirmed scope.
+  preserve_task_state: true
+output:
+  directory: null
+  destination: current_task_chat
+state:
+  receipt: null
+  reuse_completed_items: true
