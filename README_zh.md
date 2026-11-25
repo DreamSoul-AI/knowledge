@@ -6,24 +6,21 @@
 
 ## 技能 Skills
 
+按用途查找通用流程；依赖具体平台的技能集中列在“平台接入”。会议整理等通用流程仍可按各自说明接入飞书。
+
 ### 工作整理
 
-| 技能 | 用途 | 使用说明 |
+| **技能** | **用途** | **说明** |
 | --- | --- | --- |
 | [收尾 wrap-up](skills/wrap-up/SKILL.md) | 默认先盘点能否收尾，明确要求后执行尾项 | [English](skills/wrap-up/references/README.md) / [中文](skills/wrap-up/references/README_zh.md) |
 | [中断恢复 resume-chat](skills/resume-chat/SKILL.md) | 按当前授权与真实断点接续，只补必要上下文 | [English](skills/resume-chat/references/README.md) / [中文](skills/resume-chat/references/README_zh.md) |
 | [工作总结 work-summary](skills/work-summary/SKILL.md) | 盘点成果、依据和未收尾项 | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
 | [工作留言 work-message](skills/work-message/SKILL.md) | 按各留言板成文，按授权交付 | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
-| [Codex 对话归档 codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | 保留原话并增量归档 Codex 本地会话 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [安装包](skills/codex-conversation-archive.zip) |
 | [会议总结 meeting-minutes](skills/meeting-minutes/SKILL.md) | 结合原始材料、补充材料和规范整理会议 | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
-| [日历会议归档 calendar-meeting-archive](skills/calendar-meeting-archive/SKILL.md) | 按负责人归档会议，优先复用已有成果 | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
-| [文档同步 document-sync](skills/document-sync/SKILL.md) | 同步指定文档，检查基线和冲突，目前支持飞书 | [English](skills/document-sync/references/README.md) / [中文](skills/document-sync/references/README_zh.md) |
-| [grok-bot-cli](skills/grok-bot-cli/SKILL.md) | 连接 Grok Bot，检查访问及按授权验证收发 | [接入说明](skills/grok-bot-cli/references/connection.md) |
-| [飞书授权复用 lark-auth-reuse](skills/lark-auth-reuse/SKILL.md) | 复用对话间已有飞书授权，诊断执行身份差异 | [English](skills/lark-auth-reuse/references/README.md) / [中文](skills/lark-auth-reuse/references/README_zh.md) |
 
 ### 调研研究
 
-| 技能 | 用途 | 使用说明 |
+| **技能** | **用途** | **说明** |
 | --- | --- | --- |
 | [通用调研 general-search](skills/general-search/SKILL.md) | 调研技术、工具和工程实践 | [English](skills/general-search/references/README.md) / [中文](skills/general-search/references/README_zh.md) |
 | [文献调研 literature-search](skills/literature-search/SKILL.md) | 检索筛选文献，形成综述与跨论文可复用研究资产 | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
@@ -33,22 +30,32 @@
 
 ### 研发运行
 
-| 技能 | 用途 | 使用说明 |
+| **技能** | **用途** | **说明** |
 | --- | --- | --- |
 | [代码架构分析 code-architecture-analysis](skills/code-architecture-analysis/SKILL.md) | 依据源码和运行证据核对架构结论 | [用法](skills/code-architecture-analysis/SKILL.md) |
 | [Python 环境管理与排障 python-environment](skills/python-environment/SKILL.md) | 检查、准备与诊断项目环境，优先复用已有环境 | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
-| [CPU 内存清理 cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | 读取 Windows 内存，按请求整理工作集 | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [安装包](skills/cpu-memory-cleanup.zip) |
-| [公开网站部署 public-website-deployment](skills/public-website-deployment/SKILL.md) | ESA / Cloudflare 静态发布、同址更新与子域名绑定；按需组装多来源站点、处理 ESA 旧域名迁移与续订检查，默认国内 ESA、CLI 上传 | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
+| [公开网站部署 public-website-deployment](skills/public-website-deployment/SKILL.md) | 发布和更新静态网站，管理域名及迁移 | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
+| [Agent 实验执行 agent-experiment](skills/agent-experiment/SKILL.md) | 实跑有界 Agent 实验，核对实际行为和结论 | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
 | [能力更新 knowledge-update](skills/knowledge-update/SKILL.md) | 检查或更新已采用技能和工具，保留定制 | [English](skills/knowledge-update/references/README.md) / [中文](skills/knowledge-update/references/README_zh.md) |
 | [工作区更新 workspace-update](skills/workspace-update/SKILL.md) | 更新Workspace模板，默认接入能力更新 | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
-| [GitHub 汇总 github-summary](skills/github-summary/SKILL.md) | 接收固定版本经验原文，按接收方归并 | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
-| [Agent 实验执行 agent-experiment](skills/agent-experiment/SKILL.md) | 实跑有界 Agent 实验，核对实际行为和结论 | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
+
+### 平台接入
+
+| **平台** | **技能** | **用途** | **说明** |
+| --- | --- | --- | --- |
+| 飞书 | [日历会议归档 calendar-meeting-archive](skills/calendar-meeting-archive/SKILL.md) | 按负责人归档会议，优先复用已有成果 | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
+| 飞书 | [文档同步 document-sync](skills/document-sync/SKILL.md) | 同步指定文档，检查基线和冲突，目前支持飞书 | [English](skills/document-sync/references/README.md) / [中文](skills/document-sync/references/README_zh.md) |
+| 飞书 | [飞书授权复用 lark-auth-reuse](skills/lark-auth-reuse/SKILL.md) | 复用对话间已有飞书授权，诊断执行身份差异 | [English](skills/lark-auth-reuse/references/README.md) / [中文](skills/lark-auth-reuse/references/README_zh.md) |
+| Grok Bot | [grok-bot-cli](skills/grok-bot-cli/SKILL.md) | 连接 Grok Bot，检查访问及按授权验证收发 | [接入说明](skills/grok-bot-cli/references/connection.md) |
+| GitHub | [GitHub 汇总 github-summary](skills/github-summary/SKILL.md) | 接收固定版本经验原文，按接收方归并 | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
+| Codex | [Codex 对话归档 codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | 保留原话并增量归档 Codex 本地会话 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [安装包](skills/codex-conversation-archive.zip) |
+| Windows | [CPU 内存清理 cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | 读取 Windows 内存，按请求整理工作集 | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [安装包](skills/cpu-memory-cleanup.zip) |
 
 ### 设计
 
-| 技能 | 用途 | 安装 |
-| --- | --- | --- |
-| [Figma 设计 figma-design](https://github.com/DreamSoul-AI/figma/blob/main/src/figma-design/SKILL.md) | 按独立维护的完整工作流制作可编辑设计稿并验证原型 | [v1.1.1 安装包与说明](https://github.com/DreamSoul-AI/figma/releases/tag/figma-design-v1.1.1)，需要 Figma 仓库访问权限 |
+| **平台** | **技能** | **用途** | **安装** |
+| --- | --- | --- | --- |
+| Figma | [Figma 设计 figma-design](https://github.com/DreamSoul-AI/figma/blob/main/src/figma-design/SKILL.md) | 按独立维护的完整工作流制作可编辑设计稿并验证原型 | [v1.1.1 安装包与说明](https://github.com/DreamSoul-AI/figma/releases/tag/figma-design-v1.1.1)，需要 Figma 仓库访问权限 |
 
 完整工作流与互译手册统一在 Figma 仓库维护，knowledge 只保留发现和安装入口，不维护第二份正文。
 
@@ -58,12 +65,12 @@
 
 ## 工具 Tools
 
-| 工具 | 用途 | 使用说明 |
-| --- | --- | --- |
-| [grok-bot-cli](tools/grok-bot-cli/) | 启动本机安装的上游 CLI | [English](tools/grok-bot-cli/README.md) / [中文](tools/grok-bot-cli/README_zh.md) |
-| [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Codex VS Code 任务完成后的原生 Windows 通知 | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
-| [cpu-memory-cleanup](tools/cpu-memory-cleanup/) | 内存Package与CLI接入说明，不复制清理实现 | [English](tools/cpu-memory-cleanup/README.md) / [中文](tools/cpu-memory-cleanup/README_zh.md) |
-| [shared-repository-resources](tools/shared-repository-resources/) | 按配置复用目录资源；新示例使用 `shared/` 存储、`.shared/` 仓内入口 | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
+| **平台** | **工具** | **用途** | **使用说明** |
+| --- | --- | --- | --- |
+| Grok Bot | [grok-bot-cli](tools/grok-bot-cli/) | 启动本机安装的上游 CLI | [English](tools/grok-bot-cli/README.md) / [中文](tools/grok-bot-cli/README_zh.md) |
+| Codex / VS Code / Windows | [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Codex VS Code 任务完成后的原生 Windows 通知 | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
+| Windows | [cpu-memory-cleanup](tools/cpu-memory-cleanup/) | 内存Package与CLI接入说明，不复制清理实现 | [English](tools/cpu-memory-cleanup/README.md) / [中文](tools/cpu-memory-cleanup/README_zh.md) |
+| 本地文件系统 | [shared-repository-resources](tools/shared-repository-resources/) | 按配置复用目录资源；新示例使用 `shared/` 存储、`.shared/` 仓内入口 | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
 
 ## 定时任务 Automations
 

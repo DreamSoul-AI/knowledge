@@ -7,24 +7,21 @@ instructions and reference material, so it can be installed independently.
 
 ## Skills
 
+Browse general workflows by purpose. Skills tied to a specific service appear under Platform integrations. General workflows such as meeting summaries can still use Feishu as documented.
+
 ### Work and documents
 
-| Skill | Purpose | Usage |
+| **Skill** | **Purpose** | **Usage** |
 | --- | --- | --- |
 | [wrap-up](skills/wrap-up/SKILL.md) | Inspect closeout readiness first; execute remaining steps when requested | [English](skills/wrap-up/references/README.md) / [中文](skills/wrap-up/references/README_zh.md) |
 | [resume-chat](skills/resume-chat/SKILL.md) | Continue authorized work from verified state, with only necessary context | [English](skills/resume-chat/references/README.md) / [中文](skills/resume-chat/references/README_zh.md) |
 | [work-summary](skills/work-summary/SKILL.md) | Consolidate results, evidence and unfinished work | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
 | [work-message](skills/work-message/SKILL.md) | Prepare board-specific work messages and deliver as authorized | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
-| [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
 | [meeting-minutes](skills/meeting-minutes/SKILL.md) | Summarize meetings using supplied material and rules | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
-| [calendar-meeting-archive](skills/calendar-meeting-archive/SKILL.md) | Reuse existing results and archive calendar meetings by ownership | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
-| [document-sync](skills/document-sync/SKILL.md) | Sync selected documents with baseline and conflict checks; Feishu supported | [English](skills/document-sync/references/README.md) / [简体中文](skills/document-sync/references/README_zh.md) |
-| [grok-bot-cli](skills/grok-bot-cli/SKILL.md) | Connect to Grok Bot and verify access or authorized messaging | [Connection guide](skills/grok-bot-cli/references/connection.md) |
-| [lark-auth-reuse](skills/lark-auth-reuse/SKILL.md) | Reuse existing Feishu authorization across chats and diagnose execution-identity differences | [English](skills/lark-auth-reuse/references/README.md) / [中文](skills/lark-auth-reuse/references/README_zh.md) |
 
 ### Research
 
-| Skill | Purpose | Usage |
+| **Skill** | **Purpose** | **Usage** |
 | --- | --- | --- |
 | [general-search](skills/general-search/SKILL.md) | Research technologies, tools and engineering practices | [English](skills/general-search/references/README.md) / [中文](skills/general-search/references/README_zh.md) |
 | [literature-search](skills/literature-search/SKILL.md) | Search academic literature, synthesize reviews and reusable research assets | [English](skills/literature-search/references/README.md) / [中文](skills/literature-search/references/README_zh.md) |
@@ -34,22 +31,32 @@ instructions and reference material, so it can be installed independently.
 
 ### Engineering and runtime
 
-| Skill | Purpose | Usage |
+| **Skill** | **Purpose** | **Usage** |
 | --- | --- | --- |
 | [code-architecture-analysis](skills/code-architecture-analysis/SKILL.md) | Verify architecture claims against source and runtime evidence | [Usage](skills/code-architecture-analysis/SKILL.md) |
 | [python-environment](skills/python-environment/SKILL.md) | Inspect, prepare and troubleshoot Python environments | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
-| [cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | Read Windows memory and perform requested working-set cleanup | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [ZIP](skills/cpu-memory-cleanup.zip) |
-| [public-website-deployment](skills/public-website-deployment/SKILL.md) | ESA / Cloudflare static publishing, updates and subdomain binding; optional multi-source assembly, ESA domain migration and renewal checks; defaults to China/ESA and CLI uploads | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
+| [public-website-deployment](skills/public-website-deployment/SKILL.md) | Deploy and update static sites, manage domains and migrations | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
+| [agent-experiment](skills/agent-experiment/SKILL.md) | Run bounded Agent experiments and assess observed behavior | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
 | [knowledge-update](skills/knowledge-update/SKILL.md) | Check or update adopted skills and tools, preserving local changes | [English](skills/knowledge-update/references/README.md) / [中文](skills/knowledge-update/references/README_zh.md) |
 | [workspace-update](skills/workspace-update/SKILL.md) | Update Workspace templates and delegate adopted capabilities to knowledge-update | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
-| [github-summary](skills/github-summary/SKILL.md) | Receive versioned Learnings and consolidate them by recipient | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
-| [agent-experiment](skills/agent-experiment/SKILL.md) | Run bounded Agent experiments and assess observed behavior | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
+
+### Platform integrations
+
+| **Platform** | **Skill** | **Purpose** | **Usage** |
+| --- | --- | --- | --- |
+| Feishu | [calendar-meeting-archive](skills/calendar-meeting-archive/SKILL.md) | Reuse existing results and archive calendar meetings by ownership | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
+| Feishu | [document-sync](skills/document-sync/SKILL.md) | Sync selected documents with baseline and conflict checks; Feishu supported | [English](skills/document-sync/references/README.md) / [简体中文](skills/document-sync/references/README_zh.md) |
+| Feishu | [lark-auth-reuse](skills/lark-auth-reuse/SKILL.md) | Reuse existing Feishu authorization across chats and diagnose execution-identity differences | [English](skills/lark-auth-reuse/references/README.md) / [中文](skills/lark-auth-reuse/references/README_zh.md) |
+| Grok Bot | [grok-bot-cli](skills/grok-bot-cli/SKILL.md) | Connect to Grok Bot and verify access or authorized messaging | [Connection guide](skills/grok-bot-cli/references/connection.md) |
+| GitHub | [github-summary](skills/github-summary/SKILL.md) | Receive versioned Learnings and consolidate them by recipient | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
+| Codex | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
+| Windows | [cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | Read Windows memory and perform requested working-set cleanup | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [ZIP](skills/cpu-memory-cleanup.zip) |
 
 ### Design
 
-| Skill | Purpose | Installation |
-| --- | --- | --- |
-| [figma-design](https://github.com/DreamSoul-AI/figma/blob/main/src/figma-design/SKILL.md) | Create or revise editable designs using the independently maintained Figma workflow | [v1.1.1 release and installation](https://github.com/DreamSoul-AI/figma/releases/tag/figma-design-v1.1.1) · Figma repository access required |
+| **Platform** | **Skill** | **Purpose** | **Installation** |
+| --- | --- | --- | --- |
+| Figma | [figma-design](https://github.com/DreamSoul-AI/figma/blob/main/src/figma-design/SKILL.md) | Create or revise editable designs using the independently maintained Figma workflow | [v1.1.1 release and installation](https://github.com/DreamSoul-AI/figma/releases/tag/figma-design-v1.1.1) · Figma repository access required |
 
 The complete workflow and translation manuals are maintained in the Figma repository; knowledge provides discovery and installation links without a second maintained copy.
 
@@ -57,12 +64,12 @@ For Figma Design, download the ZIP from the Figma release page. Extract the enti
 
 ## Tools
 
-| Tool | Purpose | Usage |
-| --- | --- | --- |
-| [grok-bot-cli](tools/grok-bot-cli/) | Launch the locally installed upstream CLI | [English](tools/grok-bot-cli/README.md) / [中文](tools/grok-bot-cli/README_zh.md) |
-| [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Native Windows notifications for Codex turns in VS Code | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
-| [cpu-memory-cleanup](tools/cpu-memory-cleanup/) | Reusable memory package and CLI entry; no duplicated cleanup implementation | [English](tools/cpu-memory-cleanup/README.md) / [中文](tools/cpu-memory-cleanup/README_zh.md) |
-| [shared-repository-resources](tools/shared-repository-resources/) | Reuse configurable directory resources; new examples use `shared/` storage and `.shared/` entries | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
+| **Platform** | **Tool** | **Purpose** | **Usage** |
+| --- | --- | --- | --- |
+| Grok Bot | [grok-bot-cli](tools/grok-bot-cli/) | Launch the locally installed upstream CLI | [English](tools/grok-bot-cli/README.md) / [中文](tools/grok-bot-cli/README_zh.md) |
+| Codex / VS Code / Windows | [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Native Windows notifications for Codex turns in VS Code | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
+| Windows | [cpu-memory-cleanup](tools/cpu-memory-cleanup/) | Reusable memory package and CLI entry; no duplicated cleanup implementation | [English](tools/cpu-memory-cleanup/README.md) / [中文](tools/cpu-memory-cleanup/README_zh.md) |
+| Local filesystem | [shared-repository-resources](tools/shared-repository-resources/) | Reuse configurable directory resources; new examples use `shared/` storage and `.shared/` entries | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
 
 ## Automations
 

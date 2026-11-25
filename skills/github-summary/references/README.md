@@ -24,6 +24,8 @@ Replace A/B with actual repositories and name the receiving location. Existing i
 
 ## Stages and side effects
 
+Choose serial or parallel work based on actual material volume, independent reads and waiting costs, not repository count alone. For broad independent source scopes, delegate non-overlapping repository groups while the main Agent consolidates returned material. Share scope, cutoffs, fixed revisions, external rules and prior baselines. Reuse sound report entries directly: add the overview and address duplicates, conflicts and gaps, consulting specific originals only when needed. Reference or mechanically combine unchanged entries rather than rewriting every item, and verify their preservation. Keep group snapshots and reports separate; one writer integrates the common index and formal Learnings, preserving branch and run identities. Scanning does not authorize parallel cleanup. Handle small or dependent tasks directly. Measure from the start of reading through final consolidation and verification, including tool waits and handoffs, and report resource costs alongside elapsed time. Without a comparable serial run, do not claim a measured speedup; a single result is not a fixed performance promise. See [parallel collection](curation.md#并行盘点与交接).
+
 Complete the applicable workflow by default. An explicit read-only or limited-stage request narrows the current run. Explain the planned writes before execution; reuse valid authorization instead of asking for every step again.
 
 | Stage | Result | Write destination |
@@ -55,6 +57,8 @@ Include new or meaningfully updated Learnings, verified adoption and pending ite
 The substantive [curation standard](curation.md) covers source identity, deduplication, recipient routing and cleanup. Workspace template adoption remains with the existing workspace-update or project workflow.
 
 For workflows, distinguish file presence, current enabled state and recent runs; inspect actual jobs/steps to classify purpose. Runtime is not confirmed billing. Mark steps completed, awaiting clarification or not executed. Temporary reports do not establish formal adoption or source cleanup. See [repository checks](curation.md#七仓库状态和外部规范检查).
+
+Continue from the last confirmed inspection and cleanup receipts. Compare workflow definitions and purposes, repository Actions settings and new runs to identify additions, restored definitions and re-enabling. Keep cleanup time separate from the last complete scan cutoff, check new attempts of older runs, and do not count previously read runs again. Separate historical monthly totals from post-cleanup additions; permission or pagination gaps do not establish no new activity. Read project exceptions from external rules rather than embedding organization lists in the skill. A local report does not establish that platform protection was implemented.
 
 Read access does not authorize changes. Before an authorized cleanup, verify complete intake, recovery material, project-specific prerequisites and the current source. Preserve concurrent changes and distinguish a proposed cleanup from one that was merged and read back.
 
