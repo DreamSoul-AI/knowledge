@@ -1,0 +1,19 @@
+# Daily workspace updates
+
+English | [简体中文](README_zh.md)
+
+Use workspace-update as the entry point for adopted workspace templates, rules and related usage material. It delegates adopted skills and tools to knowledge-update once in the same run, reusing scope, authorization and results. This task covers workspace updates rather than only weekly skill updates.
+
+This reusable definition does not register or enable a schedule by itself. Check adoption scope with [the prompt](prompt.md) and [example configuration](config.example.yaml), then connect an existing task or create one through the scheduler using the user's confirmed timing and update mode. Keep identity, source selections, device paths, project and hosting chat in the user's runtime configuration.
+
+Record the adopted repository, fixed commit and definition entry in the deployment. The actual task must read that prompt and its runtime configuration; publishing files on GitHub does not automatically mount them in a scheduler. Verify the carrier can read the formal definition and complete adopted skills, and report the revision actually used. Empty timing and disabled values in the example do not describe an operator's deployed task.
+
+Use adoption records for the actual capability scope, locations, source revisions, exclusions and customizations. Keep common release sources distinct from adopted personal sources. A personal branch inheriting common files does not make it their update source. Do not install everything or upgrade runtime dependencies during inspection.
+
+Compare the complete package at a fixed revision, distinguishing content changes, line endings, personal differences, extra files and missing baselines. Preserve those differences and use the existing skill's backup, conflict and readback behavior for authorized updates. A repeat against unchanged sources should require no change. Installation, discovery and actual invocation remain separate checks.
+
+Refresh is an optional external integration. When runtime configuration requests it, call the configured or adopted refresh-chat entry after verified changes for the current execution chat and related chats identified within the confirmed update scope. Reuse completed refresh receipts and preserve task state; do not refresh merely for a check, unchanged items or unsuccessful writes. Partial success refreshes only verified updates. Distinguish a sent request, actual reading and demonstrated application. This does not restart the host or guarantee hot-loading installed skills. If a requested refresh entry or target cannot be resolved, preserve the successful update and report the specific pending refresh rather than claiming completion, installing or publishing a local candidate, or messaging the whole account.
+
+A prior six-package capability check required no content updates. A subsequent check of one identified local workspace compared formal sources, adopted template entries and personal adaptations, with no new applicable template content or target writes. Actual post-update refresh and scheduled triggering remain untested; a local refresh-chat candidate is not an installed or published dependency.
+
+Dependencies: [knowledge-update](../../skills/knowledge-update/SKILL.md) and [workspace-update](../../skills/workspace-update/SKILL.md). Keep the full adopted packages; unpublished local drafts are not release sources.

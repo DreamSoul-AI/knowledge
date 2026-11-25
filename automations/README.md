@@ -10,6 +10,7 @@ Reusable prompts and configuration examples for recurring tasks. Automations com
 | --- | --- | --- | --- | --- |
 | Daily Meeting Summary | Daily 00:00, Asia/Shanghai | First version | Manual checks passed; new writes and triggering pending | [Guide](daily-meeting-summary/README.md) / [Prompt](daily-meeting-summary/prompt.md) / [Configuration](daily-meeting-summary/config.example.yaml) |
 | Daily Email Summary | User-configured | First definition | Outlook read and summary format verified; other providers and scheduling pending | [Guide](daily-email-summary/README.md) / [Prompt](daily-email-summary/prompt.md) / [Configuration](daily-email-summary/config.example.yaml) |
+| Daily Workspace Update | Daily, operator-configured time zone and time | First definition | Full check validated; updates, refresh and triggering unverified | [Guide](daily-workspace-update/README.md) / [Prompt](daily-workspace-update/prompt.md) / [Configuration](daily-workspace-update/config.example.yaml) |
 
 Register task definitions that actually exist in this repository. Add a row and maintain its directory and validation status when adding a task. A reference schedule does not mean a task is enabled. Accounts, hosting chats, scheduler identifiers and deployment status remain in each operator's environment.
 
