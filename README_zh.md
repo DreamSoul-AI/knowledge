@@ -14,6 +14,7 @@
 | --- | --- | --- |
 | [收尾 wrap-up](skills/wrap-up/SKILL.md) | 默认先盘点能否收尾，明确要求后执行尾项 | [English](skills/wrap-up/references/README.md) / [中文](skills/wrap-up/references/README_zh.md) |
 | [中断恢复 resume-chat](skills/resume-chat/SKILL.md) | 按当前授权与真实断点接续，只补必要上下文 | [English](skills/resume-chat/references/README.md) / [中文](skills/resume-chat/references/README_zh.md) |
+| [刷新工作区 refresh-chat](skills/refresh-chat/SKILL.md) | 按变化筛选对话，读取必要规则并回报应用 | [English](skills/refresh-chat/references/README.md) / [中文](skills/refresh-chat/references/README_zh.md) |
 | [工作总结 work-summary](skills/work-summary/SKILL.md) | 盘点成果、依据和未收尾项 | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
 | [工作留言 work-message](skills/work-message/SKILL.md) | 按各留言板成文，按授权交付 | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
 | [会议总结 meeting-minutes](skills/meeting-minutes/SKILL.md) | 结合原始材料、补充材料和规范整理会议 | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
@@ -37,7 +38,7 @@
 | [公开网站部署 public-website-deployment](skills/public-website-deployment/SKILL.md) | 发布和更新静态网站，管理域名及迁移 | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
 | [Agent 实验执行 agent-experiment](skills/agent-experiment/SKILL.md) | 实跑有界 Agent 实验，核对实际行为和结论 | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
 | [能力更新 knowledge-update](skills/knowledge-update/SKILL.md) | 检查或更新已采用技能和工具，保留定制 | [English](skills/knowledge-update/references/README.md) / [中文](skills/knowledge-update/references/README_zh.md) |
-| [工作区更新 workspace-update](skills/workspace-update/SKILL.md) | 更新Workspace模板，默认接入能力更新 | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
+| [工作区更新 workspace-update](skills/workspace-update/SKILL.md) | 默认更新本地工作区，可选组织仓库分发 | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
 
 ### 平台接入
 
