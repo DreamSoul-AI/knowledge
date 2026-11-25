@@ -11,7 +11,7 @@
 | **技能** | **用途** | **使用说明** |
 | --- | --- | --- |
 | [个人日志 personal-log](skills/personal-log/SKILL.md) | 按本人习惯转日、归档和清理，保留记录及待办接续 | [English](skills/personal-log/references/README.md) / [中文](skills/personal-log/references/README_zh.md) |
-| [例会背景 meeting-background](skills/meeting-background/SKILL.md) | 从本人指定周次日志整理上周、总结和本周安排 | [English](skills/meeting-background/references/README.md) / [中文](skills/meeting-background/references/README_zh.md) |
+| [例会背景 meeting-background](skills/meeting-background/SKILL.md) | 从本人指定周次日志整理前置总结、上周和本周安排 | [English](skills/meeting-background/references/README.md) / [中文](skills/meeting-background/references/README_zh.md) |
 
 个人技能默认在本分支维护，不自动合回main/dev。本分支沿用仓库公开范围，不包含私人日志原文、凭据或真实USER.md。技能已推送不代表已安装，也不产生修改实际日志或会议背景的授权。meeting-background已有有限本地验证，实际会期使用留待下一次真实会议核对。
 

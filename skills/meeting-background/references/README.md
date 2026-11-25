@@ -1,6 +1,6 @@
 # meeting-background
 
-Prepare an author's recurring meeting background from their personal work log. Produce previous-week progress, an overall summary and the coming week's plan. This is meeting preparation, not meeting minutes, log cleanup or project-table reconciliation.
+Prepare an author's recurring meeting background from their personal work log. Produce an opening summary, previous-week progress and the coming week's plan. This is meeting preparation, not meeting minutes, log cleanup or project-table reconciliation.
 
 # 1. Configuration
 
@@ -18,7 +18,9 @@ Daily checkmarks show work done or advanced that day. They do not establish comp
 
 # 3. Output and update boundary
 
-The previous-week list states concrete progress. The summary explains the overall change. The coming-week list draws from the latest TODO and any goals explicitly included in the request.
+Use an H1 for the author's name, followed by H2 headings for the summary, previous week (date range), and current week (plan start). Give each actual department or category one summary paragraph, starting with a bold category name and punctuation outside the emphasis. Use inline `1)`, `2)` points with plain-text labels, without italics or separate numbered lists. Put internal research under R&D. Omit external collaboration from all three sections unless requested for this run. The weekly sections use compact nested bullet lists without blank lines between parent and child items or adjacent items. Preserve paragraph boundaries without creating empty Feishu text blocks.
+
+Use plans valid at the meeting-preparation point. Do not backfill later TODO entries into a Monday replay. Keep source checks, trial notes and unresolved evidence outside the author's meeting prose, without appending historical paused-work lists.
 
 Before an authorized update, read the entire author section through the next same-level or higher-level heading, including trailing lists. Compare with the current draft and preserve meaningful manual edits and resources. Replace only the authorized author range. Read back the entire range to detect old summaries or plans left behind, and verify neighboring sections remain unchanged.
 

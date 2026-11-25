@@ -12,7 +12,7 @@ This long-lived `diaoenmao` branch maintains personal skills for GitHub user [di
 | Skill | Purpose | Usage |
 | --- | --- | --- |
 | [personal-log](skills/personal-log/SKILL.md) | Maintain this user's daily log, archive dates and preserve task continuity | [English](skills/personal-log/references/README.md) / [中文](skills/personal-log/references/README_zh.md) |
-| [meeting-background](skills/meeting-background/SKILL.md) | Prepare the author's weekly progress, summary and next-week plan | [English](skills/meeting-background/references/README.md) / [中文](skills/meeting-background/references/README_zh.md) |
+| [meeting-background](skills/meeting-background/SKILL.md) | Prepare the author's opening summary, weekly progress and next-week plan | [English](skills/meeting-background/references/README.md) / [中文](skills/meeting-background/references/README_zh.md) |
 
 Personal skills remain on this branch unless separately agreed for common use. This branch has the repository's public visibility; raw private logs, credentials and real USER.md are not included. Publishing a skill does not install it or authorize edits to a real log or meeting document. meeting-background has bounded local validation; the next actual meeting remains its real-use check.
 
