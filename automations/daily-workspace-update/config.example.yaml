@@ -17,6 +17,10 @@ execution:
   source_policy: adopted_sources
   fixed_revision_per_run: true
   install_all: false
+github_distribution:
+  enabled: false # Separate from scheduler enablement and check/update mode.
+  organizations: [] # Use existing adoption records when the selected scope is already known.
+  repositories: [] # Repository and target branches; an existing list alone does not enable distribution.
 refresh:
   when: verified_changes
   skill: refresh-chat

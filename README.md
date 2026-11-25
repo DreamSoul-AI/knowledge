@@ -15,6 +15,7 @@ Browse general workflows by purpose. Skills tied to a specific service appear un
 | --- | --- | --- |
 | [wrap-up](skills/wrap-up/SKILL.md) | Inspect closeout readiness first; execute remaining steps when requested | [English](skills/wrap-up/references/README.md) / [中文](skills/wrap-up/references/README_zh.md) |
 | [resume-chat](skills/resume-chat/SKILL.md) | Continue authorized work from verified state, with only necessary context | [English](skills/resume-chat/references/README.md) / [中文](skills/resume-chat/references/README_zh.md) |
+| [refresh-chat](skills/refresh-chat/SKILL.md) | Select affected chats, read required rules and report application | [English](skills/refresh-chat/references/README.md) / [中文](skills/refresh-chat/references/README_zh.md) |
 | [work-summary](skills/work-summary/SKILL.md) | Consolidate results, evidence and unfinished work | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
 | [work-message](skills/work-message/SKILL.md) | Prepare board-specific work messages and deliver as authorized | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
 | [meeting-minutes](skills/meeting-minutes/SKILL.md) | Summarize meetings using supplied material and rules | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
@@ -38,7 +39,7 @@ Browse general workflows by purpose. Skills tied to a specific service appear un
 | [public-website-deployment](skills/public-website-deployment/SKILL.md) | Deploy and update static sites, manage domains and migrations | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
 | [agent-experiment](skills/agent-experiment/SKILL.md) | Run bounded Agent experiments and assess observed behavior | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
 | [knowledge-update](skills/knowledge-update/SKILL.md) | Check or update adopted skills and tools, preserving local changes | [English](skills/knowledge-update/references/README.md) / [中文](skills/knowledge-update/references/README_zh.md) |
-| [workspace-update](skills/workspace-update/SKILL.md) | Update Workspace templates and delegate adopted capabilities to knowledge-update | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
+| [workspace-update](skills/workspace-update/SKILL.md) | Update local workspaces by default, with optional organization distribution | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
 
 ### Platform integrations
 
