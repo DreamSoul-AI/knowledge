@@ -32,6 +32,8 @@ Before delivery, check the summary against the sources actually obtained. Preser
 Use $work-summary to prepare the complete summary, then use $work-message to calibrate what to share and prepare every selected board's text. Do not send it yet.
 ```
 
-Pass ordinary text, a Markdown file or a readable link, retaining scope, cutoff, evidence and material links. The downstream skill reuses those facts without repeating collection. Summarizing does not authorize publishing, transcript uploads or edits to logs and trackers. work-message is optional and only needed for that downstream task.
+Pass ordinary text, a Markdown file or a readable link, retaining scope, cutoff, evidence and material links. The downstream skill reuses those facts without repeating collection. Summarizing alone does not authorize publishing, transcript uploads or edits to logs and trackers. work-message is optional and only needed for that downstream task.
 
 Organize the full summary by the reader’s work structure: department → project when applicable, with completed results, unfinished work and uncertainty inside each project. Do not filter facts by downstream sharing choices. If message feedback changes a factual result or status, verify and update the corresponding summary fact; recipient wording, priority and sharing choices remain the message workflow’s responsibility.
+
+When log updates are also requested, first locate the intended user’s actual log. Prefer the explicitly specified target; otherwise use that user’s USER entry and existing index, verify authorship, then read recent structure, state and writing conventions. Apply only authorized differences while preserving human content. Ordinary summaries do not require log scanning, and the Agent’s current user log is not an implicit target. Use project-progress-sync when task-table reconciliation or writeback is involved.
