@@ -20,6 +20,12 @@ Browse general workflows by purpose. Skills tied to a specific service appear un
 | [work-message](skills/work-message/SKILL.md) | Prepare board-specific work messages and deliver as authorized | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
 | [meeting-minutes](skills/meeting-minutes/SKILL.md) | Summarize meetings using supplied material and rules | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
 
+### Project management
+
+| **Skill** | **Purpose** | **Usage** |
+| --- | --- | --- |
+| [project-progress-sync](skills/project-progress-sync/SKILL.md) | Reconcile logs and tasks, then synchronize authorized progress changes | [English](skills/project-progress-sync/references/README.md) / [中文](skills/project-progress-sync/references/README_zh.md) |
+
 ### Research
 
 | **Skill** | **Purpose** | **Usage** |

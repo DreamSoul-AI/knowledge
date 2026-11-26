@@ -12,6 +12,8 @@ Use $work-summary to summarize the work and remaining issues. Propose the exact 
 
 For each new global review, confirm start, end, time zone and source scope. Reuse that scope during the same review. Optional inputs include conversations, source material, supplementary context and applicable standards. Preserve the full factual picture, including work unsuitable for public sharing.
 
+For sufficiently independent sources, use bounded parallel collection as described in [source collection](collecting.md). The main Agent checks coverage, corrections and evidence, then consolidates by deliverable. Reuse that inventory downstream rather than scanning again for each board; claim speed improvements only when overall elapsed time has been compared.
+
 ## Archive location
 
 Save `工作总结 <date>.md` directly under `工作总结/<author's real name>/`, without a date subfolder. Use the corresponding document title `工作总结 <date>` in Feishu. Resolve the real name from the applicable `USER.md` or explicit instructions, rather than a GitHub handle, device account or message signature. Locate the local and cloud roots separately from existing configuration. A missing cloud destination does not block the local summary. See the [archive reference](archiving.md) for root selection, continuation and relative links.
@@ -31,3 +33,5 @@ Use $work-summary to prepare the complete summary, then use $work-message to cal
 ```
 
 Pass ordinary text, a Markdown file or a readable link, retaining scope, cutoff, evidence and material links. The downstream skill reuses those facts without repeating collection. Summarizing does not authorize publishing, transcript uploads or edits to logs and trackers. work-message is optional and only needed for that downstream task.
+
+Organize the full summary by the reader’s work structure: department → project when applicable, with completed results, unfinished work and uncertainty inside each project. Do not filter facts by downstream sharing choices. If message feedback changes a factual result or status, verify and update the corresponding summary fact; recipient wording, priority and sharing choices remain the message workflow’s responsibility.
