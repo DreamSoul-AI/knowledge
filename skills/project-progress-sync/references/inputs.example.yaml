@@ -1,0 +1,29 @@
+# Copy to the actual project. Paths resolve against project_root.
+# This is a portable input example, not a cloud-write authorization.
+project_root: null
+subject:
+  identity_source: USER.md
+  scope: owner
+period:
+  timezone: Asia/Shanghai
+  quarter: current
+  start: null
+  end: run_start
+sources:
+  log: null
+  project_table: null
+  task_table: null
+  applicable_standards: []
+  supplementary_materials: []
+  aliases: {}
+  previous_report: null
+  previous_snapshots: []
+output:
+  directory: null
+  include_unchanged_index: true
+execution:
+  mode: check # sync uses the current explicitly authorized scope; legacy read_only means check.
+  cloud_writes: false # A true setting alone does not authorize writes.
+  directions: [] # log_to_table, table_to_log, or both when selected.
+  confirmed_changes: null # Existing review/accepted changes; no mandatory new schema.
+  receipt: null # Reuse existing mappings, baselines and readback evidence.

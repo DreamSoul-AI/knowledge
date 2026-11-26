@@ -19,6 +19,12 @@
 | [工作留言 work-message](skills/work-message/SKILL.md) | 按各留言板成文，按授权交付 | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
 | [会议总结 meeting-minutes](skills/meeting-minutes/SKILL.md) | 结合原始材料、补充材料和规范整理会议 | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
 
+### 项目管理
+
+| **技能** | **用途** | **说明** |
+| --- | --- | --- |
+| [项目进展同步 project-progress-sync](skills/project-progress-sync/SKILL.md) | 核对日志和任务差异，按授权双向同步进展 | [English](skills/project-progress-sync/references/README.md) / [中文](skills/project-progress-sync/references/README_zh.md) |
+
 ### 调研研究
 
 | **技能** | **用途** | **说明** |
