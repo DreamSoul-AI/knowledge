@@ -1,0 +1,4 @@
+interface:
+  display_name: "project-progress-sync"
+  short_description: "核对日志和项目任务差异，按授权双向同步进展，保留人工更新并回读实际结果"
+  default_prompt: "用 $project-progress-sync 核对指定范围的日志和项目总表，给出具体差异，并按本次已确认的同步范围局部写回、保留人工修改和回读结果。"
