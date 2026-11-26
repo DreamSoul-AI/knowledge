@@ -33,6 +33,7 @@
 
 | **技能** | **用途** | **说明** |
 | --- | --- | --- |
+| [项目测试 browser-test](https://github.com/DreamSoul-AI/testing-system/blob/main/skills/browser-test/SKILL.md) | 组织全量、部分功能、单功能测试与修复复测，交付证据、报告和修复清单 | [安装与更新](https://github.com/DreamSoul-AI/testing-system/blob/main/skills/browser-test/INSTALL.md) · [使用说明](https://github.com/DreamSoul-AI/testing-system/blob/main/skills/browser-test/references/usage.md)，需要私有仓库访问权限 |
 | [代码架构分析 code-architecture-analysis](skills/code-architecture-analysis/SKILL.md) | 依据源码和运行证据核对架构结论 | [用法](skills/code-architecture-analysis/SKILL.md) |
 | [Python 环境管理与排障 python-environment](skills/python-environment/SKILL.md) | 检查、准备与诊断项目环境，优先复用已有环境 | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
 | [公开网站部署 public-website-deployment](skills/public-website-deployment/SKILL.md) | 发布和更新静态网站，管理域名及迁移 | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
