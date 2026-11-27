@@ -1,0 +1,4 @@
+interface:
+  display_name: "codex-conversation-review"
+  short_description: "回看 Codex 公开讨论，讲清决定如何变化、当前结论和未完事项"
+  default_prompt: "使用 $codex-conversation-review 回看指定讨论，说明关键决定、后续纠正和未完事项，直接在对话中回答。"

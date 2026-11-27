@@ -56,8 +56,11 @@
 | 飞书 | [飞书授权复用 lark-auth-reuse](skills/lark-auth-reuse/SKILL.md) | 复用对话间已有飞书授权，诊断执行身份差异 | [English](skills/lark-auth-reuse/references/README.md) / [中文](skills/lark-auth-reuse/references/README_zh.md) |
 | Grok Bot | [grok-bot-cli](skills/grok-bot-cli/SKILL.md) | 连接 Grok Bot，检查访问及按授权验证收发 | [接入说明](skills/grok-bot-cli/references/connection.md) |
 | GitHub | [GitHub 汇总 github-summary](skills/github-summary/SKILL.md) | 接收固定版本经验原文，按接收方归并 | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
-| Codex | [Codex 对话归档 codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | 保留原话并增量归档 Codex 本地会话 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [安装包](skills/codex-conversation-archive.zip) |
+| Codex | [codex-conversation-review](skills/codex-conversation-review/SKILL.md) | 完整回看指定对话，直接回答决定、纠正与未完事项 | [English](skills/codex-conversation-review/references/README.md) / [中文](skills/codex-conversation-review/references/README_zh.md) |
+| Codex | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | 调用 review 后保真归档，校验原话、工具、时间及增量 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [含 review 的 ZIP](skills/codex-conversation-archive.zip) |
 | Windows | [CPU 内存清理 cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | 读取 Windows 内存，按请求整理工作集 | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [安装包](skills/cpu-memory-cleanup.zip) |
+
+archive 依赖同级完整 review。用 skill-installer 同装两条技能路径，或解压归档 ZIP 中的两个目录；review 也可单独使用。
 
 ### 设计
 

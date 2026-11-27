@@ -4,16 +4,19 @@ Archive one explicitly selected local Codex JSONL session into Markdown. User te
 
 ## Install and use
 
+Depends on the complete [codex-conversation-review](../../codex-conversation-review/SKILL.md) directory. Place both complete skill directories under the same skill root, or pass `--review-skill <actual-review-directory>` to archive. Review owns original-record preparation and the narrative review; archive owns lossless persistence and verification.
+
 Requires Python 3.8+ and permission to read the selected source, run Python and write the archive. Ask Codex to install the complete skill:
 
 ```text
 Use $skill-installer to install https://github.com/DreamSoul-AI/knowledge/tree/main/skills/codex-conversation-archive
+Also install https://github.com/DreamSoul-AI/knowledge/tree/main/skills/codex-conversation-review
 Destination: <absolute-project-path>/.agents/skills/
 Keep all bundled files. Verify the installation path instead of using an older copy.
 Install only; do not archive or schedule tasks yet.
 ```
 
-Alternatively, extract the [ZIP](https://github.com/DreamSoul-AI/knowledge/raw/refs/heads/main/skills/codex-conversation-archive.zip) into that directory. Invoke the skill in the next turn; reopen the project conversation if it has not loaded. Check the actual path and version when duplicate names exist; do not automatically uninstall global skills.
+Alternatively extract the [complete installation ZIP](https://github.com/DreamSoul-AI/knowledge/raw/refs/heads/main/skills/codex-conversation-archive.zip) and place both archive and review directories under that skill root. Do not copy only SKILL.md or mistake an older single-directory ZIP for the current dependency bundle. Invoke the skill in the next turn; reopen the project conversation if it has not loaded. Check the actual path and version when duplicate names exist; do not automatically uninstall global skills.
 
 Archive the current conversation:
 
