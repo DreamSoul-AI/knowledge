@@ -4,15 +4,18 @@
 
 ## 安装与首次使用
 
+依赖完整的 [codex-conversation-review](../../codex-conversation-review/SKILL.md)：先将 review 与 archive 两个完整目录放到同一技能根，再使用下面的归档命令。非同级位置传 `--review-skill <实际review目录>`。review 负责原始记录和回顾，archive 负责保真保存与校验。
+
 需要 Python 3.8+，以及读取目标原始记录、运行 Python 和写入归档目录的权限。先向 Codex 发送安装请求，把项目路径替换为实际值：
 
 ```text
 用 $skill-installer 安装 https://github.com/DreamSoul-AI/knowledge/tree/main/skills/codex-conversation-archive
+同时安装依赖 https://github.com/DreamSoul-AI/knowledge/tree/main/skills/codex-conversation-review
 安装到 <项目绝对路径>/.agents/skills/，保留完整技能目录，不使用旧的同名安装。
 只安装，不归档，不启用定时任务。
 ```
 
-也可解压[安装包](https://github.com/DreamSoul-AI/knowledge/raw/refs/heads/main/skills/codex-conversation-archive.zip)，把完整目录放到上述位置，不能只复制 SKILL.md。安装后在下一轮请求调用；若未加载，重新打开项目会话。已有同名技能时先核对实际加载路径和版本，不默认卸载全局技能。
+也可解压 [完整安装包](https://github.com/DreamSoul-AI/knowledge/raw/refs/heads/main/skills/codex-conversation-archive.zip)，将其中 archive 和 review 两个完整目录一起放到上述技能根。不能只复制 SKILL.md，也不能将旧的单目录 ZIP 当成当前完整依赖包。安装后在下一轮请求调用；若未加载，重新打开项目会话。已有同名技能时先核对实际加载路径和版本，不默认卸载全局技能。
 
 归档当前会话：
 

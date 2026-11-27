@@ -8,6 +8,7 @@
 | 仓库专用工作约定 | [REPO.md](../REPO.md) |
 | 中文安装与技能指南 | [README_zh.md](../README_zh.md) |
 | 技能目录 | [skills](../skills/) |
+| Codex 对话回顾与归档 | [分工调整](<开发记录 Development Record/2026-11-28 Codex 对话回顾与归档分工.md>) · [验证范围](<运行记录 Run Record/2026-11-28 对话回顾归档验证.md>) |
 | 项目进展与工作整理 | [调整说明](<开发记录 Development Record/2026-11-27 项目进展与工作整理技能.md>) · [有限验证](<运行记录 Run Record/2026-11-27 四技能有限验证.md>) |
 | GitHub 汇总验证 | [本轮验证](<运行记录 Run Record/2026-11-22 GitHub 汇总技能验证.md>) |
 | GitHub 汇总与首页分类 | [调整说明](<开发记录 Development Record/2026-11-23 GitHub 汇总与首页分类.md>) · [验证结果](<运行记录 Run Record/2026-11-23 GitHub 汇总与首页分类验证.md>) |

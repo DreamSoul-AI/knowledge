@@ -56,8 +56,11 @@ Browse general workflows by purpose. Skills tied to a specific service appear un
 | Feishu | [lark-auth-reuse](skills/lark-auth-reuse/SKILL.md) | Reuse existing Feishu authorization across chats and diagnose execution-identity differences | [English](skills/lark-auth-reuse/references/README.md) / [中文](skills/lark-auth-reuse/references/README_zh.md) |
 | Grok Bot | [grok-bot-cli](skills/grok-bot-cli/SKILL.md) | Connect to Grok Bot and verify access or authorized messaging | [Connection guide](skills/grok-bot-cli/references/connection.md) |
 | GitHub | [github-summary](skills/github-summary/SKILL.md) | Receive versioned Learnings and consolidate them by recipient | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
-| Codex | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Preserve and incrementally archive local Codex conversations | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP](skills/codex-conversation-archive.zip) |
+| Codex | [codex-conversation-review](skills/codex-conversation-review/SKILL.md) | Read a selected conversation and explain decisions, corrections and unfinished work in chat | [English](skills/codex-conversation-review/references/README.md) / [中文](skills/codex-conversation-review/references/README_zh.md) |
+| Codex | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Call review, then preserve original text, tools and timing in verified immutable archives | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP with review](skills/codex-conversation-archive.zip) |
 | Windows | [cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | Read Windows memory and perform requested working-set cleanup | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [ZIP](skills/cpu-memory-cleanup.zip) |
+
+Archive requires the complete review skill beside it. Install both paths with skill-installer, or extract both directories from the archive ZIP; review can also be used on its own.
 
 ### Design
 
