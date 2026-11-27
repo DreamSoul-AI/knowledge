@@ -62,6 +62,8 @@ A report may combine multiple focuses while keeping one main question or organiz
 
 ### Scale the outline and deliverables
 
+Determine scale from the user's purpose, breadth of questions, range of objects or approaches, and the mechanisms and evidence needed for coverage. Do not default to a small topic or ask the user to choose a size by default. For formal studies of systems, architectures, or technical approaches, establish coverage of the major categories and representative real implementations before developing the mechanisms and comparisons. Staging changes the research order, not the overall scope; an earlier small experiment does not automatically limit a later formal study. Use a lightweight treatment only for explicitly local or genuinely bounded questions. Length, heading counts, and citation counts do not establish coverage, and not every query needs a long report.
+
 - **Small topic.** Prepare a short outline and a report with scope, answers, limits, and References. Keep source details at the end. If explicitly asked for one short file, put the outline in that file
 - **Comprehensive topic.** Prepare a standalone outline and its corresponding report. Add a source index when material is extensive or frequently reused
 - **Long-running topic.** Add a search log, attachments, and structured records where they help ongoing updates or handover
@@ -225,18 +227,9 @@ Mark quotations and translations, and preserve relevant context. Keep excerpts a
 
 ### Report structure
 
-For comprehensive topics, adapt this order to the question:
+For formal studies of objects or mechanisms, first identify the subjects, scope and easily confused terms, then give a short overview of the overall relationships and main judgments. Address common questions for each object: what it is, how it works, a representative scenario and its capability limits. Compare the objects under the same scenario, then synthesize common ground, key differences and applicable choices to answer the opening questions. Keep evidence, examples and figures beside the explanation they support, and put limits and unknowns where they affect a judgment. Merge or expand sections as the actual questions require rather than filling a fixed set of headings. A knowledge overview may simply answer the questions; add next steps when action advice is needed. Keep References as a separate entry with full entries for major sources, links to the categorized source index and core reading notes, and a separate further-reading list.
 
-1. **Summary and findings.** Answer the main questions and give the conditions that affect interpretation
-2. **Scope, terminology, and evidence.** Describe subjects, versions, dates, methods, and coverage limits
-3. **Overview.** Map concepts, roles, calls, components, system boundaries, or the ecosystem. Integrate newly discovered objects into the common analysis
-4. **Topic analysis.** Explain mechanisms, capabilities, and differences along stable themes
-5. **Comparison or scenario mapping.** Show how the findings apply to a choice or project when relevant
-6. **Limits and open questions.** Separate confirmed findings from work still needed
-7. **Next steps.** Give actions if requested. A knowledge overview can end with a reading path
-8. **References.** Give full entries for major sources and connect the index and reading notes. List further reading separately
-
-Make the reasoning understandable before readers open the links. Synthesize findings across sources. Use clear paragraphs and selective emphasis, with interpretation, evidence, and important conditions close by. End a dense section with its supported judgment and applicability when that helps the reader.
+Make the reasoning understandable before readers open the links. Synthesize findings across sources. Start the introduction with the short conclusion readers need to judge the subject, keeping conditions and limits close by; put experimental steps, raw numbers and detailed methods in their corresponding body sections. Use tables for quick comparisons on a common basis, with phrases or short sentences in cells; move paragraph-length explanations to nearby prose or lists. Develop the explanation, evidence and necessary qualifications around the central question, and close a long section with its judgment and limits when useful.
 
 ### Explain mechanisms
 
@@ -268,6 +261,8 @@ Use prose to explain meaning, mechanism, and conditions. Add diagrams for struct
 Use editable `mermaid` fences in Markdown. Use native text diagrams for Feishu delivery where required and retain the editable source. Use diagrams for architecture, dependencies, execution paths, interaction sequences, states, or method relationships. Tables can show parallel attributes and comparisons, and plotting tools are suitable for measured curves.
 
 State in the outline what each important diagram explains. Label objects, arrows, and boundaries. Mark original, adapted, or analytical figures and cite the actual basis. Check syntax, labels, edges, and agreement with the text. Check rendering when the delivery environment supports it and report the actual verification scope.
+
+Determine what each edge actually means before choosing the layout. Flow and relationship diagrams default to top-to-bottom; a true sequence may form one column, while ownership, containment, parallel attributes, optional relationships and branches follow their actual meaning. Do not invent causality or hierarchy to force a vertical layout. Keep node labels to short terms or actions and put fields and parameters in adjacent prose. Split a complex diagram or pair it with a table when useful; use a horizontal comparison when the reading width supports it. Check every edge's meaning and the actual display; if only source is available, state that rendering is unverified.
 
 Distinguish logical layers from process boundaries, and data flow from control flow. Explain uneven evidence coverage instead of implying equivalent coverage through layout.
 
@@ -358,4 +353,4 @@ Give the first draft enough depth to cover the main branches. Run the evidence a
 
 ## First-draft explanatory depth
 
-A formal mechanism or comparison report should let readers explain relationships, choose an entry point and recognize limits. Align core terms, relevant bilingual names, fields and diagram nodes; explain whether edges mean actions or relationships. Follow one representative scenario through inputs, state changes, observable results and completion criteria. Compare the main routes under the same assumptions and explain limits that change the choice. Place diagrams beside the relevant prose, prefer a vertical main path and split complex branches when useful; use side-by-side layouts when the comparison and reading width justify them. Expand key outline questions that remain mere index entries with direct evidence and explanation, rather than padding length or counting figures. Small, explicit queries may remain lightweight.
+A formal mechanism or comparison report should let readers explain relationships, choose an entry point and recognize limits. Align core terms, relevant bilingual names, fields and diagram nodes; explain whether edges mean actions or relationships. Follow one representative scenario through inputs, state changes, observable results and completion criteria. Compare the main routes under the same assumptions and explain limits that change the choice. Place diagrams beside the relevant prose and choose layouts by the actual relationships, without inventing causality or hierarchy to force a vertical path. Split complex diagrams when useful and check the reading width for side-by-side comparisons. Expand key outline questions that remain mere index entries with direct evidence and explanation, rather than padding length or counting figures. Small, explicit queries may remain lightweight.
