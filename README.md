@@ -17,7 +17,7 @@ Browse general workflows by purpose. Skills tied to a specific service appear un
 | [resume-chat](skills/resume-chat/SKILL.md) | Continue authorized work from verified state, with only necessary context | [English](skills/resume-chat/references/README.md) / [中文](skills/resume-chat/references/README_zh.md) |
 | [refresh-chat](skills/refresh-chat/SKILL.md) | Select affected chats, read required rules and report application | [English](skills/refresh-chat/references/README.md) / [中文](skills/refresh-chat/references/README_zh.md) |
 | [work-summary](skills/work-summary/SKILL.md) | Consolidate results, evidence and unfinished work | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
-| [learnings](skills/learnings/SKILL.md) | Turn work evidence and feedback into reusable practices, retaining cases and adoption status | [Usage](skills/learnings/SKILL.md) |
+| [learn](skills/learn/SKILL.md) | Turn work evidence and feedback into reusable practices, retaining cases and adoption status | [Usage](skills/learn/SKILL.md) |
 | [work-message](skills/work-message/SKILL.md) | Prepare board-specific work messages and deliver as authorized | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
 | [meeting-minutes](skills/meeting-minutes/SKILL.md) | Summarize meetings using supplied material and rules | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
 
