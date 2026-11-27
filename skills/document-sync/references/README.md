@@ -14,6 +14,11 @@ Do not copy company policies into the skill. Supply rule paths or full URLs in r
 
 Installing the skill does not install lark-cli, platform tools or account permissions, and does not import company instructions from outside the caller's project. Other projects can use their own rules. The state helper does not discover natural-language policies.
 
+## Reuse Feishu authorization
+On the first Feishu connection or an authentication failure, locate and invoke the existing `lark-auth-reuse` skill before reading remote rules or documents. Reuse a valid check from this run when the execution identity, CLI, application and profile are unchanged; do not repeat authentication checks for every document operation. Local-only state planning does not connect to Feishu.
+
+For `missing`, diagnose the execution identity and configuration or credential visibility before requesting another scan. A valid identity rejected by one document requires distinguishing user scopes, application scopes and resource permissions. Any necessary login or consent follows `lark-shared` through the existing authorization skill; do not introduce another login flow or copy credentials. See the [Feishu adapter](feishu.md).
+
 ## Explicit file lists
 Version 0.2.0 also accepts explicitly listed documents and reuses the single-document workflow without recursive directory discovery. Give each item an id, local_path, remote_key, direction and distinct receipt. For a paired document, remote_key contains the platform and stable document ID; for a first upload, use the verified folder ID plus destination title. Paths in the list are relative to its file.
 
