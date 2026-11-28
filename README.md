@@ -41,6 +41,7 @@ Browse general workflows by purpose. Skills tied to a specific service appear un
 
 | **Skill** | **Purpose** | **Usage** |
 | --- | --- | --- |
+| [browser-test](https://github.com/DreamSoul-AI/testing-system/blob/main/skills/browser-test/SKILL.md) | Plan and run full, scoped or regression tests, with evidence, reports and a fix list | [Install / update](https://github.com/DreamSoul-AI/testing-system/blob/main/skills/browser-test/INSTALL.md) · [Usage](https://github.com/DreamSoul-AI/testing-system/blob/main/skills/browser-test/references/usage.md) · Private repository access required |
 | [code-architecture-analysis](skills/code-architecture-analysis/SKILL.md) | Verify architecture claims against source and runtime evidence | [Usage](skills/code-architecture-analysis/SKILL.md) |
 | [python-environment](skills/python-environment/SKILL.md) | Inspect, prepare and troubleshoot Python environments | [English](skills/python-environment/references/README.md) / [中文](skills/python-environment/references/README_zh.md) |
 | [public-website-deployment](skills/public-website-deployment/SKILL.md) | Deploy and update static sites, manage domains and migrations | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
