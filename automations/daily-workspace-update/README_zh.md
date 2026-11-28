@@ -2,7 +2,7 @@
 
 [English](README.md) | 简体中文
 
-以workspace-update为入口，每日处理配置范围内已采用的工作区模板、规则和配套使用入口，并默认同轮调用knowledge-update一次处理已采用技能及工具。它是一轮工作区更新，不是只更新技能。
+以workspace-sync为入口，每日处理配置范围内已采用的工作区模板、规则和配套使用入口，并默认同轮调用knowledge-update一次处理已采用技能及工具。它是一轮工作区更新，不是只更新技能。
 
 这里维护每日任务的可复用定义，示例本身不注册或启用调度。先用[提示词](prompt.md)和[配置示例](config.example.yaml)核对实际采用范围，再通过调度平台接入已有任务或创建任务，按用户确认的时间及更新方式启用。身份、项目、承载对话、个人分支和机器路径留在实际运行配置，不放入可分发示例。
 
@@ -22,4 +22,4 @@
 
 此前能力子步骤检查六项完整包均无需内容更新。后续已对一个明确资料工作区核对正式源、模板采用入口和个人适配，没有新增适用模板正文，未写目标。当前没有真实更新后刷新或定时触发的验收；refresh-chat仍以实际采用/配置入口为准，未安装的本地候选不当作已部署依赖。
 
-依赖入口：[workspace-update](../../skills/workspace-update/SKILL.md) / [knowledge-update](../../skills/knowledge-update/SKILL.md)。可选刷新入口：[refresh-chat](../../skills/refresh-chat/SKILL.md)，以实际已采用或明确配置的可读版本为准。需要安装时保留使用者确认版本的完整包，定义中的入口不代表宿主已经加载。
+依赖入口：[workspace-sync](../../skills/workspace-sync/SKILL.md) / [knowledge-update](../../skills/knowledge-update/SKILL.md)。可选刷新入口：[refresh-chat](../../skills/refresh-chat/SKILL.md)，以实际已采用或明确配置的可读版本为准。需要安装时保留使用者确认版本的完整包，定义中的入口不代表宿主已经加载。

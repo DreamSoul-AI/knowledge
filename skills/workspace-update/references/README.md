@@ -11,3 +11,5 @@ The optional remote path retains the existing commit, PR, checks, merge and read
 This skill owns Workspace templates and delegates adopted skills and tools to [knowledge-update](../../knowledge-update/SKILL.md) once per round, sharing scope, pinned sources and authorization. Provide the complete knowledge-update directory or its readable entry point when installing this skill; this does not install every Knowledge skill. Both skills keep targets unchanged in check mode. Update mode reuses adoption records and results for targets already handled in the same round. No weekly schedule is created by this workflow.
 
 [Skill](../SKILL.md) · [中文](README_zh.md)
+
+Compatibility: use [workspace-sync](../../workspace-sync/SKILL.md) for the new entry. Keep this entry until deployed daily and organization consumers are migrated. Do not invoke both in one run.
