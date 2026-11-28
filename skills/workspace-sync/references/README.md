@@ -16,4 +16,4 @@ This skill owns Workspace templates and delegates adopted skills and tools to [k
 
 The default pulls and merges local templates/rules and calls knowledge-update once. Private Git is off unless explicitly selected with private_git.enabled, repo, branch, allowlist and required dependencies. See [private Git](private-git.md) and [configuration](config.example.yaml). Organization distribution remains independently selected by github_distribution.enabled. Check mode writes to neither remote path.
 
-workspace-update remains a temporary compatibility entry until the deployed daily task and organization consumers are migrated and read back. Do not run both flows. knowledge-update retains its name and does not call back.
+knowledge-update retains its name and does not call back.

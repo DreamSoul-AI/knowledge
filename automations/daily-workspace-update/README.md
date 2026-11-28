@@ -2,7 +2,7 @@
 
 English | [简体中文](README_zh.md)
 
-Use workspace-update as the entry point for adopted workspace templates, rules and related usage material. It delegates adopted skills and tools to knowledge-update once in the same run, reusing scope, authorization and results. This task covers workspace updates rather than only weekly skill updates.
+Use workspace-sync as the entry point for adopted workspace templates, rules and related usage material. It delegates adopted skills and tools to knowledge-update once in the same run, reusing scope, authorization and results. This task covers workspace updates rather than only weekly skill updates.
 
 This reusable definition does not register or enable a schedule by itself. Check adoption scope with [the prompt](prompt.md) and [example configuration](config.example.yaml), then connect an existing task or create one through the scheduler using the user's confirmed timing and update mode. Keep identity, source selections, device paths, project and hosting chat in the user's runtime configuration.
 

@@ -26,7 +26,7 @@ description: 默认从正式来源拉取并合并目标工作区模板与规则�
 
 ## 找到当前在用的入口
 
-- 读取项目 AGENTS.md、REPO.md 和已有更新记录。定位实际采用的通用或研发模板、适用规范和本轮需要更新的文件。Workspace 的模板、教程和已接入项目分别有版本。DreamSoul 先查 [Workspace 使用教程](https://github.com/DreamSoul-AI/workspace/blob/main/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.md)，其他项目使用自己的来源。
+- 读取项目 AGENTS.md、REPO.md 和已有更新记录。定位实际采用的通用或研发模板、适用规范和本轮需要更新的文件。Workspace 的模板、教程和已接入项目分别有版本。DreamSoul 先查 [Workspace 使用教程](https://github.com/DreamSoul-AI/workspace/blob/main/%E8%B5%84%E6%96%99/%E6%95%99%E7%A8%8B%E5%92%8C%E5%B7%A5%E5%85%B7/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.md)，其他项目使用自己的来源。
 - 已采用的Knowledge技能和工具默认交给 `knowledge-update`。先找到当前环境可读的该技能；同一分发中的入口是 [knowledge-update](../knowledge-update/SKILL.md)，也可使用本次已给出的实际路径。缺少依赖时说明具体入口缺口，继续独立的模板工作，不另写一套技能更新逻辑。
 - 默认取对应来源的正式发布版或已配置版本。明确指定的工作分支或提交可用于试用，写明该引用。固定所读版本及来源，避免在一次更新内混用不同快照。来源不可访问时说明该项当前无法核对，并继续处理独立项。
 
