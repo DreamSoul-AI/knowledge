@@ -20,7 +20,7 @@
 
 **不合适的写法。** “【知会】Workspace 默认接上了这一步，已经完成若干轮校验。”读者不知道“这一步”是什么，也不知道如何使用。
 
-**采用能力的写法。** 【有空】[knowledge](https://github.com/DreamSoul-AI/knowledge) 已提供能力更新 **[knowledge-update](https://github.com/DreamSoul-AI/knowledge/blob/main/skills/knowledge-update/SKILL.md)**，可以单独检查或更新已采用的技能和工具。工作区更新 [workspace-update](https://github.com/DreamSoul-AI/knowledge/blob/main/skills/workspace-update/SKILL.md) 默认调用它，更新时保留有效的本地定制
+**采用能力的写法。** 【有空】[knowledge](https://github.com/DreamSoul-AI/knowledge) 已提供能力更新 **[knowledge-update](https://github.com/DreamSoul-AI/knowledge/blob/main/skills/knowledge-update/SKILL.md)**，可以单独检查或更新已采用的技能和工具。工作区更新 [workspace-sync](https://github.com/DreamSoul-AI/knowledge/blob/main/skills/workspace-sync/SKILL.md) 默认调用它，更新时保留有效的本地定制
 
 **只知会进展的写法。** 【知会】[knowledge](https://github.com/DreamSoul-AI/knowledge) 补齐了已采用能力的更新入口，工作区更新会调用 **[knowledge-update](https://github.com/DreamSoul-AI/knowledge/blob/main/skills/knowledge-update/SKILL.md)**，保留有效的本地定制
 
