@@ -1,0 +1,4 @@
+interface:
+  display_name: "对话刷新 conversation-refresh"
+  short_description: "按规则变化和读取依据筛选目标，按需刷新并回报实际应用"
+  default_prompt: "用 $conversation-refresh 核对本次变化影响的目标，按需读取当前规则，保留任务断点并回报依据。"

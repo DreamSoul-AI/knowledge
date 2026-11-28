@@ -1,4 +1,4 @@
-# Grok Bot CLI
+# Grok Bot 命令行工具 grok-bot-cli
 
 [English](README.md)
 

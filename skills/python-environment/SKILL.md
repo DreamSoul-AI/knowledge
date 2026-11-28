@@ -3,7 +3,7 @@ name: python-environment
 description: Inspect, prepare and troubleshoot Python project environments, including interpreter identity, dependency consistency and native-runtime failures. Use for environment setup or diagnosis; respect the project's manager and existing environment, and keep diagnosis separate from repair.
 ---
 
-# Python 环境管理与排障 Python Environment Management
+# Python 环境管理与排障 python-environment
 
 Inspect, prepare or diagnose the environment needed for a concrete project command.
 The outcome is a verified interpreter and dependency context, or an evidence-based

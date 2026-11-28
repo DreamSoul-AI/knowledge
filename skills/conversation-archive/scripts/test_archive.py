@@ -1,0 +1,273 @@
+"""Synthetic boundary tests; real-session integration evidence is saved separately."""
+
+import json
+import subprocess
+import sys
+from pathlib import Path
+import tempfile
+import unittest
+from unittest.mock import patch
+
+import archive
+
+
+def message(identifier, text, role="user", phase=None):
+    return {"type": "response_item", "payload": {
+        "type": "message", "id": identifier, "role": role, "phase": phase,
+        "status": "completed", "content": [{"type": "input_text", "text": text}],
+        "internal_chat_message_metadata_passthrough": {"content_item_kinds": ["user.text"]}}}
+
+
+def source(*records):
+    rows = [{"type": "session_meta", "payload": {"id": "session-one"}}, *records]
+    return b"".join(archive.encode(row).replace(b"\n", b" ") + b"\n" for row in rows)
+
+
+class ArchiveTests(unittest.TestCase):
+    def test_known_internal_metadata_is_excluded_and_unknown_shape_stops(self):
+        config = {"type": "response_item", "payload": {"type": "configuration_update", "reasoning": {"effort": "high"}}}
+        agent = {"type": "response_item", "payload": {
+            "type": "agent_message", "author": "/root/review", "recipient": "/root",
+            "content": [{"type": "input_text", "text": "INTERNAL_SENTINEL"}],
+            "internal_chat_message_metadata_passthrough": {
+                "content_item_metadata": [{"provenance": {"type": "tool", "namespace": "collaboration"}}]}}}
+        events, excluded, _ = archive.extract(source(config, agent, message("u", "用户原话")), "session-one")
+        self.assertEqual([e["id"] for e in events], ["u"])
+        self.assertEqual(excluded, {"configuration_update": 1, "agent_message": 1})
+        config["payload"]["unexpected"] = "unknown"
+        with self.assertRaises(ValueError):
+            archive.extract(source(config, message("u", "用户原话")), "session-one")
+        agent["payload"]["internal_chat_message_metadata_passthrough"] = {}
+        with self.assertRaises(ValueError):
+            archive.extract(source(agent, message("u", "用户原话")), "session-one")
+        page = message("page", "SELECTED_PAGE_CONTEXT")
+        page["payload"]["internal_chat_message_metadata_passthrough"]["content_item_kinds"] = [
+            "additional_content.codex_apps_selected_page_part_1_of_1"]
+        events, excluded, _ = archive.extract(source(page, message("u", "用户原话")), "session-one")
+        self.assertEqual([e["id"] for e in events], ["u"])
+        self.assertEqual(excluded["injected_context"], 1)
+
+    def test_timestamps_native_duration_and_original_text(self):
+        user = dict(message("u1", "# 原始标题\n原话不变。\n"), timestamp="2026-11-10T16:01:02.345Z")
+        extra = dict(message("u2", "中途补充"), timestamp="2026-11-10T16:01:03Z")
+        final = dict(message("a1", "正式回复", "assistant", "final_answer"), timestamp="2026-11-10T16:02:02Z")
+        def task(kind, **values):
+            return {"type": "event_msg", "timestamp": "2026-11-10T16:02:02Z",
+                    "payload": dict(type=kind, turn_id="t1", started_at=100, **values)}
+        data = source(task("task_started"), user, extra, final,
+                      task("task_complete", duration_ms=60501), message("u3", "下一轮"))
+        events, _, _ = archive.extract(data, "session-one")
+        timing, warnings = archive.collect_timing(data, events, "+08:00")
+        self.assertEqual(timing["messages"]["u1"]["display"], "2026-11-11 00:01:02")
+        self.assertEqual(timing["messages"]["a1"]["display"], "2026-11-11 00:02:02 · 本轮耗时 1 分 01 秒")
+        doc, spans, _ = archive.render(events, archive.default_summary(), "session-one", "test", timing)
+        self.assertIn("## 用户\n\n*2026-11-11 00:01:02*\n\n```text", doc)
+        originals = {e["id"]: e["text"] for e in events}
+        for span in spans:
+            self.assertEqual(doc[span["start"]:span["end"]], originals[span["id"]])
+        self.assertTrue(warnings)  # u3 has no source timestamp.
+        utc, _ = archive.collect_timing(data, events, "+00:00")
+        self.assertEqual(utc["messages"]["u1"]["display"], "2026-11-10 16:01:02")
+
+    def test_missing_and_ambiguous_times_are_not_invented(self):
+        for stamp in [None, "invalid", "2026-11-11T12:00:00"]:
+            data = source(dict(message("u1", "原话"), timestamp=stamp),
+                          message("a1", "回复", "assistant", "final_answer"))
+            events, _, _ = archive.extract(data, "session-one")
+            timing, warnings = archive.collect_timing(data, events, "+08:00")
+            self.assertEqual(timing["messages"]["u1"]["display"], "时间未记录")
+            self.assertEqual(timing["messages"]["a1"]["display"], "时间未记录 · 本轮耗时未记录")
+            self.assertEqual(len(warnings), 2)
+        for offset in ["08:00", "+24:00", "+08:60"]:
+            with self.assertRaises(ValueError):
+                archive.display_timezone(offset)
+
+    def test_timing_cutoff_and_aborted_turn(self):
+        started = {"type": "event_msg", "payload": {"type": "task_started", "turn_id": "t1", "started_at": 100}}
+        final = message("a1", "回复", "assistant", "final_answer")
+        ended = {"type": "event_msg", "timestamp": "2026-11-11T01:00:00Z",
+                 "payload": {"type": "task_complete", "turn_id": "t1", "started_at": 100, "duration_ms": 9000}}
+        data = source(started, message("u1", "问题"), final, ended)
+        events, _, _ = archive.extract(data, "session-one", "a1")
+        timing, _ = archive.collect_timing(data, events, "+08:00")
+        self.assertNotIn("duration_ms", timing["messages"]["a1"])
+        ended["payload"]["type"] = "turn_aborted"
+        data = source(started, message("u1", "问题"), message("u2", "追加问题"), ended, message("u3", "接续"))
+        events, _, _ = archive.extract(data, "session-one")
+        timing, _ = archive.collect_timing(data, events, "+08:00")
+        self.assertNotIn("duration_ms", timing["messages"]["u1"])
+        self.assertIn("本轮中断于 2026-11-11 09:00:00，耗时 9 秒", timing["messages"]["u2"]["display"])
+        ended["payload"]["duration_ms"] = -1
+        with self.assertRaises(ValueError):
+            archive.collect_timing(source(started, ended, message("u", "问题")), events, "+08:00")
+
+    def test_goal_context_requires_known_harness_source_and_wrapper(self):
+        for kind, wrapper, counter in [("goal.internal_context", "goal", "injected_context"),
+                                       ("user.goal", "user_goal", "goal_lifecycle_context")]:
+            with self.subTest(kind=kind):
+                injected = message("goal", '<codex_internal_context source="' + wrapper + '">\nstate\n</codex_internal_context>')
+                meta = injected["payload"]["internal_chat_message_metadata_passthrough"]
+                meta.update(content_item_kinds=[kind], content_item_metadata=[{"provenance": {"type": "harness"}}])
+                direct = message("u1", "用户直接谈 goal.internal_context，原话保留。")
+                events, exclusions, _ = archive.extract(source(injected, direct), "session-one")
+                self.assertEqual([e["id"] for e in events], ["u1"])
+                self.assertEqual(events[0]["text"], direct["payload"]["content"][0]["text"])
+                self.assertEqual(exclusions[counter], 1)
+                for changed in [dict(meta, content_item_kinds=[kind, "future.unknown"]),
+                                dict(meta, content_item_metadata=[]),
+                                dict(meta, content_item_metadata=[{"provenance": {"type": "user"}}])]:
+                    injected["payload"]["internal_chat_message_metadata_passthrough"] = changed
+                    with self.assertRaises(ValueError):
+                        archive.extract(source(injected, direct), "session-one")
+                injected["payload"]["internal_chat_message_metadata_passthrough"] = meta
+                injected["payload"]["content"][0]["text"] = "unrecognized wrapper"
+                with self.assertRaises(ValueError):
+                    archive.extract(source(injected, direct), "session-one")
+
+    def test_confirmation_wrapper_is_literal_and_character_exact(self):
+        original = '<send_user_message_question_reply>\n[{"answer":"原话", "escaped":"\\x"}]\n</send_user_message_question_reply>\n'
+        events, _, _ = archive.extract(source(message("u1", original)), "session-one")
+        doc, spans, fenced = archive.render(events, archive.default_summary(), "session-one", "test")
+        self.assertEqual(fenced, ["u1"])
+        span = spans[0]
+        self.assertEqual(doc[span["start"]:span["end"]], original)
+        self.assertIn("```text\n" + original, doc)
+
+    def test_explicit_skill_injection_is_not_user_speech(self):
+        injected = message("skill-context", "INJECTED_SKILL_INSTRUCTIONS")
+        injected["payload"]["internal_chat_message_metadata_passthrough"]["content_item_kinds"] = [
+            "skills.selected_skill_instructions"]
+        direct = message("u1", "用 $conversation-archive 归档，原话不能改。")
+        records, exclusions, _ = archive.extract(source(injected, direct), "session-one", "u1")
+        self.assertEqual([r["id"] for r in records], ["u1"])
+        self.assertEqual(records[0]["text"], direct["payload"]["content"][0]["text"])
+        self.assertEqual(exclusions["injected_context"], 1)
+        injected["payload"]["internal_chat_message_metadata_passthrough"]["content_item_kinds"].append("future.unknown")
+        with self.assertRaises(ValueError):
+            archive.extract(source(injected, direct), "session-one")
+
+    def test_standalone_cli_uses_bundled_rules(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            raw = root / "source.jsonl"
+            raw.write_bytes(source(message("u1", "独立安装的用户原话。\n"),
+                                   message("a1", "正式回复保持原样。\n", "assistant", "final_answer")))
+            command = [sys.executable, "-I", "-S", "-B", "-X", "utf8", str(Path(archive.__file__).resolve()),
+                       "--source", str(raw), "--session", "session-one", "--title", "首次归档",
+                       "--output", str(root / "output")]
+            first = subprocess.run(command, cwd=root, capture_output=True, text=True, check=True)
+            result = json.loads(first.stdout)
+            self.assertEqual(result["added"], 2)
+            self.assertIn("独立安装的用户原话。\n", Path(result["document"]).read_text(encoding="utf-8"))
+            second = json.loads(subprocess.run(command, cwd=root, capture_output=True, text=True, check=True).stdout)
+            self.assertFalse(second["changed"])
+            self.assertEqual(second["added"], 0)
+            invalid = subprocess.run(command + ["--rules", str(root / "missing.md")],
+                                     cwd=root, capture_output=True, text=True)
+            self.assertNotEqual(invalid.returncode, 0)
+
+    def test_text_order_and_hidden_exclusion(self):
+        original = "# 原文标题\n\n- 用户列表，不能改！\n```\ncode\n```\n"
+        reply = "正式回复原话。\n"
+        records = source(message("u1", original),
+                         {"type": "response_item", "payload": {"type": "reasoning", "text": "HIDDEN_SENTINEL"}},
+                         message("a1", reply, "assistant", "final_answer"))
+        events, exclusions, _ = archive.extract(records, "session-one")
+        doc, spans, fenced = archive.render(events, archive.default_summary(), "session-one", "test")
+        self.assertNotIn("HIDDEN_SENTINEL", doc)
+        self.assertEqual(exclusions["reasoning"], 1)
+        self.assertEqual([x["id"] for x in spans], ["u1", "a1"])
+        self.assertEqual(fenced, ["u1"])
+        self.assertEqual(doc[spans[0]["start"]:spans[0]["end"]], original)
+        self.assertEqual(doc[spans[1]["start"]:spans[1]["end"]], reply)
+
+    def test_repeat_increment_and_changed_history(self):
+        a, _, _ = archive.extract(source(message("u1", "first")), "session-one")
+        b, _, _ = archive.extract(source(message("u1", "first"), message("u2", "next")), "session-one")
+        self.assertEqual(archive.check_increment(a, a), 0)
+        self.assertEqual(archive.check_increment(a, b), 1)
+        for invalid in [[], [dict(a[0], text="changed")], list(reversed(b))]:
+            with self.assertRaises(ValueError):
+                archive.check_increment(a, invalid)
+
+    def test_normal_reply_formatting_not_fenced(self):
+        self.assertFalse(archive.conflicts("结论：\n\n- 第一项\n- 第二项\n\n```md\n# 代码示例里的标题\n```\n"))
+        self.assertTrue(archive.conflicts("标题\n=====\n"))
+        self.assertTrue(archive.conflicts("```\n未闭合"))
+
+    def test_unknown_provenance_and_incomplete_lines(self):
+        bad = message("u", "unknown")
+        bad["payload"]["internal_chat_message_metadata_passthrough"] = {}
+        with self.assertRaises(ValueError):
+            archive.extract(source(bad), "session-one")
+        good = source(message("u", "kept"))
+        events, _, warnings = archive.extract(good + b'{"unfinished":', "session-one")
+        self.assertEqual(len(events), 1)
+        self.assertTrue(warnings)
+        with self.assertRaises(json.JSONDecodeError):
+            archive.extract(good + b'{invalid}\n', "session-one")
+        with self.assertRaises(ValueError):
+            archive.extract(good, "wrong-session")
+        with self.assertRaises(ValueError):
+            archive.extract(good, "session-one", "missing-cutoff")
+        pending = message("a2", "partial", "assistant", "final_answer")
+        pending["payload"]["status"] = "in_progress"
+        events, _, warnings = archive.extract(good + source(pending).split(b"\n", 1)[1], "session-one")
+        self.assertEqual([x["id"] for x in events], ["u"])
+        self.assertTrue(warnings)
+
+    def test_relay_images_and_escaped_quote(self):
+        relay = {"type": "response_item", "payload": {"type": "function_call_output", "id": "r1",
+                 "call_id": "c1", "output": "<codex_delegation><source_thread_id>origin</source_thread_id>"
+                 "<input>转达原话 &amp; 内容</input></codex_delegation>"}}
+        events, _, _ = archive.extract(source(relay), "session-one")
+        self.assertEqual(events[0]["text"], "转达原话 & 内容")
+        self.assertEqual(events[0]["source_thread_id"], "origin")
+        self.assertEqual(archive.public_output([{"type": "input_image", "image_url": "SECRET_IMAGE"}]),
+                         [{"type": "input_image", "omitted": "non-text content"}])
+        for text in ["  indent\n> - item\n", "a\\b `code` \n\n", "*x* [link](path)", "error\n====\n~~~"]:
+            self.assertEqual(archive.unquoted(archive.quoted(text)), text)
+        self.assertNotIn("> ====", archive.quoted("error\n===="))
+
+    def test_atomic_pointer_and_manual_edits(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            raw, rules, out = root / "source.jsonl", root / "rules.md", root / "out"
+            raw.write_bytes(source(message("u", "first")))
+            rules.write_text("#### 推理与操作记录", encoding="utf-8")
+            kwargs = dict(source=raw, session="session-one", title="测试", output=out, rules=rules)
+            first = archive.run(**kwargs)
+            pointer_bytes = (out / "current.json").read_bytes()
+            second = archive.run(**kwargs)
+            self.assertFalse(second["changed"])
+            self.assertEqual(second["added"], 0)
+            self.assertEqual(pointer_bytes, (out / "current.json").read_bytes())
+            raw.write_bytes(source(message("u", "first"), message("u2", "new")))
+            third = archive.run(**kwargs)
+            self.assertEqual(third["added"], 1)
+            self.assertTrue(Path(first["document"]).is_file())
+            old_pointer = (out / "current.json").read_bytes()
+            Path(third["document"]).write_text("manual edit", encoding="utf-8")
+            with self.assertRaises(ValueError):
+                archive.run(**kwargs)
+            self.assertEqual(old_pointer, (out / "current.json").read_bytes())
+
+    def test_failed_commit_keeps_old_version_and_can_retry(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            raw, rules, out = root / "source.jsonl", root / "rules.md", root / "out"
+            raw.write_bytes(source(message("u", "first")))
+            rules.write_text("#### 推理与操作记录", encoding="utf-8")
+            kwargs = dict(source=raw, session="session-one", title="测试", output=out, rules=rules)
+            archive.run(**kwargs)
+            before = (out / "current.json").read_bytes()
+            raw.write_bytes(source(message("u", "first"), message("u2", "new")))
+            with patch.object(archive.os, "replace", side_effect=OSError("simulated write failure")):
+                with self.assertRaises(OSError):
+                    archive.run(**kwargs)
+            self.assertEqual(before, (out / "current.json").read_bytes())
+            self.assertEqual(archive.run(**kwargs)["added"], 1)
+
+
+if __name__ == "__main__":
+    unittest.main()

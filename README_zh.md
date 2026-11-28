@@ -13,12 +13,24 @@
 | **技能** | **用途** | **说明** |
 | --- | --- | --- |
 | [收尾 wrap-up](skills/wrap-up/SKILL.md) | 默认先盘点能否收尾，明确要求后执行尾项 | [English](skills/wrap-up/references/README.md) / [中文](skills/wrap-up/references/README_zh.md) |
-| [中断恢复 resume-chat](skills/resume-chat/SKILL.md) | 按当前授权与真实断点接续，只补必要上下文 | [English](skills/resume-chat/references/README.md) / [中文](skills/resume-chat/references/README_zh.md) |
-| [刷新工作区 refresh-chat](skills/refresh-chat/SKILL.md) | 按变化筛选对话，读取必要规则并回报应用 | [English](skills/refresh-chat/references/README.md) / [中文](skills/refresh-chat/references/README_zh.md) |
 | [工作总结 work-summary](skills/work-summary/SKILL.md) | 盘点成果、依据和未收尾项 | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
-| [经验沉淀 learn](skills/learn/SKILL.md) | 回看过程、积累案例并提炼有依据的可复用做法 | [使用说明](skills/learn/SKILL.md) |
+| [学习与经验提炼 learn](skills/learn/SKILL.md) | 回看过程、积累案例并提炼有依据的可复用做法 | [使用说明](skills/learn/SKILL.md) |
 | [工作留言 work-message](skills/work-message/SKILL.md) | 按各留言板成文，按授权交付 | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
 | [会议总结 meeting-minutes](skills/meeting-minutes/SKILL.md) | 结合原始材料、补充材料和规范整理会议 | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
+
+### 对话
+
+| **技能** | **用途** | **说明** |
+| --- | --- | --- |
+| [对话管理 conversation-management](skills/conversation-management/SKILL.md) | 管理指定对话，衔接相关能力 | [用法](skills/conversation-management/SKILL.md) |
+| [对话回顾 conversation-review](skills/conversation-review/SKILL.md) | 回看已有记录、决定和纠正 | [English](skills/conversation-review/references/README.md) / [中文](skills/conversation-review/references/README_zh.md) |
+| [对话归档 conversation-archive](skills/conversation-archive/SKILL.md) | 按受支持的适配保真保存原文 | [English](skills/conversation-archive/references/README.md) / [中文](skills/conversation-archive/references/README_zh.md) / [含 review 的 ZIP](skills/conversation-archive.zip) |
+| [对话恢复 conversation-resume](skills/conversation-resume/SKILL.md) | 沿实际断点继续已授权工作 | [English](skills/conversation-resume/references/README.md) / [中文](skills/conversation-resume/references/README_zh.md) |
+| [对话刷新 conversation-refresh](skills/conversation-refresh/SKILL.md) | 按变化让指定对话重读工作区规则 | [English](skills/conversation-refresh/references/README.md) / [中文](skills/conversation-refresh/references/README_zh.md) |
+
+按当前平台实际可用的记录和工具执行。随包原始记录读取器和已验证的不可变归档目前针对 Codex JSONL；Codex 项目、侧栏调整及跨对话恢复、刷新需要相应原生工具。通用名称不代表所有平台均支持这些操作。已有公开 Markdown 或文本可以按其实际范围回顾，但不能据此声称已取得 Codex 原始记录。
+
+conversation-archive 依赖同级完整 conversation-review。同装两个技能目录，或解压归档 ZIP 中的两个完整包；conversation-review 也可单独使用。
 
 ### 项目管理
 
@@ -54,13 +66,10 @@
 | 飞书 | [日历会议归档 calendar-meeting-archive](skills/calendar-meeting-archive/SKILL.md) | 按负责人归档会议，优先复用已有成果 | [English](skills/calendar-meeting-archive/references/README.md) / [中文](skills/calendar-meeting-archive/references/README_zh.md) |
 | 飞书 | [文档同步 document-sync](skills/document-sync/SKILL.md) | 同步指定文档，检查基线和冲突，目前支持飞书 | [English](skills/document-sync/references/README.md) / [中文](skills/document-sync/references/README_zh.md) |
 | 飞书 | [飞书授权复用 lark-auth-reuse](skills/lark-auth-reuse/SKILL.md) | 复用对话间已有飞书授权，诊断执行身份差异 | [English](skills/lark-auth-reuse/references/README.md) / [中文](skills/lark-auth-reuse/references/README_zh.md) |
-| Grok Bot | [grok-bot-cli](skills/grok-bot-cli/SKILL.md) | 连接 Grok Bot，检查访问及按授权验证收发 | [接入说明](skills/grok-bot-cli/references/connection.md) |
+| Grok Bot | [Grok Bot 接入 grok-bot-cli](skills/grok-bot-cli/SKILL.md) | 连接 Grok Bot，检查访问及按授权验证收发 | [接入说明](skills/grok-bot-cli/references/connection.md) |
 | GitHub | [GitHub 汇总 github-summary](skills/github-summary/SKILL.md) | 接收固定版本经验原文，按接收方归并 | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
-| Codex | [codex-conversation-review](skills/codex-conversation-review/SKILL.md) | 完整回看指定对话，直接回答决定、纠正与未完事项 | [English](skills/codex-conversation-review/references/README.md) / [中文](skills/codex-conversation-review/references/README_zh.md) |
-| Codex | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | 调用 review 后保真归档，校验原话、工具、时间及增量 | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [含 review 的 ZIP](skills/codex-conversation-archive.zip) |
 | Windows | [CPU 内存清理 cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | 读取 Windows 内存，按请求整理工作集 | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [安装包](skills/cpu-memory-cleanup.zip) |
 
-archive 依赖同级完整 review。用 skill-installer 同装两条技能路径，或解压归档 ZIP 中的两个目录；review 也可单独使用。
 
 ### 设计
 
@@ -78,10 +87,10 @@ archive 依赖同级完整 review。用 skill-installer 同装两条技能路径
 
 | **平台** | **工具** | **用途** | **使用说明** |
 | --- | --- | --- | --- |
-| Grok Bot | [grok-bot-cli](tools/grok-bot-cli/) | 启动本机安装的上游 CLI | [English](tools/grok-bot-cli/README.md) / [中文](tools/grok-bot-cli/README_zh.md) |
-| Codex / VS Code / Windows | [codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Codex VS Code 任务完成后的原生 Windows 通知 | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
-| Windows | [cpu-memory-cleanup](tools/cpu-memory-cleanup/) | 内存Package与CLI接入说明，不复制清理实现 | [English](tools/cpu-memory-cleanup/README.md) / [中文](tools/cpu-memory-cleanup/README_zh.md) |
-| 本地文件系统 | [shared-repository-resources](tools/shared-repository-resources/) | 按配置复用目录资源；新示例使用 `shared/` 存储、`.shared/` 仓内入口 | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
+| Grok Bot | [Grok Bot 命令行工具 grok-bot-cli](tools/grok-bot-cli/) | 启动本机安装的上游 CLI | [English](tools/grok-bot-cli/README.md) / [中文](tools/grok-bot-cli/README_zh.md) |
+| Codex / VS Code / Windows | [Codex VS Code 通知 codex-vscode-windows-notify](tools/codex-vscode-windows-notify/) | Codex VS Code 任务完成后的原生 Windows 通知 | [English](tools/codex-vscode-windows-notify/README.md) / [中文](tools/codex-vscode-windows-notify/README_zh.md) |
+| Windows | [CPU 内存清理 cpu-memory-cleanup](tools/cpu-memory-cleanup/) | 内存Package与CLI接入说明，不复制清理实现 | [English](tools/cpu-memory-cleanup/README.md) / [中文](tools/cpu-memory-cleanup/README_zh.md) |
+| 本地文件系统 | [多仓库共享资源接入 shared-repository-resources](tools/shared-repository-resources/) | 按配置复用目录资源；新示例使用 `shared/` 存储、`.shared/` 仓内入口 | [English](tools/shared-repository-resources/README.md) / [中文](tools/shared-repository-resources/README_zh.md) |
 
 ## 定时任务 Automations
 
@@ -115,8 +124,7 @@ https://github.com/DreamSoul-AI/knowledge/tree/main/skills/paper-analysis
 [work-message 目录](skills/work-message/)，升级前保留个人修改，避免同时加载新旧两份技能。
 旧文档链接保留迁移提示，不再提供第二份可安装的技能。
 
-`resume-interrupted-chat` 已改名为 [resume-chat](skills/resume-chat/SKILL.md)。
-更换完整安装目录时保留个人修改，只保留 `resume-chat` 可被发现，调用名为 `$resume-chat`。
+对话技能统一使用 `conversation-management`、`conversation-review`、`conversation-archive`、`conversation-resume` 和 `conversation-refresh`。旧名 `codex-conversation-management`、`codex-conversation-review`、`codex-conversation-archive`、`resume-chat`（更早为 `resume-interrupted-chat`）、`refresh-chat` 仅作迁移说明。替换完整包时保留个人修改，只保留新名可被发现，不把旧名作为另一份活跃技能安装。
 
 ## 目录结构
 

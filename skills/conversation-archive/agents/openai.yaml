@@ -1,0 +1,3 @@
+interface:
+  display_name: "对话归档 conversation-archive"
+  short_description: "保留指定对话原始材料、版本及回顾，区分具体宿主的归档能力"
