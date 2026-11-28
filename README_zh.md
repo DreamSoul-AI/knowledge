@@ -45,7 +45,8 @@
 | [公开网站部署 public-website-deployment](skills/public-website-deployment/SKILL.md) | 发布和更新静态网站，管理域名及迁移 | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
 | [Agent 实验执行 agent-experiment](skills/agent-experiment/SKILL.md) | 实跑有界 Agent 实验，核对实际行为和结论 | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
 | [能力更新 knowledge-update](skills/knowledge-update/SKILL.md) | 检查或更新已采用技能和工具，保留定制 | [English](skills/knowledge-update/references/README.md) / [中文](skills/knowledge-update/references/README_zh.md) |
-| [工作区更新 workspace-update](skills/workspace-update/SKILL.md) | 默认更新本地工作区，可选组织仓库分发 | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
+| [工作区同步 workspace-sync](skills/workspace-sync/SKILL.md) | 默认更新本地工作区，可选组织仓库分发 | [English](skills/workspace-sync/references/README.md) / [中文](skills/workspace-sync/references/README_zh.md) |
+| [workspace-update](skills/workspace-update/SKILL.md) | 暂留兼容入口，消费者迁接后移除 | [说明](skills/workspace-update/references/README_zh.md) |
 
 ### 平台接入
 
