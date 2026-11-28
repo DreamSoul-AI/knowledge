@@ -14,12 +14,24 @@ Browse general workflows by purpose. Skills tied to a specific service appear un
 | **Skill** | **Purpose** | **Usage** |
 | --- | --- | --- |
 | [wrap-up](skills/wrap-up/SKILL.md) | Inspect closeout readiness first; execute remaining steps when requested | [English](skills/wrap-up/references/README.md) / [中文](skills/wrap-up/references/README_zh.md) |
-| [resume-chat](skills/resume-chat/SKILL.md) | Continue authorized work from verified state, with only necessary context | [English](skills/resume-chat/references/README.md) / [中文](skills/resume-chat/references/README_zh.md) |
-| [refresh-chat](skills/refresh-chat/SKILL.md) | Select affected chats, read required rules and report application | [English](skills/refresh-chat/references/README.md) / [中文](skills/refresh-chat/references/README_zh.md) |
 | [work-summary](skills/work-summary/SKILL.md) | Consolidate results, evidence and unfinished work | [English](skills/work-summary/references/README.md) / [中文](skills/work-summary/references/README_zh.md) |
 | [learn](skills/learn/SKILL.md) | Turn work evidence and feedback into reusable practices, retaining cases and adoption status | [Usage](skills/learn/SKILL.md) |
 | [work-message](skills/work-message/SKILL.md) | Prepare board-specific work messages and deliver as authorized | [English](skills/work-message/references/README.md) / [中文](skills/work-message/references/README_zh.md) |
 | [meeting-minutes](skills/meeting-minutes/SKILL.md) | Summarize meetings using supplied material and rules | [English](skills/meeting-minutes/references/README.md) / [中文](skills/meeting-minutes/references/README_zh.md) |
+
+### Conversations
+
+| **Skill** | **Purpose** | **Usage** |
+| --- | --- | --- |
+| [conversation-management](skills/conversation-management/SKILL.md) | Manage selected chats and route related work | [Usage](skills/conversation-management/SKILL.md) |
+| [conversation-review](skills/conversation-review/SKILL.md) | Review available records, decisions and corrections | [English](skills/conversation-review/references/README.md) / [中文](skills/conversation-review/references/README_zh.md) |
+| [conversation-archive](skills/conversation-archive/SKILL.md) | Preserve original records using the supported adapter | [English](skills/conversation-archive/references/README.md) / [中文](skills/conversation-archive/references/README_zh.md) / [ZIP with review](skills/conversation-archive.zip) |
+| [conversation-resume](skills/conversation-resume/SKILL.md) | Continue authorized work from its actual stopping point | [English](skills/conversation-resume/references/README.md) / [中文](skills/conversation-resume/references/README_zh.md) |
+| [conversation-refresh](skills/conversation-refresh/SKILL.md) | Read affected workspace rules in the selected chats | [English](skills/conversation-refresh/references/README.md) / [中文](skills/conversation-refresh/references/README_zh.md) |
+
+Use the available records and tools for the current platform. The bundled raw-record reader and verified immutable archive currently target Codex JSONL. Codex project/sidebar changes and remote resume or refresh require the relevant native chat tools; a generic skill name does not imply those operations are supported on every platform. Supplied public Markdown or text can be reviewed within its actual coverage without claiming access to a Codex original.
+
+conversation-archive requires the complete conversation-review package beside it. Install both paths or extract both directories from the archive ZIP. conversation-review can also be used independently.
 
 ### Project management
 
@@ -58,11 +70,8 @@ Browse general workflows by purpose. Skills tied to a specific service appear un
 | Feishu | [lark-auth-reuse](skills/lark-auth-reuse/SKILL.md) | Reuse existing Feishu authorization across chats and diagnose execution-identity differences | [English](skills/lark-auth-reuse/references/README.md) / [中文](skills/lark-auth-reuse/references/README_zh.md) |
 | Grok Bot | [grok-bot-cli](skills/grok-bot-cli/SKILL.md) | Connect to Grok Bot and verify access or authorized messaging | [Connection guide](skills/grok-bot-cli/references/connection.md) |
 | GitHub | [github-summary](skills/github-summary/SKILL.md) | Receive versioned Learnings and consolidate them by recipient | [English](skills/github-summary/references/README.md) / [中文](skills/github-summary/references/README_zh.md) |
-| Codex | [codex-conversation-review](skills/codex-conversation-review/SKILL.md) | Read a selected conversation and explain decisions, corrections and unfinished work in chat | [English](skills/codex-conversation-review/references/README.md) / [中文](skills/codex-conversation-review/references/README_zh.md) |
-| Codex | [codex-conversation-archive](skills/codex-conversation-archive/SKILL.md) | Call review, then preserve original text, tools and timing in verified immutable archives | [English](skills/codex-conversation-archive/references/README.md) / [中文](skills/codex-conversation-archive/references/README_zh.md) / [ZIP with review](skills/codex-conversation-archive.zip) |
 | Windows | [cpu-memory-cleanup](skills/cpu-memory-cleanup/SKILL.md) | Read Windows memory and perform requested working-set cleanup | [English](skills/cpu-memory-cleanup/references/README.md) / [中文](skills/cpu-memory-cleanup/references/README_zh.md) / [ZIP](skills/cpu-memory-cleanup.zip) |
 
-Archive requires the complete review skill beside it. Install both paths with skill-installer, or extract both directories from the archive ZIP; review can also be used on its own.
 
 ### Design
 
@@ -117,9 +126,7 @@ The former `ai-work-message` skill is now `work-message`. Install the complete
 replacing an old installation, and keep only the new skill active. Old document
 URLs remain migration notices; they are not a second installable package.
 
-`resume-interrupted-chat` is now [resume-chat](skills/resume-chat/SKILL.md).
-Preserve personal changes when replacing the complete installation, and keep only
-`resume-chat` discoverable. Invoke it as `$resume-chat`.
+Conversation skills now use `conversation-management`, `conversation-review`, `conversation-archive`, `conversation-resume` and `conversation-refresh`. Previous names `codex-conversation-management`, `codex-conversation-review`, `codex-conversation-archive`, `resume-chat` (earlier `resume-interrupted-chat`) and `refresh-chat` are migration references only. Preserve personal changes when replacing complete packages and keep only the current names discoverable; do not install old names as additional active skills.
 
 ## Structure
 

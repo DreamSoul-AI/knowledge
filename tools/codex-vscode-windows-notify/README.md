@@ -1,4 +1,4 @@
-# Codex VS Code Windows Notify
+# codex-vscode-windows-notify
 
 **English**&nbsp; | &nbsp;[**简体中文**](https://github.com/DreamSoul-AI/knowledge/blob/main/tools/codex-vscode-windows-notify/README_zh.md)
 

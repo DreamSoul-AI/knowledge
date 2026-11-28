@@ -1,4 +1,4 @@
 interface:
-  display_name: "lark-auth-reuse"
+  display_name: "飞书授权复用 lark-auth-reuse"
   short_description: "核对飞书已有授权及实际运行身份，解释跨对话不可复用的原因并接续调用"
   default_prompt: "用 $lark-auth-reuse 检查当前对话能否复用已有飞书授权，先核对身份和环境，不重复扫码。"

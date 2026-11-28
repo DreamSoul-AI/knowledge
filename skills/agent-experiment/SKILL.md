@@ -3,7 +3,7 @@ name: agent-experiment
 description: Design, execute and assess bounded experiments about Agent behavior, prompts, configuration, tools and workflows across available environments. Use when asked to try or verify how something actually works; choose direct probes or comparisons and ground conclusions in observable outputs.
 ---
 
-# Agent 实验执行
+# Agent 实验执行 agent-experiment
 
 从一句验证问题出发，自主设计、准备、运行和核验实验，回答实际发生了什么、是否有用，以及结论适用于哪些条件。机制探测可直接验证，效果比较再安排对照；不默认把所有问题做成 A/B 或完整研发项目。
 

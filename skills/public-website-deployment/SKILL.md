@@ -5,7 +5,7 @@ metadata:
   version: "1.2.0"
 ---
 
-# 公开网站部署 Public Website Deployment
+# 公开网站部署 public-website-deployment
 
 发布已有完整静态站点，支持首次发布、原网址更新和双端验收。新配置默认 `china → ESA`，海外使用 Cloudflare；网站上传默认 CLI。本次明确要求优先，已有配置按迁移规则保留。
 

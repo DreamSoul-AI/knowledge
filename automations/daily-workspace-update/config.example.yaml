@@ -23,7 +23,7 @@ github_distribution:
   repositories: [] # Repository and target branches; an existing list alone does not enable distribution.
 refresh:
   when: verified_changes
-  skill: refresh-chat
+  skill: conversation-refresh
   skill_entry: null # Optional external integration: an adopted entry or an explicitly configured local trial entry.
   targets: [] # Current execution chat plus related chats identified in this update's confirmed scope.
   preserve_task_state: true

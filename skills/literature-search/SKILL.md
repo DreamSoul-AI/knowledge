@@ -3,7 +3,7 @@ name: literature-search
 description: Research academic topics from discovery and screening through a synthesized literature review, using supplied material and applicable standards. Emphasize citation impact, compare method families and evidence, and synthesize the requested review and reusable research assets rather than only a paper list. Not for close analysis of one selected paper.
 ---
 
-# Literature Search
+# 文献调研 literature-search
 
 ## Inputs and scope
 

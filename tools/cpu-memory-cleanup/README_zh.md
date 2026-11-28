@@ -1,4 +1,4 @@
-# CPU 内存清理工具入口
+# CPU 内存清理 cpu-memory-cleanup
 
 [English](README.md) | **中文**
 
