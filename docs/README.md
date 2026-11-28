@@ -6,10 +6,12 @@
 | --- | --- |
 | 项目说明与使用 | [README.md](../README.md) |
 | 仓库专用工作约定 | [REPO.md](../REPO.md) |
+| knowledge 文档规范 | [首页、说明、命名与分发一致性](<knowledge 文档规范.md>) |
 | 中文安装与技能指南 | [README_zh.md](../README_zh.md) |
 | 技能目录 | [skills](../skills/) |
+| 对话能力与迁移 | [五项入口、平台支持及历史范围](对话技能入口.md) |
 | 调研范围与能力衔接 | [改动](<开发记录 Development Record/2026-11-28 调研范围与能力衔接.md>) · [验证](<运行记录 Run Record/2026-11-28 调研与授权衔接核对.md>) |
-| Codex 对话回顾与归档 | [分工调整](<开发记录 Development Record/2026-11-28 Codex 对话回顾与归档分工.md>) · [验证范围](<运行记录 Run Record/2026-11-28 对话回顾归档验证.md>) |
+| 对话读取与归档的历史依据 | [2026年11月28日分工](<开发记录 Development Record/2026-11-28 Codex 对话回顾与归档分工.md>) · [当时验证范围](<运行记录 Run Record/2026-11-28 对话回顾归档验证.md>) |
 | 项目进展与工作整理 | [调整说明](<开发记录 Development Record/2026-11-27 项目进展与工作整理技能.md>) · [有限验证](<运行记录 Run Record/2026-11-27 四技能有限验证.md>) |
 | GitHub 汇总验证 | [本轮验证](<运行记录 Run Record/2026-11-22 GitHub 汇总技能验证.md>) |
 | GitHub 汇总与首页分类 | [调整说明](<开发记录 Development Record/2026-11-23 GitHub 汇总与首页分类.md>) · [验证结果](<运行记录 Run Record/2026-11-23 GitHub 汇总与首页分类验证.md>) |

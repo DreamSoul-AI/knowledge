@@ -1,3 +1,0 @@
-interface:
-  display_name: "codex-conversation-archive"
-  short_description: "保留用户原话、正式回复与时间戳，增量归档并核对原文"
