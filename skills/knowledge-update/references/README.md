@@ -9,7 +9,7 @@ Use $knowledge-update to update adopted capabilities from their recorded sources
 
 Reuse the current mode, workspace, adoption records, pinned sources, exclusions and local changes. Ordinary text and existing records are sufficient; no mandatory configuration schema is required. Check mode leaves targets unchanged. Update mode follows the actual authorization.
 
-Install the entire knowledge-update directory. It works independently and is also called by workspace-update by default. Reuse one round's scope and results; do not update the same real target twice. An unchanged adopted source needs no repeated copy or record rewrite.
+Install the entire knowledge-update directory. It works independently and is also called by workspace-sync by default. Reuse one round's scope and results; do not update the same real target twice. An unchanged adopted source needs no repeated copy or record rewrite.
 
 Report source and installed versions, preserved changes, exclusions, conflicts/failures, verification and reload requirements. File updates, runner discovery and actual invocation are separate observations.
 

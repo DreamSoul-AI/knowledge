@@ -1,0 +1,18 @@
+mode: check
+workspace: null
+adopted_record: null
+source_revision: null
+knowledge_update:
+  adopted_only: true
+  once_per_run: true
+github_distribution:
+  enabled: false
+  organizations: []
+  repositories: []
+  exclusions: []
+private_git:
+  enabled: false
+  repo: null
+  branch: null
+  allowlist: []
+  dependencies: []
