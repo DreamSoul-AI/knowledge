@@ -47,7 +47,8 @@ Browse general workflows by purpose. Skills tied to a specific service appear un
 | [public-website-deployment](skills/public-website-deployment/SKILL.md) | Deploy and update static sites, manage domains and migrations | [English](skills/public-website-deployment/references/README.md) / [中文](skills/public-website-deployment/references/README_zh.md) |
 | [agent-experiment](skills/agent-experiment/SKILL.md) | Run bounded Agent experiments and assess observed behavior | [English](skills/agent-experiment/references/README.md) / [中文](skills/agent-experiment/references/README_zh.md) |
 | [knowledge-update](skills/knowledge-update/SKILL.md) | Check or update adopted skills and tools, preserving local changes | [English](skills/knowledge-update/references/README.md) / [中文](skills/knowledge-update/references/README_zh.md) |
-| [workspace-update](skills/workspace-update/SKILL.md) | Update local workspaces by default, with optional organization distribution | [English](skills/workspace-update/references/README.md) / [中文](skills/workspace-update/references/README_zh.md) |
+| [workspace-sync](skills/workspace-sync/SKILL.md) | Update local workspaces by default, with optional organization distribution | [English](skills/workspace-sync/references/README.md) / [中文](skills/workspace-sync/references/README_zh.md) |
+| [workspace-update](skills/workspace-update/SKILL.md) | Temporary compatibility entry; migrate consumers to workspace-sync | [Guide](skills/workspace-update/references/README.md) |
 
 ### Platform integrations
 

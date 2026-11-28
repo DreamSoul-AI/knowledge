@@ -33,3 +33,10 @@ output:
 state:
   receipt: null
   reuse_completed_items: true
+
+private_git:
+  enabled: false
+  repo: null
+  branch: null
+  allowlist: []
+  dependencies: []

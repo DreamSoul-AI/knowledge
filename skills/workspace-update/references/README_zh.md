@@ -11,3 +11,5 @@
 模板由本技能更新，已采用的技能和工具默认交给 [knowledge-update](../../knowledge-update/SKILL.md)，使用同一轮范围、来源快照和授权。安装本技能时也准备完整的knowledge-update目录，或提供当前可读的入口；不会因此安装所有Knowledge技能。检查模式双方都不写目标，更新模式复用已有采用记录；同轮已经处理的目标直接复用结果。这里不创建每周定时任务。
 
 [技能正文](../SKILL.md) · [English](README.md)
+
+Compatibility: use [workspace-sync](../../workspace-sync/SKILL.md) for the new entry. Keep this entry until deployed daily and organization consumers are migrated. Do not invoke both in one run.
