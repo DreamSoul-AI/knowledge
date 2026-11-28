@@ -8,9 +8,9 @@ Reusable prompts and configuration examples for recurring tasks. Automations com
 
 | **Automation** | **Reference schedule** | **Definition status** | **Validation** | **Entry points** |
 | --- | --- | --- | --- | --- |
-| Daily Meeting Summary | Daily 00:00, Asia/Shanghai | First version | Manual checks passed; new writes and triggering pending | [Guide](daily-meeting-summary/README.md) / [Prompt](daily-meeting-summary/prompt.md) / [Configuration](daily-meeting-summary/config.example.yaml) |
-| Daily Email Summary | User-configured | First definition | Outlook read and summary format verified; other providers and scheduling pending | [Guide](daily-email-summary/README.md) / [Prompt](daily-email-summary/prompt.md) / [Configuration](daily-email-summary/config.example.yaml) |
-| Daily Workspace Update | Daily, operator-configured time zone and time | First definition | Full check validated; updates, refresh and triggering unverified | [Guide](daily-workspace-update/README.md) / [Prompt](daily-workspace-update/prompt.md) / [Configuration](daily-workspace-update/config.example.yaml) |
+| scheduled-meeting-summary | Deployer-configured frequency, time and timezone | First version | Manual checks passed; new writes and triggering pending | [Guide](scheduled-meeting-summary/README.md) / [Prompt](scheduled-meeting-summary/prompt.md) / [Configuration](scheduled-meeting-summary/config.example.yaml) |
+| scheduled-email-summary | User-configured | First definition | Outlook read and summary format verified; other providers and scheduling pending | [Guide](scheduled-email-summary/README.md) / [Prompt](scheduled-email-summary/prompt.md) / [Configuration](scheduled-email-summary/config.example.yaml) |
+| scheduled-workspace-sync | Deployer-configured frequency, time and timezone | First definition | Full check validated; updates, refresh and triggering unverified | [Guide](scheduled-workspace-sync/README.md) / [Prompt](scheduled-workspace-sync/prompt.md) / [Configuration](scheduled-workspace-sync/config.example.yaml) |
 
 Register task definitions that actually exist in this repository. Add a row and maintain its directory and validation status when adding a task. A reference schedule does not mean a task is enabled. Accounts, hosting chats, scheduler identifiers and deployment status remain in each operator's environment.
 
@@ -21,3 +21,8 @@ Each directory maintains English and Chinese guides, a `prompt.md` and a `config
 Copy the example configuration into the actual project's local configuration area and supply identity checks, rule sources, destinations and persistent state paths. Personal configuration, credentials, task and chat identifiers, locks, receipts and meeting material stay in the runtime environment. Check distribution contents before publication.
 
 Before enabling, replacing or changing a deployed task, confirm its existing scheduler entry, destination, timezone, scope and authorized actions. Preserve known artifacts and progress, and validate each deployment. Scheduler changes are performed separately through the scheduling platform.
+
+
+Migration: the former daily-* directories are now scheduled-meeting-summary, scheduled-email-summary and scheduled-workspace-sync. Update deployed file references explicitly, retaining their schedule, state paths and checkpoints. This definition migration does not modify tasks.
+
+Legacy daily-* prompts are compatibility forwarding entries only; this registry lists the current definitions and examples. Natural-day reporting uses the scheduled trigger and business timezone, with an explicit one-run date taking precedence. Catch-up retains existing successful progress.

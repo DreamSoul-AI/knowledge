@@ -1,10 +1,12 @@
 # No mailbox, schedule or cloud destination is enabled by this example.
-name: Daily Email Summary
+name: scheduled-email-summary
 project_root: null
 deployment:
   enabled: false
-  timezone: null
-  time_local: null
+  schedule:
+    frequency: null
+    time_local: null
+    timezone: null
 mailboxes:
   - name: primary
     provider: null  # User-selected, e.g. outlook or feishu; requires a working adapter.
@@ -16,6 +18,8 @@ mailboxes:
       list: null
       detail: null
       pagination: null
+reporting:
+  period: incremental # Optional natural_day; explicit one-run dates take precedence.
 scan:
   timezone: null
   start: null  # Optional explicit trial window. Supply both boundaries together.

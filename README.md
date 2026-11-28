@@ -98,9 +98,9 @@ Automations are maintained separately in [automations](automations/README.md), c
 
 | Automation | Purpose | Status | Usage |
 | --- | --- | --- | --- |
-| [Daily Meeting Summary](automations/daily-meeting-summary/) | Incremental meeting archiving, summaries and authorized delivery | First version; manual reuse path verified | [English](automations/daily-meeting-summary/README.md) / [中文](automations/daily-meeting-summary/README_zh.md) |
-| [Daily Email Summary](automations/daily-email-summary/) | Summarize user-configured mailboxes with topics, next actions and original links | First definition; Outlook read and format verified, scheduling pending | [English](automations/daily-email-summary/README.md) / [中文](automations/daily-email-summary/README_zh.md) |
-| [Daily Workspace Update](automations/daily-workspace-update/) | Update adopted workspaces, skills and tools | Full check validated; updates and triggering pending | [English](automations/daily-workspace-update/README.md) / [中文](automations/daily-workspace-update/README_zh.md) |
+| [scheduled-meeting-summary](automations/scheduled-meeting-summary/) | Incremental meeting archiving, summaries and authorized delivery | First version; manual reuse path verified | [English](automations/scheduled-meeting-summary/README.md) / [中文](automations/scheduled-meeting-summary/README_zh.md) |
+| [scheduled-email-summary](automations/scheduled-email-summary/) | Summarize user-configured mailboxes with topics, next actions and original links | First definition; Outlook read and format verified, scheduling pending | [English](automations/scheduled-email-summary/README.md) / [中文](automations/scheduled-email-summary/README_zh.md) |
+| [scheduled-workspace-sync](automations/scheduled-workspace-sync/) | Update adopted workspaces, skills and tools | Full check validated; updates and triggering pending | [English](automations/scheduled-workspace-sync/README.md) / [中文](automations/scheduled-workspace-sync/README_zh.md) |
 
 Deployment uses the actual project's configuration and confirmed scheduler scope. New generation, upload writes and scheduled triggering were not exercised in the latest manual run; see the [automation registry](automations/README.md) for validation details.
 
