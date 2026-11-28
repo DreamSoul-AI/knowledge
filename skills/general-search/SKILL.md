@@ -3,7 +3,7 @@ name: general-search
 description: Research technologies, tools, products, platforms, and engineering practices from question definition through a sourced general research report. Explain how things work in practice, compare implementation and operating trade-offs, and verify claims against direct sources. Use when the main question is about technology or practice rather than the academic literature.
 ---
 
-# 通用调研 General Search
+# 通用调研 general-search
 
 ## 读取适用规范
 

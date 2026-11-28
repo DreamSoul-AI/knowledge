@@ -124,11 +124,11 @@ res/
 .vscode/
 .DS_Store
 scripts/
-!skills/codex-conversation-archive/scripts/
-!skills/codex-conversation-archive/scripts/*.py
+!skills/conversation-archive/scripts/
+!skills/conversation-archive/scripts/*.py
 
-!skills/codex-conversation-review/scripts/
-!skills/codex-conversation-review/scripts/*.py
+!skills/conversation-review/scripts/
+!skills/conversation-review/scripts/*.py
 
 !skills/document-sync/scripts/
 !skills/document-sync/scripts/*.py
@@ -139,8 +139,8 @@ scripts/
 !skills/knowledge-update/scripts/
 !skills/knowledge-update/scripts/*.py
 
-!skills/resume-chat/scripts/
-!skills/resume-chat/scripts/classify.py
+!skills/conversation-resume/scripts/
+!skills/conversation-resume/scripts/classify.py
 
 # Keep the static-publishing OAuth runner and its tests in the distribution.
 !skills/public-website-deployment/scripts/

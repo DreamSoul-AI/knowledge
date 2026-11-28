@@ -1,4 +1,4 @@
-# 多仓库共享资源接入
+# 多仓库共享资源接入 shared-repository-resources
 
 [English](README.md) | 简体中文
 

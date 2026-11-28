@@ -1,4 +1,4 @@
-# CPU Memory Cleanup tool entry
+# cpu-memory-cleanup
 
 **English** | [中文](README_zh.md)
 

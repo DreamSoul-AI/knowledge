@@ -1,4 +1,4 @@
-# Shared Repository Resources
+# shared-repository-resources
 
 English | [简体中文](README_zh.md)
 

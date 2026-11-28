@@ -3,7 +3,7 @@ name: research-plan
 description: Create or review scientific research plans from an initial idea through literature, research questions, hypotheses, and coordinated data, model, algorithm, metric, and experiment choices. Use for study planning and experiment protocols, not solely for paper discovery, paper analysis, or implementing an already-defined experiment.
 ---
 
-# Research Plan
+# 研究计划 research-plan
 
 Turn an idea into a plan whose evidence and experiments can support, refute, or
 leave its hypotheses unresolved. Read the existing plan, relevant project

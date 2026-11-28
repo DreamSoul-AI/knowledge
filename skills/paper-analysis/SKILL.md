@@ -3,7 +3,7 @@ name: paper-analysis
 description: Read and critically analyze academic papers, extracting claims, methods, evidence, limitations, and research relevance into structured notes. Use when one or more papers have been selected for close reading or comparison.
 ---
 
-# Paper Analysis
+# 论文分析 paper-analysis
 
 ## Optional context and scope
 
