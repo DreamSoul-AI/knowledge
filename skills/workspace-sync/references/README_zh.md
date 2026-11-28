@@ -16,4 +16,4 @@
 
 默认拉模板/规则及接 knowledge-update，不写个人 Git。只有显式选择并配置 private_git.enabled、repo、branch、allowlist 和必要依赖时，才按 [私有 Git 同步](private-git.md) 写入。组织分发独立沿 github_distribution.enabled，清单存在不代表启用。检查模式所有目标只读。配置示例见 [配置](config.example.yaml)。
 
-旧 workspace-update 暂留兼容入口，实际每日任务和组织消费者迁接回读后才删除；不同时调用两份流程。knowledge-update 保留名称，不反向调用。
+knowledge-update 保留名称，不反向调用。

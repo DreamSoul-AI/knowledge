@@ -54,7 +54,7 @@ Include new or meaningfully updated Learnings, verified adoption and pending ite
 - Verified adoption references and unresolved questions
 - Actual mutations and a resumable record, including when no cleanup occurred
 
-The substantive [curation standard](curation.md) covers source identity, deduplication, recipient routing and cleanup. Workspace template adoption remains with the existing workspace-update or project workflow.
+The substantive [curation standard](curation.md) covers source identity, deduplication, recipient routing and cleanup. Workspace template adoption remains with the existing workspace-sync or project workflow.
 
 For workflows, distinguish file presence, current enabled state and recent runs; inspect actual jobs/steps to classify purpose. Runtime is not confirmed billing. Mark steps completed, awaiting clarification or not executed. Temporary reports do not establish formal adoption or source cleanup. See [repository checks](curation.md#七仓库状态和外部规范检查).
 
