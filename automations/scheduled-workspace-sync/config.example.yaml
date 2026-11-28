@@ -1,9 +1,11 @@
 # Preparation only. This file does not register or enable a scheduled task.
-name: daily-workspace-update
+name: scheduled-workspace-sync
 deployment:
   enabled: false
-  timezone: null
-  schedule: null
+  schedule:
+    frequency: null
+    time_local: null
+    timezone: null
   project: null
   thread: null
 scope:

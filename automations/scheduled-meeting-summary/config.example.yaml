@@ -1,13 +1,13 @@
 # Agent-readable task configuration. Paths resolve against project_root.
 # This file is an example, with no scheduler registration or execution effect.
-name: 每日会议总结
+name: scheduled-meeting-summary
 project_root: "<实际项目根目录>"
 deployment:
   enabled: false
   schedule:
-    frequency: daily
-    time_local: "00:00"
-    timezone: Asia/Shanghai
+    frequency: null
+    time_local: null
+    timezone: null
   result_destination: current_task_chat
 skills:
   calendar-meeting-archive: "<已安装的技能目录>/calendar-meeting-archive/SKILL.md"
@@ -32,8 +32,8 @@ scan:
   include: ended_meetings_organized_or_invited
   resume_incomplete: true
 state:
-  path: .local/daily-meeting-summary/state.json
-  lock_path: .local/daily-meeting-summary/run.lock
+  path: .local/scheduled-meeting-summary/state.json
+  lock_path: .local/scheduled-meeting-summary/run.lock
   known_artifacts_indexes: []
   prior_state_files_read_only: []
 classification:
@@ -70,5 +70,6 @@ cloud_reconciliation:
   # A confirmed scope can name meeting/group, artifact kind, audience, canonical
   # document, permitted content edits and separately permitted other-draft actions.
 reporting:
+  period: incremental # Optional natural_day; uses the scheduled trigger in the business timezone.
   separate_meeting_groups: []  # Specialized groups whose links need a separate section.
   include_reused_on_manual_review: true
